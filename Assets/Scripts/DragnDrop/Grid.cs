@@ -11,7 +11,6 @@ public class Grid : MonoBehaviour
     [SerializeField] GameObject node;
     //[SerializeField] Transform parent;
 
-
     // Start is called before the first frame update
     void Start()
     {
