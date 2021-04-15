@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6602999998730394169}
   - component: {fileID: 3323562132192173629}
   - component: {fileID: -9222502075066464559}
-  - component: {fileID: -2390012793171056210}
+  - component: {fileID: 807576156387962138}
   m_Layer: 5
   m_Name: Node
   m_TagString: Grid Node
@@ -160,9 +160,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2390012793171056210}
-        m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-        m_MethodName: Draw
+      - m_Target: {fileID: 807576156387962138}
+        m_TargetAssemblyTypeName: Node, Assembly-CSharp
+        m_MethodName: StartDrawingWire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-2390012793171056210
+--- !u!114 &807576156387962138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6706117644218049624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7181acc22581f0140b8aed8cc45f21e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 835aa3a9a3ae4d640b5f7ad5578289ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 8124228126620429642, guid: ea6e3a7061700064aa06dd96264c2b70, type: 3}
+  wire: {fileID: 8887991839532392796, guid: c7add8f0f30f43f40aa9537b1f0e9f59, type: 3}

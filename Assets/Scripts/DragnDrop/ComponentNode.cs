@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ComponentNode : MonoBehaviour
 {
-    //[SerializeField] GameObject simArea;
     [SerializeField]SimArea simarea;
     float originalRadius;
     public bool colliderCheck = false;
@@ -15,7 +14,6 @@ public class ComponentNode : MonoBehaviour
 
     void Start()
     {
-        //simarea = simArea.GetComponent<SimArea>();
         originalRadius = GetComponent<CircleCollider2D>().radius;
         originalLocalPosition = transform.localPosition;
 
