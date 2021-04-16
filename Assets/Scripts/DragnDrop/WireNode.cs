@@ -33,7 +33,7 @@ public class WireNode : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        print("collision name: " + collision.name);
+        //print("collision name: " + collision.name);
         if (colliderCheck && collision.gameObject.tag == "Grid Node")
         {
             colliderCheck = false;
@@ -65,7 +65,10 @@ public class WireNode : MonoBehaviour
                 transform.eulerAngles = childs[2].transform.eulerAngles * 0.5f;
 
             }
-
+            if (rectTransform.rect.height <= 1)
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
             GetComponentInParent<Wire>().isDrawing = false;
 
 

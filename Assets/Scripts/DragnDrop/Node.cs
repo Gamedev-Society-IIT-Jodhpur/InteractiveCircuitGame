@@ -24,6 +24,7 @@ public class Node : MonoBehaviour
         newWire = Instantiate(wire, gameObject.transform.position,Quaternion.identity);
         newWire.transform.SetParent(simArea.transform);
         newWire.transform.localScale = simArea.transform.localScale;
+        newWire.transform.SetAsFirstSibling();
         newWire.GetComponent<Wire>().Draw();
     }
 }

@@ -9,14 +9,17 @@ public class ComponentNode : MonoBehaviour
     public bool colliderCheck = false;
     Vector3 originalLocalPosition;
 
-    
+    [SerializeField] GameObject wire;
+    GameObject newWire;
+    SimArea simArea;
+
 
 
     void Start()
     {
         originalRadius = GetComponent<CircleCollider2D>().radius;
         originalLocalPosition = transform.localPosition;
-
+        simArea = GameObject.FindWithTag("SimArea").GetComponent<SimArea>();
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class ComponentNode : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        print("collision name: " + collision.name);
+        //print("collision name: " + collision.name);
         if(colliderCheck && collision.gameObject.tag=="Grid Node")
         {
             colliderCheck = false;
@@ -41,5 +44,19 @@ public class ComponentNode : MonoBehaviour
 
             
         }
+    }
+
+    public void StartDrawingWire()
+    {
+        print(gameObject.transform.parent.transform.parent);
+        if (gameObject.transform.parent.transform.parent.tag == "SimArea")
+        {
+            newWire = Instantiate(wire, gameObject.transform.position, Quaternion.identity);
+            newWire.transform.SetParent(simArea.transform);
+            newWire.transform.localScale = simArea.transform.localScale;
+            newWire.transform.SetAsFirstSibling();
+            newWire.GetComponent<Wire>().Draw();
+        }
+        
     }
 }

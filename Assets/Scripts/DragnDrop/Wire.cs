@@ -13,16 +13,17 @@ public class Wire : MonoBehaviour
     float distance;
     GameObject simArea;
     public Transform[] childs;
-    public bool isDrawing=false;
     bool mouseSwitch = true;
-    
+    public bool isDrawing = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
         simArea = GameObject.FindGameObjectWithTag("SimArea");
-        
+
+
     }
 
     // Update is called once per frame
@@ -71,12 +72,19 @@ public class Wire : MonoBehaviour
             {
                 childs[2].GetComponent<CircleCollider2D>().radius += 1000 * Time.deltaTime;
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Destroy(gameObject);
+                isDrawing = false;
+            }
         }
 
     }
 
     public void Draw()
     {
+
         if (!isDrawing)
         {
             isDrawing = true;
@@ -85,6 +93,11 @@ public class Wire : MonoBehaviour
 
 
         }
+    }
+
+    public void DeleteWire()
+    {
+        Destroy(gameObject);
     }
 
     
