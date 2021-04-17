@@ -48,3 +48,12 @@ The following packages were updated:
   com.unity.2d.animation from version 5.0.1 to 5.0.4
   com.unity.2d.psdimporter from version 4.0.1 to 4.0.2
   com.unity.2d.spriteshape from version 5.0.1 to 5.1.1
+
+=== Sat Apr 17 16:58:46 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.test-framework from version 1.1.22 to 1.1.24
+  com.unity.timeline from version 1.4.6 to 1.4.7
