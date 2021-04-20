@@ -15,6 +15,7 @@ public class SimArea : MonoBehaviour, IDropHandler
     {
         dragginObject = eventData.pointerDrag;
         dragginObject.GetComponent<DragDrop>().isDropped = true;
+        dragginObject.GetComponent<DragDrop>().isDraggin = false;
         print("dropped");
         dragginObject.transform.SetParent(gameObject.transform);
         childs = dragginObject.GetComponentsInChildren<Transform>();

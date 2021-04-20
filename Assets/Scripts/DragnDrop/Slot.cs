@@ -10,6 +10,7 @@ public class Slot : MonoBehaviour,IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         eventData.pointerDrag.GetComponent<DragDrop>().isDropped = true;
+        eventData.pointerDrag.GetComponent<DragDrop>().isDraggin = false;
         print("dropped");
         if (eventData.pointerDrag != null)
         {

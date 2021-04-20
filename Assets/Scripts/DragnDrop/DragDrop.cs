@@ -9,8 +9,11 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     Canvas canvas;
     CanvasGroup canvasGroup;
     public bool isDropped = false;
+    public bool isDraggin = false;
     Vector3 initialPos;
     Transform initialParent;
+    Vector3 mousePos;
+
     private void Awake()
     {
         rectTranform = GetComponent<RectTransform>();
@@ -24,6 +27,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         eventData.pointerDrag.transform.SetParent(canvas.transform);
         initialPos = GetComponent<RectTransform>().anchoredPosition;
         canvasGroup.blocksRaycasts = false;
+        isDraggin = true;
 
     }
 
@@ -31,13 +35,15 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     {
        // print("ondrag");
         isDropped = false;
-        rectTranform.anchoredPosition += eventData.delta/canvas.scaleFactor;
+        //rectTranform.anchoredPosition += eventData.delta/canvas.scaleFactor;
+       // rectTranform.anchoredPosition += eventData.delta*1.101f;
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         print("end drag");
+        isDraggin = false;
         canvasGroup.blocksRaycasts = true;
         if (!isDropped)
         {
@@ -57,5 +63,14 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     public void OnDrop(PointerEventData eventData)
     {
        
+    }
+
+    void Update()
+    {
+        if (isDraggin)
+        {
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.localPosition = mousePos/canvas.transform.localScale.x;
+        }
     }
 }
