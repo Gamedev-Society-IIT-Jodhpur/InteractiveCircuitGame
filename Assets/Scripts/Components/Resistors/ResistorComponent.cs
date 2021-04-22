@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SharpCircuit;
 
 public class ResistorComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public Resistor resistor;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// value of resistor 
+    /// </summary>
+    public float resistorValue = 1000;
+
+    void Awake()
     {
-        
+        resistor = CIrcuitSim.sim.Create<Resistor>(resistorValue);
     }
 }
