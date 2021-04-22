@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SharpCircuit;
 
 public class DCBattery : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public VoltageInput DCVolt;
+
+    void Awake()
     {
-        
+        DCVolt = CIrcuitSim.sim.Create<VoltageInput>(Voltage.WaveType.DC);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
