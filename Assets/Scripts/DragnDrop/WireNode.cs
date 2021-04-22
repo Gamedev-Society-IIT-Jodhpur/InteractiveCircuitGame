@@ -18,7 +18,7 @@ public class WireNode : MonoBehaviour
     void Start()
     {
         originalRadius = GetComponent<CircleCollider2D>().radius;
-        childs = GetComponentInParent<Wire>().childs;
+        childs = GetComponentInParent<WireComponent>().childs;
         canvas = GetComponentInParent<Canvas>();
         rectTransform = childs[1].GetComponent<RectTransform>();
 
@@ -69,7 +69,7 @@ public class WireNode : MonoBehaviour
             {
                 Destroy(gameObject.transform.parent.gameObject);
             }
-            GetComponentInParent<Wire>().isDrawing = false;
+            GetComponentInParent<WireComponent>().isDrawing = false;
 
 
         }

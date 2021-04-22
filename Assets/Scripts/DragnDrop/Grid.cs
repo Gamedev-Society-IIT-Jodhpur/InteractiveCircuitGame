@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using SharpCircuit;
 public class Grid : MonoBehaviour
 {
     [SerializeField]private int width;
@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
     private int[,] gridArray;
     [SerializeField] private float cellSize;
     [SerializeField] GameObject node;
+    
     //[SerializeField] Transform parent;
 
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class Grid : MonoBehaviour
                 GameObject node1=Instantiate(node,gameObject.transform.position+ GetWorldposition(x, y), Quaternion.identity);
                 node1.transform.SetParent(gameObject.transform);
                 node1.transform.localScale=gameObject.transform.localScale;
-
+                
 
             }
         }
