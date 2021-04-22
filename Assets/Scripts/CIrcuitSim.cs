@@ -5,12 +5,5 @@ using SharpCircuit;
 
 public static class CIrcuitSim 
 {
-    
     public static Circuit sim = new Circuit();
-    
-    
-    
-
-    
-    
 }
