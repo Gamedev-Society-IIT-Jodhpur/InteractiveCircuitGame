@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using SharpCircuit;
 
-public class ACBattery : MonoBehaviour
+public class ZenerDiode : MonoBehaviour
 {
     // Start is called before the first frame update
-    public ACVoltageSource ACVolt;
+    public ZenerElm zener;
     void Awake()
-    {// instantiating 2 lead AC voltage source
-        ACVolt=CIrcuitSim.sim.Create<ACVoltageSource>();
+    {
+        zener=CIrcuitSim.sim.Create<ZenerElm>();
     }
 
     // Update is called once per frame
+    
 }
