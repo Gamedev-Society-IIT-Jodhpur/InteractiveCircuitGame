@@ -25,6 +25,6 @@ public class Node : MonoBehaviour
         newWire.transform.SetParent(simArea.transform);
         newWire.transform.localScale = simArea.transform.localScale;
         newWire.transform.SetAsFirstSibling();
-        newWire.GetComponent<Wire>().Draw();
+        newWire.GetComponent<WireComponent>().Draw();
     }
 }
