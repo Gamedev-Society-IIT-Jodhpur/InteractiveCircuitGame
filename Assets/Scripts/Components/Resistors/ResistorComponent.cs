@@ -7,14 +7,19 @@ public class ResistorComponent : MonoBehaviour
 {
     
     public Resistor resistor;
+    
 
     /// <summary>
     /// value of resistor 
     /// </summary>
     public float resistorValue = 1000;
-
+public GameObject  CIrcuitSim;
+    public CIrcuitSim Sim;
     void Awake()
     {
-        resistor = CIrcuitSim.sim.Create<Resistor>(resistorValue);
+        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
+        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+
+        resistor = Sim.sim.Create<Resistor>(resistorValue);
     }
 }

@@ -304,7 +304,7 @@ namespace SharpCircuit {
 					break;
 				}
 
-				if(elem is VoltageInput)
+				if(elem is VoltageInput )
 					gotRail = true;
 
 				if(elem is Voltage && voltageElm == null)

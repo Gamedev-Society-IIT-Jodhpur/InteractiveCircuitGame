@@ -6,11 +6,17 @@ using SharpCircuit;
 public class DCBattery : MonoBehaviour
 {
     
-    public VoltageInput DCVolt;
+    public DCVoltageSource DCVolt;
+     
 
+public GameObject  CIrcuitSim;
+    public CIrcuitSim Sim;
     void Awake()
     {
-        DCVolt = CIrcuitSim.sim.Create<VoltageInput>(Voltage.WaveType.DC);
+        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
+        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+
+        DCVolt = Sim.sim.Create<DCVoltageSource>(10);
     }
 
 }

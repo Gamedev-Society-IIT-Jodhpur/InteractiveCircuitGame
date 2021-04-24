@@ -9,7 +9,7 @@ namespace SharpCircuit {
 		public Circuit.Lead leadPos { get { return lead0; } }
 		public Circuit.Lead leadNeg { get { return lead1; } }
 
-		public ACVoltageSource() : base(WaveType.AC) {
+		public ACVoltageSource(double maxvolt) : base(WaveType.AC , maxvolt ) {
 
 		}
 

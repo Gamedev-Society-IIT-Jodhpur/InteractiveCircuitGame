@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 175379925}
   - component: {fileID: 175379924}
   - component: {fileID: 175379923}
+  - component: {fileID: 175379926}
   m_Layer: 0
   m_Name: res1
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175379922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80c950b87d8eda84bb8b5b6b816b1d1a, type: 3}
   m_Name: 
@@ -218,6 +219,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &175379926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175379922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e3f0491cfd1da4b92ded2299052b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resistorValue: 500
 --- !u!1 &273514780
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,10 +356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea34f3d55086c1343ab0c63835b471fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  res1: {fileID: 175379923}
-  res2: {fileID: 1119836214}
-  volt0: {fileID: 934730197}
-  ground0: {fileID: 273514783}
+  res1: {fileID: 175379926}
+  res2: {fileID: 1119836217}
+  volt0: {fileID: 0}
+  ground0: {fileID: 0}
 --- !u!4 &712804190
 Transform:
   m_ObjectHideFlags: 0
@@ -549,6 +563,7 @@ GameObject:
   - component: {fileID: 1119836216}
   - component: {fileID: 1119836215}
   - component: {fileID: 1119836214}
+  - component: {fileID: 1119836217}
   m_Layer: 0
   m_Name: res2
   m_TagString: Untagged
@@ -563,7 +578,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119836213}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80c950b87d8eda84bb8b5b6b816b1d1a, type: 3}
   m_Name: 
@@ -633,3 +648,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1119836217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119836213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e3f0491cfd1da4b92ded2299052b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resistorValue: 1000

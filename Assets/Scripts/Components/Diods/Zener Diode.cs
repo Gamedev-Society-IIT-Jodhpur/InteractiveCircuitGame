@@ -6,10 +6,14 @@ using SharpCircuit;
 public class ZenerDiode : MonoBehaviour
 {
     // Start is called before the first frame update
-    public ZenerElm zener;
+    public ZenerElm zener;public GameObject  CIrcuitSim;
+    public CIrcuitSim Sim;
     void Awake()
     {
-        zener=CIrcuitSim.sim.Create<ZenerElm>();
+        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
+        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+
+        zener=Sim.sim.Create<ZenerElm>();
     }
 
     // Update is called once per frame

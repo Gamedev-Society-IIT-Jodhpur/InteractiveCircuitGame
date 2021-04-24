@@ -7,9 +7,15 @@ public class ACBattery : MonoBehaviour
 {
     // Start is called before the first frame update
     public ACVoltageSource ACVolt;
+    
+   public GameObject  CIrcuitSim;
+    public CIrcuitSim Sim;
     void Awake()
-    {// instantiating 2 lead AC voltage source
-        ACVolt=CIrcuitSim.sim.Create<ACVoltageSource>();
+    {
+        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
+        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+// instantiating 2 lead AC voltage source
+        ACVolt=Sim.sim.Create<ACVoltageSource>(5.0f);
     }
 
     // Update is called once per frame

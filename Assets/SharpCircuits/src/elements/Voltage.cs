@@ -84,6 +84,14 @@ namespace SharpCircuit {
 			reset();
 		}
 
+		public Voltage(WaveType wf , double maxvolt){
+			waveform=wf;
+			maxVoltage=maxvolt;
+			frequency=40;
+			reset();
+
+		}
+
 		public override void reset() {
 			freqTimeZero = 0;
 		}

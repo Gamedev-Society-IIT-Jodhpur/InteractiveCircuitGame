@@ -15,6 +15,9 @@ namespace SharpCircuit {
 		public VoltageInput(WaveType wf) : base(wf) {
 
 		}
+		public VoltageInput(WaveType wf, double maxvolt) : base(wf,maxvolt) {
+
+		}
 
 		public override int getLeadCount() {
 			return 1;
