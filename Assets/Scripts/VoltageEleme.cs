@@ -8,19 +8,14 @@ public class VoltageEleme : MonoBehaviour
     // Start is called before the first frame update
     public VoltageInput voltage;
     
- public GameObject  CIrcuitSim;
-    public CIrcuitSim Sim;
+    public GameObject  CircuitSim;
+    public CircuitSim Sim;
     void Awake()
     {
-        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
-        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+        CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim=CircuitSim.GetComponent<CircuitSim>();
 
         voltage = Sim.sim.Create<VoltageInput>(Voltage.WaveType.DC);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

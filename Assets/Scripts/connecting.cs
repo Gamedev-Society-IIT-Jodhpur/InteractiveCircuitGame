@@ -13,18 +13,18 @@ public class connecting : MonoBehaviour
    // Circuit sim;
     
     // Start is called before the first frame update
-     GameObject  CIrcuitSim;
-     CIrcuitSim Sim;
+     GameObject  CircuitSim;
+     CircuitSim Sim;
     void Start()
     {
-        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
-        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+        CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim=CircuitSim.GetComponent<CircuitSim>();
 
         //sim	 = CIrcuitSim.sim;
        // sim.Connect(volt0.voltage.leadPos, res1.resistor.leadIn);
         Sim.sim.Connect(volt0.DCVolt.leadPos, res1.resistor.leadIn);
         //sim.Connect(volt0.voltage.leadPos, res2.resistor.leadIn);
-       Sim.sim.Connect(res1.resistor.leadOut,res2.resistor.leadIn);
+        Sim.sim.Connect(res1.resistor.leadOut,res2.resistor.leadIn);
         //sim.Connect(res2.resistor.leadOut,volt0.voltage.leadPos);
         //sim.Connect(volt0.DCVolt.leadNeg,ground0.ground.leadIn);
         //sim.Connect(res2.resistor.leadOut,ground0.ground.leadIn);	

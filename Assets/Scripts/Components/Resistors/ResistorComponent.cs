@@ -13,12 +13,12 @@ public class ResistorComponent : MonoBehaviour
     /// value of resistor 
     /// </summary>
     public float resistorValue = 1000;
-public GameObject  CIrcuitSim;
-    public CIrcuitSim Sim;
+    public GameObject  CircuitSim;
+    public CircuitSim Sim;
     void Awake()
     {
-        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
-        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+        CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim=CircuitSim.GetComponent<CircuitSim>();
 
         resistor = Sim.sim.Create<Resistor>(resistorValue);
     }

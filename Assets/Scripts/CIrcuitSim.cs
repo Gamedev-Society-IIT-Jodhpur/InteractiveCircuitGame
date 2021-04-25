@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SharpCircuit;
 
-public   class CIrcuitSim : MonoBehaviour
+public   class CircuitSim : MonoBehaviour
 {
     public   Circuit sim = new Circuit();
 

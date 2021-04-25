@@ -7,16 +7,16 @@ public class DCBattery : MonoBehaviour
 {
     
     public DCVoltageSource DCVolt;
-     
+    public float value = 10;
+    GameObject  CircuitSim;
+    CircuitSim Sim;
 
-public GameObject  CIrcuitSim;
-    public CIrcuitSim Sim;
     void Awake()
     {
-        CIrcuitSim= GameObject.FindGameObjectWithTag("CIrcuitSim");
-        Sim=CIrcuitSim.GetComponent<CIrcuitSim>();
+        CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim=CircuitSim.GetComponent<CircuitSim>();
 
-        DCVolt = Sim.sim.Create<DCVoltageSource>(10);
+        DCVolt = Sim.sim.Create<DCVoltageSource>(value);
     }
 
 }

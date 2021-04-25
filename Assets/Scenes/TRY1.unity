@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 175379925}
   - component: {fileID: 175379924}
-  - component: {fileID: 175379923}
   - component: {fileID: 175379926}
   m_Layer: 0
   m_Name: res1
@@ -142,18 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &175379923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175379922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c950b87d8eda84bb8b5b6b816b1d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &175379924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e3f0491cfd1da4b92ded2299052b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resistorValue: 500
+  resistorValue: 1000
+  CircuitSim: {fileID: 0}
+  Sim: {fileID: 0}
 --- !u!1 &273514780
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2301f80ed54ca2949b164d84a74c22a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CircuitSim: {fileID: 0}
+  Sim: {fileID: 0}
 --- !u!1 &712804188
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,8 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   res1: {fileID: 175379926}
   res2: {fileID: 1119836217}
-  volt0: {fileID: 0}
-  ground0: {fileID: 0}
+  volt0: {fileID: 934730197}
 --- !u!4 &712804190
 Transform:
   m_ObjectHideFlags: 0
@@ -466,9 +456,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 934730194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfcd2b398fe2ef4cb0a64361ebd5604, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e013ea6407974c4287aa819906b4fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 10
 --- !u!1 &962287507
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +543,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &966219457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966219459}
+  - component: {fileID: 966219458}
+  m_Layer: 0
+  m_Name: Simmulator
+  m_TagString: CircuitSim
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &966219458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966219457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacc09f8b8d479048901345ded838bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &966219459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966219457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82563984, y: -0.48359525, z: -0.99668896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119836213
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1119836216}
   - component: {fileID: 1119836215}
-  - component: {fileID: 1119836214}
   - component: {fileID: 1119836217}
   m_Layer: 0
   m_Name: res2
@@ -571,18 +604,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1119836214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119836213}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c950b87d8eda84bb8b5b6b816b1d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1119836215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -661,3 +682,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistorValue: 1000
+  CircuitSim: {fileID: 0}
+  Sim: {fileID: 0}
