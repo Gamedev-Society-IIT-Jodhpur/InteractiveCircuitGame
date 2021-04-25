@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SharpCircuit;
 
 public class Node : MonoBehaviour
 {
-    [SerializeField] GameObject wire;
+    [SerializeField] GameObject wireComponent;
     GameObject newWire;
     SimArea simArea;
+    Wire wire;
+    Circuit circuit;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        circuit = new Circuit();
         simArea = GetComponentInParent<SimArea>();
+        wire = circuit.Create<Wire>();
     }
 
     // Update is called once per frame
@@ -21,7 +27,7 @@ public class Node : MonoBehaviour
 
     public void StartDrawingWire()
     {
-        newWire = Instantiate(wire, gameObject.transform.position,Quaternion.identity);
+        newWire = Instantiate(wireComponent, gameObject.transform.position,Quaternion.identity);
         newWire.transform.SetParent(simArea.transform);
         newWire.transform.localScale = simArea.transform.localScale;
         newWire.transform.SetAsFirstSibling();

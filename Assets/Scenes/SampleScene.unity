@@ -616,6 +616,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 257536617113357981, guid: 5d277c1f8de58cc43928069b340f1bb3, type: 3}
   m_PrefabInstance: {fileID: 1949538930}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1317319754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1317319755}
+  m_Layer: 0
+  m_Name: Circuit
+  m_TagString: CIrcuitSim
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1317319755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317319754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.67004174, y: 0.33398417, z: -1.1514876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337416700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 313648655, guid: 9933e6edc322cd846b5bb29b3bb99347, type: 3}
+  m_PrefabInstance: {fileID: 6948583265807126929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337416701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337416700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49164314a75ebd64e883b69d97c10fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connection: 0
 --- !u!1001 &1351283757
 PrefabInstance:
   m_ObjectHideFlags: 0
