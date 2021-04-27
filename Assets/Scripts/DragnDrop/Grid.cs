@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SharpCircuit;
 public class grid : MonoBehaviour
 {
-    [SerializeField]private int width;
-    [SerializeField]private int height;
+    [SerializeField]public int width;
+    [SerializeField]public int height;
     private int[,] gridArray;
     [SerializeField] private float cellSize;
     [SerializeField] GameObject node;
@@ -13,13 +11,14 @@ public class grid : MonoBehaviour
     //[SerializeField] Transform parent;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         nodes = new List<List<GameObject>>();
         CreateGrid(width, height,cellSize);
+
     }
 
-    
+
 
     public void CreateGrid(int width, int height, float cellSize)
     {
@@ -30,15 +29,16 @@ public class grid : MonoBehaviour
         gridArray = new int[width, height];
 
         //Debug.Log(width + height);
+        //GameObject node1 = Instantiate(node, gameObject.transform.position + GetWorldposition(0, 0), Quaternion.identity);
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
             nodes.Add(new List<GameObject>());
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                GameObject node1=Instantiate(node,gameObject.transform.position+ GetWorldposition(x, y), Quaternion.identity);
+                GameObject node1 = Instantiate(node, gameObject.transform.position + GetWorldposition(x, y), Quaternion.identity);
                 node1.transform.SetParent(gameObject.transform);
-                node1.transform.localScale=gameObject.transform.localScale;
+                node1.transform.localScale = gameObject.transform.localScale;
                 nodes[x].Add(node1);
 
             }

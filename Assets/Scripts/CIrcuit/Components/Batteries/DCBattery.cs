@@ -5,7 +5,6 @@ using SharpCircuit;
 
 public class DCBattery : MonoBehaviour
 {
-    
     public DCVoltageSource DCVolt;
     public float value = 10;
     GameObject  CircuitSim;
@@ -15,7 +14,6 @@ public class DCBattery : MonoBehaviour
     {
         CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
         Sim=CircuitSim.GetComponent<CircuitSim>();
-
         DCVolt = Sim.sim.Create<DCVoltageSource>(value);
     }
 

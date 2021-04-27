@@ -19,7 +19,6 @@ public class ResistorComponent : MonoBehaviour
     {
         CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
         Sim=CircuitSim.GetComponent<CircuitSim>();
-
         resistor = Sim.sim.Create<Resistor>(resistorValue);
     }
 }
