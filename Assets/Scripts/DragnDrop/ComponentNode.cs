@@ -39,8 +39,17 @@ public class ComponentNode : MonoBehaviour
             colliderCheck = false;
             GetComponent<CircleCollider2D>().radius = originalRadius;
             transform.position=collision.transform.position;
-            transform.parent.position = transform.position+new Vector3(0.25f,0,0);
-            transform.localPosition = originalLocalPosition;
+            if (transform.parent.GetComponent<RectTransform>().rotation.z == 0)
+            {
+                transform.parent.position = transform.position + new Vector3(0.25f, 0, 0);
+                transform.localPosition = originalLocalPosition;
+            }
+            else
+            {
+                transform.parent.position = transform.position + new Vector3(0, 0.25f, 0);
+                transform.localPosition = originalLocalPosition;
+            }
+            
 
             
         }
