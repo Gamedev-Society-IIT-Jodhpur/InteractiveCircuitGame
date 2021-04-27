@@ -5,18 +5,18 @@ using SharpCircuit;
 
 public class ACBattery : MonoBehaviour
 {
-    // Start is called before the first frame update
     public ACVoltageSource ACVolt;
+    public float value = 5.0f;
     
-   public GameObject  CircuitSim;
-    public CircuitSim Sim;
+    GameObject  CircuitSim;
+    CircuitSim Sim;
+
     void Awake()
     {
         CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
         Sim=CircuitSim.GetComponent<CircuitSim>();
-// instantiating 2 lead AC voltage source
-        ACVolt=Sim.sim.Create<ACVoltageSource>(5.0f);
+        // instantiating 2 lead AC voltage source
+        ACVolt=Sim.sim.Create<ACVoltageSource>(value);
     }
 
-    // Update is called once per frame
 }
