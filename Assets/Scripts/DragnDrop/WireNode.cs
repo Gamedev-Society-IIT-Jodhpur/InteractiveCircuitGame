@@ -11,8 +11,10 @@ public class WireNode : MonoBehaviour
     float height;
     Canvas canvas;
     RectTransform rectTransform;
-
-
+    GameObject CircuitSim;
+    CircuitSim Sim;
+    GameObject startingFrom;
+    [SerializeField]GameObject simArea;
 
     // Start is called before the first frame update
     void Start()
@@ -21,22 +23,75 @@ public class WireNode : MonoBehaviour
         childs = GetComponentInParent<WireComponent>().childs;
         canvas = GetComponentInParent<Canvas>();
         rectTransform = childs[1].GetComponent<RectTransform>();
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CircuitSim = GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim = CircuitSim.GetComponent<CircuitSim>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //print("collision name: " + collision.name);
-        if (colliderCheck && collision.gameObject.tag == "Grid Node")
+        startingFrom = GetComponentInParent<WireComponent>().startingFrom;
+        if (colliderCheck && (collision.gameObject.tag == "in" || collision.gameObject.tag == "out") &&
+            collision.transform.parent.gameObject!=startingFrom)
         {
             colliderCheck = false;
+            //Connect to Wire
+            if (collision.transform.parent.gameObject.tag == "Resistor")
+            {
+                ResistorComponent resistorComponent = collision.transform.parent.GetComponent<ResistorComponent>();
+                if (collision.gameObject.tag == "in")
+                {
+                    resistorComponent.ConnectToWire(0, transform.parent.GetComponent<WireObject>(), 1);
+                }
+                else
+                {
+                    resistorComponent.ConnectToWire(1, transform.parent.GetComponent<WireObject>(), 1);
+                }
+
+            }
+            else if (collision.transform.parent.gameObject.tag == "Diode")
+            {
+                DiodeComponent Component = collision.transform.parent.GetComponent<DiodeComponent>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, transform.parent.GetComponent<WireObject>(), 1);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, transform.parent.GetComponent<WireObject>(), 1);
+
+                }
+            }
+            else if (collision.transform.parent.gameObject.tag == "Zener")
+            {
+                ZenerDiode Component = collision.transform.parent.GetComponent<ZenerDiode>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, transform.parent.GetComponent<WireObject>(), 1);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, transform.parent.GetComponent<WireObject>(), 1);
+
+                }
+
+            }
+            else if (collision.transform.parent.gameObject.tag == "DCBattery")
+            {
+                DCBattery Component = collision.transform.parent.GetComponent<DCBattery>();
+
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, transform.parent.GetComponent<WireObject>(), 1);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, transform.parent.GetComponent<WireObject>(), 1);
+
+                }
+
+            }
+
+
             gameObject.GetComponent<CircleCollider2D>().radius = originalRadius;
             //gameObject.transform.position = collision.transform.position;
             

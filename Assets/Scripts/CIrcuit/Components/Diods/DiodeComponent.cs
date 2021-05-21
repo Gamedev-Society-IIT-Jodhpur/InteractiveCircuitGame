@@ -7,16 +7,42 @@ public class DiodeComponent : MonoBehaviour
 {
     // Start is called before the first frame update
     public DiodeElm diode;
-    public GameObject  CircuitSim;
+    public GameObject CircuitSim;
     public CircuitSim Sim;
     void Awake()
     {
-        CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
-        Sim=CircuitSim.GetComponent<CircuitSim>();
+        CircuitSim = GameObject.FindGameObjectWithTag("CircuitSim");
+        Sim = CircuitSim.GetComponent<CircuitSim>();
 
-       diode=Sim.sim.Create<DiodeElm>(); 
+        diode = Sim.sim.Create<DiodeElm>();
     }
 
-    // Update is called once per frame
-    
+    public void ConnectToWire(int leadNo, WireObject wire, int wireLeadNo)
+    {
+        if (leadNo == 0)
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(diode.leadIn, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(diode.leadIn, wire.wire.leadOut);
+            }
+
+        }
+        else
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(diode.leadOut, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(diode.leadOut, wire.wire.leadOut);
+            }
+
+        }
+
+    }
 }

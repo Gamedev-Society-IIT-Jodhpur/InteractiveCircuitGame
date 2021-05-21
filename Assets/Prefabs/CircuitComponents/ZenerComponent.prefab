@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6998938958744668087}
   m_Layer: 5
   m_Name: ZenerComponent
-  m_TagString: Untagged
+  m_TagString: Zener
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.35686275}
+  m_Color: {r: 1, g: 0.94436383, b: 0, a: 0.35686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7965d5c9ebef8a4cbc45771cb0afdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CircuitSim: {fileID: 0}
+  CircuitSim: {fileID: 174988537086535383, guid: 1c0739e7cb712e64bacb91acd8f2bb2f, type: 3}
   Sim: {fileID: 0}
 --- !u!1001 &780285070749832774
 PrefabInstance:
@@ -211,9 +211,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6602999998730394169, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6706117644218049624, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
       propertyPath: m_Name
       value: ComponentNode (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706117644218049624, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
+      propertyPath: m_TagString
+      value: out
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
@@ -311,6 +319,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3378316847983611515, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602999998730394169, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6706117644218049624, guid: 41929e64f6ef5ca4ebb1fc8acdbed4ca, type: 3}

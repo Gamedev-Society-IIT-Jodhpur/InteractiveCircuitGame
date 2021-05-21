@@ -6,14 +6,15 @@ using SharpCircuit;
 public class WireObject : MonoBehaviour
 {
     public Wire wire;
-    GameObject CircuitSim;
+    [SerializeField]GameObject CircuitSim;
     CircuitSim Sim;
 
-    void Start()
+    private void Awake()
     {
         CircuitSim = GameObject.FindGameObjectWithTag("CircuitSim");
         Sim = CircuitSim.GetComponent<CircuitSim>();
         wire = Sim.sim.Create<Wire>();
+        //print(Sim.sim);
     }
     
 

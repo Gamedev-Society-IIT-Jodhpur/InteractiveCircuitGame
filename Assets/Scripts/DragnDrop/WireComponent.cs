@@ -15,7 +15,7 @@ public class WireComponent : MonoBehaviour
     public Transform[] childs;
     bool mouseSwitch = true;
     public bool isDrawing = false;
-
+    public GameObject startingFrom;
 
     // Start is called before the first frame update
     void Start()

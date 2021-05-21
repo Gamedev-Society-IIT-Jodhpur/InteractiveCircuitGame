@@ -17,4 +17,33 @@ public class DCBattery : MonoBehaviour
         DCVolt = Sim.sim.Create<DCVoltageSource>(value);
     }
 
+    public void ConnectToWire(int leadNo, WireObject wire, int wireLeadNo)
+    {
+        if (leadNo == 0)
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(DCVolt.leadNeg, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(DCVolt.leadNeg, wire.wire.leadOut);
+            }
+
+        }
+        else
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(DCVolt.leadPos, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(DCVolt.leadPos, wire.wire.leadOut);
+            }
+
+        }
+
+    }
+
 }

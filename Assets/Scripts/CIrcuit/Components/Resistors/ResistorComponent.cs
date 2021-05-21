@@ -20,5 +20,33 @@ public class ResistorComponent : MonoBehaviour
         CircuitSim= GameObject.FindGameObjectWithTag("CircuitSim");
         Sim=CircuitSim.GetComponent<CircuitSim>();
         resistor = Sim.sim.Create<Resistor>(resistorValue);
+        
     }
+    public void ConnectToWire(int leadNo, WireObject wire, int wireLeadNo)
+    {
+        if (leadNo == 0)
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(resistor.leadIn, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(resistor.leadIn, wire.wire.leadOut);
+            }
+
+        }
+        else
+        {
+            if (wireLeadNo == 0)
+            {
+                Sim.sim.Connect(resistor.leadOut, wire.wire.leadIn);
+            }
+            else
+            {
+                Sim.sim.Connect(resistor.leadOut, wire.wire.leadOut);
+            }
+        }
+    }
+
 }

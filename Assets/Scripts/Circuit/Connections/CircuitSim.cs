@@ -6,10 +6,4 @@ using SharpCircuit;
 public   class CircuitSim : MonoBehaviour
 {
     public   Circuit sim = new Circuit();
-
-    
-        
-
-
-    
 }

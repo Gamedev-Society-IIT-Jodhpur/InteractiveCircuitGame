@@ -16,6 +16,9 @@ public class Slot : MonoBehaviour,IDropHandler
         {
             eventData.pointerDrag.transform.SetParent(inventory);
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            eventData.pointerDrag.GetComponentsInChildren<Transform>()[1].GetComponent<Collider2D>().enabled = false;
+            eventData.pointerDrag.GetComponentsInChildren<Transform>()[2].GetComponent<Collider2D>().enabled = false;
+
         }
     }
 

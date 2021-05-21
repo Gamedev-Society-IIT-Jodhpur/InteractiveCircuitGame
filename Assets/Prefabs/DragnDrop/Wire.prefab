@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderCheck: 0
+  simArea: {fileID: 6948583266374664638, guid: 9933e6edc322cd846b5bb29b3bb99347, type: 3}
 --- !u!1 &8887991839532392796
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ GameObject:
   - component: {fileID: 2974690963992875295}
   - component: {fileID: 3942624713583820648}
   - component: {fileID: 6285631280895634249}
+  - component: {fileID: 603247183607741518}
   m_Layer: 5
   m_Name: Wire
   m_TagString: Untagged
@@ -352,3 +354,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childs: []
   isDrawing: 0
+  startingFrom: {fileID: 0}
+--- !u!114 &603247183607741518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887991839532392796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27abbd1d16da4954587acc734e0976d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CircuitSim: {fileID: 174988537086535383, guid: 1c0739e7cb712e64bacb91acd8f2bb2f, type: 3}

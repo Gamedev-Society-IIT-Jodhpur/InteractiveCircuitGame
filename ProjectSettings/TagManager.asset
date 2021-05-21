@@ -8,6 +8,12 @@ TagManager:
   - Grid Node
   - Component Node
   - CircuitSim
+  - in
+  - out
+  - Resistor
+  - Diode
+  - Zener
+  - DCBattery
   layers:
   - Default
   - TransparentFX

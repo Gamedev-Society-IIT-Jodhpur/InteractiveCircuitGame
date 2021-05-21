@@ -14,12 +14,16 @@ public class SimArea : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         dragginObject = eventData.pointerDrag;
+        
         dragginObject.GetComponent<DragDrop>().isDropped = true;
         dragginObject.GetComponent<DragDrop>().isDraggin = false;
         print("dropped");
         dragginObject.transform.SetParent(gameObject.transform);
         childs = dragginObject.GetComponentsInChildren<Transform>();
+        childs[1].GetComponent<Collider2D>().enabled = true;
+        childs[2].GetComponent<Collider2D>().enabled = true;
         childs[1].GetComponent<ComponentNode>().colliderCheck = true;
+
         //childs[2].GetComponent<ComponentNode>().colliderCheck = true;
         //originalRadius = childs[2].GetComponent<CircleCollider2D>().radius;
 

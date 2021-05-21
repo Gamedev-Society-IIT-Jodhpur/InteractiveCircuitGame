@@ -12,8 +12,7 @@ public class ComponentNode : MonoBehaviour
     [SerializeField] GameObject wire;
     GameObject newWire;
     SimArea simArea;
-
-
+    
 
     void Start()
     {
@@ -65,6 +64,59 @@ public class ComponentNode : MonoBehaviour
             newWire.transform.localScale = simArea.transform.localScale;
             newWire.transform.SetAsFirstSibling();
             newWire.GetComponent<WireComponent>().Draw();
+            newWire.GetComponent<WireComponent>().startingFrom = transform.parent.gameObject;
+            if (transform.parent.gameObject.tag == "Resistor")
+            {
+                ResistorComponent Component = transform.parent.GetComponent<ResistorComponent>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, newWire.GetComponent<WireObject>(), 0);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, newWire.GetComponent<WireObject>(), 0);
+                }
+
+            }
+            else if (transform.parent.gameObject.tag == "Diode")
+            {
+                DiodeComponent Component = transform.parent.GetComponent<DiodeComponent>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, newWire.GetComponent<WireObject>(), 0);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, newWire.GetComponent<WireObject>(), 0);
+                }
+
+            }
+            else if (transform.parent.gameObject.tag == "Zener")
+            {
+                ZenerDiode Component = transform.parent.GetComponent<ZenerDiode>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, newWire.GetComponent<WireObject>(), 0);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, newWire.GetComponent<WireObject>(), 0);
+                }
+
+            }
+            else if (transform.parent.gameObject.tag == "DCBattery")
+            {
+                DCBattery Component = transform.parent.GetComponent<DCBattery>();
+                if (gameObject.tag == "in")
+                {
+                    Component.ConnectToWire(0, newWire.GetComponent<WireObject>(), 0);
+                }
+                else
+                {
+                    Component.ConnectToWire(1, newWire.GetComponent<WireObject>(), 0);
+                }
+
+            }
         }
         
     }
