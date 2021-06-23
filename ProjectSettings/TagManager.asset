@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - SimArea
-  - Grid Node
-  - Component Node
-  - CircuitSim
-  - in
-  - out
-  - Resistor
-  - Diode
-  - Zener
-  - DCBattery
+  tags: []
   layers:
   - Default
   - TransparentFX
