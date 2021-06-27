@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+public class WireNode : MonoBehaviour
 {
-    [SerializeField] DragManager dragManager;
-    float gridSpace;
+    //[SerializeField] DragManager dragManager;
+    //float gridSpace;
     Transform parentPos;
     Transform[] childs;
     Vector3 node1Pos;
     Vector3 node2Pos;
+    Vector3 node1Scale;
+    Vector3 node2Scale;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,6 @@ public class Node : MonoBehaviour
             y -= (y % gridSpace);
         }*/
         transform.position = new Vector3(x, y, 0);
-
         node1Pos = childs[1].position;
         node2Pos = childs[2].position;
         parentPos.position = (node1Pos + node2Pos) / 2;
@@ -42,9 +43,15 @@ public class Node : MonoBehaviour
             float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
             parentPos.eulerAngles = new Vector3(0, 0, angle);
         }
+
+        node1Scale = new Vector3(childs[1].localScale.x * parentPos.localScale.x, childs[1].localScale.y * parentPos.localScale.y, childs[1].localScale.z * parentPos.localScale.z);
+        node2Scale = new Vector3(childs[2].localScale.x * parentPos.localScale.x, childs[2].localScale.y * parentPos.localScale.y, childs[2].localScale.z * parentPos.localScale.z);
+
+        parentPos.localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos), parentPos.localScale.y, parentPos.localScale.z);
+        childs[1].localScale = new Vector3(node1Scale.x / parentPos.localScale.x, node1Scale.y / parentPos.localScale.y, node1Scale.z / parentPos.localScale.z);
+        childs[2].localScale = new Vector3(node2Scale.x / parentPos.localScale.x, node2Scale.y / parentPos.localScale.y, node2Scale.z / parentPos.localScale.z);
         childs[1].position = node1Pos;
         childs[2].position = node2Pos;
-        childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
     }
 
     // Update is called once per frame

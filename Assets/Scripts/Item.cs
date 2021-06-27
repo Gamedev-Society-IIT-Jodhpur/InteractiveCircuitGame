@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wire : MonoBehaviour
+public class Item : MonoBehaviour
 {
     Transform[] childs;
     Vector3 node1Pos;
     Vector3 node2Pos;
+    Vector3 node1Scale;
+    Vector3 node2Scale;
     public bool isMoving = false;
     
     // Start is called before the first frame update
@@ -24,7 +26,6 @@ public class Wire : MonoBehaviour
         {
             node1Pos = childs[1].position;
             node2Pos = childs[2].position;
-            //childs[3].position = (node1Pos + node2Pos) / 2;
 
             transform.position = (node1Pos + node2Pos) / 2;
 
@@ -33,20 +34,31 @@ public class Wire : MonoBehaviour
             {
                 float angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
                 transform.eulerAngles = new Vector3(0, 0, -angle);
-                //childs[2].transform.eulerAngles = childs[2].transform.eulerAngles * 0.5f;
             }
             else
             {
                 float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
                 transform.eulerAngles = new Vector3(0, 0, angle);
-                //childs[2].transform.eulerAngles = childs[2].transform.eulerAngles * 0.5f;
             }
 
             childs[1].position = node1Pos;
             childs[2].position = node2Pos;
-            //childs[3].position = (node1Pos + node2Pos) / 2;
 
-            childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
+            if (childs[0].tag=="Wire")
+            {
+                node1Scale = new Vector3(childs[1].localScale.x * transform.localScale.x, childs[1].localScale.y * transform.localScale.y, childs[1].localScale.z * transform.localScale.z);
+                node2Scale = new Vector3(childs[2].localScale.x * transform.localScale.x, childs[2].localScale.y * transform.localScale.y, childs[2].localScale.z * transform.localScale.z);
+
+                transform.localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos), transform.localScale.y, transform.localScale.z);
+                childs[1].localScale = new Vector3(node1Scale.x / transform.localScale.x, node1Scale.y / transform.localScale.y, node1Scale.z / transform.localScale.z);
+                childs[2].localScale = new Vector3(node2Scale.x / transform.localScale.x, node2Scale.y / transform.localScale.y, node2Scale.z / transform.localScale.z);
+                childs[1].position = node1Pos;
+                childs[2].position = node2Pos;
+            }
+            else
+            {
+                childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
+            }
         }
         
         
