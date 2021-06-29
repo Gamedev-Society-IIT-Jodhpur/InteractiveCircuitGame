@@ -10,6 +10,7 @@ public class DragManager : MonoBehaviour
     Vector2 worldPoint;
     float prevX;
     float prevY;
+    Transform[] childs;
     public float gridSpace=0.5f;
     void Update()
     {
@@ -74,7 +75,11 @@ public class DragManager : MonoBehaviour
                 }
                 
                 hit.collider.transform.position = new Vector3(prevX, prevY, 0);
+                //childs = hit.collider.gameObject.GetComponentsInChildren<Transform>();
+
+
             }
+            
             
         }
         else
