@@ -7,11 +7,13 @@ using SpiceSharp.Components;
 public class UnifiedScript: MonoBehaviour
 {
     
-    public  delegate void  Del();
-    public static void  ResistorInitialize()
+    public  delegate void  Del(string name ,string value , string pos , string neg);
+    public static void  ResistorInitialize(string name ,string value , string pos , string neg )
     {
         
+        
         Debug.Log("yay working ");
+        CircuitManager.ckt.Add(new Resistor(name, pos, neg, double.Parse(value)));
     }
 
 
@@ -24,7 +26,7 @@ public class UnifiedScript: MonoBehaviour
     {
         Del Resistordel = ResistorInitialize;
        dict1.Add("res", Resistordel);
-        CircuitManager.componentList.Add(gameObject);
+       
 
     }
     

@@ -17,26 +17,26 @@ public class CircuitManager : MonoBehaviour
         ckt = new Circuit();
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
-      /*  foreach (var item in componentList)
-        {
-            item.GetComponent<Try>().Initialize();
-        }*/
+        /*  foreach (var item in componentList)
+          {
+              item.GetComponent<Try>().Initialize();
+          }*/
 
-      
+
         //  components.Add("Voltage",1);
         //   components["Voltage"]=1;
         //    print(components["Voltage"]);
         // componentList=["Vlotage"];
 
 
-
     }
-    void Update()
+    void Start()
     {
-        foreach (var item in componentList)
+
+        for (int i = -0; i < componentList.Count; i++)
         {
             Debug.Log("inside update");
-            item.GetComponent<ComponentInitialization>().Initialize();
+            componentList[i].GetComponent<ComponentInitialization>().Initialize(i);
         }
     }
 
