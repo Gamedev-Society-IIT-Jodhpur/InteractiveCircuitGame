@@ -15,8 +15,12 @@ public class ResistorComponent : MonoBehaviour
 
     private void Awake(){
         
-        CircuitManager.ckt.Add(new Resistor("R"+CircuitManager.components["Resistor"], pos, neg, 2.0e3));
+        //CircuitManager.ckt.Add(new Resistor("R"+CircuitManager.components["Resistor"], pos, neg, 2.0e3));
 
+    }
+    public void Add()
+    {
+        CircuitManager.ckt.Add(new Resistor("R" , pos, neg, 2.0e3));
     }
 
 

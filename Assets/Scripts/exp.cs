@@ -31,7 +31,7 @@ public class exp : MonoBehaviour
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
             // Debug.Log(exportDataEventArgs.GetVoltage("vout"));
-            Debug.Log(currentExport.Value);
+            //Debug.Log(currentExport.Value);
         };
 
         // Run the simulation
