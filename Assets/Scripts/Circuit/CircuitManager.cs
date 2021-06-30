@@ -10,8 +10,9 @@ public class CircuitManager : MonoBehaviour
     public static Circuit ckt;
     public static Dictionary<string, int> components ;
     public static List<GameObject> componentList;
-    //private IList<string> componentList = new List<string>(){"Voltage","Resistor"};
     
+    //private IList<string> componentList = new List<string>(){"Voltage","Resistor"};
+
     private void Awake(){
         ckt = new Circuit();
         components = new Dictionary<string, int>();
@@ -35,7 +36,7 @@ public class CircuitManager : MonoBehaviour
         foreach (var item in componentList)
         {
             Debug.Log("inside update");
-            item.GetComponent<UnifiedScript>().Initialize();
+            item.GetComponent<ComponentInitialization>().Initialize();
         }
     }
 

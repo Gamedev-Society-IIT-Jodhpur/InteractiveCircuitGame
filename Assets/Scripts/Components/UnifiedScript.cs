@@ -6,7 +6,7 @@ using SpiceSharp.Components;
 
 public class UnifiedScript: MonoBehaviour
 {
-    public string a;
+    
     public  delegate void  Del();
     public static void  ResistorInitialize()
     {
@@ -14,27 +14,21 @@ public class UnifiedScript: MonoBehaviour
         Debug.Log("yay working ");
     }
 
-    
 
-    
-    System.Collections.Generic.Dictionary<string, System.Delegate> dict1 = new Dictionary<string, System.Delegate>();
-    
+
+
+    public static System.Collections.Generic.Dictionary<string, System.Delegate> dict1 = new Dictionary<string, System.Delegate>();
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Del Resistordel = ResistorInitialize;
-        dict1.Add("res", Resistordel);
+       dict1.Add("res", Resistordel);
         CircuitManager.componentList.Add(gameObject);
 
     }
-    public void Initialize()
-    {
-        dict1[a].DynamicInvoke();
-    }
+    
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

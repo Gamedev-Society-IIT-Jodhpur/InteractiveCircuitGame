@@ -595,3 +595,67 @@ System memory in use after: 88.2 MB.
 Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2329.
 Total: 2.679700 ms (FindLiveObjects: 0.255200 ms CreateObjectMapping: 0.084100 ms MarkObjects: 2.320600 ms  DeleteObjects: 0.018200 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 118.317142 seconds.
+  path: Assets/Scripts/Components/ResistorComponent.cs
+  artifactKey: Guid(8fc335f83c4e722439c4b318728f6608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/ResistorComponent.cs using Guid(8fc335f83c4e722439c4b318728f6608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9f46d1d4a4956c68d24e8eee5b59d4e') in 0.005625 seconds
+  Import took 0.009888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024395 seconds.
+  path: Assets/Scripts/Components/ResistorComponent.cs
+  artifactKey: Guid(8fc335f83c4e722439c4b318728f6608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/ResistorComponent.cs using Guid(8fc335f83c4e722439c4b318728f6608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9f46d1d4a4956c68d24e8eee5b59d4e') in 0.002803 seconds
+  Import took 0.005770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.775999 seconds.
+  path: Assets/Scripts/Components/VoltageComponent.cs
+  artifactKey: Guid(6a42e8ddc7be4d24682f1a2c9b55553d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/VoltageComponent.cs using Guid(6a42e8ddc7be4d24682f1a2c9b55553d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efb0fc8cd7ac4847876228c2750495db') in 0.003146 seconds
+  Import took 0.007534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.301329 seconds.
+  path: Assets/Scripts/WireNode.cs
+  artifactKey: Guid(962efe941de92ed43a255330f2e7beba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/WireNode.cs using Guid(962efe941de92ed43a255330f2e7beba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c2a52a37aeffbcedab221a37c762bea') in 0.003619 seconds
+  Import took 0.009011 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001635 seconds.
+  path: Assets/Scripts/WireNode.cs
+  artifactKey: Guid(962efe941de92ed43a255330f2e7beba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/WireNode.cs using Guid(962efe941de92ed43a255330f2e7beba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c2a52a37aeffbcedab221a37c762bea') in 0.002874 seconds
+  Import took 0.006563 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 297.706399 seconds.
+  path: Assets/Scripts/Components/UnifiedScript.cs
+  artifactKey: Guid(08d92521c578405458c4840fe676240d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/UnifiedScript.cs using Guid(08d92521c578405458c4840fe676240d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '980a0709a65d6f7d866ca09c7176b6cf') in 0.003961 seconds
+  Import took 0.010199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002196 seconds.
+  path: Assets/Scripts/Components/UnifiedScript.cs
+  artifactKey: Guid(08d92521c578405458c4840fe676240d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/UnifiedScript.cs using Guid(08d92521c578405458c4840fe676240d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '980a0709a65d6f7d866ca09c7176b6cf') in 0.003029 seconds
+  Import took 0.009159 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.640839 seconds.
+  path: Assets/Scripts/Components/ComponentInitialization.cs
+  artifactKey: Guid(428e4f7aedb368c45bccafdeafcaf510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Components/ComponentInitialization.cs using Guid(428e4f7aedb368c45bccafdeafcaf510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13ab1e63c3f8eaaeeacc74f273c36a51') in 0.004171 seconds
+  Import took 0.010466 seconds .
+
