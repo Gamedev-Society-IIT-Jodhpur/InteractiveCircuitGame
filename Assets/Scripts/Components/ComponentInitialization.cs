@@ -6,6 +6,7 @@ public class ComponentInitialization : MonoBehaviour
 
 {
     public string a;
+    public string nameInCircuit;
     [SerializeField]string value = "100";
     //private string pos = "0";
     //private string neg = "0";
@@ -21,7 +22,7 @@ public class ComponentInitialization : MonoBehaviour
     {
         //print("value line 22 of ComponentInitialization " + value);
         UnifiedScript.dict1[a].DynamicInvoke(a+i,pos,neg,value);
-        a += i;
+        nameInCircuit = a+i;
     }
 
      

@@ -15,20 +15,20 @@ public class CircuitManager : MonoBehaviour
     Transform[] childs;
     string volt="";
     string temp;
-    float x;
-    float y;
+    //[SerializeField] GameObject resistor;
     //private IList<string> componentList = new List<string>(){"Voltage","Resistor"};
 
     private void Awake(){
-        ckt = new Circuit();
+        //ckt = new Circuit();
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
     public void Play()
     {
-
+        ckt = new Circuit();
         for (int i = 0; i < componentList.Count; i++)
         {
+
             print(componentList[i].name);
             childs = componentList[i].GetComponentsInChildren<Transform>();
             pos = (Mathf.RoundToInt(childs[1].position.x)).ToString() +" "+ (Mathf.RoundToInt(childs[1].position.y)).ToString();
@@ -56,7 +56,7 @@ public class CircuitManager : MonoBehaviour
         }
 
         var dc = new DC("dc", volt, 0.0, 5.0, 0.001);
-        var currentExport = new RealPropertyExport(dc, volt, "i");
+        var currentExport = new RealPropertyExport(dc, componentList[0].GetComponent<ComponentInitialization>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
             //Debug.Log(exportDataEventArgs.GetVoltage(pos));

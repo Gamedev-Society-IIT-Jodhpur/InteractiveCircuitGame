@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: res
+  nameInCircuit: 
   value: 1
 --- !u!1 &876563997 stripped
 GameObject:
@@ -612,6 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: Volt
+  nameInCircuit: 
   value: 5
 --- !u!1 &1081548119 stripped
 GameObject:
@@ -631,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: res
+  nameInCircuit: 
   value: 1
 --- !u!1 &1224254275 stripped
 GameObject:
@@ -650,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: res
+  nameInCircuit: 
   value: 1
 --- !u!1001 &1314156024
 PrefabInstance:
@@ -941,6 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: Volt
+  nameInCircuit: 
   value: 5
 --- !u!1 &1930994842
 GameObject:
