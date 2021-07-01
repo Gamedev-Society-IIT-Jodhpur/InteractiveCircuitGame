@@ -6,20 +6,24 @@ public class ComponentInitialization : MonoBehaviour
 
 {
     public string a;
-    public string value = "1";
-    private string pos = "0";
-    private string neg = "0";
+    [SerializeField]string value = "100";
+    //private string pos = "0";
+    //private string neg = "0";
+    
     // Start is called before the first frame update
     void Start()
     {
         CircuitManager.componentList.Add(gameObject);
+        
     }
-    public void Initialize(int i)
-    {
-       
-        UnifiedScript.dict1[a].DynamicInvoke(a+i ,value,pos,neg);
 
+    public void Initialize(int i,string pos,string neg)
+    {
+        //print("value line 22 of ComponentInitialization " + value);
+        UnifiedScript.dict1[a].DynamicInvoke(a+i,pos,neg,value);
+        a += i;
     }
+
      
     public void DeleteComponent()
     {

@@ -51,6 +51,7 @@ public class DragManager : MonoBehaviour
                     y -= (y % gridSpace);
                 }*/
                 hit.collider.transform.position = new Vector3(x, y, 0);
+                //print(hit.collider.transform.position);
             }
             else
             {
