@@ -8,8 +8,8 @@ public class ComponentInitialization : MonoBehaviour
     public string a;
     public string nameInCircuit;
     [SerializeField]string value = "100";
-    //private string pos = "0";
-    //private string neg = "0";
+    public string pos = "0";
+    public string neg = "0";
     
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,5 @@ public class ComponentInitialization : MonoBehaviour
     }
 
      
-    public void DeleteComponent()
-    {
-        CircuitManager.componentList.Remove(gameObject);
-    }
+    
 }

@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 9133479610099506481}
   - component: {fileID: 9133479610099506487}
   - component: {fileID: 9133479610099506482}
-  - component: {fileID: 6247686967254749668}
+  - component: {fileID: 644270625}
   m_Layer: 0
   m_Name: Resistor
   m_TagString: Resistor
@@ -355,7 +355,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9133479610099506485}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.74, y: 5.95, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
---- !u!114 &6247686967254749668
+--- !u!114 &644270625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -464,6 +464,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9133479610099506485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc335f83c4e722439c4b318728f6608, type: 3}
+  m_Script: {fileID: 11500000, guid: 428e4f7aedb368c45bccafdeafcaf510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  a: res
+  nameInCircuit: 
+  value: 1
+  pos: 0
+  neg: 0

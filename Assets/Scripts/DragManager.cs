@@ -25,14 +25,17 @@ public class DragManager : MonoBehaviour
                 isDraggin = true;
                 print(hit.collider.gameObject.transform.position);
                 print(hit.collider.gameObject.name);
+
                 if (hit.collider.gameObject.tag == "node")
                 {
                     hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
+                    CircuitManager.selected = hit.collider.gameObject.transform.parent.gameObject;
                 }
                 else
                 {
                     prevX = hit.collider.gameObject.transform.position.x;
                     prevY = hit.collider.gameObject.transform.position.y;
+                    CircuitManager.selected = hit.collider.gameObject;
                 }
             }
         }

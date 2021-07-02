@@ -20,13 +20,22 @@ public class UnifiedScript: MonoBehaviour
         //Debug.Log("yay working ");
         CircuitManager.ckt.Add(new VoltageSource(name, pos, neg, double.Parse(value)));
     }
+    
+    public static void  WireInitialize(string name, string pos, string neg, string value )
+    {
+        //Debug.Log("yay working ");
+        CircuitManager.ckt.Add(new VoltageSource(name, pos, neg, 0));
+    }
 
     void Awake()
     {
         Del Resistordel = ResistorInitialize;
+        
        dict1.Add("res", Resistordel);
         Del Voltagedel = VoltageInitialize;
-        dict1.Add("Volt", Voltagedel);
+        dict1.Add("volt", Voltagedel);
+        Del Wiredel = WireInitialize;
+        dict1.Add("wire", Wiredel);
     }
     
 }
