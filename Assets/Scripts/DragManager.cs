@@ -5,7 +5,7 @@ using System;
 
 public class DragManager : MonoBehaviour
 {
-    [HideInInspector]public bool isDraggin = false;
+    [HideInInspector] public bool isDraggin = false;
     RaycastHit2D hit;
     Vector2 worldPoint;
     float prevX;
@@ -16,14 +16,14 @@ public class DragManager : MonoBehaviour
     int x2, y2, x1, y1;
     GameObject newComponent;
     bool toDraw = true;
-    [SerializeField]List<GameObject> newComponentPrefabs;
+    [SerializeField] List<GameObject> newComponentPrefabs;
     GameObject toInstantiate;
 
 
     void Update()
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
+
         if (mode == 0)
         {
             //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -59,7 +59,7 @@ public class DragManager : MonoBehaviour
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
                     childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
-                    if(Vector3.Distance(childs[1].transform.position,new Vector3(x,y,0))>=2)
+                    if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
                     {
                         hit.collider.transform.position = new Vector3Int(x, y, 0);
                     }
@@ -93,7 +93,7 @@ public class DragManager : MonoBehaviour
 
 
             }
-            else if(isDraggin)
+            else if (isDraggin)
             {
                 isDraggin = false;
                 if (hit.collider != null && hit.collider.gameObject.tag == "node")
@@ -104,7 +104,7 @@ public class DragManager : MonoBehaviour
         }
         else
         {
-            
+
 
             //Cursor.SetCursor(dragCursorTexture, Vector2.zero, CursorMode.Auto);
             if (Input.GetMouseButtonDown(0))
@@ -117,7 +117,7 @@ public class DragManager : MonoBehaviour
             {
                 x2 = Mathf.RoundToInt(worldPoint.x);
                 y2 = Mathf.RoundToInt(worldPoint.y);
-                if ((Mathf.Abs(x1 - x2) >= 2 || Mathf.Abs(y1 - y2) >= 1)&& toDraw)
+                if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 2 && toDraw)
                 {
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
@@ -125,14 +125,14 @@ public class DragManager : MonoBehaviour
                     newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
-                    
+
 
                 }
                 if (newComponent)
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
-                    if (Vector3.Distance(childs[1].transform.position,new Vector3(x, y, 0)) >= 2)
+                    if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
                     {
                         childs[2].transform.position = new Vector3(x, y, 0);
                     }
