@@ -58,6 +58,7 @@ public class Item : MonoBehaviour
             else
             {
                 childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
+
             }
         }
         

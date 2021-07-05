@@ -12,7 +12,7 @@ public class DragManager : MonoBehaviour
     float prevY;
     Transform[] childs;
     public int mode = 0;
-    [SerializeField] Texture2D dragCursorTexture;
+    //[SerializeField] Texture2D dragCursorTexture;
     int x2, y2, x1, y1;
     GameObject newComponent;
     bool toDraw = true;
@@ -160,5 +160,16 @@ public class DragManager : MonoBehaviour
             toInstantiate = newComponentPrefabs[n - 1];
         }
 
+    }
+
+    public void ChangeValue(string value)
+    {
+        ComponentInitialization component= CircuitManager.selected.GetComponent<ComponentInitialization>();
+        if (component.tag != "Wire")
+        {
+            component.value = value;
+            component.valueText.text = value;
+        }
+        
     }
 }
