@@ -63,6 +63,7 @@ public class CircuitManager : MonoBehaviour
             componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
         }
 
+
         var dc = new DC("dc", volt, 0.0, 5.0, 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
