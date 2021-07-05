@@ -11,88 +11,151 @@ public class DragManager : MonoBehaviour
     float prevX;
     float prevY;
     Transform[] childs;
-    public float gridSpace=0.5f;
+    public int mode = 0;
+    [SerializeField] Texture2D dragCursorTexture;
+    int x2, y2, x1, y1;
+    GameObject newComponent;
+    bool toDraw = true;
+    [SerializeField]List<GameObject> newComponentPrefabs;
+    GameObject toInstantiate;
+
+
     void Update()
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        
+        if (mode == 0)
         {
-            
-            hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
-            if (hit.collider != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                isDraggin = true;
-                print(hit.collider.gameObject.transform.position);
-                print(hit.collider.gameObject.name);
 
+                hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    isDraggin = true;
+                    //print(hit.collider.gameObject.transform.position);
+                    //print(hit.collider.gameObject.name);
+
+                    if (hit.collider.gameObject.tag == "node")
+                    {
+                        hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
+                        CircuitManager.selected = hit.collider.gameObject.transform.parent.gameObject;
+                    }
+                    else
+                    {
+                        prevX = hit.collider.gameObject.transform.position.x;
+                        prevY = hit.collider.gameObject.transform.position.y;
+                        CircuitManager.selected = hit.collider.gameObject;
+                    }
+                }
+            }
+            if (isDraggin && Input.GetMouseButton(0))
+            {
                 if (hit.collider.gameObject.tag == "node")
                 {
-                    hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
-                    CircuitManager.selected = hit.collider.gameObject.transform.parent.gameObject;
+                    int x = Mathf.RoundToInt(worldPoint.x);
+                    int y = Mathf.RoundToInt(worldPoint.y);
+                    childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
+                    if(Mathf.Abs(childs[1].transform.position.x-x)>=2 && Mathf.Abs(childs[1].transform.position.y - y) >= 2)
+                    {
+                    }
+                        hit.collider.transform.position = new Vector3Int(x, y, 0);
+
+                    //print(hit.collider.transform.position);
                 }
                 else
                 {
-                    prevX = hit.collider.gameObject.transform.position.x;
-                    prevY = hit.collider.gameObject.transform.position.y;
-                    CircuitManager.selected = hit.collider.gameObject;
+                    float x = worldPoint.x;
+                    float y = worldPoint.y;
+
+                    if ((x - prevX) >= 1)
+                    {
+                        prevX += Mathf.RoundToInt(x - prevX);
+                    }
+                    else if (prevX - x >= 1)
+                    {
+                        prevX -= Mathf.RoundToInt(prevX - x);
+                    }
+                    if ((y - prevY) >= 1)
+                    {
+                        prevY += Mathf.RoundToInt(y - prevY);
+                    }
+                    else if (prevY - y >= 1)
+                    {
+                        prevY -= Mathf.RoundToInt(prevY - y);
+                    }
+
+                    hit.collider.transform.position = new Vector3(prevX, prevY, 0);
                 }
-            }
-        }
-        if (isDraggin && Input.GetMouseButton(0))
-        {
-            if (hit.collider.gameObject.tag == "node")
-            {
-                int x = (int)worldPoint.x;
-                int y = (int)worldPoint.y;
-                /*if (x % gridSpace != 0)
-                {
-                    x -= (x % gridSpace);
-                }
-                if (y % gridSpace != 0)
-                {
-                    y -= (y % gridSpace);
-                }*/
-                hit.collider.transform.position = new Vector3(x, y, 0);
-                //print(hit.collider.transform.position);
-            }
-            else
-            {
-                float x = worldPoint.x;
-                float y = worldPoint.y;
-                
-                if ((x-prevX) >= 1)
-                {
-                    prevX +=1 ;
-                }
-                else if (prevX-x>=1)
-                {
-                    prevX -= 1;
-                }
-                if ((y - prevY) >= 1)
-                {
-                    prevY += 1;
-                }
-                else if (prevY - y >= 1)
-                {
-                    prevY -= 1;
-                }
-                
-                hit.collider.transform.position = new Vector3(prevX, prevY, 0);
-                //childs = hit.collider.gameObject.GetComponentsInChildren<Transform>();
 
 
             }
-            
-            
+            else if(isDraggin)
+            {
+                isDraggin = false;
+                if (hit.collider != null && hit.collider.gameObject.tag == "node")
+                {
+                    hit.collider.gameObject.GetComponentInParent<Item>().isMoving = false;
+                }
+            }
         }
         else
         {
-            isDraggin = false;
-            if (hit.collider!=null && hit.collider.gameObject.tag == "node")
+            
+
+            //Cursor.SetCursor(dragCursorTexture, Vector2.zero, CursorMode.Auto);
+            if (Input.GetMouseButtonDown(0))
             {
-                hit.collider.gameObject.GetComponentInParent<Item>().isMoving = false;
+                x1 = Mathf.RoundToInt(worldPoint.x);
+                y1 = Mathf.RoundToInt(worldPoint.y);
+                isDraggin = true;
+            }
+            if (isDraggin && Input.GetMouseButton(0))
+            {
+                x2 = Mathf.RoundToInt(worldPoint.x);
+                y2 = Mathf.RoundToInt(worldPoint.y);
+                if ((Mathf.Abs(x1 - x2) >= 2 || Mathf.Abs(y1 - y2) >= 1)&& toDraw)
+                {
+                    toDraw = false;
+                    newComponent = Instantiate<GameObject>(toInstantiate);
+                    CircuitManager.selected = newComponent;
+                    newComponent.GetComponent<Item>().isMoving = true;
+                    childs = newComponent.GetComponentsInChildren<Transform>();
+                    childs[1].transform.position = new Vector3(x1, y1, 0);
+                    
+
+                }
+                if (newComponent)
+                {
+                    int x = Mathf.RoundToInt(worldPoint.x);
+                    int y = Mathf.RoundToInt(worldPoint.y);
+                    childs[2].transform.position = new Vector3(x, y, 0);
+                }
+            }
+            else if (isDraggin)
+            {
+                isDraggin = false;
+                if (newComponent) newComponent.GetComponent<Item>().isMoving = false;
+                newComponent = null;
+                toDraw = true;
             }
         }
+    }
+
+    public void DragMode(int n)
+    {
+        if (n == 0)
+        {
+            mode = 0;
+        }
+        else
+        {
+            mode = 1;
+            toInstantiate = newComponentPrefabs[n - 1];
+        }
+
     }
 }
