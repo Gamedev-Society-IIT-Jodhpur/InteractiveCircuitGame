@@ -59,10 +59,10 @@ public class DragManager : MonoBehaviour
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
                     childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
-                    if(Mathf.Abs(childs[1].transform.position.x-x)>=2 && Mathf.Abs(childs[1].transform.position.y - y) >= 2)
+                    if(Vector3.Distance(childs[1].transform.position,new Vector3(x,y,0))>=2)
                     {
-                    }
                         hit.collider.transform.position = new Vector3Int(x, y, 0);
+                    }
 
                     //print(hit.collider.transform.position);
                 }
@@ -132,7 +132,10 @@ public class DragManager : MonoBehaviour
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
-                    childs[2].transform.position = new Vector3(x, y, 0);
+                    if (Vector3.Distance(childs[1].transform.position,new Vector3(x, y, 0)) >= 2)
+                    {
+                        childs[2].transform.position = new Vector3(x, y, 0);
+                    }
                 }
             }
             else if (isDraggin)
