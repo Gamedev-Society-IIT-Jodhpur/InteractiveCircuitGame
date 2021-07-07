@@ -12,6 +12,8 @@ public class CircuitManager : MonoBehaviour
     public static Dictionary<string, int> components ;
     public static List<GameObject> componentList;
     public static GameObject selected;
+    //[SerializeField] 
+    //public static Material outlineMaterial;
     string pos;
     string neg;
     Transform[] childs;
@@ -80,10 +82,10 @@ public class CircuitManager : MonoBehaviour
 
     public void DeleteComponent()
     {
+        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         CircuitManager.componentList.Remove(selected);
         Destroy(selected);
     }
-
 
 
 }

@@ -41,14 +41,18 @@ public class DragManager : MonoBehaviour
 
                     if (hit.collider.gameObject.tag == "node")
                     {
+                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
                         hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
                         CircuitManager.selected = hit.collider.gameObject.transform.parent.gameObject;
+                        OutlineComponent();
                     }
                     else
                     {
+                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
                         prevX = hit.collider.gameObject.transform.position.x;
                         prevY = hit.collider.gameObject.transform.position.y;
                         CircuitManager.selected = hit.collider.gameObject;
+                        OutlineComponent();
                     }
                 }
             }
@@ -119,9 +123,14 @@ public class DragManager : MonoBehaviour
                 y2 = Mathf.RoundToInt(worldPoint.y);
                 if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 2 && toDraw)
                 {
+                    if(CircuitManager.selected)
+                    {
+                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+                    }
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
                     CircuitManager.selected = newComponent;
+                    OutlineComponent();
                     newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
@@ -171,5 +180,10 @@ public class DragManager : MonoBehaviour
             component.valueText.text = value;
         }
         
+    }
+
+    public void OutlineComponent()
+    {
+        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 }
