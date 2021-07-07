@@ -492,14 +492,14 @@ PrefabInstance:
     - target: {fileID: 9133479610099506481, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d1d25ce5b54983045ae8ea9f68728ed3, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 9133479610099506485, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_Name
       value: Resistor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506485, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_RootOrder
@@ -1116,8 +1116,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1140,11 +1140,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b568df3a987464aad4bea624bef4cd, type: 3}
+  m_Script: {fileID: 11500000, guid: ced2f3d470be43d4c887dd844521b902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  zoomStap: 0.5
+  minZoom: 15
+  maxZoom: 25
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1263,6 +1267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2474fd1b706745e4e8ffb86bf1b2bf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: d1d25ce5b54983045ae8ea9f68728ed3, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &769865725
 Transform:
   m_ObjectHideFlags: 0
@@ -2035,7 +2041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506485, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_RootOrder
