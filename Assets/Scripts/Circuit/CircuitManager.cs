@@ -17,7 +17,8 @@ public class CircuitManager : MonoBehaviour
     string pos;
     string neg;
     Transform[] childs;
-    string volt="";
+    //string volt="";
+    GameObject volt=null;
     string temp;
     [SerializeField] Text voltageText;
     [SerializeField] Text currentText;
@@ -37,7 +38,7 @@ public class CircuitManager : MonoBehaviour
         for (int i = 0; i < componentList.Count; i++)
         {
 
-            print(componentList[i].name);
+            //print(componentList[i].name);
             childs = componentList[i].GetComponentsInChildren<Transform>();
             pos = (Mathf.RoundToInt(childs[1].position.x)).ToString() +" "+ (Mathf.RoundToInt(childs[1].position.y)).ToString();
             neg = (Mathf.RoundToInt(childs[2].position.x)).ToString() +" "+ (Mathf.RoundToInt(childs[2].position.y)).ToString();
@@ -46,9 +47,9 @@ public class CircuitManager : MonoBehaviour
                 temp = neg;
                 neg = "0";
             }
-            if (componentList[i].GetComponent<ComponentInitialization>().a == "volt" && volt=="")
+            if (componentList[i].GetComponent<ComponentInitialization>().a == "volt" && volt==null)
             {
-                volt = "volt" + i;
+                volt = componentList[i];
                 
             }
             if (neg == temp)
@@ -66,7 +67,7 @@ public class CircuitManager : MonoBehaviour
         }
 
 
-        var dc = new DC("dc", volt, 0.0, 5.0, 0.001);
+        var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
@@ -86,6 +87,18 @@ public class CircuitManager : MonoBehaviour
         CircuitManager.componentList.Remove(selected);
         Destroy(selected);
     }
+
+    public static void ChangeSelected(GameObject gameObject)
+    {
+        if (selected)
+        {
+            selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+
+        }
+        selected = gameObject;
+        DragManager.OutlineComponent();
+    }
+
 
 
 }

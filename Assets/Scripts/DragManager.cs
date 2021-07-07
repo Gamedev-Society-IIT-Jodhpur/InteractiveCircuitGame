@@ -10,6 +10,8 @@ public class DragManager : MonoBehaviour
     Vector2 worldPoint;
     float prevX;
     float prevY;
+    float prevCursorX;
+    float prevCursorY;
     Transform[] childs;
     public int mode = 0;
     //[SerializeField] Texture2D dragCursorTexture;
@@ -26,7 +28,6 @@ public class DragManager : MonoBehaviour
 
         if (mode == 0)
         {
-            //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -36,23 +37,21 @@ public class DragManager : MonoBehaviour
                 if (hit.collider != null)
                 {
                     isDraggin = true;
-                    //print(hit.collider.gameObject.transform.position);
-                    //print(hit.collider.gameObject.name);
 
                     if (hit.collider.gameObject.tag == "node")
                     {
-                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+                        
                         hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
-                        CircuitManager.selected = hit.collider.gameObject.transform.parent.gameObject;
-                        OutlineComponent();
+                        CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
+                        
                     }
                     else
                     {
-                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
                         prevX = hit.collider.gameObject.transform.position.x;
                         prevY = hit.collider.gameObject.transform.position.y;
-                        CircuitManager.selected = hit.collider.gameObject;
-                        OutlineComponent();
+                        prevCursorX = worldPoint.x;
+                        prevCursorY = worldPoint.y;
+                        CircuitManager.ChangeSelected(hit.collider.gameObject);
                     }
                 }
             }
@@ -75,24 +74,31 @@ public class DragManager : MonoBehaviour
                     float x = worldPoint.x;
                     float y = worldPoint.y;
 
-                    if ((x - prevX) >= 1)
+                    if (Vector2.Distance(new Vector2(x,y),new Vector2(prevCursorX, prevCursorY)) >= 1)
                     {
-                        prevX += Mathf.RoundToInt(x - prevX);
-                    }
-                    else if (prevX - x >= 1)
-                    {
-                        prevX -= Mathf.RoundToInt(prevX - x);
-                    }
-                    if ((y - prevY) >= 1)
-                    {
-                        prevY += Mathf.RoundToInt(y - prevY);
-                    }
-                    else if (prevY - y >= 1)
-                    {
-                        prevY -= Mathf.RoundToInt(prevY - y);
-                    }
+                        if ((x - prevCursorX) >= 1)
+                        {
+                            prevX += Mathf.RoundToInt(x - prevCursorX);
+                            prevCursorX = x;
+                        }
+                        else if (prevCursorX - x >= 1)
+                        {
+                            prevX -= Mathf.RoundToInt(prevCursorX - x);
+                            prevCursorX = x;
+                        }
+                        if ((y - prevCursorY) >= 1)
+                        {
+                            prevY += Mathf.RoundToInt(y - prevCursorY);
+                            prevCursorY = y;
+                        }
+                        else if (prevCursorY - y >= 1)
+                        {
+                            prevY -= Mathf.RoundToInt(prevCursorY - y);
+                            prevCursorY = y;
+                        }
 
-                    hit.collider.transform.position = new Vector3(prevX, prevY, 0);
+                        hit.collider.transform.position = new Vector3(prevX, prevY, 0);
+                    }
                 }
 
 
@@ -123,14 +129,10 @@ public class DragManager : MonoBehaviour
                 y2 = Mathf.RoundToInt(worldPoint.y);
                 if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 2 && toDraw)
                 {
-                    if(CircuitManager.selected)
-                    {
-                        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
-                    }
+                    
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
-                    CircuitManager.selected = newComponent;
-                    OutlineComponent();
+                    CircuitManager.ChangeSelected(newComponent);
                     newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
@@ -182,7 +184,7 @@ public class DragManager : MonoBehaviour
         
     }
 
-    public void OutlineComponent()
+    public static void OutlineComponent()
     {
         CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }

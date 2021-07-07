@@ -221,7 +221,7 @@ RectTransform:
   - {fileID: 780142568}
   - {fileID: 213189097}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   zoomStap: 0.5
-  minZoom: 15
+  minZoom: 5
   maxZoom: 25
 --- !u!20 &519420031
 Camera:
@@ -2045,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2279,7 +2279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1448806815
 GameObject:
@@ -2491,7 +2491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497565268
 GameObject:
@@ -2621,7 +2621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9133479610099506486, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1496358225}
         m_TargetAssemblyTypeName: CircuitManager, Assembly-CSharp
         m_MethodName: DeleteComponent
         m_Mode: 1
@@ -2894,7 +2894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335684766925502525, guid: d05643d3bacbd544988f68c46150e8e7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6335684766925502525, guid: d05643d3bacbd544988f68c46150e8e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3021,7 +3021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1496358225}
         m_TargetAssemblyTypeName: CircuitManager, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
