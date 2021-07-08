@@ -15,17 +15,9 @@ public class Node : MonoBehaviour
     {
         parentPos = transform.parent;
         childs = parentPos.gameObject.GetComponentsInChildren<Transform>();
-        //gridSpace = dragManager.GetComponent<DragManager>().gridSpace;
         int x = (int)transform.position.x;
         int y = (int)transform.position.y;
-        /*if (x % gridSpace != 0)
-        {
-            x -= (x % gridSpace);
-        }
-        if (y % gridSpace != 0)
-        {
-            y -= (y % gridSpace);
-        }*/
+
         transform.position = new Vector3(x, y, 0);
 
         node1Pos = childs[1].position;
@@ -45,6 +37,7 @@ public class Node : MonoBehaviour
         childs[1].position = node1Pos;
         childs[2].position = node2Pos;
         childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
+
     }
 
     // Update is called once per frame
