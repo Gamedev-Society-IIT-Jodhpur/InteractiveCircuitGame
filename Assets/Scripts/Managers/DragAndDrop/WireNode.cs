@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WireNode : MonoBehaviour
 {
-    //[SerializeField] DragManager dragManager;
-    //float gridSpace;
     Transform parentPos;
     Transform[] childs;
     Vector3 node1Pos;
@@ -17,17 +15,9 @@ public class WireNode : MonoBehaviour
     {
         parentPos = transform.parent;
         childs = parentPos.gameObject.GetComponentsInChildren<Transform>();
-        //gridSpace = dragManager.GetComponent<DragManager>().gridSpace;
         int x = (int)transform.position.x;
         int y = (int)transform.position.y;
-        /*if (x % gridSpace != 0)
-        {
-            x -= (x % gridSpace);
-        }
-        if (y % gridSpace != 0)
-        {
-            y -= (y % gridSpace);
-        }*/
+
         transform.position = new Vector3(x, y, 0);
         node1Pos = childs[1].position;
         node2Pos = childs[2].position;
@@ -52,6 +42,7 @@ public class WireNode : MonoBehaviour
         childs[2].localScale = new Vector3(node2Scale.x / parentPos.localScale.x, node2Scale.y / parentPos.localScale.y, node2Scale.z / parentPos.localScale.z);
         childs[1].position = node1Pos;
         childs[2].position = node2Pos;
+
     }
 
     // Update is called once per frame

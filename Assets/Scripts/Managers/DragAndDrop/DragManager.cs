@@ -13,6 +13,9 @@ public class DragManager : MonoBehaviour
     float prevCursorX;
     float prevCursorY;
     Transform[] childs;
+    Vector2 child1Pos;
+    Vector2 child2Pos;
+    int currentChild;
     public int mode = 0;
     //[SerializeField] Texture2D dragCursorTexture;
     int x2, y2, x1, y1;
@@ -43,7 +46,18 @@ public class DragManager : MonoBehaviour
                         
                         hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
                         CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
-                        
+                        childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
+                        child1Pos = childs[1].transform.position;
+                        child2Pos = childs[2].transform.position;
+                        if(Vector2.Distance(worldPoint,child1Pos)< Vector2.Distance(worldPoint, child2Pos))
+                        {
+                            currentChild = 1;
+                        }
+                        else
+                        {
+                            currentChild = 2;
+                        }
+
                     }
                     else
                     {
@@ -61,13 +75,23 @@ public class DragManager : MonoBehaviour
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
-                    childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
-                    if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
+
+
+                    if (currentChild== 2)
                     {
-                        hit.collider.transform.position = new Vector3Int(x, y, 0);
+                        if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
+                        {
+                            hit.collider.transform.position = new Vector3Int(x, y, 0);
+                        }
+                    }
+                    else
+                    {
+                        if (Vector3.Distance(childs[2].transform.position, new Vector3(x, y, 0)) >= 2)
+                        {
+                            hit.collider.transform.position = new Vector3Int(x, y, 0);
+                        }
                     }
 
-                    //print(hit.collider.transform.position);
                 }
                 else
                 {

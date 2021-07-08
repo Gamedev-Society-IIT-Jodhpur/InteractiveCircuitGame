@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 9133479610099506481}
   - component: {fileID: 9133479610099506487}
   - component: {fileID: 9133479610099506482}
-  - component: {fileID: 6224218309191531643}
   - component: {fileID: 1681572909}
   m_Layer: 0
   m_Name: Voltage
@@ -536,18 +535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
---- !u!114 &6224218309191531643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9133479610099506485}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a42e8ddc7be4d24682f1a2c9b55553d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1681572909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,6 +552,7 @@ MonoBehaviour:
   value: 5
   pos: 0
   neg: 0
+  valueText: {fileID: 0}
 --- !u!1 &9177498069075397207
 GameObject:
   m_ObjectHideFlags: 0
