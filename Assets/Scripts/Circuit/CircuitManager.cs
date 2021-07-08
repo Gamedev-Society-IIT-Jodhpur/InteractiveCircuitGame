@@ -4,7 +4,8 @@ using UnityEngine;
 using SpiceSharp;
 using SpiceSharp.Components;
 using SpiceSharp.Simulations;
-using UnityEngine.UI;
+//using UnityEngine.UI;
+using TMPro;
 
 public class CircuitManager : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class CircuitManager : MonoBehaviour
     //string volt="";
     GameObject volt=null;
     string temp;
-    [SerializeField] Text voltageText;
-    [SerializeField] Text currentText;
+    [SerializeField] TMP_Text voltageText;
+    [SerializeField] TMP_Text currentText;
 
 
     //[SerializeField] GameObject resistor;
@@ -76,27 +77,27 @@ public class CircuitManager : MonoBehaviour
             //print(selected.name);
         };
 
+
         // Run the simulation
         dc.Run(CircuitManager.ckt);
 
     }
 
-    public void DeleteComponent()
+   /* public void DeleteComponent()
     {
         selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         CircuitManager.componentList.Remove(selected);
         Destroy(selected);
-    }
+    }*/
 
     public static void ChangeSelected(GameObject gameObject)
     {
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
-
         }
         selected = gameObject;
-        DragManager.OutlineComponent();
+        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
 
