@@ -66,6 +66,9 @@ public class CircuitManager : MonoBehaviour
             componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
         }
 
+        // checking for ground and closed loops
+         
+
 
         var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
