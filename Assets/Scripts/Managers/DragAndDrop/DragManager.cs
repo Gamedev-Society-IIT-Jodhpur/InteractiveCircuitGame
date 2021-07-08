@@ -208,8 +208,8 @@ public class DragManager : MonoBehaviour
         
     }
 
-    public static void OutlineComponent()
+    /*public static void OutlineComponent()
     {
-        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
-    }
+        CircuitManager.;
+    }*/
 }
