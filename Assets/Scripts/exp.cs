@@ -124,6 +124,8 @@ public class exp : MonoBehaviour
 
         dc.Run(ckt);
 
+
+      
     }
 
     // Update is called once per frame

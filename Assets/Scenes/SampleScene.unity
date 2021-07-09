@@ -2384,7 +2384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451629529}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58b568df3a987464aad4bea624bef4cd, type: 3}
   m_Name: 
@@ -2520,8 +2520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c46c2bd4e48f84080037f3f4a591de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voltageText: {fileID: 1009546097}
-  currentText: {fileID: 511636423}
+  voltageText: {fileID: 0}
+  currentText: {fileID: 0}
 --- !u!4 &1496358226
 Transform:
   m_ObjectHideFlags: 0
