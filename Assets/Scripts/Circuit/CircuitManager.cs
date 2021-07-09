@@ -4,8 +4,8 @@ using UnityEngine;
 using SpiceSharp;
 using SpiceSharp.Components;
 using SpiceSharp.Simulations;
-//using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UI;
+//using TMPro;
 
 public class CircuitManager : MonoBehaviour
 {
@@ -21,8 +21,8 @@ public class CircuitManager : MonoBehaviour
     //string volt="";
     GameObject volt=null;
     string temp;
-    [SerializeField] TMP_Text voltageText;
-    [SerializeField] TMP_Text currentText;
+    [SerializeField] Text voltageText;
+    [SerializeField] Text currentText;
 
 
     //[SerializeField] GameObject resistor;
@@ -64,20 +64,29 @@ public class CircuitManager : MonoBehaviour
             //print("printing evrything " + pos + " " + neg+" "+temp.GetType());
             componentList[i].GetComponent<ComponentInitialization>().pos = pos;
             componentList[i].GetComponent<ComponentInitialization>().neg = neg;
-            componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
+            //componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
         }
 
         // checking for ground and closed loops
-         
 
+        CheckingGround check = new CheckingGround();
+        check.CheckGround();
+        for (int i = 0; i < componentList.Count; i++)
+        {
+            pos=componentList[i].GetComponent<ComponentInitialization>().pos ;
+            neg=componentList[i].GetComponent<ComponentInitialization>().neg ;
 
-        var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
+            componentList[i].GetComponent<ComponentInitialization>().Initialize(i, pos, neg);
+        }
+
+            var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
-            voltageText.text="Voltage: "+ exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().pos ,selected.GetComponent<ComponentInitialization>().neg);
-            currentText.text = "Current: " + currentExport.Value;
+            Debug.Log("Voltage: "+ exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().pos ,selected.GetComponent<ComponentInitialization>().neg));
+            Debug.Log("Current: " + currentExport.Value);
             //print(selected.name);
+            //Debug.Log("Kinda Working");
         };
 
 
