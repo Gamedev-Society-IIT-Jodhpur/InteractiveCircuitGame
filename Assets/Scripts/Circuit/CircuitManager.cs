@@ -64,20 +64,20 @@ public class CircuitManager : MonoBehaviour
             //print("printing evrything " + pos + " " + neg+" "+temp.GetType());
             componentList[i].GetComponent<ComponentInitialization>().pos = pos;
             componentList[i].GetComponent<ComponentInitialization>().neg = neg;
-            //componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
+            componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
         }
 
         // checking for ground and closed loops
 
-        CheckingGround check = new CheckingGround();
+      GroundChecking check = new GroundChecking();
         check.CheckGround();
-        for (int i = 0; i < componentList.Count; i++)
+        /*for (int i = 0; i < componentList.Count; i++)
         {
             pos=componentList[i].GetComponent<ComponentInitialization>().pos ;
             neg=componentList[i].GetComponent<ComponentInitialization>().neg ;
 
             componentList[i].GetComponent<ComponentInitialization>().Initialize(i, pos, neg);
-        }
+        }*/
 
             var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
