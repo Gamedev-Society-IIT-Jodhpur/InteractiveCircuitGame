@@ -6,6 +6,7 @@ using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 //using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class CircuitManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class CircuitManager : MonoBehaviour
     string temp;
     [SerializeField] TMP_Text voltageText;
     [SerializeField] TMP_Text currentText;
+    List<List<string>> circuits = new List<List<string>>() { };
 
 
     //[SerializeField] GameObject resistor;
@@ -64,19 +66,43 @@ public class CircuitManager : MonoBehaviour
             componentList[i].GetComponent<ComponentInitialization>().pos = pos;
             componentList[i].GetComponent<ComponentInitialization>().neg = neg;
             componentList[i].GetComponent<ComponentInitialization>().Initialize(i,pos,neg);
+
+            int placed = 0;
+            int placedindex = -1;
+
+            for (int j = 0; j < circuits.Count; j++)
+            {
+                
+                
+                
+                    if (circuits[j].Contains(pos) || circuits[j].Contains(neg) )
+                    {
+                    if (placed == 0)
+                    {
+                        circuits[j] = circuits[j].Union(new List<string> { pos, neg }).ToList();
+                        placed = 1;
+                        placedindex = j;
+                    }
+                     else
+                    {
+                        Merge(placedindex, j);
+                        j--;
+                    }
+                    }
+
+                
+                
+            }
+            if (placed == 0)
+            {
+                circuits.Add(new List<string>() { pos, neg });
+            }
+
+
         }
+        Groundit();
 
-        // checking for ground and closed loops
-
-      //GroundChecking check = new GroundChecking();
-       // check.CheckGround();
-        /*for (int i = 0; i < componentList.Count; i++)
-        {
-            pos=componentList[i].GetComponent<ComponentInitialization>().pos ;
-            neg=componentList[i].GetComponent<ComponentInitialization>().neg ;
-
-            componentList[i].GetComponent<ComponentInitialization>().Initialize(i, pos, neg);
-        }*/
+      
 
         var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
@@ -94,12 +120,7 @@ public class CircuitManager : MonoBehaviour
 
     }
 
-   /* public void DeleteComponent()
-    {
-        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
-        CircuitManager.componentList.Remove(selected);
-        Destroy(selected);
-    }*/
+ 
 
     public static void ChangeSelected(GameObject gameObject)
     {
@@ -112,5 +133,28 @@ public class CircuitManager : MonoBehaviour
     }
 
 
+ 
+
+    private void Merge(int i, int j)
+    {
+        Debug.Log("Before merge" + circuits.Count);
+        circuits[i] = circuits[i].Union(circuits[j]).ToList();
+        circuits.RemoveAt(j);
+        Debug.Log("After merge" + circuits.Count);
+
+
+    }
+
+    private void Groundit()
+    {
+        Debug.Log("no of circuits =" + circuits.Count);
+
+        for (int i = 1; i < circuits.Count; i++)
+        {
+            UnifiedScript.WireInitialize("GroundingWire" + i, circuits[i][0], "0", "0");
+
+        }
+        Debug.Log("count =" + circuits.Count);
+    }
 
 }
