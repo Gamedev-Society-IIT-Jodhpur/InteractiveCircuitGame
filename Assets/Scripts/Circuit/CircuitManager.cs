@@ -77,17 +77,17 @@ public class CircuitManager : MonoBehaviour
                 
                     if (circuits[j].Contains(pos) || circuits[j].Contains(neg) )
                     {
-                    if (placed == 0)
-                    {
-                        circuits[j] = circuits[j].Union(new List<string> { pos, neg }).ToList();
-                        placed = 1;
-                        placedindex = j;
-                    }
-                     else
-                    {
-                        Merge(placedindex, j);
-                        j--;
-                    }
+                        if (placed == 0)
+                        {
+                            circuits[j] = circuits[j].Union(new List<string> { pos, neg }).ToList();
+                            placed = 1;
+                            placedindex = j;
+                        }
+                        else
+                        {
+                            Merge(placedindex, j);
+                            j--;
+                        }
                     }
 
                 
@@ -137,10 +137,10 @@ public class CircuitManager : MonoBehaviour
 
     private void Merge(int i, int j)
     {
-        Debug.Log("Before merge" + circuits.Count);
+        //Debug.Log("Before merge" + circuits.Count);
         circuits[i] = circuits[i].Union(circuits[j]).ToList();
         circuits.RemoveAt(j);
-        Debug.Log("After merge" + circuits.Count);
+        //Debug.Log("After merge" + circuits.Count);
 
 
     }
@@ -154,7 +154,8 @@ public class CircuitManager : MonoBehaviour
             UnifiedScript.WireInitialize("GroundingWire" + i, circuits[i][0], "0", "0");
 
         }
-        Debug.Log("count =" + circuits.Count);
+        //Debug.Log("count =" + circuits.Count);
+        circuits.Clear();
     }
 
 }

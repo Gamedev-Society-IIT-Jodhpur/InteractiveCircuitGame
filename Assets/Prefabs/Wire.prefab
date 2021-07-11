@@ -387,3 +387,4 @@ MonoBehaviour:
   value: 0
   pos: 0
   neg: 0
+  valueText: {fileID: 0}

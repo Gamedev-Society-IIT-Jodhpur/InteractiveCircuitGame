@@ -8,6 +8,7 @@ TagManager:
   - Wire
   - Resistor
   - Voltage
+  - bjt node
   layers:
   - Default
   - TransparentFX

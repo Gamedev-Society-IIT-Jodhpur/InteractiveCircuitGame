@@ -23,6 +23,8 @@ public class DragManager : MonoBehaviour
     bool toDraw = true;
     [SerializeField] List<GameObject> newComponentPrefabs;
     GameObject toInstantiate;
+    int axis = 0;
+    bool forward = true;
 
 
     void Update()
@@ -59,6 +61,39 @@ public class DragManager : MonoBehaviour
                         }
 
                     }
+                    else if(hit.collider.gameObject.tag == "bjt node")
+                    {
+                        hit.collider.transform.parent.gameObject.GetComponent<BJTItem>().isMoving = true;
+                        CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
+                        childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
+                        child1Pos = childs[0].position;
+                        child2Pos = childs[3].position;
+                        if (child1Pos.x == child2Pos.x)
+                        {
+                            axis = 1;
+                            if (child1Pos.y < child2Pos.y)
+                            {
+                                forward = true;
+                            }
+                            else
+                            {
+                                forward = false;
+                            }
+                        }
+                        else
+                        {
+                            axis = 0;
+                            if (child1Pos.x < child2Pos.x)
+                            {
+                                forward = true;
+                            }
+                            else
+                            {
+                                forward = false;
+                            }
+                        }
+
+                    }
                     else
                     {
                         prevX = hit.collider.gameObject.transform.position.x;
@@ -90,6 +125,52 @@ public class DragManager : MonoBehaviour
                         {
                             hit.collider.transform.position = new Vector3Int(x, y, 0);
                         }
+                    }
+
+                }
+                else if(hit.collider.gameObject.tag == "bjt node")
+                {
+                    if (axis == 0)
+                    {
+                        int x = Mathf.RoundToInt(worldPoint.x);
+                        int y = Mathf.RoundToInt(hit.collider.transform.position.y);
+                        if (forward)
+                        {
+                            if (x - childs[0].transform.position.x >= 0)
+                            {
+                                hit.collider.transform.position = new Vector3Int(x, y, 0);
+                            }
+
+                        }
+                        else
+                        {
+                            if (x - childs[0].transform.position.x <= 0)
+                            {
+                                hit.collider.transform.position = new Vector3Int(x, y, 0);
+                            }
+                        }
+                        
+                    }
+                    else
+                    {
+                        int x = Mathf.RoundToInt(hit.collider.transform.position.x);
+                        int y = Mathf.RoundToInt(worldPoint.y);
+                        if (forward)
+                        {
+                            if (y - childs[0].transform.position.y >= 0)
+                            {
+                                hit.collider.transform.position = new Vector3Int(x, y, 0);
+                            }
+
+                        }
+                        else
+                        {
+                            if (y - childs[0].transform.position.y <= 0)
+                            {
+                                hit.collider.transform.position = new Vector3Int(x, y, 0);
+                            }
+                        }
+                        
                     }
 
                 }
@@ -197,7 +278,7 @@ public class DragManager : MonoBehaviour
 
     }
 
-    public void ChangeValue(string value)
+    /*public void ChangeValue(string value)
     {
         ComponentInitialization component= CircuitManager.selected.GetComponent<ComponentInitialization>();
         if (component.tag != "Wire")
@@ -206,10 +287,5 @@ public class DragManager : MonoBehaviour
             component.valueText.text = value;
         }
         
-    }
-
-    /*public static void OutlineComponent()
-    {
-        CircuitManager.;
     }*/
 }
