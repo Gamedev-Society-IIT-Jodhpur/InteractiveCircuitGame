@@ -215,6 +215,10 @@ public class DragManager : MonoBehaviour
                 {
                     hit.collider.gameObject.GetComponentInParent<Item>().isMoving = false;
                 }
+                else if (hit.collider != null && hit.collider.gameObject.tag == "bjt node")
+                {
+                    hit.collider.gameObject.GetComponentInParent<BJTItem>().isMoving = false;
+                }
             }
         }
         else

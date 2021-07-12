@@ -141,8 +141,6 @@ public class CircuitManager : MonoBehaviour
         circuits[i] = circuits[i].Union(circuits[j]).ToList();
         circuits.RemoveAt(j);
         //Debug.Log("After merge" + circuits.Count);
-
-
     }
 
     private void Groundit()
