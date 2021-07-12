@@ -90,7 +90,6 @@ public class CircuitManager : MonoBehaviour
             {
                 circuits.Add(new List<string>() { pos, neg });
             }
-
         }
         Groundit();
 
@@ -126,6 +125,11 @@ public class CircuitManager : MonoBehaviour
         //Debug.Log("After merge" + circuits.Count);
     }
 
+    /**
+     * To add 
+     * 
+     * 
+     */
     private void Groundit()
     {
         Debug.Log("no of circuits =" + circuits.Count);
