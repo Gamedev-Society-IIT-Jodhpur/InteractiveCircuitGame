@@ -9,6 +9,7 @@ TagManager:
   - Resistor
   - Voltage
   - bjt node
+  - BJT
   layers:
   - Default
   - TransparentFX

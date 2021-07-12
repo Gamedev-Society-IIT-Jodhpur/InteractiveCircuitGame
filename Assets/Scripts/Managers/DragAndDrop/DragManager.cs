@@ -67,7 +67,7 @@ public class DragManager : MonoBehaviour
                         CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
                         childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
                         child1Pos = childs[0].position;
-                        child2Pos = childs[3].position;
+                        child2Pos = childs[1].position;
                         if (child1Pos.x == child2Pos.x)
                         {
                             axis = 1;
@@ -215,13 +215,17 @@ public class DragManager : MonoBehaviour
                 {
                     hit.collider.gameObject.GetComponentInParent<Item>().isMoving = false;
                 }
+                else if (hit.collider != null && hit.collider.gameObject.tag == "bjt node")
+                {
+                    hit.collider.gameObject.GetComponentInParent<BJTItem>().isMoving = false;
+                }
             }
         }
         else
         {
-
-
             //Cursor.SetCursor(dragCursorTexture, Vector2.zero, CursorMode.Auto);
+
+
             if (Input.GetMouseButtonDown(0))
             {
                 x1 = Mathf.RoundToInt(worldPoint.x);
@@ -238,13 +242,51 @@ public class DragManager : MonoBehaviour
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
                     CircuitManager.ChangeSelected(newComponent);
-                    newComponent.GetComponent<Item>().isMoving = true;
+                    if(newComponent.tag=="BJT") newComponent.GetComponent<BJTItem>().isMoving = true;
+                    else newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
 
 
                 }
-                if (newComponent)
+                //for initializing bjt component
+                if (newComponent && newComponent.tag == "BJT")
+                {
+                    int x = Mathf.RoundToInt(worldPoint.x);
+                    int y = Mathf.RoundToInt(worldPoint.y);
+                    if (Mathf.Abs(x1-x)> Mathf.Abs(y1 - y)){
+                        if (x1 > x)
+                        {
+                            newComponent.transform.eulerAngles = new Vector3(0, 0, -90);
+                            newComponent.transform.position = new Vector3(x+0.5f,y1 , 0);
+                            childs[1].transform.position = new Vector3(x1, y1, 0);
+                        }
+                        else
+                        {
+                            newComponent.transform.eulerAngles = new Vector3(0, 0, 90);
+                            newComponent.transform.position = new Vector3(x + 0.5f, y1, 0);
+                            childs[1].transform.position = new Vector3(x1, y1, 0);
+                        }
+                    }
+                    else
+                    {
+                        if (y1 > y)
+                        {
+                            newComponent.transform.eulerAngles = new Vector3(0, 0, 0);
+                            newComponent.transform.position = new Vector3(x1, y+0.5f, 0);
+                            childs[1].transform.position = new Vector3(x1, y1, 0);
+                        }
+                        else
+                        {
+                            newComponent.transform.eulerAngles = new Vector3(0, 0, 180);
+                            newComponent.transform.position = new Vector3(x1, y + 0.5f, 0);
+                            childs[1].transform.position = new Vector3(x1, y1, 0);
+                        }
+                    }
+
+                }
+                //for initailizing other components
+                else if (newComponent)
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
@@ -254,16 +296,19 @@ public class DragManager : MonoBehaviour
                     }
                 }
             }
+            //to stop dragging after initialization
             else if (isDraggin)
             {
                 isDraggin = false;
-                if (newComponent) newComponent.GetComponent<Item>().isMoving = false;
+                if (newComponent && newComponent.tag=="BJT") newComponent.GetComponent<BJTItem>().isMoving = false;
+                else if (newComponent) newComponent.GetComponent<Item>().isMoving = false;
                 newComponent = null;
                 toDraw = true;
             }
         }
     }
 
+    //for dropdown menu
     public void DragMode(int n)
     {
         if (n == 0)
@@ -278,14 +323,5 @@ public class DragManager : MonoBehaviour
 
     }
 
-    /*public void ChangeValue(string value)
-    {
-        ComponentInitialization component= CircuitManager.selected.GetComponent<ComponentInitialization>();
-        if (component.tag != "Wire")
-        {
-            component.value = value;
-            component.valueText.text = value;
-        }
-        
-    }*/
+    
 }

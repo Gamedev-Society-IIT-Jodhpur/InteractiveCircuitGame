@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 0.125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1391945366}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3657802
 SpriteRenderer:
@@ -834,6 +834,7 @@ MonoBehaviour:
   - {fileID: 6335684766925502514, guid: d05643d3bacbd544988f68c46150e8e7, type: 3}
   - {fileID: 9133479610099506485, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
   - {fileID: 9133479610099506485, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
+  - {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
 --- !u!4 &420236844
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,6 +1295,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Voltage
       m_Image: {fileID: 0}
+    - m_Text: BJT
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1453,7 +1456,7 @@ Transform:
   m_LocalScale: {x: 0.125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1391945366}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &954934043
 BoxCollider2D:
@@ -2506,9 +2509,9 @@ Transform:
   m_LocalPosition: {x: -9.5, y: 4, z: 0}
   m_LocalScale: {x: 4, y: 0.5, z: 1}
   m_Children:
+  - {fileID: 954934042}
   - {fileID: 1440101337}
   - {fileID: 3657801}
-  - {fileID: 954934042}
   - {fileID: 212372250}
   - {fileID: 1545537710}
   m_Father: {fileID: 0}
@@ -2543,7 +2546,7 @@ Transform:
   m_LocalScale: {x: 0.125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1391945366}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1440101338
 SpriteRenderer:
@@ -2911,7 +2914,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3908,7 +3911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8296779068010369472, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_Name
