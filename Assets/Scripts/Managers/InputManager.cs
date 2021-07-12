@@ -12,6 +12,5 @@ public class InputManager : MonoBehaviour
             component.value = value;
             component.valueText.text = value;
         }
-
     }
 }

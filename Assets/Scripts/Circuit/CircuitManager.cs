@@ -25,12 +25,11 @@ public class CircuitManager : MonoBehaviour
     [SerializeField] TMP_Text currentText;
     List<List<string>> circuits = new List<List<string>>() { };
 
-
     //[SerializeField] GameObject resistor;
     //private IList<string> componentList = new List<string>(){"Voltage","Resistor"};
 
-    private void Awake(){
-        //ckt = new Circuit();
+    private void Awake()
+    {
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
@@ -72,9 +71,6 @@ public class CircuitManager : MonoBehaviour
 
             for (int j = 0; j < circuits.Count; j++)
             {
-                
-                
-                
                     if (circuits[j].Contains(pos) || circuits[j].Contains(neg) )
                     {
                         if (placed == 0)
@@ -89,20 +85,14 @@ public class CircuitManager : MonoBehaviour
                             j--;
                         }
                     }
-
-                
-                
             }
             if (placed == 0)
             {
                 circuits.Add(new List<string>() { pos, neg });
             }
 
-
         }
         Groundit();
-
-      
 
         var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
@@ -114,13 +104,9 @@ public class CircuitManager : MonoBehaviour
             //Debug.Log("Kinda Working");
         };
 
-
         // Run the simulation
-        dc.Run(CircuitManager.ckt);
-
+        dc.Run(ckt);
     }
-
- 
 
     public static void ChangeSelected(GameObject gameObject)
     {
@@ -132,17 +118,12 @@ public class CircuitManager : MonoBehaviour
         selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
-
- 
-
     private void Merge(int i, int j)
     {
         //Debug.Log("Before merge" + circuits.Count);
         circuits[i] = circuits[i].Union(circuits[j]).ToList();
         circuits.RemoveAt(j);
         //Debug.Log("After merge" + circuits.Count);
-
-
     }
 
     private void Groundit()
