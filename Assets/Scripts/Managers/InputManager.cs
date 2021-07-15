@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
     public void ChangeValue(string value)
     {
         ComponentInitialization component = CircuitManager.selected.GetComponent<ComponentInitialization>();
-        if (component.tag != "Wire")
+        if (component.tag != "Wire" && component.a !="bjt")
         {
             component.value = value;
             component.valueText.text = value;
