@@ -72,7 +72,7 @@ public class Drag : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && !isDraggin)
+        if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire)
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDraggin = true;

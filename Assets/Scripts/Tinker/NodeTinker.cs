@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NodeTinker : MonoBehaviour
-{   
+{
+    [SerializeField]GameObject wireManager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,10 @@ public class NodeTinker : MonoBehaviour
     private void OnMouseOver()
     {
         GetComponent<SpriteRenderer>().enabled=true;
+        if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire)
+        {
+            wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+        }
     }
 
     private void OnMouseExit()
