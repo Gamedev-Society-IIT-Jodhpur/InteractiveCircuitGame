@@ -6,9 +6,15 @@ public class ButtonManager : MonoBehaviour
 {
     public void DeleteComponent()
     {
-
-        CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
-        CircuitManager.componentList.Remove(CircuitManager.selected);
-        Destroy(CircuitManager.selected);
+        if(CircuitManager.selected)
+        {
+            CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+            CircuitManager.componentList.Remove(CircuitManager.selected);
+            Destroy(CircuitManager.selected);
+        }
+        else
+        {
+            Debug.Log("No componenet selected");
+        }
     } 
 }
