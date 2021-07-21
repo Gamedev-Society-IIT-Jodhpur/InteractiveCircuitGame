@@ -30,6 +30,7 @@ public class WireManager : MonoBehaviour
         newNewWireManager.transform.SetParent(gameObject.transform);
         newNewWireManager.GetComponent<NewWireManager>().nodes.Add(node);
         newWire.transform.SetParent(newNewWireManager.transform);
+        node.GetComponent<NodeTinker>().wires.Add(newWire);
         
 
     }

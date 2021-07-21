@@ -5,6 +5,7 @@ using UnityEngine;
 public class NodeTinker : MonoBehaviour
 {
     [SerializeField]GameObject wireManager;
+    public List<GameObject> wires;
 
     // Start is called before the first frame update
     void Start()

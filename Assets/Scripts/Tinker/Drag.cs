@@ -15,6 +15,8 @@ public class Drag : MonoBehaviour
     float dragThreshold = 0.01f;
     float diffX;
     float diffY;
+    NodeTinker[] childs;
+    //List<GameObject> wires;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +69,16 @@ public class Drag : MonoBehaviour
         else if (isDraggin)
         {
             isDraggin = false;
+
+            foreach (NodeTinker nodes in childs)
+            {
+                foreach (GameObject wire in nodes.wires)
+                {
+                    wire.GetComponent<Wire>().isMoving = false;
+
+                }
+            }
+
         }
     }
 
@@ -76,6 +88,15 @@ public class Drag : MonoBehaviour
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDraggin = true;
+            childs = GetComponentsInChildren<NodeTinker>();
+            foreach (NodeTinker nodes in childs)
+            {
+                foreach(GameObject wire in nodes.wires)
+                {
+                    wire.GetComponent<Wire>().isMoving = true;
+
+                }
+            }
             prevX = gameObject.transform.position.x;
             prevY = gameObject.transform.position.y;
             prevCursorX = worldPoint.x;

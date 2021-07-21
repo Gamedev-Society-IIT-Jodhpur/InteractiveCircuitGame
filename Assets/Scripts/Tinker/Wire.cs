@@ -49,12 +49,13 @@ public class Wire : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 hit = Physics2D.Raycast(mousePos, Vector2.zero);
-                if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=node1.gameObject)
+                if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
                     isDrawing = false;
                     WireManager.isDrawingWire = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
                     node2 = hit.collider.transform;
+                    hit.collider.GetComponent<NodeTinker>().wires.Add(gameObject);
 
                     mousePos = hit.collider.transform.position;
                     transform.position = new Vector3((mousePos.x + node1.transform.position.x) / 2, (mousePos.y + node1.transform.position.y) / 2, 0);
@@ -78,7 +79,8 @@ public class Wire : MonoBehaviour
                 else if((hit.collider==null)||(/*hit.collider!=null &&*/ hit.collider.tag != "node"))
                 {
                     node2 = Instantiate<GameObject>(wireNode).transform;
-                    node2.transform.position = mousePos+new Vector2(0.01f,0.01f);
+                    node2.transform.position = mousePos+new Vector2(0,0.0001f);
+                    node2.transform.SetParent(transform.parent);
                     isDrawing = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(node2);
                     GameObject newWire = Instantiate<GameObject>(gameObject);
