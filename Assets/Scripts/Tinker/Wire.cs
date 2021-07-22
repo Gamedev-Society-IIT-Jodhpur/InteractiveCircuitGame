@@ -5,6 +5,7 @@ using UnityEngine;
 public class Wire : MonoBehaviour
 {
     [SerializeField] GameObject wireNode;
+    [SerializeField] GameObject wire;
     Vector2 mousePos;
     Vector2 node2Pos;
     bool isDrawing;
@@ -35,16 +36,26 @@ public class Wire : MonoBehaviour
             //transform.localScale =new Vector3(transform.localScale.x,distance/2,transform.localScale.z);
 
             angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
-            if (angleVector.x < 0)
+
+            if (angleVector.x != 0 || angleVector.y != 0)
             {
-                angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, -angle);
+                if (angleVector.x < 0)
+                {
+                    angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                    transform.eulerAngles = new Vector3(0, 0, -angle);
+                }
+                else
+                {
+                    angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                }
             }
-            else
+
+            if (Input.GetKey(KeyCode.Escape))
             {
-                angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, angle);
+                GetComponentInParent<NewWireManager>().DestroyWire();
             }
+
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -54,6 +65,9 @@ public class Wire : MonoBehaviour
                     isDrawing = false;
                     WireManager.isDrawingWire = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
+                    GetComponentInParent<NewWireManager>().newWireNode2 = Instantiate<GameObject>(wireNode);
+                    GetComponentInParent<NewWireManager>().newWireNode2.transform.position = hit.collider.transform.position;
+                    GetComponentInParent<NewWireManager>().newWireNode2.transform.SetParent(hit.collider.transform);
                     node2 = hit.collider.transform;
                     hit.collider.GetComponent<NodeTinker>().wires.Add(gameObject);
 
@@ -64,26 +78,30 @@ public class Wire : MonoBehaviour
                     //transform.localScale = new Vector3(transform.localScale.x, distance/2, transform.localScale.z);
 
                     angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
-                    if (angleVector.x < 0)
+                    if (angleVector.x != 0 || angleVector.y != 0)
                     {
-                        angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                        transform.eulerAngles = new Vector3(0, 0, -angle);
+                        if (angleVector.x < 0)
+                        {
+                            angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                            transform.eulerAngles = new Vector3(0, 0, -angle);
+                        }
+                        else
+                        {
+                            angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                            transform.eulerAngles = new Vector3(0, 0, angle);
+                        }
                     }
-                    else
-                    {
-                        angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                        transform.eulerAngles = new Vector3(0, 0, angle);
-                    }
+                        
 
                 }
                 else if((hit.collider==null)||(/*hit.collider!=null &&*/ hit.collider.tag != "node"))
                 {
                     node2 = Instantiate<GameObject>(wireNode).transform;
-                    node2.transform.position = mousePos+new Vector2(0,0.0001f);
+                    node2.transform.position = mousePos/*+new Vector2(0,0.0001f)*/;
                     node2.transform.SetParent(transform.parent);
                     isDrawing = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(node2);
-                    GameObject newWire = Instantiate<GameObject>(gameObject);
+                    GameObject newWire = Instantiate<GameObject>(wire);
                     newWire.GetComponent<Wire>().node1 = node2;
                     newWire.transform.SetParent(gameObject.transform.parent);
 
@@ -100,15 +118,20 @@ public class Wire : MonoBehaviour
             transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
 
             angleVector = new Vector2(node1.transform.position.x - node2Pos.x, node1.transform.position.y - node2Pos.y);
-            if (angleVector.x < 0)
+            
+            
+            if (angleVector.x!=0 || angleVector.y != 0)
             {
-                angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, -angle);
-            }
-            else
-            {
-                angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, angle);
+                if (angleVector.x < 0)
+                {
+                    angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                    transform.eulerAngles = new Vector3(0, 0, -angle);
+                }
+                else
+                {
+                    angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                }
             }
         }
 

@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cf61342359bee4190121f9c2be7b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodes: []
+  wireNode: {fileID: 8440897011708199394, guid: 200dff92ca83a1a41875c6304270ed2c, type: 3}

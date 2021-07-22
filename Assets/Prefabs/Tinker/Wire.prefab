@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireNode: {fileID: 8440897011708199394, guid: 200dff92ca83a1a41875c6304270ed2c, type: 3}
+  wire: {fileID: 7633628569120763410}
   isMoving: 0
   node1: {fileID: 0}
   node2: {fileID: 0}

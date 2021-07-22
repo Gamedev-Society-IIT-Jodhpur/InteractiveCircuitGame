@@ -6,6 +6,7 @@ public class NodeTinker : MonoBehaviour
 {
     [SerializeField]GameObject wireManager;
     public List<GameObject> wires;
+    NodeTinker[] nodes;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,31 @@ public class NodeTinker : MonoBehaviour
         if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true)
         {
             GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
+
+            if (collision.transform.parent.parent.tag == "Breadboard")
+            {
+                transform.parent.parent.SetParent(collision.transform.parent.parent);
+
+
+            }
+            else if (transform.parent.parent.tag== "Breadboard")
+            {
+                collision.transform.parent.parent.SetParent(transform.parent.parent);
+                nodes = collision.transform.parent.parent.GetComponentsInChildren<NodeTinker>();
+                foreach (NodeTinker node in nodes)
+                {
+                    foreach (GameObject wire in node.wires)
+                    {
+                        wire.GetComponent<Wire>().isMoving = true;
+
+                    }
+                }
+            }
+
+            if (transform.parent.parent!=null && collision.transform.parent.parent.tag != "Breadboard")
+            {
+                transform.parent.parent.SetParent(null);
+            }
         }
     }
 

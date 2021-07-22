@@ -7,6 +7,7 @@ public class WireManager : MonoBehaviour
     [SerializeField] GameObject wire;
     [SerializeField] GameObject newWireManager;
     public static bool isDrawingWire=false;
+    [SerializeField] GameObject wireNode;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class WireManager : MonoBehaviour
         newNewWireManager.GetComponent<NewWireManager>().nodes.Add(node);
         newWire.transform.SetParent(newNewWireManager.transform);
         node.GetComponent<NodeTinker>().wires.Add(newWire);
+        
         
 
     }

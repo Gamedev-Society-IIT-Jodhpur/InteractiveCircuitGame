@@ -15,7 +15,9 @@ public class Drag : MonoBehaviour
     float dragThreshold = 0.01f;
     float diffX;
     float diffY;
-    NodeTinker[] childs;
+    NodeTinker[] nodes;
+    RaycastHit2D hit;
+
     //List<GameObject> wires;
 
     // Start is called before the first frame update
@@ -69,29 +71,35 @@ public class Drag : MonoBehaviour
         else if (isDraggin)
         {
             isDraggin = false;
-
-            foreach (NodeTinker nodes in childs)
+            nodes= GetComponentsInChildren<NodeTinker>();
+            foreach (NodeTinker node in nodes)
             {
-                foreach (GameObject wire in nodes.wires)
+                foreach (GameObject wire in node.wires)
                 {
                     wire.GetComponent<Wire>().isMoving = false;
 
                 }
             }
 
+            if (transform.parent!=null && dragThreshold==0.01f)
+            {
+                transform.parent = null;
+            }
         }
     }
 
     private void OnMouseOver()
     {
+        
+
         if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire)
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDraggin = true;
-            childs = GetComponentsInChildren<NodeTinker>();
-            foreach (NodeTinker nodes in childs)
+            nodes = GetComponentsInChildren<NodeTinker>();
+            foreach (NodeTinker node in nodes)
             {
-                foreach(GameObject wire in nodes.wires)
+                foreach(GameObject wire in node.wires)
                 {
                     wire.GetComponent<Wire>().isMoving = true;
 
@@ -104,6 +112,8 @@ public class Drag : MonoBehaviour
             diffX = prevX - prevCursorX;
             diffY = prevY - prevCursorY;
             //CircuitManager.ChangeSelected(hit.collider.gameObject);
+
+            
         }
     }
 
