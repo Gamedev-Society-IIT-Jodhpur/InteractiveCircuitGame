@@ -236,7 +236,7 @@ public class DragManager : MonoBehaviour
             {
                 x2 = Mathf.RoundToInt(worldPoint.x);
                 y2 = Mathf.RoundToInt(worldPoint.y);
-                if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 2 && toDraw)
+                if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 3 && toDraw)
                 {
                     
                     toDraw = false;
@@ -290,7 +290,7 @@ public class DragManager : MonoBehaviour
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
-                    if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
+                    if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 3)
                     {
                         childs[2].transform.position = new Vector3(x, y, 0);
                     }

@@ -26,17 +26,17 @@ public class Node : MonoBehaviour
         Vector2 angleVector = new Vector2(node1Pos.x - node2Pos.x, node1Pos.y - node2Pos.y);
         if (angleVector.x < 0)
         {
-            float angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-            parentPos.eulerAngles = new Vector3(0, 0, -angle);
+            float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+            parentPos.eulerAngles = new Vector3(0, 0, angle);
         }
         else
         {
             float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-            parentPos.eulerAngles = new Vector3(0, 0, angle);
+            parentPos.eulerAngles = new Vector3(0, 0, angle+180);
         }
         childs[1].position = node1Pos;
         childs[2].position = node2Pos;
-        childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
+        childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / childs[0].localScale.x, childs[3].localScale.y, childs[3].localScale.z);
 
     }
 

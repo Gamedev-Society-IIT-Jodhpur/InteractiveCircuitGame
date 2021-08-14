@@ -25,13 +25,13 @@ public class WireNode : MonoBehaviour
         Vector2 angleVector = new Vector2(node1Pos.x - node2Pos.x, node1Pos.y - node2Pos.y);
         if (angleVector.x < 0)
         {
-            float angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-            parentPos.eulerAngles = new Vector3(0, 0, -angle);
+            float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+            parentPos.eulerAngles = new Vector3(0, 0, angle);
         }
         else
         {
             float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-            parentPos.eulerAngles = new Vector3(0, 0, angle);
+            parentPos.eulerAngles = new Vector3(0, 0, angle+180);
         }
 
         node1Scale = new Vector3(childs[1].localScale.x * parentPos.localScale.x, childs[1].localScale.y * parentPos.localScale.y, childs[1].localScale.z * parentPos.localScale.z);

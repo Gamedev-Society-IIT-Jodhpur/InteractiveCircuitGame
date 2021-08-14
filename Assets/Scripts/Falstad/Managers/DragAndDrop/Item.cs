@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     Transform[] childs;
+    Transform[] wires;
     Vector3 node1Pos;
     Vector3 node2Pos;
     Vector3 node1Scale;
@@ -12,11 +13,16 @@ public class Item : MonoBehaviour
     public bool isMoving = false;
     Vector2 angleVector;
     float angle;
+    [SerializeField] float componentLength;
     
     // Start is called before the first frame update
     void Start()
     {
         childs = gameObject.GetComponentsInChildren<Transform>();
+        if (childs[0].tag != "Wire")
+        {
+            wires = childs[3].GetComponentsInChildren<Transform>();
+        }
         
 
     }
@@ -32,15 +38,17 @@ public class Item : MonoBehaviour
             transform.position = (node1Pos + node2Pos) / 2;
 
             angleVector = new Vector2(node1Pos.x - node2Pos.x, node1Pos.y - node2Pos.y);
+            
+            
             if (angleVector.x < 0)
             {
-                angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, -angle);
+                angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                transform.eulerAngles = new Vector3(0, 0, angle);
             }
             else
             {
                 angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                transform.eulerAngles = new Vector3(0, 0, angle);
+                transform.eulerAngles = new Vector3(0, 0, angle+180);
             }
 
             childs[1].position = node1Pos;
@@ -59,12 +67,11 @@ public class Item : MonoBehaviour
             }
             else
             {
-                childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / 2, childs[3].localScale.y, childs[3].localScale.z);
-
+                childs[3].localScale = new Vector3(Vector3.Distance(node1Pos, node2Pos) / transform.localScale.x, childs[3].localScale.y, childs[3].localScale.z);
             }
         }
         
-        
+
 
 
     }
