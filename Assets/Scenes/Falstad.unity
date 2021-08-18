@@ -2570,10 +2570,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: bjt
+  no_nodes: 2
   nameInCircuit: 
   value: 100
-  pos: 0
-  neg: 0
+  nodes: []
   valueText: {fileID: 0}
 --- !u!1 &1930994842
 GameObject:
@@ -3280,12 +3280,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8296779068010369472, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296779068010369472, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_Name
       value: BJT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8296779068763548590, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_RootOrder

@@ -55,37 +55,37 @@ public class CircuitManager : MonoBehaviour
             childs = componentList[i].GetComponentsInChildren<Transform>();
             
             List<string> nodes= new List<string>();
-            /*for (int j = 0; j < componentList[i].GetComponent<ComponentInitialization>().no_nodes; j++)
+            for (int j = 1; j <= componentList[i].GetComponent<ComponentInitialization>().no_nodes; j++)
             {
                 print(childs[j].position);
                 nodes.Add((Mathf.RoundToInt(childs[j].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[j].position.y)).ToString());
-            }*/
-            
-           /* if (i == 0)
+            }
+
+            if (i == 0)
             {
                 temp = nodes[1];
                 nodes[1] = "0";
             }
-            if (componentList[i].GetComponent<ComponentInitialization>().a == "volt" && volt==null)
+            if (componentList[i].GetComponent<ComponentInitialization>().a == "volt" && volt == null)
             {
                 volt = componentList[i];
-                
+
             }
-            for(int j = 1; j <= nodes.Count; j++)
+            for (int j = 0; j < nodes.Count; j++)
             {
                 if (nodes[j] == temp)
                 {
                     nodes[j] = "0";
                 }
-            }*/
-           /* if (neg == temp)
-            {
-                neg = "0";
             }
-            if (pos == temp)
-            {
-                pos = "0";
-            }*/
+            /* if (neg == temp)
+             {
+                 neg = "0";
+             }
+             if (pos == temp)
+             {
+                 pos = "0";
+             }*/
             //print("printing evrything " + pos + " " + neg+" "+temp.GetType());
             //componentList[i].GetComponent<ComponentInitialization>().nodes[0] = pos;
             // componentList[i].GetComponent<ComponentInitialization>().nodes[1] = neg;
@@ -94,9 +94,9 @@ public class CircuitManager : MonoBehaviour
 
             int placed = 0;
             int placedindex = -1;
-           // if (componentList[i].GetComponent<ComponentInitialization>().a != "bjt")
-           // {
-              /*  for (int j = 0; j < circuits.Count; j++)
+            if (componentList[i].GetComponent<ComponentInitialization>().a != "bjt")
+            {
+                for (int j = 0; j < circuits.Count; j++)
                 {
                     bool contains = false;
                     for (int k = 0; k < nodes.Count; k++)
@@ -125,9 +125,9 @@ public class CircuitManager : MonoBehaviour
                 if (placed == 0)
                 {
                     circuits.Add(nodes);
-                }*/
-            //}
-        /*else
+                }
+               }
+            else
             {
                 string node3 = (Mathf.RoundToInt(childs[3].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[3].position.y)).ToString();
                 for (int j = 0; j < circuits.Count; j++)
@@ -136,7 +136,7 @@ public class CircuitManager : MonoBehaviour
                     {
                         if (placed == 0)
                         {
-                            circuits[j] = circuits[j].Union(new List<string> { pos, neg , node3}).ToList();
+                            circuits[j] = circuits[j].Union(new List<string> { pos, neg, node3 }).ToList();
                             placed = 1;
                             placedindex = j;
                         }
@@ -149,9 +149,9 @@ public class CircuitManager : MonoBehaviour
                 }
                 if (placed == 0)
                 {
-                    circuits.Add(new List<string>() { pos, neg , node3});
+                    circuits.Add(new List<string>() { pos, neg, node3 });
                 }
-            }*/
+            }
         }
        
         Groundit();
