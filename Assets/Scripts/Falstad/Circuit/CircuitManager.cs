@@ -153,6 +153,14 @@ public class CircuitManager : MonoBehaviour
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         }
         selected = gameObject;
+        if (selected.tag == "Resistor")
+        {
+            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
+        }
+        else
+        {
+            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 15.0f);
+        }
         selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
