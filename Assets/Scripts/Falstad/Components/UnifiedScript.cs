@@ -9,24 +9,24 @@ using System;
 public class UnifiedScript: MonoBehaviour
 {
     
-    public  delegate void  Del(string name, string pos , string neg, string value);
+    public  delegate void  Del(string name, List<string> nodes, string value);
     public static Dictionary<string, System.Delegate> dict1 = new Dictionary<string, System.Delegate>();
 
-    public static void  ResistorInitialize(string name , string pos , string neg , string value )
+    public static void  ResistorInitialize(string name , List<string> nodes , string value )
     {
         //Debug.Log("resistor value line 15 of UnifiedScript : "+value);
-        CircuitManager.ckt.Add(new Resistor(name, pos, neg, double.Parse(value)));
+        CircuitManager.ckt.Add(new Resistor(name, nodes[0], nodes[1], double.Parse(value)));
     }
-    public static void  VoltageInitialize(string name, string pos, string neg, string value )
+    public static void  VoltageInitialize(string name, List<string> nodes, string value )
     {
         //Debug.Log("yay working ");
-        CircuitManager.ckt.Add(new VoltageSource(name, pos, neg, double.Parse(value)));
+        CircuitManager.ckt.Add(new VoltageSource(name, nodes[0],nodes[1], double.Parse(value)));
     }
     
-    public static void  WireInitialize(string name, string pos, string neg, string value )
+    public static void  WireInitialize(string name, List<string> nodes, string value )
     {
         //Debug.Log("yay working ");
-        CircuitManager.ckt.Add(new VoltageSource(name, pos, neg, 0));
+        CircuitManager.ckt.Add(new VoltageSource(name, nodes[0], nodes[1], 0));
     }
   static  BipolarJunctionTransistor CreateBJT(string name,
 string c, string b, string e, string subst,
@@ -61,9 +61,9 @@ string model)
         ApplyParameters(bjtmodel, parameters);
         return bjtmodel;
     }
-    public static void BJTInitialize(string name, string c, string b, string e)
+    public static void BJTInitialize(string name, List<string> nodes, string model)
     {
-        CircuitManager.ckt.Add(CreateBJT(name, c, b, e, "0", "mjd44h11"));
+        CircuitManager.ckt.Add(CreateBJT(name, nodes[0],nodes[1],nodes[2], "0", model));
         
 
     }

@@ -383,8 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: wire
+  no_nodes: 2
   nameInCircuit: 
   value: 0
-  pos: 0
-  neg: 0
+  nodes: []
   valueText: {fileID: 0}

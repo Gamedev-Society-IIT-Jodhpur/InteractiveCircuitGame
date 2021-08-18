@@ -624,7 +624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: res
+  no_nodes: 2
   nameInCircuit: 
   value: 1
-  pos: 0
-  neg: 0
+  nodes: []
+  valueText: {fileID: 0}

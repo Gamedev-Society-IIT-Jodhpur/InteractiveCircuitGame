@@ -7,14 +7,14 @@ public class ComponentInitialization : MonoBehaviour
 
 {
     public string a;
+    public int no_nodes =2;
     public string nameInCircuit;
-    public string value = "100";
-    public string pos = "0";
-    public string neg = "0";
+    public string value ;
+    public List<string> nodes = new List<string>();
     Transform[] childs;
     public Text valueText;
+
     
-    // Start is called before the first frame update
     void Start()
     {
         CircuitManager.componentList.Add(gameObject);
@@ -24,26 +24,30 @@ public class ComponentInitialization : MonoBehaviour
             valueText = childs[childs.Length - 1].GetComponent<Text>();
             valueText.text = value;
         }
+        else if (a == "bjt")
+        {
+            value = "mjd44h11";
+        }
 
     }
 
-    public void Initialize(int i,string pos,string neg)
+    public void Initialize(int i, List<string> nodes)
     {
 
         //print("value line 22 of ComponentInitialization " + value);
-        if (a != "bjt")
-        {
-            UnifiedScript.dict1[a].DynamicInvoke(a + i, pos, neg, value);
+        //if (a != "bjt")
+        //{
+            UnifiedScript.dict1[a].DynamicInvoke(a + i,  nodes, value);
             nameInCircuit = a + i;
-        }
-        else
+       // }
+       /* else
         {
             childs = gameObject.GetComponentsInChildren<Transform>();
-            value = (Mathf.RoundToInt(childs[3].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[3].position.y)).ToString();
-            UnifiedScript.dict1[a].DynamicInvoke(a + i, value, pos, neg);
+            //value = (Mathf.RoundToInt(childs[3].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[3].position.y)).ToString();
+            UnifiedScript.dict1[a].DynamicInvoke(a + i, nodes ,value);
             nameInCircuit = a + i;
 
-        }
+        }*/
     }
 
      
