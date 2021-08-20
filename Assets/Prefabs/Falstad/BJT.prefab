@@ -736,10 +736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: bjt
+  no_nodes: 3
   nameInCircuit: 
   value: 100
-  pos: 0
-  neg: 0
+  nodes: []
   valueText: {fileID: 0}
 --- !u!1 &8296779068974017142
 GameObject:

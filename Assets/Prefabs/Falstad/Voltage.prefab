@@ -631,10 +631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: volt
+  no_nodes: 2
   nameInCircuit: 
   value: 5
-  pos: 0
-  neg: 0
+  nodes: []
   valueText: {fileID: 0}
 --- !u!1 &9177498069075397207
 GameObject:
