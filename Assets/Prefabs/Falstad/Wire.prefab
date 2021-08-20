@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428e4f7aedb368c45bccafdeafcaf510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: wire
+  a: 1
   no_nodes: 2
   nameInCircuit: 
   value: 0

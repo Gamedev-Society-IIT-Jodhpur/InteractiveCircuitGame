@@ -73,9 +73,9 @@ string model)
         
         Del Resistordel = ResistorInitialize;
         
-       dict1.Add("res", Resistordel);
+       dict1.Add("resistor", Resistordel);
         Del Voltagedel = VoltageInitialize;
-        dict1.Add("volt", Voltagedel);
+        dict1.Add("voltage", Voltagedel);
         Del Wiredel = WireInitialize;
         dict1.Add("wire", Wiredel);
         Del BJTdel = BJTInitialize;

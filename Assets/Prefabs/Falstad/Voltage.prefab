@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  componentLength: 0
 --- !u!114 &1681572909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428e4f7aedb368c45bccafdeafcaf510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: volt
+  a: 2
   no_nodes: 2
   nameInCircuit: 
   value: 5

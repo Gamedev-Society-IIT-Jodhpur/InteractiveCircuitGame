@@ -3293,6 +3293,10 @@ PrefabInstance:
       value: 5.6889736e-13
       objectReference: {fileID: 0}
     - target: {fileID: 2145695844, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145695844, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
@@ -3336,9 +3340,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.000022831
       objectReference: {fileID: 0}
+    - target: {fileID: 8296779068010369472, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_Name
       value: BJT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8296779068763548590, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
       propertyPath: m_RootOrder

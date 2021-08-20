@@ -10,12 +10,19 @@ using System.Linq;
 
 public class CircuitManager : MonoBehaviour
 {
+    public enum component
+    {
+        resistor,
+        wire,
+        voltage,
+        bjt,
+
+    };
+
     public static Circuit ckt;
     public static Dictionary<string, int> components ;
     public static List<GameObject> componentList;
     public static GameObject selected;
-    //[SerializeField] 
-    //public static Material outlineMaterial;
     string pos;
     string neg;
     Transform[] childs;
@@ -25,9 +32,7 @@ public class CircuitManager : MonoBehaviour
     [SerializeField] TMP_Text currentText;
     List<List<string>> circuits = new List<List<string>>() { };
 
-    //[SerializeField] GameObject resistor;
-    //private IList<string> componentList = new List<string>(){"Voltage","Resistor"};
-
+    
     private void Awake()
     {
         components = new Dictionary<string, int>();
@@ -66,7 +71,7 @@ public class CircuitManager : MonoBehaviour
                 temp = nodes[1];
                 nodes[1] = "0";
             }
-            if (componentList[i].GetComponent<ComponentInitialization>().a == "volt" && volt == null)
+            if (componentList[i].GetComponent<ComponentInitialization>().a == component.voltage && volt == null)
             {
                 volt = componentList[i];
 
@@ -78,23 +83,13 @@ public class CircuitManager : MonoBehaviour
                     nodes[j] = "0";
                 }
             }
-            /* if (neg == temp)
-             {
-                 neg = "0";
-             }
-             if (pos == temp)
-             {
-                 pos = "0";
-             }*/
-            //print("printing evrything " + pos + " " + neg+" "+temp.GetType());
-            //componentList[i].GetComponent<ComponentInitialization>().nodes[0] = pos;
-            // componentList[i].GetComponent<ComponentInitialization>().nodes[1] = neg;
+           
             componentList[i].GetComponent<ComponentInitialization>().nodes = nodes;
             componentList[i].GetComponent<ComponentInitialization>().Initialize(i,nodes);
 
             int placed = 0;
             int placedindex = -1;
-            if (componentList[i].GetComponent<ComponentInitialization>().a != "bjt")
+            if (componentList[i].GetComponent<ComponentInitialization>().a != component.bjt)
             {
                 for (int j = 0; j < circuits.Count; j++)
                 {
@@ -162,8 +157,6 @@ public class CircuitManager : MonoBehaviour
         {
             voltageText.text= ("Voltage: "+ exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0] ,selected.GetComponent<ComponentInitialization>().nodes[1]));
             currentText.text= ("Current: " + currentExport.Value);
-            //print(selected.name);
-            //Debug.Log("Kinda Working");
         };
 
         // Run the simulation
@@ -176,7 +169,9 @@ public class CircuitManager : MonoBehaviour
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         }
+
         selected = gameObject;
+
         if (selected.tag == "Resistor")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
@@ -190,16 +185,12 @@ public class CircuitManager : MonoBehaviour
 
     private void Merge(int i, int j)
     {
-        //Debug.Log("Before merge" + circuits.Count);
         circuits[i] = circuits[i].Union(circuits[j]).ToList();
         circuits.RemoveAt(j);
-        //Debug.Log("After merge" + circuits.Count);
     }
 
     /**
      * To add 
-     * 
-     * 
      */
     private void Groundit()
     {
@@ -210,7 +201,6 @@ public class CircuitManager : MonoBehaviour
             UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0");
 
         }
-        //Debug.Log("count =" + circuits.Count);
         circuits.Clear();
     }
 

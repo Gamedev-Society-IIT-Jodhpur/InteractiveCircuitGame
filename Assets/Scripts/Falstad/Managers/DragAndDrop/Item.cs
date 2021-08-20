@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     Transform[] childs;
-    Transform[] wires;
+    //Transform[] wires;
     Vector3 node1Pos;
     Vector3 node2Pos;
     Vector3 node1Scale;
@@ -13,17 +13,17 @@ public class Item : MonoBehaviour
     public bool isMoving = false;
     Vector2 angleVector;
     float angle;
-    [SerializeField] float componentLength;
+    //[SerializeField] float componentLength;
     
     // Start is called before the first frame update
     void Start()
     {
         childs = gameObject.GetComponentsInChildren<Transform>();
-        if (childs[0].tag != "Wire")
+        /*if (childs[0].tag != "Wire")
         {
             wires = childs[3].GetComponentsInChildren<Transform>();
         }
-        
+        */
 
     }
 
