@@ -89,64 +89,37 @@ public class CircuitManager : MonoBehaviour
 
             int placed = 0;
             int placedindex = -1;
-            if (componentList[i].GetComponent<ComponentInitialization>().a != component.bjt)
+            for (int j = 0; j < circuits.Count; j++)
             {
-                for (int j = 0; j < circuits.Count; j++)
+                bool contains = false;
+                for (int k = 0; k < nodes.Count; k++)
                 {
-                    bool contains = false;
-                    for (int k = 0; k < nodes.Count; k++)
+                    if (circuits[j].Contains(nodes[k]))
                     {
-                        if (circuits[j].Contains(nodes[k]))
-                        {
-                            contains = true;
-                            break;
-                        }
-                    }
-                    if (contains)
-                    {
-                        if (placed == 0)
-                        {
-                            circuits[j] = circuits[j].Union(nodes).ToList();
-                            placed = 1;
-                            placedindex = j;
-                        }
-                        else
-                        {
-                            Merge(placedindex, j);
-                            j--;
-                        }
+                        contains = true;
+                        break;
                     }
                 }
-                if (placed == 0)
+                if (contains)
                 {
-                    circuits.Add(nodes);
-                }
-               }
-            else
-            {
-                string node3 = (Mathf.RoundToInt(childs[3].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[3].position.y)).ToString();
-                for (int j = 0; j < circuits.Count; j++)
-                {
-                    if (circuits[j].Contains(pos) || circuits[j].Contains(neg) || circuits[j].Contains(node3))
+                    if (placed == 0)
                     {
-                        if (placed == 0)
-                        {
-                            circuits[j] = circuits[j].Union(new List<string> { pos, neg, node3 }).ToList();
-                            placed = 1;
-                            placedindex = j;
-                        }
-                        else
-                        {
-                            Merge(placedindex, j);
-                            j--;
-                        }
+                        circuits[j] = circuits[j].Union(nodes).ToList();
+                        placed = 1;
+                        placedindex = j;
                     }
-                }
-                if (placed == 0)
-                {
-                    circuits.Add(new List<string>() { pos, neg, node3 });
+                    else
+                    {
+                        Merge(placedindex, j);
+                        j--;
+                    }
                 }
             }
+            if (placed == 0)
+            {
+                circuits.Add(nodes);
+            }
+            
         }
        
         Groundit();

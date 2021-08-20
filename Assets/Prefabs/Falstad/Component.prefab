@@ -777,7 +777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  componentLength: 0
 --- !u!114 &2299242898413287542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,11 +789,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428e4f7aedb368c45bccafdeafcaf510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 
+  a: 0
+  no_nodes: 2
   nameInCircuit: 
   value: 100
-  pos: 0
-  neg: 0
+  nodes: []
   valueText: {fileID: 0}
 --- !u!1 &9135297387609698441
 GameObject:

@@ -223,9 +223,6 @@ public class DragManager : MonoBehaviour
         }
         else
         {
-            //Cursor.SetCursor(dragCursorTexture, Vector2.zero, CursorMode.Auto);
-
-
             if (Input.GetMouseButtonDown(0))
             {
                 x1 = Mathf.RoundToInt(worldPoint.x);
@@ -236,9 +233,8 @@ public class DragManager : MonoBehaviour
             {
                 x2 = Mathf.RoundToInt(worldPoint.x);
                 y2 = Mathf.RoundToInt(worldPoint.y);
-                if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 3 && toDraw)
+                if ((Vector2.Distance(new Vector2(x1, y1), new Vector2(x2, y2))) >= 3.1f && toDraw)
                 {
-                    
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
                     CircuitManager.ChangeSelected(newComponent);
@@ -246,8 +242,6 @@ public class DragManager : MonoBehaviour
                     else newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
-
-
                 }
                 //for initializing bjt component
                 if (newComponent && newComponent.tag == "BJT")
@@ -294,6 +288,7 @@ public class DragManager : MonoBehaviour
                     {
                         childs[2].transform.position = new Vector3(x, y, 0);
                     }
+
                 }
             }
             //to stop dragging after initialization

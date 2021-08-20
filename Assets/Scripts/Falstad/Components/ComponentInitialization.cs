@@ -15,7 +15,6 @@ public class ComponentInitialization : MonoBehaviour
     public List<string> nodes = new List<string>();
     Transform[] childs;
     public Text valueText;
-    
 
     void Start()
     {
@@ -25,6 +24,7 @@ public class ComponentInitialization : MonoBehaviour
             childs = GetComponentsInChildren<Transform>();
             valueText = childs[childs.Length - 1].GetComponent<Text>();
             valueText.text = value;
+
         }
         else if (a == CircuitManager.component.bjt)
         {
@@ -32,8 +32,9 @@ public class ComponentInitialization : MonoBehaviour
         }
         print(a.ToString());
 
-    }
 
+    }
+    
     public void Initialize(int i, List<string> nodes)
     {
 
