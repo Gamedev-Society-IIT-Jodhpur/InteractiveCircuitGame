@@ -4,7 +4,6 @@ using UnityEngine;
 using SpiceSharp;
 using SpiceSharp.Components;
 using SpiceSharp.Simulations;
-//using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
@@ -18,7 +17,7 @@ public class CircuitManager : MonoBehaviour
         bjt,
 
     };
-
+    
     public static Circuit ckt;
     public static Dictionary<string, int> components ;
     public static List<GameObject> componentList;
@@ -30,14 +29,18 @@ public class CircuitManager : MonoBehaviour
     string temp;
     [SerializeField] TMP_Text voltageText;
     [SerializeField] TMP_Text currentText;
+    public static GameObject valueinput;
     List<List<string>> circuits = new List<List<string>>() { };
 
     
     private void Awake()
     {
+        valueinput = GameObject.FindGameObjectWithTag("value input");
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
+
+
     public void Play()
     {
         ckt = new Circuit();
@@ -138,12 +141,15 @@ public class CircuitManager : MonoBehaviour
 
     public static void ChangeSelected(GameObject gameObject)
     {
+        
+
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         }
 
         selected = gameObject;
+        valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
 
         if (selected.tag == "Resistor")
         {

@@ -10,7 +10,10 @@ public class InputManager : MonoBehaviour
         if (component.tag != "Wire" && component.a !=CircuitManager.component.bjt)
         {
             component.value = value;
-            component.valueText.text = value;
+            if (component.valueText)
+            {
+                component.valueText.text = value;
+            }
         }
     }
 }

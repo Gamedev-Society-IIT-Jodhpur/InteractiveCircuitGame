@@ -671,6 +671,7 @@ MonoBehaviour:
   - {fileID: 9133479610099506485, guid: 5a62c77cb58242e4582700fcbbffef09, type: 3}
   - {fileID: 9133479610099506485, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
   - {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
+  dropDown: {fileID: 910157386}
 --- !u!4 &420236844
 Transform:
   m_ObjectHideFlags: 0
@@ -3064,7 +3065,7 @@ GameObject:
   - component: {fileID: 2067242076}
   m_Layer: 5
   m_Name: InputField (TMP)
-  m_TagString: Untagged
+  m_TagString: value input
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

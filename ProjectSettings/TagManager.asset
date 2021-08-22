@@ -11,6 +11,7 @@ TagManager:
   - bjt node
   - BJT
   - Breadboard
+  - value input
   layers:
   - Default
   - TransparentFX

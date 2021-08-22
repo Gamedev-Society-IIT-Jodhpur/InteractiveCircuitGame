@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
+
 
 public class DragManager : MonoBehaviour
 {
@@ -25,10 +27,17 @@ public class DragManager : MonoBehaviour
     GameObject toInstantiate;
     int axis = 0;
     bool forward = true;
-
+    [SerializeField] TMP_Dropdown dropDown;
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            mode = 0;
+            dropDown.value = 0;
+        }
+
+
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (mode == 0)
