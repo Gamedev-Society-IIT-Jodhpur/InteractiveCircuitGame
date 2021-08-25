@@ -8,6 +8,9 @@ public class WireManager : MonoBehaviour
     [SerializeField] GameObject newWireManager;
     public static bool isDrawingWire=false;
     [SerializeField] GameObject wireNode;
+    RaycastHit2D hit;
+    Vector2 worldPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +21,15 @@ public class WireManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(1))
+        {
+            hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            if (hit.collider != null && hit.collider.tag == "Wire")
+            {
+                hit.collider.GetComponentInParent<NewWireManager>().DestroyWire();
+            }
+        }
 
     }
 

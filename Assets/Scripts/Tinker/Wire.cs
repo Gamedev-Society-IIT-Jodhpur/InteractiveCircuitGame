@@ -22,6 +22,7 @@ public class Wire : MonoBehaviour
     void Start()
     {
         isDrawing = true;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
@@ -63,11 +64,12 @@ public class Wire : MonoBehaviour
                 if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
                     isDrawing = false;
+                    GetComponent<BoxCollider2D>().enabled = true;
                     WireManager.isDrawingWire = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
-                    GetComponentInParent<NewWireManager>().newWireNode2 = Instantiate<GameObject>(wireNode);
-                    GetComponentInParent<NewWireManager>().newWireNode2.transform.position = hit.collider.transform.position;
-                    GetComponentInParent<NewWireManager>().newWireNode2.transform.SetParent(hit.collider.transform);
+                    GetComponentInParent<NewWireManager>().node2 = Instantiate<GameObject>(wireNode);
+                    GetComponentInParent<NewWireManager>().node2.transform.position = hit.collider.transform.position;
+                    GetComponentInParent<NewWireManager>().node2.transform.SetParent(hit.collider.transform);
                     node2 = hit.collider.transform;
                     hit.collider.GetComponent<NodeTinker>().wires.Add(gameObject);
 
@@ -104,8 +106,9 @@ public class Wire : MonoBehaviour
                     GameObject newWire = Instantiate<GameObject>(wire);
                     newWire.GetComponent<Wire>().node1 = node2;
                     newWire.transform.SetParent(gameObject.transform.parent);
+                    GetComponent<BoxCollider2D>().enabled = true;
 
-                    
+
                 }
             }
         }

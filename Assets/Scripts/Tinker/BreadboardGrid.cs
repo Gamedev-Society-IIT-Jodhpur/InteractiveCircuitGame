@@ -17,7 +17,7 @@ public class BreadboardGrid : MonoBehaviour
     void Awake()
     {
         //nodes = new List<List<GameObject>>();
-        cellSize = (nodeScale+0.1f)*4;
+        cellSize = (nodeScale+0.1f);
         CreateGrid(width, height, cellSize);
     }
 

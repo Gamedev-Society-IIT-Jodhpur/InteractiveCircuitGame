@@ -58,14 +58,14 @@ public class CircuitManager : MonoBehaviour
         print(componentList.Count);
         for (int i = 0; i < componentList.Count; i++)
         {
-            Debug.Log("i :"+i+" " +componentList[i].name);
+            //Debug.Log("i :"+i+" " +componentList[i].name);
             print(componentList[i].name);
             childs = componentList[i].GetComponentsInChildren<Transform>();
             
             List<string> nodes= new List<string>();
             for (int j = 1; j <= componentList[i].GetComponent<ComponentInitialization>().no_nodes; j++)
             {
-                print(childs[j].position);
+                //print(childs[j].position);
                 nodes.Add((Mathf.RoundToInt(childs[j].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[j].position.y)).ToString());
             }
 
