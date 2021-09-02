@@ -6,7 +6,7 @@ public class NewWireManager : MonoBehaviour
 {
     public List<Transform> nodes;
     [SerializeField] GameObject wireNode;
-    GameObject node1;
+    public GameObject node1;
     public GameObject node2;
     Transform[] childs;
 

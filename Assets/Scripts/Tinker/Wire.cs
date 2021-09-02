@@ -23,6 +23,28 @@ public class Wire : MonoBehaviour
     {
         isDrawing = true;
         GetComponent<BoxCollider2D>().enabled = false;
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3((mousePos.x + node1.transform.position.x) / 2, (mousePos.y + node1.transform.position.y) / 2, 0);
+        distance = Vector2.Distance(mousePos, node1.transform.position);
+        transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
+        //transform.localScale =new Vector3(transform.localScale.x,distance/2,transform.localScale.z);
+
+        angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
+
+        if (angleVector.x != 0 || angleVector.y != 0)
+        {
+            if (angleVector.x < 0)
+            {
+                angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                transform.eulerAngles = new Vector3(0, 0, -angle);
+            }
+            else
+            {
+                angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                transform.eulerAngles = new Vector3(0, 0, angle);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -96,7 +118,7 @@ public class Wire : MonoBehaviour
                         
 
                 }
-                else if((hit.collider==null)||(/*hit.collider!=null &&*/ hit.collider.tag != "node"))
+                else if((hit.collider==null)||(hit.collider.tag != "node"))
                 {
                     node2 = Instantiate<GameObject>(wireNode).transform;
                     node2.transform.position = mousePos/*+new Vector2(0,0.0001f)*/;

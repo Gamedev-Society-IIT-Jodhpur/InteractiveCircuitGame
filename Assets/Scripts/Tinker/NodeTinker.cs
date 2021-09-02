@@ -26,16 +26,16 @@ public class NodeTinker : MonoBehaviour
         {
             GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
 
-            if (collision.transform.parent.parent.tag == "Breadboard")
+            if (collision.transform.parent.parent!=null && collision.transform.parent.parent.tag == "Breadboard")
             {
-                transform.parent.parent.SetParent(collision.transform.parent.parent);
+                transform.parent.SetParent(collision.transform.parent.parent);
 
 
             }
-            else if (transform.parent.parent.tag== "Breadboard")
+            else if (transform.parent.parent!=null && transform.parent.parent.tag== "Breadboard")
             {
-                collision.transform.parent.parent.SetParent(transform.parent.parent);
-                nodes = collision.transform.parent.parent.GetComponentsInChildren<NodeTinker>();
+                collision.transform.parent.SetParent(transform.parent.parent);
+                nodes = collision.transform.parent.GetComponentsInChildren<NodeTinker>();
                 foreach (NodeTinker node in nodes)
                 {
                     foreach (GameObject wire in node.wires)
@@ -46,9 +46,9 @@ public class NodeTinker : MonoBehaviour
                 }
             }
 
-            if (transform.parent.parent!=null && collision.transform.parent.parent.tag != "Breadboard")
+            if (transform.parent!=null && collision.transform.parent.parent!=null && collision.transform.parent.parent.tag != "Breadboard")
             {
-                transform.parent.parent.SetParent(null);
+                transform.parent.SetParent(null);
             }
         }
     }

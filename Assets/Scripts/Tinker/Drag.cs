@@ -111,7 +111,7 @@ public class Drag : MonoBehaviour
             prevCursorY = worldPoint.y;
             diffX = prevX - prevCursorX;
             diffY = prevY - prevCursorY;
-            //CircuitManager.ChangeSelected(hit.collider.gameObject);
+            CircuitManagerTinker.ChangeSelected(gameObject);
 
             
         }
