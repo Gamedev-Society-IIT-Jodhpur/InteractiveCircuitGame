@@ -29,6 +29,7 @@ public class NewWireManager : MonoBehaviour
             Destroy(node2);
         }
         Destroy(node1);
+        CircuitManagerTinker.componentList.Remove(gameObject);
         Destroy(gameObject);
     }
 }

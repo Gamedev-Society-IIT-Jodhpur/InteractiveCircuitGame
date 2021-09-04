@@ -24,8 +24,9 @@ public class CircuitManagerTinker : MonoBehaviour
     Transform[] childs;
     GameObject volt = null;
     string temp;
-    //[SerializeField] TMP_Text voltageText;
-    //[SerializeField] TMP_Text currentText;
+    [SerializeField] Breadboard breadBoard;
+    Transform[] rows=new Transform[4];
+    Transform[,] columns= new Transform[60,2];
     List<List<string>> circuits = new List<List<string>>() { };
 
     string a, b;
@@ -36,6 +37,8 @@ public class CircuitManagerTinker : MonoBehaviour
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
+
+    
 
     public void Play()
     {
@@ -52,14 +55,12 @@ public class CircuitManagerTinker : MonoBehaviour
                 "FC = 0.533878 CJS = 0 VJS = 0.75 MJS = 0.5",
                 "TR = 2.73328e-08 PTF = 0 KF = 0 AF = 1")));
         print(componentList.Count);
+        rows = breadBoard.rows;
+        columns = breadBoard.columns;
+        
         for (int i = 0; i < componentList.Count; i++)
         {
-            if(componentList[i].GetComponent<ComponentTinker>().a == component.voltage)
-            {
-                selected = componentList[i];
-            }
-
-            //print(componentList[i].name);
+            //get nodes of wire component
             if (componentList[i].GetComponent<ComponentTinker>().a == component.wire)
             {
                 childs = new Transform[3];
@@ -67,17 +68,109 @@ public class CircuitManagerTinker : MonoBehaviour
                 childs[1] = componentList[i].GetComponent<NewWireManager>().node1.transform;
                 childs[2] = componentList[i].GetComponent<NewWireManager>().node2.transform;
             }
+            //get nodes of other components
             else childs = componentList[i].GetComponent<ComponentTinker>().childs;
             
             List<string> nodes = new List<string>();
-            for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
+
+            //to check if component is attatched to breadboard and add to the nodes list
+            if (componentList[i].GetComponent<ComponentTinker>().a == component.wire)
             {
-                if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
-                else a = (childs[j].position.x).ToString().Substring(0, 3);
-                if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
-                else b = (childs[j].position.y).ToString().Substring(0, 3);
-                nodes.Add(a+" "+b);
+                for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
+                {
+                    if (childs[j].parent.parent.parent!=null && childs[j].parent.parent.parent.tag == "Breadboard")
+                    {
+                        float y = childs[j].position.y;
+                        float x = childs[j].position.x;
+                        //check if wire component is connected with powergrid in breadboard
+                        for (int k = 0; k < 4; k++)
+                        {
+                            if (rows[k].position.y== y)
+                            {
+                                if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
+                                else b = (childs[j].position.y).ToString().Substring(0, 3);
+                                a = "0";
+                                nodes.Add(a + " " + b);
+                            }
+                        }
+                        //check is wire is connected with grid other than powergrid
+                        for (int k = 0; k < 60; k++)
+                        {
+                            if (columns[k, 0].position.x == x && columns[k,0].position.y<=y &&y<=columns[k,1].position.y)
+                            {
+                                if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                                else a = (childs[j].position.x).ToString().Substring(0, 3);
+                                if (columns[k, 0].position.y < 0) b = (columns[k, 0].position.y).ToString().Substring(0, 4);
+                                else b = (columns[k, 0].position.y).ToString().Substring(0, 3);
+                                nodes.Add(a + " " + b);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                        else a = (childs[j].position.x).ToString().Substring(0, 3);
+                        if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
+                        else b = (childs[j].position.y).ToString().Substring(0, 3);
+                        nodes.Add(a + " " + b);
+                    }
+                }
             }
+            else
+            {
+                if(componentList[i].transform.parent!=null && componentList[i].transform.parent.tag == "Breadboard")
+                {
+                    for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
+                    {
+                        string y;
+                        if (childs[j].position.y < 0) y = (childs[j].position.y).ToString().Substring(0, 4);
+                        else y = (childs[j].position.y).ToString().Substring(0, 3);
+                        string x;
+                        if (childs[j].position.x < 0) x = (childs[j].position.x).ToString().Substring(0, 4);
+                        else x = (childs[j].position.x).ToString().Substring(0, 3);
+
+                        //check if component is connected with powergrid in breadboard
+                        for (int k = 0; k < 4; k++)
+                        {
+                            if (rows[k].position.y < 0) b = (rows[k].position.y).ToString().Substring(0, 4);
+                            else b = (rows[k].position.y).ToString().Substring(0, 3);
+                            if (b == y)
+                            {
+                                a = "0";
+                                nodes.Add(a + " " + y);
+                            }
+                        }
+                        //check component is connected with grid other than powergrid
+                        for (int k = 0; k < 60; k++)
+                        {
+                            float yy = childs[j].position.y;
+                            if (columns[k, 0].position.x < 0) a = (columns[k, 0].position.x).ToString().Substring(0, 4);
+                            else a = (columns[k, 0].position.x).ToString().Substring(0, 3);
+                            if (a == x && columns[k, 0].position.y <= yy && yy <= columns[k, 1].position.y)
+                            {
+                                if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                                else a = (childs[j].position.x).ToString().Substring(0, 3);
+                                if (columns[k, 0].position.y < 0) b = (columns[k, 0].position.y).ToString().Substring(0, 4);
+                                else b = (columns[k, 0].position.y).ToString().Substring(0, 3);
+                                nodes.Add(a + " " + b);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
+                    {
+                        if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                        else a = (childs[j].position.x).ToString().Substring(0, 3);
+                        if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
+                        else b = (childs[j].position.y).ToString().Substring(0, 3);
+                        nodes.Add(a + " " + b);
+                    }
+                }
+                
+            }
+
 
             if (i == 0)
             {
@@ -95,9 +188,8 @@ public class CircuitManagerTinker : MonoBehaviour
                 {
                     nodes[j] = "0";
                 }
-                //print(componentList[i].name+": " +nodes[j]);
             }
-
+            print("nodes length " + nodes.Count+" "+componentList[i].name);
             componentList[i].GetComponent<ComponentTinker>().nodes = nodes;
             componentList[i].GetComponent<ComponentTinker>().Initialize(i, nodes);
 
@@ -148,8 +240,8 @@ public class CircuitManagerTinker : MonoBehaviour
 
         // Run the simulation
         dc.Run(ckt);
-        print(a);
-        print(b);
+        print(selected.name+" "+ a);
+        print(selected.name + " " + b);
     }
 
     public static void ChangeSelected(GameObject gameObject)
@@ -171,7 +263,7 @@ public class CircuitManagerTinker : MonoBehaviour
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
         }
-        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
+       // selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
     private void Merge(int i, int j)
