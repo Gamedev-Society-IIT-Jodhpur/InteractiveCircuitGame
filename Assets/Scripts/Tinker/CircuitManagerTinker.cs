@@ -80,23 +80,31 @@ public class CircuitManagerTinker : MonoBehaviour
                 {
                     if (childs[j].parent.parent.parent!=null && childs[j].parent.parent.parent.tag == "Breadboard")
                     {
-                        float y = childs[j].position.y;
-                        float x = childs[j].position.x;
-                        //check if wire component is connected with powergrid in breadboard
+                        string y;
+                        if (childs[j].position.y < 0) y = (childs[j].position.y).ToString().Substring(0, 4);
+                        else y = (childs[j].position.y).ToString().Substring(0, 3);
+                        string x;
+                        if (childs[j].position.x < 0) x = (childs[j].position.x).ToString().Substring(0, 4);
+                        else x = (childs[j].position.x).ToString().Substring(0, 3);
+
+                        //check if wire is connected with powergrid in breadboard
                         for (int k = 0; k < 4; k++)
                         {
-                            if (rows[k].position.y== y)
+                            if (rows[k].position.y < 0) b = (rows[k].position.y).ToString().Substring(0, 4);
+                            else b = (rows[k].position.y).ToString().Substring(0, 3);
+                            if (b == y)
                             {
-                                if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
-                                else b = (childs[j].position.y).ToString().Substring(0, 3);
                                 a = "0";
-                                nodes.Add(a + " " + b);
+                                nodes.Add(a + " " + y);
                             }
                         }
-                        //check is wire is connected with grid other than powergrid
+                        //check wire is connected with grid other than powergrid
                         for (int k = 0; k < 60; k++)
                         {
-                            if (columns[k, 0].position.x == x && columns[k,0].position.y<=y &&y<=columns[k,1].position.y)
+                            float yy = childs[j].position.y;
+                            if (columns[k, 0].position.x < 0) a = (columns[k, 0].position.x).ToString().Substring(0, 4);
+                            else a = (columns[k, 0].position.x).ToString().Substring(0, 3);
+                            if (a == x && columns[k, 0].position.y <= yy && yy <= columns[k, 1].position.y)
                             {
                                 if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
                                 else a = (childs[j].position.x).ToString().Substring(0, 3);
@@ -171,7 +179,6 @@ public class CircuitManagerTinker : MonoBehaviour
                 
             }
 
-
             if (i == 0)
             {
                 temp = nodes[0];
@@ -180,7 +187,6 @@ public class CircuitManagerTinker : MonoBehaviour
             if (componentList[i].GetComponent<ComponentTinker>().a == component.voltage && volt == null)
             {
                 volt = componentList[i];
-
             }
             for (int j = 0; j < nodes.Count; j++)
             {
@@ -225,7 +231,6 @@ public class CircuitManagerTinker : MonoBehaviour
             {
                 circuits.Add(nodes);
             }
-
         }
 
         Groundit();
@@ -246,8 +251,6 @@ public class CircuitManagerTinker : MonoBehaviour
 
     public static void ChangeSelected(GameObject gameObject)
     {
-
-
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
