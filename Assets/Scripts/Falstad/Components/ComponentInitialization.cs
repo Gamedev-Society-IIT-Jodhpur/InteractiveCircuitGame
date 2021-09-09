@@ -19,7 +19,7 @@ public class ComponentInitialization : MonoBehaviour
     void Start()
     {
         CircuitManager.componentList.Add(gameObject);
-        if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt)
+        if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt && a!=CircuitManager.component.diode)
         {
             childs = GetComponentsInChildren<Transform>();
             valueText = childs[childs.Length - 1].GetComponent<Text>();
@@ -30,6 +30,10 @@ public class ComponentInitialization : MonoBehaviour
         {
             value = "mjd44h11";
         }
+        else if (a == CircuitManager.component.diode)
+        {
+            value = "1N914";
+        }
         print(a.ToString());
 
 
@@ -38,20 +42,10 @@ public class ComponentInitialization : MonoBehaviour
     public void Initialize(int i, List<string> nodes)
     {
 
-        //print("value line 22 of ComponentInitialization " + value);
-        //if (a != "bjt")
-        //{
+        
         UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i,  nodes, value);
         nameInCircuit = a.ToString() + i;
-       // }
-       /* else
-        {
-            childs = gameObject.GetComponentsInChildren<Transform>();
-            //value = (Mathf.RoundToInt(childs[3].position.x)).ToString() + " " + (Mathf.RoundToInt(childs[3].position.y)).ToString();
-            UnifiedScript.dict1[a].DynamicInvoke(a + i, nodes ,value);
-            nameInCircuit = a + i;
 
-        }*/
     }
 
      

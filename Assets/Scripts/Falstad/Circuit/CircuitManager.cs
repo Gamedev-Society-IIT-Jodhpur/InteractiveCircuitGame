@@ -15,7 +15,7 @@ public class CircuitManager : MonoBehaviour
         wire,
         voltage,
         bjt,
-
+        diode,
     };
     
     public static Circuit ckt;
@@ -56,6 +56,7 @@ public class CircuitManager : MonoBehaviour
                 "FC = 0.533878 CJS = 0 VJS = 0.75 MJS = 0.5",
                 "TR = 2.73328e-08 PTF = 0 KF = 0 AF = 1")));
         print(componentList.Count);
+        CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel("1N914", "Is=2.52e-9 N=1.752 Cjo=4e-12 M=0.4 tt=20e-9"));
         for (int i = 0; i < componentList.Count; i++)
         {
             //Debug.Log("i :"+i+" " +componentList[i].name);
