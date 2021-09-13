@@ -7,6 +7,7 @@ public class ComponentTinker : MonoBehaviour
 
 {
     public CircuitManagerTinker.component a;
+    public CircuitManagerTinker.model model;
     public int no_nodes = 2;
     public string nameInCircuit;
     public string value;
@@ -18,11 +19,15 @@ public class ComponentTinker : MonoBehaviour
         CircuitManagerTinker.componentList.Add(gameObject);
         if (a == CircuitManagerTinker.component.bjt)
         {
-            value = "mjd44h11";
+            value = model.ToString();
         }
         if (a != CircuitManagerTinker.component.wire)
         {
             childs = GetComponentsInChildren<Transform>();
+        }
+        else if (a == CircuitManagerTinker.component.diode)
+        {
+            value = "Default";
         }
 
     }

@@ -1400,21 +1400,6 @@
         <member name="M:SpiceSharp.Algebra.Solve.MarkowitzQuickDiagonal`1.Clone">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Algebra.Solve.MarkowitzQuickDiagonal`1.MaxMarkowitzTies">
-            <summary>
-            Gets or sets the maximum number of diagonals that are considered for choosing the pivot.
-            </summary>
-            <value>
-            The maximum number of searched pivots with the same markowitz product.
-            </value>
-            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is not greater than 1.</exception>
-            <remarks>
-            The pivot search strategy will try to find pivots with the lowest "Markowitz product", which
-            scores how many extra unwanted elements a row/column could create as a by-product of factoring
-            the solver. When this score is tied, this search strategy will keep a list of them with a
-            maximum of this amount of elements.
-            </remarks>
-        </member>
         <member name="P:SpiceSharp.Algebra.Solve.MarkowitzQuickDiagonal`1.TiesMultiplier">
             <summary>
             Gets or sets a heuristic for speeding up pivot searching.
@@ -1433,6 +1418,21 @@
             number of eligible pivots.
             </remarks>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is negative.</exception>
+        </member>
+        <member name="P:SpiceSharp.Algebra.Solve.MarkowitzQuickDiagonal`1.MaxMarkowitzTies">
+            <summary>
+            Gets or sets the maximum number of diagonals that are considered for choosing the pivot.
+            </summary>
+            <value>
+            The maximum number of searched pivots with the same markowitz product.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is not greater than 1.</exception>
+            <remarks>
+            The pivot search strategy will try to find pivots with the lowest "Markowitz product", which
+            scores how many extra unwanted elements a row/column could create as a by-product of factoring
+            the solver. When this score is tied, this search strategy will keep a list of them with a
+            maximum of this amount of elements.
+            </remarks>
         </member>
         <member name="T:SpiceSharp.Algebra.Solve.MarkowitzSearchStrategy`1">
             <summary>
@@ -1934,10 +1934,10 @@
         <member name="M:SpiceSharp.Algebra.Solve.PivotingSolver`3.SetParameter``1(System.String,``0)">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Algebra.Solve.PivotingSolver`3.PivotSearchReduction">
+        <member name="P:SpiceSharp.Algebra.Solve.PivotingSolver`3.Degeneracy">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Algebra.Solve.PivotingSolver`3.Degeneracy">
+        <member name="P:SpiceSharp.Algebra.Solve.PivotingSolver`3.PivotSearchReduction">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Algebra.Solve.Translation">
@@ -2133,15 +2133,6 @@
             </returns>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="matrix" /> is <c>null</c>.</exception>
         </member>
-        <member name="P:SpiceSharp.Algebra.RookPivoting`1.RelativePivotThreshold">
-            <summary>
-            Gets or sets the relative pivot threshold.
-            </summary>
-            <value>
-            The relative pivot threshold.
-            </value>
-            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is not greater than 0.</exception>
-        </member>
         <member name="P:SpiceSharp.Algebra.RookPivoting`1.AbsolutePivotThreshold">
             <summary>
             Gets or sets the absolute pivot threshold.
@@ -2150,6 +2141,15 @@
             The absolute pivot threshold.
             </value>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is negative.</exception>
+        </member>
+        <member name="P:SpiceSharp.Algebra.RookPivoting`1.RelativePivotThreshold">
+            <summary>
+            Gets or sets the relative pivot threshold.
+            </summary>
+            <value>
+            The relative pivot threshold.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the value is not greater than 0.</exception>
         </member>
         <member name="T:SpiceSharp.Algebra.ISparsePivotingSolver`1">
             <summary>
@@ -3466,20 +3466,20 @@
             The small-signal phase.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.CommonBehaviors.IndependentSourceParameters.DcValue">
-            <summary>
-            The DC value of the source.
-            </summary>
-            <value>
-            The DC value.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.CommonBehaviors.IndependentSourceParameters.AcMagnitude">
             <summary>
             Small-signal magnitude.
             </summary>
             <value>
             The small-signal magnitude.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.CommonBehaviors.IndependentSourceParameters.DcValue">
+            <summary>
+            The DC value of the source.
+            </summary>
+            <value>
+            The DC value.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.CommonBehaviors.IndependentSourceParameters.SpiceSharp#ParameterSets#IImportParameterSet{SpiceSharp#Components#IWaveformDescription}#GetParameterSetter(System.String)">
@@ -3939,6 +3939,9 @@
         <member name="M:SpiceSharp.Components.CurrentSources.Accept.SpiceSharp#Behaviors#IAcceptBehavior#Accept">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.CurrentSources.Accept.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.CurrentSources.Biasing">
             <summary>
             DC biasing behavior for a <see cref="T:SpiceSharp.Components.CurrentSource" />.
@@ -4201,20 +4204,20 @@
             The number of current sources in parallel.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.VoltageControlledCurrentSources.Parameters.ParallelMultiplier">
-            <summary>
-            Gets or sets the number of current sources in parallel.
-            </summary>
-            <value>
-            The number of current sources in parallel.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.VoltageControlledCurrentSources.Parameters.Transconductance">
             <summary>
             Gets or sets the transconductance gain.
             </summary>
             <value>
             The transconductance gain..
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageControlledCurrentSources.Parameters.ParallelMultiplier">
+            <summary>
+            Gets or sets the number of current sources in parallel.
+            </summary>
+            <value>
+            The number of current sources in parallel.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.VoltageControlledCurrentSources.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -4373,6 +4376,9 @@
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Accept.SpiceSharp#Behaviors#IAcceptBehavior#Accept">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Accept.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.LosslessTransmissionLines.Biasing">
             <summary>
             Load behavior for a <see cref="T:SpiceSharp.Components.LosslessTransmissionLine" />.
@@ -4433,6 +4439,54 @@
             The right branch.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Voltage1">
+            <summary>
+            Gets the voltage on side 1.
+            </summary>
+            <value>
+            The voltage on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Voltage2">
+            <summary>
+            Gets the voltage on side 2.
+            </summary>
+            <value>
+            The voltage on side 2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Current1">
+            <summary>
+            Gets the current on side 1.
+            </summary>
+            <value>
+            The current on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Current2">
+            <summary>
+            Gets the current on side 2.
+            </summary>
+            <value>
+            The current on side 2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Power1">
+            <summary>
+            Gets the power on side 1.
+            </summary>
+            <value>
+            The power on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Biasing.Power2">
+            <summary>
+            Gets the power on side 2.
+            </summary>
+            <value>
+            The power on side 2.
+            </value>
+        </member>
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Biasing.#ctor(SpiceSharp.Components.IComponentBindingContext)">
             <summary>
             Initializes a new instance of the <see cref="T:SpiceSharp.Components.LosslessTransmissionLines.Biasing"/> class.
@@ -4441,6 +4495,9 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="context"/> is <c>null</c>.</exception>
         </member>
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Biasing.SpiceSharp#Behaviors#IBiasingBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.LosslessTransmissionLines.Frequency">
@@ -4482,6 +4539,54 @@
             The right branch.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexVoltage1">
+            <summary>
+            Gets the voltage on side 1.
+            </summary>
+            <value>
+            The voltage on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexVoltage2">
+            <summary>
+            Gets the voltage on side 2.
+            </summary>
+            <value>
+            The voltage on side 2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexCurrent1">
+            <summary>
+            Gets the current on side 1.
+            </summary>
+            <value>
+            The current on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexCurrent2">
+            <summary>
+            Gets the current on side 2.
+            </summary>
+            <value>
+            The current on side 2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexPower1">
+            <summary>
+            Gets the power on side 1.
+            </summary>
+            <value>
+            The power on side 1.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Frequency.ComplexPower2">
+            <summary>
+            Gets the power on side 2.
+            </summary>
+            <value>
+            The power on side 2.
+            </value>
+        </member>
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Frequency.#ctor(SpiceSharp.Components.IComponentBindingContext)">
             <summary>
             Initializes a new instance of the <see cref="T:SpiceSharp.Components.LosslessTransmissionLines.Frequency" /> class.
@@ -4493,6 +4598,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.LosslessTransmissionLines.Parameters">
@@ -4570,12 +4681,36 @@
             Method for calculating the default values of derived parameters.
             </summary>
         </member>
-        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Delay">
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.NormalizedLength">
             <summary>
-            Gets or sets the transmission delay of the transmission line.
+            Gets normalized length at the given <see cref="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Frequency"/>.
             </summary>
             <value>
-            The delay.
+            The normalized length.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Frequency">
+            <summary>
+            Gets the frequency specification of the transmission line.
+            </summary>
+            <value>
+            The frequency specification.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Impedance">
+            <summary>
+            Gets or sets the characteristic impedance.
+            </summary>
+            <value>
+            The characteristic impedance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.RelativeTolerance">
+            <summary>
+            Gets or sets the relative tolerance used to determine if a breakpoint (where harsh nonlinear behavior occurs) needs to be added.
+            </summary>
+            <value>
+            The relative tolerance.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.ParallelMultiplier">
@@ -4594,36 +4729,12 @@
             The absolute tolerance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Impedance">
+        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Delay">
             <summary>
-            Gets or sets the characteristic impedance.
+            Gets or sets the transmission delay of the transmission line.
             </summary>
             <value>
-            The characteristic impedance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.NormalizedLength">
-            <summary>
-            Gets normalized length at the given <see cref="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Frequency"/>.
-            </summary>
-            <value>
-            The normalized length.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.RelativeTolerance">
-            <summary>
-            Gets or sets the relative tolerance used to determine if a breakpoint (where harsh nonlinear behavior occurs) needs to be added.
-            </summary>
-            <value>
-            The relative tolerance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.LosslessTransmissionLines.Parameters.Frequency">
-            <summary>
-            Gets the frequency specification of the transmission line.
-            </summary>
-            <value>
-            The frequency specification.
+            The delay.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.LosslessTransmissionLines.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -4732,6 +4843,9 @@
         <member name="M:SpiceSharp.Components.VoltageDelays.Accept.SpiceSharp#Behaviors#IAcceptBehavior#Accept">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.VoltageDelays.Accept.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.VoltageDelays.Biasing">
             <summary>
             Biasing behavior for a <see cref="T:SpiceSharp.Components.VoltageDelay" />.
@@ -4741,6 +4855,11 @@
             <seealso cref="T:SpiceSharp.Components.IBranchedBehavior`1"/>
             <seealso cref="T:SpiceSharp.ParameterSets.IParameterized`1"/>
             <seealso cref="P:SpiceSharp.Components.VoltageDelays.Biasing.Parameters"/>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Biasing.Variables">
+            <summary>
+            Gets the variables.
+            </summary>
         </member>
         <member name="P:SpiceSharp.Components.VoltageDelays.Biasing.Parameters">
             <inheritdoc/>
@@ -4756,6 +4875,15 @@
             The matrix elements.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Biasing.Voltage">
+            <summary>Gets the DC or instantaneous voltage over the device.</summary><value>The DC or instantaneous voltage.</value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Biasing.Power">
+            <summary>Gets the DC or instantaneous power dissipation by the device.</summary><value>The DC or instantaneous power dissipation.</value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Biasing.Current">
+            <summary>Gets the DC or instantaneous current through the device.</summary><value>The DC or instantaneous current.</value>
+        </member>
         <member name="M:SpiceSharp.Components.VoltageDelays.Biasing.#ctor(SpiceSharp.Components.IComponentBindingContext)">
             <summary>
             Initializes a new instance of the <see cref="T:SpiceSharp.Components.VoltageDelays.Biasing"/> class.
@@ -4764,6 +4892,9 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="context"/> is <c>null</c>.</exception>
         </member>
         <member name="M:SpiceSharp.Components.VoltageDelays.Biasing.SpiceSharp#Behaviors#IBiasingBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.VoltageDelays.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.VoltageDelays.Frequency">
@@ -4777,6 +4908,15 @@
         <member name="P:SpiceSharp.Components.VoltageDelays.Frequency.Branch">
             <inheritdoc/>
         </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Frequency.ComplexVoltage">
+            <summary>Gets the complex voltage over the device.</summary><value>The complex voltage.</value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Frequency.ComplexPower">
+            <summary>Gets the complex power dissipation by the device.</summary><value>The complex power dissipation.</value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Frequency.ComplexCurrent">
+            <summary>Gets the complex current through the device.</summary><value>The complex current.</value>
+        </member>
         <member name="M:SpiceSharp.Components.VoltageDelays.Frequency.#ctor(SpiceSharp.Components.IComponentBindingContext)">
             <summary>
             Initializes a new instance of the <see cref="T:SpiceSharp.Components.VoltageDelays.Frequency"/> class.
@@ -4788,6 +4928,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.VoltageDelays.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.VoltageDelays.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.VoltageDelays.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.VoltageDelays.Parameters">
@@ -4820,14 +4966,6 @@
             The absolute tolerance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.VoltageDelays.Parameters.RelativeTolerance">
-            <summary>
-            Gets or sets the relative tolerance to determine when a breakpoint (heavy nonlinear behavior occurs) needs to be added.
-            </summary>
-            <value>
-            The relative tolerance.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.VoltageDelays.Parameters.AbsoluteTolerance">
             <summary>
             Gets or sets the absolute tolerance to determine when a breakpoint (heavy nonlinear behavior occurs) needs to be added.
@@ -4842,6 +4980,14 @@
             </summary>
             <value>
             The delay.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.VoltageDelays.Parameters.RelativeTolerance">
+            <summary>
+            Gets or sets the relative tolerance to determine when a breakpoint (heavy nonlinear behavior occurs) needs to be added.
+            </summary>
+            <value>
+            The relative tolerance.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.VoltageDelays.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -5973,14 +6119,14 @@
             Gets the nominal temperature parameter in degrees Kelvin.
             </summary>
         </member>
-        <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.JunctionCap">
-            <summary>
-            Gets the bottom junction capacitance parameter.
-            </summary>
-        </member>
         <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.JunctionCapSidewall">
             <summary>
             Gets the junction sidewall capacitance parameter.
+            </summary>
+        </member>
+        <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.NominalTemperature">
+            <summary>
+            Gets the nominal temperature parameter in degrees Kelvin.
             </summary>
         </member>
         <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.DefaultWidth">
@@ -5991,9 +6137,9 @@
             The default width.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.NominalTemperature">
+        <member name="P:SpiceSharp.Components.Capacitors.ModelParameters.JunctionCap">
             <summary>
-            Gets the nominal temperature parameter in degrees Kelvin.
+            Gets the bottom junction capacitance parameter.
             </summary>
         </member>
         <member name="M:SpiceSharp.Components.Capacitors.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -6064,12 +6210,12 @@
             The temperature in Kelvin.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Length">
+        <member name="P:SpiceSharp.Components.Capacitors.Parameters.ParallelMultiplier">
             <summary>
-            Gets the length of the capacitor.
+            Gets or sets the parallel multiplier.
             </summary>
             <value>
-            The length of the capacitor.
+            The parallel multiplier.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Capacitors.Parameters.Temperature">
@@ -6080,20 +6226,12 @@
             The temperature in Kelvin.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Capacitors.Parameters.ParallelMultiplier">
+        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Width">
             <summary>
-            Gets or sets the parallel multiplier.
+            Gets the width of the capacitor.
             </summary>
             <value>
-            The parallel multiplier.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Capacitance">
-            <summary>
-            Gets the capacitance parameter.
-            </summary>
-            <value>
-            The capacitance.
+            The width of the capacitor.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Capacitors.Parameters.InitialCondition">
@@ -6104,12 +6242,20 @@
             The initial voltage.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Width">
+        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Capacitance">
             <summary>
-            Gets the width of the capacitor.
+            Gets the capacitance parameter.
             </summary>
             <value>
-            The width of the capacitor.
+            The capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Capacitors.Parameters.Length">
+            <summary>
+            Gets the length of the capacitor.
+            </summary>
+            <value>
+            The length of the capacitor.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Capacitors.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -6299,20 +6445,20 @@
             The series multiplier.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Inductors.Parameters.Inductance">
-            <summary>
-            Gets the inductance parameter.
-            </summary>
-            <value>
-            The inductance.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Inductors.Parameters.InitialCondition">
             <summary>
             Gets the initial current parameter.
             </summary>
             <value>
             The initial current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Inductors.Parameters.SeriesMultiplier">
+            <summary>
+            Gets or sets the series multiplier.
+            </summary>
+            <value>
+            The series multiplier.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Inductors.Parameters.ParallelMultiplier">
@@ -6323,12 +6469,12 @@
             The parallel multiplier.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Inductors.Parameters.SeriesMultiplier">
+        <member name="P:SpiceSharp.Components.Inductors.Parameters.Inductance">
             <summary>
-            Gets or sets the series multiplier.
+            Gets the inductance parameter.
             </summary>
             <value>
-            The series multiplier.
+            The inductance.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Inductors.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -6978,6 +7124,38 @@
             The number of resistors in series.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Resistors.Parameters.SeriesMultiplier">
+            <summary>
+            Gets or sets the number of resistors in series.
+            </summary>
+            <value>
+            The number of resistors in series.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Resistors.Parameters.Width">
+            <summary>
+            Gets or sets the width of the resistor.
+            </summary>
+            <value>
+            The width of the resistor.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Resistors.Parameters.ParallelMultiplier">
+            <summary>
+            Gets or sets the number of resistors in parallel.
+            </summary>
+            <value>
+            The number of resistors in parallel.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Resistors.Parameters.Length">
+            <summary>
+            Gets or sets the length of the resistor.
+            </summary>
+            <value>
+            The length of the resistor.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Components.Resistors.Parameters.Temperature">
             <summary>
             Gets or sets the temperature parameter in degrees Kelvin.
@@ -6997,38 +7175,6 @@
             If the resistance is limited to <see cref="F:SpiceSharp.Components.Resistors.Parameters.MinimumResistance" /> to avoid numerical instability issues.
             If a 0 Ohm resistance is wanted, consider using an ideal voltage source instead.
             </remarks>
-        </member>
-        <member name="P:SpiceSharp.Components.Resistors.Parameters.Length">
-            <summary>
-            Gets or sets the length of the resistor.
-            </summary>
-            <value>
-            The length of the resistor.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Resistors.Parameters.SeriesMultiplier">
-            <summary>
-            Gets or sets the number of resistors in series.
-            </summary>
-            <value>
-            The number of resistors in series.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Resistors.Parameters.ParallelMultiplier">
-            <summary>
-            Gets or sets the number of resistors in parallel.
-            </summary>
-            <value>
-            The number of resistors in parallel.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Resistors.Parameters.Width">
-            <summary>
-            Gets or sets the width of the resistor.
-            </summary>
-            <value>
-            The width of the resistor.
-            </value>
         </member>
         <member name="M:SpiceSharp.Components.Resistors.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
             <inheritdoc/>
@@ -7490,6 +7636,9 @@
         <member name="M:SpiceSharp.Components.Bipolars.Biasing.SpiceSharp#Behaviors#IConvergenceBehavior#IsConvergent">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Bipolars.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Bipolars.Dynamic">
             <summary>
             Common dynamic (time-dependent) parameter logic for a <see cref="T:SpiceSharp.Components.BipolarJunctionTransistor" />.
@@ -7638,6 +7787,22 @@
             </summary>
             <value>
             The internal emitter node.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.Frequency.ComplexVoltageBe">
+            <summary>
+            Gets the base-emitter voltage.
+            </summary>
+            <value>
+            The base-emitter voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.Frequency.ComplexVoltageBc">
+            <summary>
+            Gets the base-collector voltage.
+            </summary>
+            <value>
+            The base-collector voltage.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Bipolars.Frequency.#ctor(SpiceSharp.Components.IComponentBindingContext)">
@@ -8049,260 +8214,12 @@
             The flicker noise exponent.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseResist">
-            <summary>
-            Gets or sets the zero-bias base resistance.
-            </summary>
-            <value>
-            The zero-bias base resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EmissionCoefficientForward">
-            <summary>
-            Gets or sets the forward emission coefficient.
-            </summary>
-            <value>
-            The forward emission coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeForward">
-            <summary>
-            Gets or sets the ideal forward transit time.
-            </summary>
-            <value>
-            The ideal forward transit time.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.NominalTemperature">
-            <summary>
-            Gets or sets the nominal temperature parameter in degrees Kelvin.
-            </summary>
-            <value>
-            The nominal temperature in degrees Kelvin.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeHighCurrentForward">
-            <summary>
-            Gets the high-current dependence of the forward transit time.
-            </summary>
-            <value>
-            The high-current dependence of the forward transit time.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.ExcessPhase">
-            <summary>
-            Gets or sets the excess phase.
-            </summary>
-            <value>
-            The excess phase.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaR">
-            <summary>
-            Gets or sets the ideal reverse beta parameter.
-            </summary>
-            <value>
-            The ideal reverse beta parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.JunctionExpBc">
-            <summary>
-            Gets or sets the base-collector junction grading coefficient parameter.
-            </summary>
-            <value>
-            The base-collector junction grading coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.FlickerNoiseExponent">
-            <summary>
-            Gets or sets the flicker noise exponent.
-            </summary>
-            <value>
-            The flicker noise exponent.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBcEmissionCoefficient">
-            <summary>
-            Gets or sets the base-collector emission coefficient parameter.
-            </summary>
-            <value>
-            The base-collector emission coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.C2">
-            <summary>
-            Gets or sets a parameter that is not accessible in Spice 3f5
-            </summary>
-            <value>
-            The scaling parameter c2.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.RollOffReverse">
-            <summary>
-            Gets or sets the reverse beta roll-off corner current.
-            </summary>
-            <value>
-            The reverse beta roll-off corner current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EarlyVoltageForward">
-            <summary>
-            Gets or sets the forward Early voltage.
-            </summary>
-            <value>
-            The forward Early voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapBe">
-            <summary>
-            Gets or sets the zero-bias base-emitter depletion capacitance parameter.
-            </summary>
-            <value>
-            The zero-bias base-emitter depletion capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TempExpIs">
-            <summary>
-            Gets the temperature exponent for the saturation current.
-            </summary>
-            <value>
-            The temperature exponent for the saturation current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseFractionBcCap">
-            <summary>
-            Gets or sets the fraction of base-collector capacitance to the internal base.
-            </summary>
-            <value>
-            The fraction of base-collector capacitance to the internal base.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBeEmissionCoefficient">
-            <summary>
-            Gets or sets the base-emitter emission coefficient.
-            </summary>
-            <value>
-            The base-emitter emission coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EnergyGap">
-            <summary>
-            Gets the energy gap for saturation current temperature dependency.
-            </summary>
-            <value>
-            The energy gap for saturation current temperature dependency.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaF">
-            <summary>
-            Gets or sets the ideal forward beta parameter.
-            </summary>
-            <value>
-            The ideal forward beta parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.CollectorResistance">
-            <summary>
-            Gets or sets the collector resistance.
-            </summary>
-            <value>
-            The collector resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.ExponentialSubstrate">
-            <summary>
-            Gets or sets the substrate junction grading coefficient.
-            </summary>
-            <value>
-            The substrate junction grading coefficient.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EmissionCoefficientReverse">
             <summary>
             Gets or sets the reverse emission coefficient.
             </summary>
             <value>
             The reverse emission coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.CapCs">
-            <summary>
-            Gets the zero-bias collector-substrate capacitance.
-            </summary>
-            <value>
-            The zero-bias collector-substrate capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.PotentialBc">
-            <summary>
-            Gets or sets the base-collector built-in potential.
-            </summary>
-            <value>
-            The base-collector built-in potential.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeReverse">
-            <summary>
-            Gets or sets the ideal reverse transit time.
-            </summary>
-            <value>
-            The ideal reverse transit time.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapBc">
-            <summary>
-            Gets or sets the zero-bias base-collector depletion capacitance.
-            </summary>
-            <value>
-            The zero-bias base-collector depletion capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaExponent">
-            <summary>
-            Gets or sets the forward and reverse beta temperature exponent.
-            </summary>
-            <value>
-            The forward and reverse beta temperature exponent.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseCurrentHalfResist">
-            <summary>
-            Gets or sets the current for base resistance (rb + rbm) / 2.
-            </summary>
-            <value>
-            The current for base resistance = (rb + rbm) / 2.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBcCurrent">
-            <summary>
-            Gets or sets the base-collector saturation current.
-            </summary>
-            <value>
-            The base-collector saturation current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EmitterResistance">
-            <summary>
-            Gets or sets the emitter resistance.
-            </summary>
-            <value>
-            The emitter resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeBiasCoefficientForward">
-            <summary>
-            Gets or sets the coefficient for bias dependence parameter of the forward transit time.
-            </summary>
-            <value>
-            The coefficient for bias dependence of the forward transit time.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.PotentialSubstrate">
-            <summary>
-            Gets or sets the substrate junction built-in potential.
-            </summary>
-            <value>
-            The substrate junction built-in potential.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.MinimumBaseResistance">
@@ -8313,12 +8230,20 @@
             The minimum base resistance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.C4">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBcEmissionCoefficient">
             <summary>
-            Gets or sets a parameter that is not accessible in Spice 3f5
+            Gets or sets the base-collector emission coefficient parameter.
             </summary>
             <value>
-            The scaling parameter c4.
+            The base-collector emission coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseResist">
+            <summary>
+            Gets or sets the zero-bias base resistance.
+            </summary>
+            <value>
+            The zero-bias base resistance.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBeCurrent">
@@ -8329,28 +8254,20 @@
             The base-emitter leakage saturation current.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.RollOffForward">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.FlickerNoiseCoefficient">
             <summary>
-            Gets or sets the forward beta roll-off corner current.
+            Gets or sets the flicker noise coefficient.
             </summary>
             <value>
-            The forward beta roll-off corner current.
+            The flicker noise coefficient.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.JunctionExpBe">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaF">
             <summary>
-            Gets or sets the base-emitter junction grading coefficient.
+            Gets or sets the ideal forward beta parameter.
             </summary>
             <value>
-            The base-emitter junction grading coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapCoefficient">
-            <summary>
-            Gets the forward bias junction fit parameter.
-            </summary>
-            <value>
-            The forward bias junction fit parameter.
+            The ideal forward beta parameter.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.PotentialBe">
@@ -8361,28 +8278,100 @@
             Gets or sets the base-emitter built-in potential.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.SatCur">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EmitterResistance">
             <summary>
-            Gets or sets the saturation current.
+            Gets or sets the emitter resistance.
             </summary>
             <value>
-            The saturation current.
+            The emitter resistance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.FlickerNoiseCoefficient">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.CapCs">
             <summary>
-            Gets or sets the flicker noise coefficient.
+            Gets the zero-bias collector-substrate capacitance.
             </summary>
             <value>
-            The flicker noise coefficient.
+            The zero-bias collector-substrate capacitance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EarlyVoltageReverse">
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaExponent">
             <summary>
-            Gets or sets the reverse Early voltage.
+            Gets or sets the forward and reverse beta temperature exponent.
             </summary>
             <value>
-            The reverse Early voltage.
+            The forward and reverse beta temperature exponent.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.NominalTemperature">
+            <summary>
+            Gets or sets the nominal temperature parameter in degrees Kelvin.
+            </summary>
+            <value>
+            The nominal temperature in degrees Kelvin.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BetaR">
+            <summary>
+            Gets or sets the ideal reverse beta parameter.
+            </summary>
+            <value>
+            The ideal reverse beta parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeHighCurrentForward">
+            <summary>
+            Gets the high-current dependence of the forward transit time.
+            </summary>
+            <value>
+            The high-current dependence of the forward transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeForward">
+            <summary>
+            Gets or sets the ideal forward transit time.
+            </summary>
+            <value>
+            The ideal forward transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.RollOffForward">
+            <summary>
+            Gets or sets the forward beta roll-off corner current.
+            </summary>
+            <value>
+            The forward beta roll-off corner current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EarlyVoltageForward">
+            <summary>
+            Gets or sets the forward Early voltage.
+            </summary>
+            <value>
+            The forward Early voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeReverse">
+            <summary>
+            Gets or sets the ideal reverse transit time.
+            </summary>
+            <value>
+            The ideal reverse transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EmissionCoefficientForward">
+            <summary>
+            Gets or sets the forward emission coefficient.
+            </summary>
+            <value>
+            The forward emission coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.ExponentialSubstrate">
+            <summary>
+            Gets or sets the substrate junction grading coefficient.
+            </summary>
+            <value>
+            The substrate junction grading coefficient.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeForwardVoltageBc">
@@ -8391,6 +8380,182 @@
             </summary>
             <value>
             The voltage giving the base-collector voltage dependence of the forward transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.SatCur">
+            <summary>
+            Gets or sets the saturation current.
+            </summary>
+            <value>
+            The saturation current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBeEmissionCoefficient">
+            <summary>
+            Gets or sets the base-emitter emission coefficient.
+            </summary>
+            <value>
+            The base-emitter emission coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapCoefficient">
+            <summary>
+            Gets the forward bias junction fit parameter.
+            </summary>
+            <value>
+            The forward bias junction fit parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TransitTimeBiasCoefficientForward">
+            <summary>
+            Gets or sets the coefficient for bias dependence parameter of the forward transit time.
+            </summary>
+            <value>
+            The coefficient for bias dependence of the forward transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseCurrentHalfResist">
+            <summary>
+            Gets or sets the current for base resistance (rb + rbm) / 2.
+            </summary>
+            <value>
+            The current for base resistance = (rb + rbm) / 2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.CollectorResistance">
+            <summary>
+            Gets or sets the collector resistance.
+            </summary>
+            <value>
+            The collector resistance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapBe">
+            <summary>
+            Gets or sets the zero-bias base-emitter depletion capacitance parameter.
+            </summary>
+            <value>
+            The zero-bias base-emitter depletion capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.ExcessPhase">
+            <summary>
+            Gets or sets the excess phase.
+            </summary>
+            <value>
+            The excess phase.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.FlickerNoiseExponent">
+            <summary>
+            Gets or sets the flicker noise exponent.
+            </summary>
+            <value>
+            The flicker noise exponent.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.C4">
+            <summary>
+            Gets or sets a parameter that is not accessible in Spice 3f5
+            </summary>
+            <value>
+            The scaling parameter c4.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.TempExpIs">
+            <summary>
+            Gets the temperature exponent for the saturation current.
+            </summary>
+            <value>
+            The temperature exponent for the saturation current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.RollOffReverse">
+            <summary>
+            Gets or sets the reverse beta roll-off corner current.
+            </summary>
+            <value>
+            The reverse beta roll-off corner current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.LeakBcCurrent">
+            <summary>
+            Gets or sets the base-collector saturation current.
+            </summary>
+            <value>
+            The base-collector saturation current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.PotentialSubstrate">
+            <summary>
+            Gets or sets the substrate junction built-in potential.
+            </summary>
+            <value>
+            The substrate junction built-in potential.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.PotentialBc">
+            <summary>
+            Gets or sets the base-collector built-in potential.
+            </summary>
+            <value>
+            The base-collector built-in potential.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.BaseFractionBcCap">
+            <summary>
+            Gets or sets the fraction of base-collector capacitance to the internal base.
+            </summary>
+            <value>
+            The fraction of base-collector capacitance to the internal base.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.DepletionCapBc">
+            <summary>
+            Gets or sets the zero-bias base-collector depletion capacitance.
+            </summary>
+            <value>
+            The zero-bias base-collector depletion capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.JunctionExpBe">
+            <summary>
+            Gets or sets the base-emitter junction grading coefficient.
+            </summary>
+            <value>
+            The base-emitter junction grading coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.JunctionExpBc">
+            <summary>
+            Gets or sets the base-collector junction grading coefficient parameter.
+            </summary>
+            <value>
+            The base-collector junction grading coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.C2">
+            <summary>
+            Gets or sets a parameter that is not accessible in Spice 3f5
+            </summary>
+            <value>
+            The scaling parameter c2.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EnergyGap">
+            <summary>
+            Gets the energy gap for saturation current temperature dependency.
+            </summary>
+            <value>
+            The energy gap for saturation current temperature dependency.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.ModelParameters.EarlyVoltageReverse">
+            <summary>
+            Gets or sets the reverse Early voltage.
+            </summary>
+            <value>
+            The reverse Early voltage.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Bipolars.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Boolean}#GetParameterSetter(System.String)">
@@ -8696,12 +8861,12 @@
             The area of the transistor.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.Parameters.InitialVoltageBe">
+        <member name="P:SpiceSharp.Components.Bipolars.Parameters.Temperature">
             <summary>
-            Gets the initial base-emitter voltage parameter.
+            Gets or sets the temperature parameter in degrees Kelvin.
             </summary>
             <value>
-            The initial base-emitter voltage.
+            The temperature in degrees Kelvin.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Bipolars.Parameters.InitialVoltageCe">
@@ -8712,20 +8877,20 @@
             The initial collector-emitter voltage.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Bipolars.Parameters.Temperature">
-            <summary>
-            Gets or sets the temperature parameter in degrees Kelvin.
-            </summary>
-            <value>
-            The temperature in degrees Kelvin.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Bipolars.Parameters.ParallelMultiplier">
             <summary>
             Gets or sets the number of bipolar transistors in parallel.
             </summary>
             <value>
             The number of bipolar transistors in parallel.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Bipolars.Parameters.InitialVoltageBe">
+            <summary>
+            Gets the initial base-emitter voltage parameter.
+            </summary>
+            <value>
+            The initial base-emitter voltage.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Bipolars.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -8990,6 +9155,9 @@
         <member name="M:SpiceSharp.Components.Bipolars.Time.ExcessPhaseCalculation(System.Double@,System.Double@,System.Double@)">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Bipolars.Time.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.BipolarJunctionTransistor">
             <summary>
             A bipolar junction transistor (BJT).
@@ -9121,6 +9289,9 @@
             </summary>
         </member>
         <member name="M:SpiceSharp.Components.Diodes.Biasing.SpiceSharp#Behaviors#IConvergenceBehavior#IsConvergent">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Diodes.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Diodes.DiodeVariables`1">
@@ -9282,6 +9453,12 @@
         <member name="M:SpiceSharp.Components.Diodes.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Diodes.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Diodes.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Diodes.ModelParameters">
             <summary>
             Base parameters for a <see cref="T:SpiceSharp.Components.DiodeModel" />
@@ -9424,100 +9601,12 @@
             The saturation current temperature exponent.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.BreakdownCurrent">
-            <summary>
-            Gets the current at the reverse breakdown voltage.
-            </summary>
-            <value>
-            The breakdown current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.EmissionCoefficient">
-            <summary>
-            Gets or sets the emission coefficient.
-            </summary>
-            <value>
-            The emission coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.BreakdownVoltage">
-            <summary>
-            Gets or sets the reverse breakdown voltage.
-            </summary>
-            <value>
-            The breakdown voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.FlickerNoiseCoefficient">
-            <summary>
-            Gets or sets the flicker noise coefficient.
-            </summary>
-            <value>
-            The flicker noise coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.FlickerNoiseExponent">
-            <summary>
-            Gets or sets the flicker noise exponent.
-            </summary>
-            <value>
-            The flicker noise exponent.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.JunctionPotential">
-            <summary>
-            Gets or sets the junction built-in potential.
-            </summary>
-            <value>
-            The junction built-in potential.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.SaturationCurrent">
-            <summary>
-            Gets or sets the saturation current.
-            </summary>
-            <value>
-            The saturation current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.DepletionCapCoefficient">
-            <summary>
-            Gets the forward bias junction fit parameter.
-            </summary>
-            <value>
-            The forward bias junction fit parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.NominalTemperature">
-            <summary>
-            Gets the nominal temperature in degrees Kelvin.
-            </summary>
-            <value>
-            The nominal temperature in degrees Kelvin.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.TransitTime">
-            <summary>
-            Gets or sets the transit time.
-            </summary>
-            <value>
-            The transit time.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Diodes.ModelParameters.Resistance">
             <summary>
             Gets or sets the ohmic resistance.
             </summary>
             <value>
             The ohmic resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.JunctionCap">
-            <summary>
-            Gets or sets the junction capacitance.
-            </summary>
-            <value>
-            The junction capacitance.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Diodes.ModelParameters.ActivationEnergy">
@@ -9528,12 +9617,100 @@
             The activation energy.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.BreakdownVoltage">
+            <summary>
+            Gets or sets the reverse breakdown voltage.
+            </summary>
+            <value>
+            The breakdown voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.DepletionCapCoefficient">
+            <summary>
+            Gets the forward bias junction fit parameter.
+            </summary>
+            <value>
+            The forward bias junction fit parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.BreakdownCurrent">
+            <summary>
+            Gets the current at the reverse breakdown voltage.
+            </summary>
+            <value>
+            The breakdown current.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Components.Diodes.ModelParameters.GradingCoefficient">
             <summary>
             Gets or sets the grading coefficient.
             </summary>
             <value>
             The grading coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.JunctionCap">
+            <summary>
+            Gets or sets the junction capacitance.
+            </summary>
+            <value>
+            The junction capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.TransitTime">
+            <summary>
+            Gets or sets the transit time.
+            </summary>
+            <value>
+            The transit time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.FlickerNoiseCoefficient">
+            <summary>
+            Gets or sets the flicker noise coefficient.
+            </summary>
+            <value>
+            The flicker noise coefficient.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.JunctionPotential">
+            <summary>
+            Gets or sets the junction built-in potential.
+            </summary>
+            <value>
+            The junction built-in potential.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.FlickerNoiseExponent">
+            <summary>
+            Gets or sets the flicker noise exponent.
+            </summary>
+            <value>
+            The flicker noise exponent.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.SaturationCurrent">
+            <summary>
+            Gets or sets the saturation current.
+            </summary>
+            <value>
+            The saturation current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.NominalTemperature">
+            <summary>
+            Gets the nominal temperature in degrees Kelvin.
+            </summary>
+            <value>
+            The nominal temperature in degrees Kelvin.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.ModelParameters.EmissionCoefficient">
+            <summary>
+            Gets or sets the emission coefficient.
+            </summary>
+            <value>
+            The emission coefficient.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Diodes.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -9663,6 +9840,15 @@
         <member name="M:SpiceSharp.Components.Diodes.Noise.SpiceSharp#Behaviors#INoiseBehavior#Compute">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Diodes.Noise.SpiceSharp#ParameterSets#IExportPropertySet{SpiceSharp#Simulations#INoiseSource}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Diodes.Noise.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Diodes.Noise.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Diodes.Parameters">
             <summary>
             Base parameters for a <see cref="T:SpiceSharp.Components.Diode" />
@@ -9725,14 +9911,6 @@
             The number of diodes in series.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Diodes.Parameters.ParallelMultiplier">
-            <summary>
-            Gets or sets the number of diodes in parallel.
-            </summary>
-            <value>
-            The number of diodes in parallel.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Diodes.Parameters.Temperature">
             <summary>
             Gets the temperature parameter in degrees Kelvin.
@@ -9741,12 +9919,12 @@
             The temperature in degrees Kelvin.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Diodes.Parameters.InitCond">
+        <member name="P:SpiceSharp.Components.Diodes.Parameters.ParallelMultiplier">
             <summary>
-            Gets or sets the initial condition.
+            Gets or sets the number of diodes in parallel.
             </summary>
             <value>
-            The initial voltage.
+            The number of diodes in parallel.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Diodes.Parameters.Area">
@@ -9755,6 +9933,14 @@
             </summary>
             <value>
             The area of the diode.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Diodes.Parameters.InitCond">
+            <summary>
+            Gets or sets the initial condition.
+            </summary>
+            <value>
+            The initial voltage.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Diodes.Parameters.SeriesMultiplier">
@@ -9924,6 +10110,9 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.Diodes.Time.Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Diodes.Time.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Diode">
@@ -10102,6 +10291,9 @@
             <param name="vgd">The gate-drain voltage.</param>
             <param name="check">If set to <c>true</c>, the voltages were limited to avoid blowing up of the currents.</param>
         </member>
+        <member name="M:SpiceSharp.Components.JFETs.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.JFETs.Frequency">
             <summary>
             Frequency behavior for a <see cref="T:SpiceSharp.Components.JFET" />.
@@ -10162,6 +10354,9 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.JFETs.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.JFETs.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.JFETs.ModelParameters">
@@ -10337,28 +10532,12 @@
         <member name="M:SpiceSharp.Components.JFETs.ModelParameters.CalculateDefaults">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.CapGd">
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.GateSaturationCurrent">
             <summary>
-            Gets or sets the gate-drain junction capacitance.
+            Gets or sets the gate saturation current.
             </summary>
             <value>
-            The gate-drain junction capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.FnCoefficient">
-            <summary>
-            Gets or sets the flicker noise coefficient.
-            </summary>
-            <value>
-            The flicker noise coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.NominalTemperature">
-            <summary>
-            Gets the measurement temperature in Kelvin.
-            </summary>
-            <value>
-            The measurement temperature in Kelvin.
+            The gate saturation current.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.JFETs.ModelParameters.Threshold">
@@ -10369,44 +10548,20 @@
             The threshold voltage.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.SourceResistance">
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.B">
             <summary>
-            Gets or sets the source resistance.
+            Gets the doping tail parameter.
             </summary>
             <value>
-            The source resistance.
+            The doping tail parameter.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.Beta">
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.FnExponent">
             <summary>
-            Gets or sets the transconductance.
+            Gets or sets the flicker noise exponent.
             </summary>
             <value>
-            The transconductance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.GateSaturationCurrent">
-            <summary>
-            Gets or sets the gate saturation current.
-            </summary>
-            <value>
-            The gate saturation current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.DepletionCapCoefficient">
-            <summary>
-            Gets or sets the forward bias junction fitting parameter.
-            </summary>
-            <value>
-            he forward bias junction fitting parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.LModulation">
-            <summary>
-            Gets or sets the channel length modulation parameter.
-            </summary>
-            <value>
-            The channel length modulation parameter.
+            The flicker noise exponent.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.JFETs.ModelParameters.CapGs">
@@ -10425,12 +10580,12 @@
             The gate junction potential.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.B">
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.FnCoefficient">
             <summary>
-            Gets the doping tail parameter.
+            Gets or sets the flicker noise coefficient.
             </summary>
             <value>
-            The doping tail parameter.
+            The flicker noise coefficient.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.JFETs.ModelParameters.DrainResistance">
@@ -10441,12 +10596,52 @@
             The drain resistance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.FnExponent">
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.SourceResistance">
             <summary>
-            Gets or sets the flicker noise exponent.
+            Gets or sets the source resistance.
             </summary>
             <value>
-            The flicker noise exponent.
+            The source resistance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.LModulation">
+            <summary>
+            Gets or sets the channel length modulation parameter.
+            </summary>
+            <value>
+            The channel length modulation parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.NominalTemperature">
+            <summary>
+            Gets the measurement temperature in Kelvin.
+            </summary>
+            <value>
+            The measurement temperature in Kelvin.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.CapGd">
+            <summary>
+            Gets or sets the gate-drain junction capacitance.
+            </summary>
+            <value>
+            The gate-drain junction capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.DepletionCapCoefficient">
+            <summary>
+            Gets or sets the forward bias junction fitting parameter.
+            </summary>
+            <value>
+            he forward bias junction fitting parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.ModelParameters.Beta">
+            <summary>
+            Gets or sets the transconductance.
+            </summary>
+            <value>
+            The transconductance.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.JFETs.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -10607,22 +10802,6 @@
             </summary>
             <param name="ic">The initial conditions.</param>
         </member>
-        <member name="P:SpiceSharp.Components.JFETs.Parameters.InitialVds">
-            <summary>
-            Gets or sets the initial drain-source voltage.
-            </summary>
-            <value>
-            The initial drain-source voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.JFETs.Parameters.Temperature">
-            <summary>
-            Gets or sets the temperature in Kelvin.
-            </summary>
-            <value>
-            The temperature in degrees Kelvin.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.JFETs.Parameters.Area">
             <summary>
             Gets or sets the area.
@@ -10645,6 +10824,22 @@
             </summary>
             <value>
             The initial gate-source voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.Parameters.Temperature">
+            <summary>
+            Gets or sets the temperature in Kelvin.
+            </summary>
+            <value>
+            The temperature in degrees Kelvin.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.JFETs.Parameters.InitialVds">
+            <summary>
+            Gets or sets the initial drain-source voltage.
+            </summary>
+            <value>
+            The initial drain-source voltage.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.JFETs.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -10958,6 +11153,9 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Mosfets.IMosfetBiasingBehavior">
@@ -11316,36 +11514,12 @@
             The flicker noise exponent.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateBulkOverlapCapFactor">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SubstrateDoping">
             <summary>
-            Gets or sets the gate-bulk overlap capacitance.
+            Gets or sets the substrate doping level.
             </summary>
             <value>
-            The gate-bulk overlap capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.CapBd">
-            <summary>
-            Gets or sets the bulk-drain junction capacitance.
-            </summary>
-            <value>
-            The bulk-drain junction capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.OxideThickness">
-            <summary>
-            Gets or sets the oxide thickness.
-            </summary>
-            <value>
-            The oxide thickness.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Gamma">
-            <summary>
-            Gets or sets the bulk threshold parameter.
-            </summary>
-            <value>
-            The bulk threshold parameter.
+            The substrate doping level.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateDrainOverlapCapFactor">
@@ -11356,60 +11530,12 @@
             The gate-drain overlap capacitance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateType">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateBulkOverlapCapFactor">
             <summary>
-            Gets or sets the type of the gate.
+            Gets or sets the gate-bulk overlap capacitance.
             </summary>
             <value>
-            The type of the gate.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionBotGradingCoefficient">
-            <summary>
-            Gets or sets the bulk junction bottom grading coefficient.
-            </summary>
-            <value>
-            The bulk junction bottom grading coefficient.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SheetResistance">
-            <summary>
-            Gets or sets the sheet resistance.
-            </summary>
-            <value>
-            The sheet resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SourceResistance">
-            <summary>
-            Gets or sets the source ohmic resistance.
-            </summary>
-            <value>
-            The source ohmic resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Length">
-            <summary>
-            Gets or sets the default length for transistors using this model.
-            </summary>
-            <value>
-            The default length for transistors.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SurfaceMobility">
-            <summary>
-            Gets or sets the surface mobility.
-            </summary>
-            <value>
-            The surface mobility.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.JunctionSatCurDensity">
-            <summary>
-            Gets or sets the bulk junction saturation current density.
-            </summary>
-            <value>
-            The bulk junction saturation current density.
+            The gate-bulk overlap capacitance.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.FlickerNoiseCoefficient">
@@ -11420,28 +11546,12 @@
             The flicker noise coefficient.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionPotential">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkCapFactor">
             <summary>
-            Gets or sets the bulk junction potential.
+            Gets or sets the bottom junction capacitance per area.
             </summary>
             <value>
-            The bulk junction potential.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.LateralDiffusion">
-            <summary>
-            Gets or sets the lateral diffusion.
-            </summary>
-            <value>
-            The lateral diffusion.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Transconductance">
-            <summary>
-            Gets or sets the transconductance.
-            </summary>
-            <value>
-            The transconductance.
+            The bottom junction capacitance per area.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.FlickerNoiseExponent">
@@ -11452,28 +11562,12 @@
             The flicker noise exponent.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SidewallCapFactor">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Vt0">
             <summary>
-            Gets or sets the sidewall capacitance.
+            Gets or sets the base threshold voltage.
             </summary>
             <value>
-            The sidewall capacitance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.JunctionSatCur">
-            <summary>
-            Gets or sets the bulk junction saturation current.
-            </summary>
-            <value>
-            The bulk junction saturation current.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SurfaceStateDensity">
-            <summary>
-            Gets or sets the surface state density.
-            </summary>
-            <value>
-            The surface state density.
+            The base threshold voltage.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Width">
@@ -11484,20 +11578,132 @@
             The default width for transistors.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Vt0">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.LateralDiffusion">
             <summary>
-            Gets or sets the base threshold voltage.
+            Gets or sets the lateral diffusion.
             </summary>
             <value>
-            The base threshold voltage.
+            The lateral diffusion.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkCapFactor">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SurfaceStateDensity">
             <summary>
-            Gets or sets the bottom junction capacitance per area.
+            Gets or sets the surface state density.
             </summary>
             <value>
-            The bottom junction capacitance per area.
+            The surface state density.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Gamma">
+            <summary>
+            Gets or sets the bulk threshold parameter.
+            </summary>
+            <value>
+            The bulk threshold parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.OxideThickness">
+            <summary>
+            Gets or sets the oxide thickness.
+            </summary>
+            <value>
+            The oxide thickness.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SheetResistance">
+            <summary>
+            Gets or sets the sheet resistance.
+            </summary>
+            <value>
+            The sheet resistance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Transconductance">
+            <summary>
+            Gets or sets the transconductance.
+            </summary>
+            <value>
+            The transconductance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.JunctionSatCurDensity">
+            <summary>
+            Gets or sets the bulk junction saturation current density.
+            </summary>
+            <value>
+            The bulk junction saturation current density.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.DrainResistance">
+            <summary>
+            Gets or sets the drain ohmic resistance.
+            </summary>
+            <value>
+            The drain ohmic resistance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.JunctionSatCur">
+            <summary>
+            Gets or sets the bulk junction saturation current.
+            </summary>
+            <value>
+            The bulk junction saturation current.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateType">
+            <summary>
+            Gets or sets the type of the gate.
+            </summary>
+            <value>
+            The type of the gate.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.CapBd">
+            <summary>
+            Gets or sets the bulk-drain junction capacitance.
+            </summary>
+            <value>
+            The bulk-drain junction capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Length">
+            <summary>
+            Gets or sets the default length for transistors using this model.
+            </summary>
+            <value>
+            The default length for transistors.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SourceResistance">
+            <summary>
+            Gets or sets the source ohmic resistance.
+            </summary>
+            <value>
+            The source ohmic resistance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SidewallCapFactor">
+            <summary>
+            Gets or sets the sidewall capacitance.
+            </summary>
+            <value>
+            The sidewall capacitance.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.ForwardCapDepletionCoefficient">
+            <summary>
+            Gets or sets the forward bias junction fitting parameter.
+            </summary>
+            <value>
+            The forward bias junction fitting parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionBotGradingCoefficient">
+            <summary>
+            Gets or sets the bulk junction bottom grading coefficient.
+            </summary>
+            <value>
+            The bulk junction bottom grading coefficient.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.GateSourceOverlapCapFactor">
@@ -11516,6 +11722,22 @@
             The bulk-source junction capacitance
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionPotential">
+            <summary>
+            Gets or sets the bulk junction potential.
+            </summary>
+            <value>
+            The bulk junction potential.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SurfaceMobility">
+            <summary>
+            Gets or sets the surface mobility.
+            </summary>
+            <value>
+            The surface mobility.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.Phi">
             <summary>
             Gets or sets the surface potential.
@@ -11524,20 +11746,12 @@
             The surface potential.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.DrainResistance">
+        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionSideGradingCoefficient">
             <summary>
-            Gets or sets the drain ohmic resistance.
+            Gets or sets the bulk junction side grading coefficient.
             </summary>
             <value>
-            The drain ohmic resistance.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.SubstrateDoping">
-            <summary>
-            Gets or sets the substrate doping level.
-            </summary>
-            <value>
-            The substrate doping level.
+            The bulk junction side grading coefficient.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.NominalTemperature">
@@ -11546,22 +11760,6 @@
             </summary>
             <value>
             The nominal temperature in Kelvin.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.ForwardCapDepletionCoefficient">
-            <summary>
-            Gets or sets the forward bias junction fitting parameter.
-            </summary>
-            <value>
-            The forward bias junction fitting parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.ModelParameters.BulkJunctionSideGradingCoefficient">
-            <summary>
-            Gets or sets the bulk junction side grading coefficient.
-            </summary>
-            <value>
-            The bulk junction side grading coefficient.
             </value>
         </member>
         <member name="T:SpiceSharp.Components.Mosfets.ModelProperties">
@@ -11860,64 +12058,12 @@
             Set the initial conditions of the device.
             </summary>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.InitialVgs">
-            <summary>
-            Gets or sets the initial gate-source voltage.
-            </summary>
-            <value>
-            The initial gate-source voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.ParallelMultiplier">
-            <summary>
-            Gets or sets the parallel multplier (the number of transistors in parallel).
-            </summary>
-            <value>
-            The parallel multplier.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Parameters.InitialVds">
             <summary>
             Gets or sets the initial drain-source voltage.
             </summary>
             <value>
             The initial drain-source voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.DrainSquares">
-            <summary>
-            Gets or sets the number of squares of the drain.
-            Used in conjunction with the sheet resistance.
-            </summary>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.Length">
-            <summary>
-            Gets or sets the mosfet length.
-            </summary>
-            <value>
-            The mosfet length.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourceArea">
-            <summary>
-            Gets or sets the source layout area.
-            </summary>
-            <value>
-            The source layout area.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourceSquares">
-            <summary>
-            Gets or sets the number of squares of the source.
-            Used in conjunction with the sheet resistance.
-            </summary>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.Temperature">
-            <summary>
-            Gets or sets the temperature in Kelvin.
-            </summary>
-            <value>
-            The temperature in Kelvin.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.Parameters.DrainPerimeter">
@@ -11928,14 +12074,6 @@
             The drain layout perimeter.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourcePerimeter">
-            <summary>
-            Gets or sets the source layout perimeter.
-            </summary>
-            <value>
-            The source layout perimeter.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Parameters.InitialVbs">
             <summary>
             Gets or sets the initial bulk-source voltage.
@@ -11944,12 +12082,66 @@
             The initial bulk-source voltage.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourceArea">
+            <summary>
+            Gets or sets the source layout area.
+            </summary>
+            <value>
+            The source layout area.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.DrainSquares">
+            <summary>
+            Gets or sets the number of squares of the drain.
+            Used in conjunction with the sheet resistance.
+            </summary>
+        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Parameters.DrainArea">
             <summary>
             Gets or sets the drain layout area.
             </summary>
             <value>
             The drain layout area.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.Temperature">
+            <summary>
+            Gets or sets the temperature in Kelvin.
+            </summary>
+            <value>
+            The temperature in Kelvin.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourcePerimeter">
+            <summary>
+            Gets or sets the source layout perimeter.
+            </summary>
+            <value>
+            The source layout perimeter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.ParallelMultiplier">
+            <summary>
+            Gets or sets the parallel multplier (the number of transistors in parallel).
+            </summary>
+            <value>
+            The parallel multplier.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.Length">
+            <summary>
+            Gets or sets the mosfet length.
+            </summary>
+            <value>
+            The mosfet length.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.DeltaTemperature">
+            <summary>
+            Gets or sets the instance temperature difference.
+            </summary>
+            <value>
+            The temperature difference.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.Parameters.Width">
@@ -11960,13 +12152,19 @@
             The mosfet width.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Parameters.DeltaTemperature">
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.InitialVgs">
             <summary>
-            Gets or sets the instance temperature difference.
+            Gets or sets the initial gate-source voltage.
             </summary>
             <value>
-            The temperature difference.
+            The initial gate-source voltage.
             </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Parameters.SourceSquares">
+            <summary>
+            Gets or sets the number of squares of the source.
+            Used in conjunction with the sheet resistance.
+            </summary>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Parameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
             <inheritdoc/>
@@ -12051,6 +12249,9 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Time.UpdateTime(System.Object,SpiceSharp.Components.Mosfets.MosfetContributionEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Time.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Mosfets.Transistor">
@@ -12290,6 +12491,12 @@
         <member name="M:SpiceSharp.Components.Mosfets.Level1.Noise.SpiceSharp#Behaviors#INoiseBehavior#Compute">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level1.Noise.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level1.Noise.SpiceSharp#ParameterSets#IExportPropertySet{SpiceSharp#Simulations#INoiseSource}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Mosfets.Level1.Temperature">
             <summary>
             Temperature behavior for a <see cref="T:SpiceSharp.Components.Mosfet1"/>.
@@ -12433,6 +12640,9 @@
         <member name="M:SpiceSharp.Components.Mosfets.Level2.Biasing.SpiceSharp#Behaviors#IConvergenceBehavior#IsConvergent">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level2.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Mosfets.Level2.ModelParameters">
             <summary>
             Base parameters for a <see cref="T:SpiceSharp.Components.Mosfet2Model" />
@@ -12506,20 +12716,12 @@
         <member name="M:SpiceSharp.Components.Mosfets.Level2.ModelParameters.SpiceSharp#ICloneable{SpiceSharp#Components#Mosfets#Level2#ModelParameters}#Clone">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.Lambda">
+        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.ChannelCharge">
             <summary>
-            Gets the channel length modulation parameter.
+            Gets the total channel charge coefficient.
             </summary>
             <value>
-            The channel length modulation parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.JunctionDepth">
-            <summary>
-            Gets the junction depth.
-            </summary>
-            <value>
-            The junction depth.
+            The total channel charge coefficient.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.CriticalFieldExp">
@@ -12530,20 +12732,12 @@
             The critical field exponent for mobility degradation.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.CriticalField">
+        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.FastSurfaceStateDensity">
             <summary>
-            Gets or sets the critical field for mobility degradation.
+            Gets the fast surface state density.
             </summary>
             <value>
-            The critical field for mobility degradation.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.ChannelCharge">
-            <summary>
-            Gets the total channel charge coefficient.
-            </summary>
-            <value>
-            The total channel charge coefficient.
+            The fast surface state density.
             </value>
         </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.MaxDriftVelocity">
@@ -12554,6 +12748,22 @@
             The maximum drift velocity.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.CriticalField">
+            <summary>
+            Gets or sets the critical field for mobility degradation.
+            </summary>
+            <value>
+            The critical field for mobility degradation.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.JunctionDepth">
+            <summary>
+            Gets the junction depth.
+            </summary>
+            <value>
+            The junction depth.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.NarrowFactor">
             <summary>
             Gets or sets the width effect on the threshold voltage.
@@ -12562,12 +12772,12 @@
             The width effect on the threshold voltage.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.FastSurfaceStateDensity">
+        <member name="P:SpiceSharp.Components.Mosfets.Level2.ModelParameters.Lambda">
             <summary>
-            Gets the fast surface state density.
+            Gets the channel length modulation parameter.
             </summary>
             <value>
-            The fast surface state density.
+            The channel length modulation parameter.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Level2.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -12679,6 +12889,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Level2.Noise.SpiceSharp#Behaviors#INoiseBehavior#Compute">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level2.Noise.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level2.Noise.SpiceSharp#ParameterSets#IExportPropertySet{SpiceSharp#Simulations#INoiseSource}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Mosfets.Level2.Temperature">
@@ -12824,6 +13040,9 @@
         <member name="M:SpiceSharp.Components.Mosfets.Level3.Biasing.SpiceSharp#Behaviors#IConvergenceBehavior#IsConvergent">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level3.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.Mosfets.Level3.ModelParameters">
             <summary>
             Base parameters for a <see cref="T:SpiceSharp.Components.Mosfet3Model" />
@@ -12965,6 +13184,46 @@
             The width mask adjustment.
             </value>
         </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Eta">
+            <summary>
+            Gets or sets the drain-source voltage dependence of the threshold voltage.
+            </summary>
+            <value>
+            The drain-source voltage dependence of the threshold voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.FastSurfaceStateDensity">
+            <summary>
+            Gets or sets the fast surface state density.
+            </summary>
+            <value>
+            The fast surface state density.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Delta">
+            <summary>
+            Gets or sets the width effect on the threshold voltage.
+            </summary>
+            <value>
+            The width effect on the threshold voltage.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Kappa">
+            <summary>
+            Gets the kappa parameter.
+            </summary>
+            <value>
+            The kappa-parameter.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.WidthNarrow">
+            <summary>
+            Gets or sets the width narrowing due to diffusion.
+            </summary>
+            <value>
+            The width narrowing.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Theta">
             <summary>
             Gets or sets the gate-source voltage dependence on mobility.
@@ -12981,30 +13240,6 @@
             The threshold voltage adjustment.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.JunctionDepth">
-            <summary>
-            Gets or sets the junction depth.
-            </summary>
-            <value>
-            The junction depth.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.FastSurfaceStateDensity">
-            <summary>
-            Gets or sets the fast surface state density.
-            </summary>
-            <value>
-            The fast surface state density.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.WidthNarrow">
-            <summary>
-            Gets or sets the width narrowing due to diffusion.
-            </summary>
-            <value>
-            The width narrowing.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.LengthAdjust">
             <summary>
             Gets or sets the length mask adjustment.
@@ -13013,36 +13248,20 @@
             The length mask adjustment.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Kappa">
-            <summary>
-            Gets the kappa parameter.
-            </summary>
-            <value>
-            The kappa-parameter.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Delta">
-            <summary>
-            Gets or sets the width effect on the threshold voltage.
-            </summary>
-            <value>
-            The width effect on the threshold voltage.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.Eta">
-            <summary>
-            Gets or sets the drain-source voltage dependence of the threshold voltage.
-            </summary>
-            <value>
-            The drain-source voltage dependence of the threshold voltage.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.MaxDriftVelocity">
             <summary>
             Gets or sets the maximum drift velocity.
             </summary>
             <value>
             The maximum drift velocity.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Mosfets.Level3.ModelParameters.JunctionDepth">
+            <summary>
+            Gets or sets the junction depth.
+            </summary>
+            <value>
+            The junction depth.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Level3.ModelParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -13142,6 +13361,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.Mosfets.Level3.Noise.SpiceSharp#Behaviors#INoiseBehavior#Compute">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level3.Noise.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.Mosfets.Level3.Noise.SpiceSharp#ParameterSets#IExportPropertySet{SpiceSharp#Simulations#INoiseSource}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.Mosfets.Level3.Temperature">
@@ -14829,6 +15054,9 @@
         <member name="M:SpiceSharp.Components.CurrentControlledVoltageSources.Biasing.SpiceSharp#Behaviors#IBiasingBehavior#Load">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.CurrentControlledVoltageSources.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.CurrentControlledVoltageSources.Frequency">
             <summary>
             Small signal behavior for <see cref="T:SpiceSharp.Components.CurrentControlledVoltageSource" />.
@@ -14860,6 +15088,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.CurrentControlledVoltageSources.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.CurrentControlledVoltageSources.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.CurrentControlledVoltageSources.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.CurrentControlledVoltageSources.Parameters">
@@ -14972,6 +15206,9 @@
         <member name="M:SpiceSharp.Components.VoltageControlledVoltageSources.Biasing.SpiceSharp#Behaviors#IBiasingBehavior#Load">
             <inheritdoc/>
         </member>
+        <member name="M:SpiceSharp.Components.VoltageControlledVoltageSources.Biasing.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:SpiceSharp.Components.VoltageControlledVoltageSources.Frequency">
             <summary>
             AC behavior for a <see cref="T:SpiceSharp.Components.VoltageControlledVoltageSource"/>
@@ -15003,6 +15240,12 @@
             <inheritdoc/>
         </member>
         <member name="M:SpiceSharp.Components.VoltageControlledVoltageSources.Frequency.SpiceSharp#Behaviors#IFrequencyBehavior#Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.VoltageControlledVoltageSources.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Numerics#Complex}#GetPropertyGetter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SpiceSharp.Components.VoltageControlledVoltageSources.Frequency.SpiceSharp#ParameterSets#IExportPropertySet{System#Double}#GetPropertyGetter(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:SpiceSharp.Components.VoltageControlledVoltageSources.Parameters">
@@ -15534,14 +15777,6 @@
         <member name="M:SpiceSharp.Components.Pulse.Instance.Accept">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Components.Pulse.FallTime">
-            <summary>
-            Gets or sets the fall time in seconds.
-            </summary>
-            <value>
-            The fall time.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Pulse.Period">
             <summary>
             Gets or sets the period in seconds.
@@ -15550,20 +15785,28 @@
             The period.
             </value>
         </member>
-        <member name="P:SpiceSharp.Components.Pulse.RiseTime">
-            <summary>
-            Gets or sets the rise time in seconds.
-            </summary>
-            <value>
-            The rise time.
-            </value>
-        </member>
         <member name="P:SpiceSharp.Components.Pulse.PulseWidth">
             <summary>
             Gets or sets the width of the pulse in seconds.
             </summary>
             <value>
             The pulse width.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Pulse.FallTime">
+            <summary>
+            Gets or sets the fall time in seconds.
+            </summary>
+            <value>
+            The fall time.
+            </value>
+        </member>
+        <member name="P:SpiceSharp.Components.Pulse.RiseTime">
+            <summary>
+            Gets or sets the rise time in seconds.
+            </summary>
+            <value>
+            The rise time.
             </value>
         </member>
         <member name="M:SpiceSharp.Components.Pulse.SpiceSharp#ParameterSets#IImportParameterSet{System#Double}#GetParameterSetter(System.String)">
@@ -17363,6 +17606,14 @@
             The comparer use for nodes.
             </value>
         </member>
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.AbsoluteTolerance">
+            <summary>
+            Gets or sets the absolute tolerance.
+            </summary>
+            <value>
+            The absolute tolerance on solved quantities.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Simulations.BiasingParameters.VoltageTolerance">
             <summary>
             Gets or sets the absolute tolerance on voltages.
@@ -17371,12 +17622,12 @@
             The allowed voltage tolerance.
             </value>
         </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.AbsoluteTolerance">
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.NominalTemperature">
             <summary>
-            Gets or sets the absolute tolerance.
+            Gets or sets the nominal temperature in Kelvin.
             </summary>
             <value>
-            The absolute tolerance on solved quantities.
+            The nominal temperature.
             </value>
         </member>
         <member name="P:SpiceSharp.Simulations.BiasingParameters.Temperature">
@@ -17387,37 +17638,16 @@
             The temperature.
             </value>
         </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.AbsolutePivotThreshold">
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.RelativePivotThreshold">
             <summary>
-            Gets or sets the absolute threshold for choosing a pivot.
+            Gets or sets the relative threshold for choosing a pivot.
             </summary>
             <value>
-            The absolute pivot threshold.
+            The relative pivot threshold.
             </value>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Thrown if the value is negative.
+            Thrown if the value is not greater than 0.
             </exception>
-        </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.GminSteps">
-            <summary>
-            Gets or sets the number of steps to use when using gmin stepping to improve convergence.
-            </summary>
-            <value>
-            The number of steps used for gmin stepping.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.SourceSteps">
-            <summary>
-            Gets or sets the number of steps when using source stepping to improve convergence.
-            </summary>
-            <value>
-            The number of steps for source-stepping.
-            </value>
-            <remarks>
-            In source stepping, all sources are considered to be at 0 which has typically only one single solution (all nodes and
-            currents are 0V and 0A). By increasing the source factor in small steps, it is possible to progressively reach a solution
-            without having non-convergence.
-            </remarks>
         </member>
         <member name="P:SpiceSharp.Simulations.BiasingParameters.Gmin">
             <summary>
@@ -17432,6 +17662,27 @@
             steadily relaxing this value back to 0 it is possible to progressively reach a solution without having non-convergence.
             </remarks>
         </member>
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.SourceSteps">
+            <summary>
+            Gets or sets the number of steps when using source stepping to improve convergence.
+            </summary>
+            <value>
+            The number of steps for source-stepping.
+            </value>
+            <remarks>
+            In source stepping, all sources are considered to be at 0 which has typically only one single solution (all nodes and
+            currents are 0V and 0A). By increasing the source factor in small steps, it is possible to progressively reach a solution
+            without having non-convergence.
+            </remarks>
+        </member>
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.GminSteps">
+            <summary>
+            Gets or sets the number of steps to use when using gmin stepping to improve convergence.
+            </summary>
+            <value>
+            The number of steps used for gmin stepping.
+            </value>
+        </member>
         <member name="P:SpiceSharp.Simulations.BiasingParameters.RelativeTolerance">
             <summary>
             Gets or sets the allowed relative tolerance.
@@ -17440,23 +17691,15 @@
             The relative tolerance on solved quantities.
             </value>
         </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.NominalTemperature">
+        <member name="P:SpiceSharp.Simulations.BiasingParameters.AbsolutePivotThreshold">
             <summary>
-            Gets or sets the nominal temperature in Kelvin.
+            Gets or sets the absolute threshold for choosing a pivot.
             </summary>
             <value>
-            The nominal temperature.
-            </value>
-        </member>
-        <member name="P:SpiceSharp.Simulations.BiasingParameters.RelativePivotThreshold">
-            <summary>
-            Gets or sets the relative threshold for choosing a pivot.
-            </summary>
-            <value>
-            The relative pivot threshold.
+            The absolute pivot threshold.
             </value>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Thrown if the value is not greater than 0.
+            Thrown if the value is negative.
             </exception>
         </member>
         <member name="M:SpiceSharp.Simulations.BiasingParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Boolean}#GetParameterSetter(System.String)">
@@ -18178,17 +18421,6 @@
             </summary>
             <param name="frequencySweep">The frequency points.</param>
         </member>
-        <member name="P:SpiceSharp.Simulations.FrequencyParameters.AbsolutePivotThreshold">
-            <summary>
-            Gets or sets the absolute threshold for choosing a pivot.
-            </summary>
-            <value>
-            The absolute pivot threshold.
-            </value>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Thrown if the value is negative.
-            </exception>
-        </member>
         <member name="P:SpiceSharp.Simulations.FrequencyParameters.RelativePivotThreshold">
             <summary>
             Gets or sets the relative threshold for choosing a pivot.
@@ -18198,6 +18430,17 @@
             </value>
             <exception cref="T:System.ArgumentOutOfRangeException">
             Thrown if the value is not greater than 0.
+            </exception>
+        </member>
+        <member name="P:SpiceSharp.Simulations.FrequencyParameters.AbsolutePivotThreshold">
+            <summary>
+            Gets or sets the absolute threshold for choosing a pivot.
+            </summary>
+            <value>
+            The absolute pivot threshold.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the value is negative.
             </exception>
         </member>
         <member name="M:SpiceSharp.Simulations.FrequencyParameters.SpiceSharp#ParameterSets#IImportParameterSet{System#Boolean}#GetParameterSetter(System.String)">
@@ -21325,21 +21568,21 @@
         <member name="M:SpiceSharp.Simulations.TimeParameters.Clone">
             <inheritdoc/>
         </member>
-        <member name="P:SpiceSharp.Simulations.TimeParameters.StartTime">
-            <summary>
-            Gets or sets the start time.
-            </summary>
-            <value>
-            The start time.
-            </value>
-            <exception cref="T:System.ArgumentException">Thrown if the timepoint is negative.</exception>
-        </member>
         <member name="P:SpiceSharp.Simulations.TimeParameters.StopTime">
             <summary>
             Gets or sets the stop time.
             </summary>
             <value>
             The stop time.
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if the timepoint is negative.</exception>
+        </member>
+        <member name="P:SpiceSharp.Simulations.TimeParameters.StartTime">
+            <summary>
+            Gets or sets the start time.
+            </summary>
+            <value>
+            The start time.
             </value>
             <exception cref="T:System.ArgumentException">Thrown if the timepoint is negative.</exception>
         </member>

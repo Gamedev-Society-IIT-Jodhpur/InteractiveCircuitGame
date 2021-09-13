@@ -54,6 +54,19 @@ public class UnifiedScript: MonoBehaviour
         }
     }
 
+    static Diode CreateDiode(string name, string anode, string cathode, string model)
+    {
+        var d = new Diode(name, anode, cathode, model);
+        return d;
+    }
+
+   public static DiodeModel CreateDiodeModel(string name, string parameters)
+    {
+        var dm = new DiodeModel(name);
+        ApplyParameters(dm, parameters);
+        return dm;
+    }
+
     static  BipolarJunctionTransistor CreateBJT(string name,string c, string b, string e, string subst,string model)
     {
         // Create the transistor
@@ -80,14 +93,23 @@ public class UnifiedScript: MonoBehaviour
         }
     }
 
-   public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters)
+   public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters , int i)
     {
-        var bjtmodel = new BipolarJunctionTransistorModel(name);
+        BipolarJunctionTransistorModel bjtmodel = new BipolarJunctionTransistorModel(name);
         ApplyParameters(bjtmodel, parameters);
+        if (i == 1)
+        {
+            bjtmodel.SetParameter<bool>("npn", true);
+        }
+        else
+        {
+            bjtmodel.SetParameter<bool>("pnp", true);
+        }
         return bjtmodel;
     }
     public static void BJTInitialize(string name, List<string> nodes, string model)
     {
+
         if (scene == "Falstad")
         {
             CircuitManager.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model));
@@ -96,8 +118,21 @@ public class UnifiedScript: MonoBehaviour
         {
             CircuitManagerTinker.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model));
         }
+       
     }
 
+    public static void DiodeInitialize(string name, List<string> nodes, string model)
+    {
+        if (scene == "Falstad")
+        {
+            CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
+        }
+        else
+        {
+            CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
+        }
+
+    }
     
 
     void Awake()
@@ -113,6 +148,8 @@ public class UnifiedScript: MonoBehaviour
         dict1.Add("wire", Wiredel);
         Del BJTdel = BJTInitialize;
         dict1.Add("bjt", BJTdel);
+        Del Diodedel = DiodeInitialize;
+        dict1.Add("diode", Diodedel);
     }
     
 }
