@@ -8,6 +8,7 @@ public class ComponentInitialization : MonoBehaviour
 {
     
     public CircuitManager.component a;
+    public CircuitManager.model model;
     //public string a;
     public int no_nodes =2;
     public string nameInCircuit;
@@ -28,11 +29,11 @@ public class ComponentInitialization : MonoBehaviour
         }
         else if (a == CircuitManager.component.bjt)
         {
-            value = "mjd44h11";
+            value = model.ToString();
         }
         else if (a == CircuitManager.component.diode)
         {
-            value = "1N914";
+            value = "Default";
         }
         print(a.ToString());
 

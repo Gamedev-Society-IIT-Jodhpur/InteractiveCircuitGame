@@ -93,10 +93,18 @@ public class UnifiedScript: MonoBehaviour
         }
     }
 
-   public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters)
+   public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters , int i)
     {
-        var bjtmodel = new BipolarJunctionTransistorModel(name);
+        BipolarJunctionTransistorModel bjtmodel = new BipolarJunctionTransistorModel(name);
         ApplyParameters(bjtmodel, parameters);
+        if (i == 1)
+        {
+            bjtmodel.SetParameter<bool>("npn", true);
+        }
+        else
+        {
+            bjtmodel.SetParameter<bool>("pnp", true);
+        }
         return bjtmodel;
     }
     public static void BJTInitialize(string name, List<string> nodes, string model)
