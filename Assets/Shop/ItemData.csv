@@ -1,0 +1,4 @@
+ID, Name, Unit, Values,Description
+001,Resistor,ohm,10 20 30,A device having resistance to the passage of an electric current.
+002,Battery,volt,10 20 30,A battery is a source of electric power.
+003,Capacitor,farad,10 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
