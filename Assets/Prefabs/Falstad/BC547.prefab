@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145695842}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: -0.46749997, y: -2.42, z: 0}
+  m_LocalPosition: {x: -0.445, y: -1.95, z: 0}
   m_LocalScale: {x: 0.07325615, y: 0.5644469, z: 1}
   m_Children: []
   m_Father: {fileID: 8296779068763548590}
@@ -87,8 +87,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.1378324, y: 0.2878132, z: -0.00014999999}
-    m_Extent: {x: 1.7762868, y: 1.5203832, z: 0.00014999999}
+    m_Center: {x: -0.19961405, y: 0.8521334, z: -0.00014999999}
+    m_Extent: {x: 1.5709076, y: 1.7631931, z: 0.00014999999}
 --- !u!114 &2145695843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: 0.67566806, y: 1.4637713, z: 0}
+    - position: {x: 1.0244317, y: 2.2684648, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -1.5804497, y: 0.48922732, z: 0}
+    - position: {x: -1.2843046, y: 0.72088265, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 1.3047848, y: -0.89890057, z: 0}
+    - position: {x: 1.0141488, y: -0.49655277, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -736,6 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 3
+  model: 0
   no_nodes: 3
   nameInCircuit: 
   value: 100
