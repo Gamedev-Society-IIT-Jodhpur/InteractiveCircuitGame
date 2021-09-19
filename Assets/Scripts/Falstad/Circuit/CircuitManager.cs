@@ -33,8 +33,7 @@ public class CircuitManager : MonoBehaviour
     Transform[] childs;
     GameObject volt=null;
     string temp;
-    [SerializeField] TMP_Text voltageText;
-    [SerializeField] TMP_Text currentText;
+    [SerializeField] TMP_Text DisplayText;
     public static GameObject valueinput;
     List<List<string>> circuits = new List<List<string>>() { };
 
@@ -53,7 +52,7 @@ public class CircuitManager : MonoBehaviour
         CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel("BC547", string.Join(" ",
                 "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
                 "NE=1.46 BR=35.5 NR=1.005 VAR=12.5 IKR=0.03 ISC=1.72E-13 NC=1.27 RB=0.56 ",
-                " RE=0.6 RC=0.25 CJE=1.3E-11 TF=6.4E-10 CJC=4E-12 VJC=0.54 TR=5.072E-8") , 1));
+                " RE=0.6 RC=0.25 CJE=1.3E-11 TF=6.4E-10 CJC=4E-12 VJC=0.54 TR=5.072E-8 " ) , 1));
         CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel("BC557", string.Join(" ",
         "BF=490 NE=1.5 ISE=12.4e-15 IKF=78e-3 IS=60e-15 VAF=36 ikr=12e-3",
         "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
@@ -138,8 +137,10 @@ public class CircuitManager : MonoBehaviour
 
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
-            voltageText.text= ("Voltage: "+ exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0] ,selected.GetComponent<ComponentInitialization>().nodes[1]));
-            currentText.text= ("Current: " + currentExport.Value);
+
+            DisplayText.text= ("Voltage: "+SIUnits.NormalizeRounded( exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0] ,selected.GetComponent<ComponentInitialization>().nodes[1]),9,"V")
+                             +"\nCurrent: "+ SIUnits.NormalizeRounded( currentExport.Value , 9 , "A"));
+        
             //Debug.Log(selected.GetComponent<ComponentInitialization>().nameInCircuit + " " + currentExport1.Value);
         };
 

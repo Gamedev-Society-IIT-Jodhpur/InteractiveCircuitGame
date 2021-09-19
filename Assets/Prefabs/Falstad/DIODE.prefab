@@ -709,6 +709,6 @@ MonoBehaviour:
   model: 0
   no_nodes: 2
   nameInCircuit: 
-  value: 100
+  value: 
   nodes: []
   valueText: {fileID: 0}
