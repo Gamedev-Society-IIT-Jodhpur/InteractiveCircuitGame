@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NodeTinker : MonoBehaviour
 {
-    [SerializeField]GameObject wireManager;
+    GameObject wireManager;
     public List<GameObject> wires;
     NodeTinker[] nodes;
 
@@ -12,6 +12,7 @@ public class NodeTinker : MonoBehaviour
     void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+        wireManager = AssetManager.wireManager;
     }
 
     // Update is called once per frame

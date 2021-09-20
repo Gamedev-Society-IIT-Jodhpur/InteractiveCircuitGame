@@ -47,4 +47,6 @@ public class CameraMovemetn : MonoBehaviour
         float newSize = cam.orthographicSize - zoomStap;
         cam.orthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
     }
+
+    
 }

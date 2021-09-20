@@ -30,7 +30,7 @@ public class CircuitManagerTinker : MonoBehaviour
     Transform[] childs;
     GameObject volt = null;
     string temp;
-    [SerializeField] Breadboard breadBoard;
+    Breadboard breadBoard;
     Transform[] rows=new Transform[4];
     Transform[,] columns= new Transform[60,2];
     List<List<string>> circuits = new List<List<string>>() { };
@@ -60,6 +60,7 @@ public class CircuitManagerTinker : MonoBehaviour
         print(componentList.Count);
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
         print(componentList.Count);
+        breadBoard = GameObject.FindGameObjectWithTag("Breadboard").GetComponent<Breadboard>();
         rows = breadBoard.rows;
         columns = breadBoard.columns;
         

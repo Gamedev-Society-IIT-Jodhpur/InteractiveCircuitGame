@@ -5,7 +5,7 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
     Vector2 worldPoint;
-    public bool isDraggin = false;
+    public bool isDraggin;
     float prevX;
     float prevY;
     float prevCursorX;
@@ -17,20 +17,34 @@ public class Drag : MonoBehaviour
     float diffY;
     NodeTinker[] nodes;
     RaycastHit2D hit;
+    bool hasInitiatated;
 
     //List<GameObject> wires;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hasInitiatated = false;
+        isDraggin = true;
+        worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (isDraggin && Input.GetMouseButton(0))
+
+        if (!hasInitiatated)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                hasInitiatated = true;
+            }
+            //gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
+        }
+
+        if ((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated)
         {
             x = worldPoint.x;
             y = worldPoint.y;
@@ -68,7 +82,7 @@ public class Drag : MonoBehaviour
 
             
         }
-        else if (isDraggin)
+        else if (isDraggin && hasInitiatated)
         {
             isDraggin = false;
             nodes= GetComponentsInChildren<NodeTinker>();
@@ -129,57 +143,3 @@ public class Drag : MonoBehaviour
     }
 }
 
-
-
-
-
-
-
-
-/*if (Vector2.Distance(new Vector2(x, y), new Vector2(prevCursorX, prevCursorY)) >= dragThreshold)
-            {
-                if ((x - prevCursorX) >= dragThreshold)
-                {
-                    if (dragThreshold > 0.01f)
-                    {
-                        dragThreshold = 0.01f;
-                        prevX = x + diffX;
-                    }
-                    else prevX += (x - prevCursorX);
-                    prevCursorX = x;
-                }
-                else if (prevCursorX - x >= dragThreshold)
-                {
-                    if (dragThreshold > 0.01f)
-                    {
-                        dragThreshold = 0.01f;
-                        prevX = x + diffX;
-                    }
-                    else prevX -= (prevCursorX - x);
-                    prevCursorX = x;
-
-                }
-                if ((y - prevCursorY) >= dragThreshold)
-                {
-                    if (dragThreshold > 0.01f)
-                    {
-                        dragThreshold = 0.01f;
-                        prevY = y + diffY;
-                    }
-                    else prevY += (y - prevCursorY);
-                    prevCursorY = y;
-                }
-                else if (prevCursorY - y >= dragThreshold)
-                {
-                    if (dragThreshold > 0.01f)
-                    {
-                        dragThreshold = 0.01f;
-                        prevY = y + diffY;
-                    }
-                    else prevY -= (prevCursorY - y);
-                    prevCursorY = y;
-                }
-
-                gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
-
-            }*/
