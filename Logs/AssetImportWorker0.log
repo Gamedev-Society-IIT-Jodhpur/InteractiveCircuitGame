@@ -15,11 +15,11 @@ C:/Users/ATHARVA PANDEY/Desktop/computers/GameDev/InteractiveCircuitGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65423
+58810
 Successfully changed project path to: C:/Users/ATHARVA PANDEY/Desktop/computers/GameDev/InteractiveCircuitGame
 C:/Users/ATHARVA PANDEY/Desktop/computers/GameDev/InteractiveCircuitGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 66.30 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 114.99 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.13f1 (71691879b7f5)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
@@ -36,41 +36,41 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56916
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56644
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002914 seconds.
+Registered in 0.006280 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 60.14 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 91.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.388 seconds
+- Completed reload, in  4.190 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006545 seconds.
+Registered in 0.018941 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 70.98 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 92.78 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.469 seconds
+- Completed reload, in  1.911 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.87 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 2.37 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3288 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 144.1 MB.
 System memory in use after: 144.3 MB.
 
 Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 3725.
-Total: 2.839200 ms (FindLiveObjects: 0.294900 ms CreateObjectMapping: 0.122300 ms MarkObjects: 2.372300 ms  DeleteObjects: 0.048900 ms)
+Total: 6.979800 ms (FindLiveObjects: 0.489800 ms CreateObjectMapping: 0.244100 ms MarkObjects: 6.198100 ms  DeleteObjects: 0.045500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -84,64 +84,32 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/Falstad.unity
-  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Falstad.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '520fb02fcf7a3d45daf18337482f4dcb') in 0.022468 seconds 
-  Import took 0.030581 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 170.845518 seconds.
   path: Assets/Scripts/Falstad/Components/ComponentInitialization.cs
   artifactKey: Guid(428e4f7aedb368c45bccafdeafcaf510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Falstad/Components/ComponentInitialization.cs using Guid(428e4f7aedb368c45bccafdeafcaf510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f381e2b7f5600cc7fea1c1c2443de15') in 0.052590 seconds 
-  Import took 0.059839 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 23.317037 seconds.
-  path: Assets/Scripts/Falstad/Networking
-  artifactKey: Guid(b02abf064f1dfce489de3caec5a2be2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Falstad/Networking using Guid(b02abf064f1dfce489de3caec5a2be2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '186da7486805cdb1e81aa404a607903d') in 0.004479 seconds 
-  Import took 0.014693 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000484 seconds.
-  path: Assets/Scripts/Falstad/Networking
-  artifactKey: Guid(b02abf064f1dfce489de3caec5a2be2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Falstad/Networking using Guid(b02abf064f1dfce489de3caec5a2be2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '186da7486805cdb1e81aa404a607903d') in 0.004009 seconds 
-  Import took 0.014723 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 73.484089 seconds.
-  path: Assets/Scripts/Falstad/Circuit/CircuitManager.cs
-  artifactKey: Guid(e9c46c2bd4e48f84080037f3f4a591de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Falstad/Circuit/CircuitManager.cs using Guid(e9c46c2bd4e48f84080037f3f4a591de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b275d0392d0b2aea016a633e3d213ad4') in 0.004069 seconds 
-  Import took 0.013267 seconds .
+Start importing Assets/Scripts/Falstad/Components/ComponentInitialization.cs using Guid(428e4f7aedb368c45bccafdeafcaf510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '833be43ee701dffda4241ebf2a7ab8ac') in 0.077736 seconds 
+  Import took 0.090114 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.009165 seconds.
+Registered in 0.009905 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.268 seconds
+- Completed reload, in  1.323 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 135.3 MB.
 System memory in use after: 135.5 MB.
 
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3728.
-Total: 2.920200 ms (FindLiveObjects: 0.268500 ms CreateObjectMapping: 0.138300 ms MarkObjects: 2.493500 ms  DeleteObjects: 0.019000 ms)
+Total: 3.317400 ms (FindLiveObjects: 0.297200 ms CreateObjectMapping: 0.149900 ms MarkObjects: 2.837100 ms  DeleteObjects: 0.032000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -154,26 +122,82 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 164.280312 seconds.
+  path: Assets/Prefabs/Falstad/Wire.prefab
+  artifactKey: Guid(d05643d3bacbd544988f68c46150e8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/Wire.prefab using Guid(d05643d3bacbd544988f68c46150e8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2b05ac9684e5585eeabbb6a6ab2f737') in 0.248807 seconds 
+  Import took 0.257437 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/Prefabs/Falstad/Resistor.prefab
+  artifactKey: Guid(5a62c77cb58242e4582700fcbbffef09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/Resistor.prefab using Guid(5a62c77cb58242e4582700fcbbffef09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce4d2c24337b78a0670df9c5350db15d') in 0.022322 seconds 
+  Import took 0.028850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Prefabs/Falstad/BC557.prefab
+  artifactKey: Guid(f96677716038b4e48ad3413d45f7626b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/BC557.prefab using Guid(f96677716038b4e48ad3413d45f7626b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cb6d27ec4d47db3d5db4ac02ed47954') in 0.018256 seconds 
+  Import took 0.025541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Prefabs/Falstad/DIODE.prefab
+  artifactKey: Guid(7924501efa8e73045a9f74a025f5466d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/DIODE.prefab using Guid(7924501efa8e73045a9f74a025f5466d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48d82b2070a4e5b8c8551193ed8ed7a3') in 0.012149 seconds 
+  Import took 0.017766 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000423 seconds.
+  path: Assets/Prefabs/Falstad/Component.prefab
+  artifactKey: Guid(1f40489c479007e48800dc29638699ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/Component.prefab using Guid(1f40489c479007e48800dc29638699ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7ab2525b24e5b0ec6e3eba6f35d9703') in 0.014741 seconds 
+  Import took 0.021558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000345 seconds.
+  path: Assets/Prefabs/Falstad/Voltage.prefab
+  artifactKey: Guid(8af0d40a97498e64193060c72370cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/Voltage.prefab using Guid(8af0d40a97498e64193060c72370cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9f44b22420f2f29fbe342602f3307e7') in 0.015258 seconds 
+  Import took 0.022668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000398 seconds.
+  path: Assets/Prefabs/Falstad/BC547.prefab
+  artifactKey: Guid(201182aef1037c740aa6bf89b36420e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/BC547.prefab using Guid(201182aef1037c740aa6bf89b36420e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29e90b5881ad4fd369781e14ac368e7b') in 0.011706 seconds 
+  Import took 0.018199 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.030951 seconds.
+Registered in 0.006354 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.823 seconds
+- Completed reload, in  1.286 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.3 MB.
-System memory in use after: 135.6 MB.
+System memory in use before: 140.6 MB.
+System memory in use after: 140.9 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3731.
-Total: 3.000300 ms (FindLiveObjects: 0.375600 ms CreateObjectMapping: 0.190900 ms MarkObjects: 2.390800 ms  DeleteObjects: 0.041800 ms)
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 3778.
+Total: 3.109500 ms (FindLiveObjects: 0.348200 ms CreateObjectMapping: 0.147100 ms MarkObjects: 2.586000 ms  DeleteObjects: 0.027300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -188,56 +212,24 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006507 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.265 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.6 MB.
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3734.
-Total: 3.173200 ms (FindLiveObjects: 0.318100 ms CreateObjectMapping: 0.142400 ms MarkObjects: 2.692200 ms  DeleteObjects: 0.019600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005659 seconds.
+Registered in 0.006489 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 0.66 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.306 seconds
+- Completed reload, in  1.252 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.6 MB.
+System memory in use before: 140.7 MB.
+System memory in use after: 140.9 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3737.
-Total: 3.705500 ms (FindLiveObjects: 0.509900 ms CreateObjectMapping: 0.183900 ms MarkObjects: 2.987700 ms  DeleteObjects: 0.023000 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3781.
+Total: 4.012400 ms (FindLiveObjects: 0.384200 ms CreateObjectMapping: 0.295100 ms MarkObjects: 3.287200 ms  DeleteObjects: 0.044800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -252,24 +244,24 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006525 seconds.
+Registered in 0.006567 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.345 seconds
+- Completed reload, in  1.212 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.99 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.68 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.7 MB.
+System memory in use before: 140.7 MB.
+System memory in use after: 140.9 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3740.
-Total: 3.286600 ms (FindLiveObjects: 0.465100 ms CreateObjectMapping: 0.227400 ms MarkObjects: 2.564200 ms  DeleteObjects: 0.028400 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3784.
+Total: 2.900800 ms (FindLiveObjects: 0.421200 ms CreateObjectMapping: 0.252600 ms MarkObjects: 2.207400 ms  DeleteObjects: 0.019000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -284,24 +276,24 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.009727 seconds.
+Registered in 0.008660 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.29 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.290 seconds
+- Completed reload, in  2.791 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.7 MB.
+System memory in use before: 140.7 MB.
+System memory in use after: 140.9 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3743.
-Total: 2.690500 ms (FindLiveObjects: 0.323400 ms CreateObjectMapping: 0.160000 ms MarkObjects: 2.187600 ms  DeleteObjects: 0.018700 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3787.
+Total: 11.779900 ms (FindLiveObjects: 1.714800 ms CreateObjectMapping: 0.714000 ms MarkObjects: 9.189000 ms  DeleteObjects: 0.153200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -316,24 +308,24 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005849 seconds.
+Registered in 0.007073 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.23 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.295 seconds
+- Completed reload, in  1.362 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.7 MB.
+System memory in use before: 140.7 MB.
+System memory in use after: 140.9 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3746.
-Total: 3.433100 ms (FindLiveObjects: 0.362500 ms CreateObjectMapping: 0.207200 ms MarkObjects: 2.841600 ms  DeleteObjects: 0.020600 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3790.
+Total: 2.853000 ms (FindLiveObjects: 0.283100 ms CreateObjectMapping: 0.141300 ms MarkObjects: 2.410300 ms  DeleteObjects: 0.017500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -348,24 +340,24 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006974 seconds.
+Registered in 0.006258 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.206 seconds
+- Completed reload, in  1.482 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 135.4 MB.
-System memory in use after: 135.7 MB.
+System memory in use before: 140.7 MB.
+System memory in use after: 141.0 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3749.
-Total: 3.018000 ms (FindLiveObjects: 0.294000 ms CreateObjectMapping: 0.166900 ms MarkObjects: 2.536300 ms  DeleteObjects: 0.019800 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3793.
+Total: 3.389600 ms (FindLiveObjects: 0.361800 ms CreateObjectMapping: 0.197900 ms MarkObjects: 2.806900 ms  DeleteObjects: 0.022200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -377,4 +369,204 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007503 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 4.10 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.917 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 4.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.7 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3796.
+Total: 11.789700 ms (FindLiveObjects: 2.219000 ms CreateObjectMapping: 1.106300 ms MarkObjects: 8.423100 ms  DeleteObjects: 0.038500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006864 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.33 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.770 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.7 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3799.
+Total: 11.998900 ms (FindLiveObjects: 1.206500 ms CreateObjectMapping: 0.464100 ms MarkObjects: 10.274800 ms  DeleteObjects: 0.048800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011816 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.947 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.7 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3802.
+Total: 9.257500 ms (FindLiveObjects: 1.348600 ms CreateObjectMapping: 0.554600 ms MarkObjects: 7.298400 ms  DeleteObjects: 0.052700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007078 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.512 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.7 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3805.
+Total: 2.670600 ms (FindLiveObjects: 0.322000 ms CreateObjectMapping: 0.162700 ms MarkObjects: 2.164400 ms  DeleteObjects: 0.020700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006958 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.322 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.96 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.8 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3808.
+Total: 4.967900 ms (FindLiveObjects: 0.601400 ms CreateObjectMapping: 0.350200 ms MarkObjects: 3.986500 ms  DeleteObjects: 0.028300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007369 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.298 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3160 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.8 MB.
+System memory in use after: 141.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3811.
+Total: 2.402400 ms (FindLiveObjects: 0.266400 ms CreateObjectMapping: 0.134800 ms MarkObjects: 1.983100 ms  DeleteObjects: 0.017400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1356.000397 seconds.
+  path: Assets/Prefabs/Falstad/ZenerDiode.prefab
+  artifactKey: Guid(3d01d008e17a6e84182c5ba7f9a29575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Falstad/ZenerDiode.prefab using Guid(3d01d008e17a6e84182c5ba7f9a29575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '126bd28b2cae0346ac54e3f257a7ec48') in 0.272982 seconds 
+  Import took 0.284833 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

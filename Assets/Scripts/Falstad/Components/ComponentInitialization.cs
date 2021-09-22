@@ -23,7 +23,7 @@ public class ComponentInitialization : MonoBehaviour
     void Start()
     {
         CircuitManager.componentList.Add(gameObject);
-        if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt && a!=CircuitManager.component.diode)
+        if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt && a!=CircuitManager.component.diode && a!=CircuitManager.component.zenerDiode)
         {
             childs = GetComponentsInChildren<Transform>();
             valueText = childs[childs.Length - 1].GetComponent<Text>();
@@ -55,6 +55,10 @@ public class ComponentInitialization : MonoBehaviour
         else if (a == CircuitManager.component.diode)
         {
             value = "Default";
+        }
+        else if (a == CircuitManager.component.zenerDiode)
+        {
+            value = "ZenerDiode";
         }
         print(a.ToString());
 

@@ -150,6 +150,7 @@ public class UnifiedScript: MonoBehaviour
         dict1.Add("bjt", BJTdel);
         Del Diodedel = DiodeInitialize;
         dict1.Add("diode", Diodedel);
+        dict1.Add("zenerDiode", Diodedel);
     }
     
 }
