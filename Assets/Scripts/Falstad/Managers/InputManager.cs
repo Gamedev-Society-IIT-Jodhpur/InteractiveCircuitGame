@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InputManager : MonoBehaviour
 {
@@ -12,7 +13,20 @@ public class InputManager : MonoBehaviour
             component.value = value;
             if (component.valueText)
             {
-                component.valueText.text = value;
+                if (component.a == CircuitManager.component.resistor) {
+                    
+                    component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
+                }
+               else if (component.a == CircuitManager.component.voltage)
+                {
+                    
+                    component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
+                }
+
+                else
+                {
+                    component.valueText.text = "";
+                }
             }
         }
     }

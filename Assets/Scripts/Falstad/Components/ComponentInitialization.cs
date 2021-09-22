@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Web;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +27,25 @@ public class ComponentInitialization : MonoBehaviour
         {
             childs = GetComponentsInChildren<Transform>();
             valueText = childs[childs.Length - 1].GetComponent<Text>();
-            valueText.text = value;
+            if (valueText)
+            {
+                if (a == CircuitManager.component.resistor)
+                {
+
+                    
+                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9) ));
+                }
+               else if (a == CircuitManager.component.voltage)
+                {
+
+                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value) , 9,"V");
+                }
+
+                else
+                {
+                    valueText.text = "";
+                }
+            }
 
         }
         else if (a == CircuitManager.component.bjt)
