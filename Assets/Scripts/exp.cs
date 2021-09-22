@@ -93,26 +93,27 @@ public class exp : MonoBehaviour
             return dm;
         }
         var ckt = new Circuit(
-                                /* new VoltageSource("V1", "b", "0", 0),
-                                // new VoltageSource("V2", "c", "0", 0),
-                                 CreateBJT("Q1", "c", "b", "0", "0", "mjd44h11"),
-                                 CreateBJTModel("mjd44h11", string.Join(" ",
-                                     "IS = 1.45468e-14 BF = 135.617 NF = 0.85 VAF = 10",
-                                     "IKF = 5.15565 ISE = 2.02483e-13 NE = 3.99964 BR = 13.5617",
-                                     "NR = 0.847424 VAR = 100 IKR = 8.44427 ISC = 1.86663e-13",
-                                     "NC = 1.00046 RB = 1.35729 IRB = 0.1 RBM = 0.1",
-                                     "RE = 0.0001 RC = 0.037687 XTB = 0.90331 XTI = 1",
-                                     "EG = 1.20459 CJE = 3.02297e-09 VJE = 0.649408 MJE = 0.351062",
-                                     "TF = 2.93022e-09 XTF = 1.5 VTF = 1.00001 ITF = 0.999997",
-                                     "CJC = 3.0004e-10 VJC = 0.600008 MJC = 0.409966 XCJC = 0.8",
-                                     "FC = 0.533878 CJS = 0 VJS = 0.75 MJS = 0.5",
-                                     "TR = 2.73328e-08 PTF = 0 KF = 0 AF = 1")),
-                                   CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"),
-                                   CreateDiode("D1", "a", "0", "Default"),
-                                   new Resistor("R1", "b", "a", 1000)*/
-                                CreateDiode("D1", "0", "OUT", "1N914"),
-                CreateDiodeModel("1N914", "Is=2.52e-9 Rs=0.568 N=1.752 Cjo=4e-12 M=0.4 tt=20e-9"),
-                new VoltageSource("V1", "OUT", "0", 0.0)
+                /* new VoltageSource("V1", "b", "0", 0),
+                // new VoltageSource("V2", "c", "0", 0),
+                 CreateBJT("Q1", "c", "b", "0", "0", "mjd44h11"),
+                 CreateBJTModel("mjd44h11", string.Join(" ",
+                     "IS = 1.45468e-14 BF = 135.617 NF = 0.85 VAF = 10",
+                     "IKF = 5.15565 ISE = 2.02483e-13 NE = 3.99964 BR = 13.5617",
+                     "NR = 0.847424 VAR = 100 IKR = 8.44427 ISC = 1.86663e-13",
+                     "NC = 1.00046 RB = 1.35729 IRB = 0.1 RBM = 0.1",
+                     "RE = 0.0001 RC = 0.037687 XTB = 0.90331 XTI = 1",
+                     "EG = 1.20459 CJE = 3.02297e-09 VJE = 0.649408 MJE = 0.351062",
+                     "TF = 2.93022e-09 XTF = 1.5 VTF = 1.00001 ITF = 0.999997",
+                     "CJC = 3.0004e-10 VJC = 0.600008 MJC = 0.409966 XCJC = 0.8",
+                     "FC = 0.533878 CJS = 0 VJS = 0.75 MJS = 0.5",
+                     "TR = 2.73328e-08 PTF = 0 KF = 0 AF = 1")),
+                   CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"),
+                   CreateDiode("D1", "a", "0", "Default"),
+                   new Resistor("R1", "b", "a", 1000)*/
+                //CreateDiode("D1", "0", "OUT", "1N914"),
+                // CreateDiodeModel("1N914", "Is=2.52e-9 Rs=0.568 N=1.752 Cjo=4e-12 M=0.4 tt=20e-9"),
+                new VoltageSource("V1", "OUT", "0", 8000),
+                new Resistor("R1", "OUT", "0", 1000)
                  ) ;
 
 
@@ -121,8 +122,8 @@ public class exp : MonoBehaviour
                 new ParameterSweep("V1", new LinearSweep(0, 0.8, 5.0)),
                 //new ParameterSweep("V2", new LinearSweep(0, 5, 0.5))
             });*/
-        var dc = new DC("DC", "V1", -1.0, 1.0, 10e-3);
-        var currentExport = new RealPropertyExport(dc, "D1", "i");
+        var dc = new DC("DC", "V1", 8000, 8000, 10e-3);
+        var currentExport = new RealPropertyExport(dc, "R1", "i");
        // IExport<double>[] exports = { new RealPropertyExport(dc, "V2", "i"), new RealPropertyExport(dc, "V1", "i") };
 
         // Provided by Spice 3f5

@@ -131,7 +131,7 @@ public class CircuitManager : MonoBehaviour
        
         Groundit();
 
-        var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, 0.0,double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
+        var dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(volt.GetComponent<ComponentInitialization>().value), double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
        // var currentExport1 = new RealCurrentExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit);
 

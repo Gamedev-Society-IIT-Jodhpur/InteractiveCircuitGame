@@ -241,7 +241,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
         Groundit();
 
-        var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, 0.0, double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
+        var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
