@@ -138,9 +138,22 @@ public class CircuitManager : MonoBehaviour
 
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
+            if (selected.GetComponent<ComponentInitialization>().a != component.bjt) { 
 
             DisplayText.text= ("Voltage: "+SIUnits.NormalizeRounded( exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0] ,selected.GetComponent<ComponentInitialization>().nodes[1]),9,"V")
                              +"\nCurrent: "+ SIUnits.NormalizeRounded( currentExport.Value , 9 , "A"));
+                }
+            else
+            {
+                var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
+                var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
+                var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ib");
+                var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ic");
+                DisplayText.text = ("Vbe: "+ SIUnits.NormalizeRounded(vbe.Value,9,"V")
+                                    +"\nVbc: "+ SIUnits.NormalizeRounded(vbc.Value, 9, "V")
+                             + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
+                            + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+            }
         
             //Debug.Log(selected.GetComponent<ComponentInitialization>().nameInCircuit + " " + currentExport1.Value);
         };

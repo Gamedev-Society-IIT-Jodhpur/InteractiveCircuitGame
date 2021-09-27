@@ -245,14 +245,29 @@ public class CircuitManagerTinker : MonoBehaviour
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
-            /*voltageText.text =*/ a=("Voltage: " + exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]));
-            /*currentText.text =*/ b=("Current: " + currentExport.Value);
+            if (selected.GetComponent<ComponentTinker>().a != component.bjt)
+            {
+
+               print ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
+                                 + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+            }
+            else
+            {
+                var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbe");
+                var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
+                var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
+                var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
+                print ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
+                                    + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
+                             + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
+                            + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+            }
         };
 
         // Run the simulation
         dc.Run(ckt);
-        print(selected.name+" "+ a);
-        print(selected.name + " " + b);
+        //print(selected.name+" "+ a);
+        //print(selected.name + " " + b);
     }
 
     public static void ChangeSelected(GameObject gameObject)
