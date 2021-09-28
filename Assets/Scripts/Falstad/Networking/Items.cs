@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using SimpleJSON;
@@ -7,15 +6,15 @@ using TMPro;
 
 public class Items : MonoBehaviour
 {
-
     //string uri = "http://localhost:4040/api/result/userResults";
-    string uri = "http://localhost:4040/api/result/allResults";
+    //string uri = "http://localhost:4040/api/result/allResults";
+    string uri = AvailableRoutes.allResults;
+
     [SerializeField]
     GameObject ContentView;
     
     [SerializeField]
-    GameObject ListElement;
-
+    GameObject ListElement; 
 
     void Start()
     {
@@ -24,11 +23,21 @@ public class Items : MonoBehaviour
 
     IEnumerator GetText()
     {
-        string uuId = "a1925e56-3401-44f4-aa1a-3424db830cab";
         string requestUri = uri /*+ "/" + uuId*/;
         UnityWebRequest www = UnityWebRequest.Get(requestUri);
-        yield return www.SendWebRequest();
 
+        var asyncOperation = www.SendWebRequest(); 
+
+        while (!asyncOperation.isDone)
+        {
+            // wherever you want to show the progress: 
+
+            Debug.Log(asyncOperation.progress);
+
+            //yield return null;
+            // or if you want to stick doing it in certain intervals
+            yield return new WaitForSeconds(0.05f);
+        } 
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
@@ -38,7 +47,7 @@ public class Items : MonoBehaviour
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             int i = 1;
             foreach (var item in data)
-            { 
+            {
                 AddToList(i.ToString(), item.Value["name"] + " (" + item.Value["rollNo"] + ")", item.Value["score"]);
                 i++;
             }
