@@ -672,6 +672,7 @@ MonoBehaviour:
   - {fileID: 8296779068763548588, guid: 201182aef1037c740aa6bf89b36420e2, type: 3}
   - {fileID: 6536075093528745455, guid: f96677716038b4e48ad3413d45f7626b, type: 3}
   - {fileID: 6179778893401621051, guid: 7924501efa8e73045a9f74a025f5466d, type: 3}
+  - {fileID: 1701383915813828668, guid: 3d01d008e17a6e84182c5ba7f9a29575, type: 3}
   dropDown: {fileID: 910157386}
 --- !u!4 &420236844
 Transform:
@@ -1140,6 +1141,8 @@ MonoBehaviour:
     - m_Text: PNP BJT
       m_Image: {fileID: 0}
     - m_Text: DIODE
+      m_Image: {fileID: 0}
+    - m_Text: Zener Diode
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
