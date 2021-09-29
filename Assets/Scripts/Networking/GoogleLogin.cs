@@ -46,7 +46,10 @@ public class GoogleLogin : MonoBehaviour
         }
         else
         {
-            Debug.Log("User Found");
+
+            JSONNode data = JSON.Parse(www.downloadHandler.text);
+
+            PlayerPrefs.SetInt("avatar", data["avatar"]);
         }
     }
 
