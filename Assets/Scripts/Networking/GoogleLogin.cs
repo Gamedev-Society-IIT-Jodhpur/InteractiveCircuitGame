@@ -4,23 +4,11 @@ using UnityEngine.Networking;
 using SimpleJSON;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoogleLogin : MonoBehaviour
 { 
-    public GameObject emailInputField;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public GameObject emailInputField; 
     public void setEmail(string email)
     {
         string text = emailInputField.GetComponent<TMP_InputField>().text; 
@@ -47,10 +35,17 @@ public class GoogleLogin : MonoBehaviour
         else
         {
 
+            Debug.Log("Kshitij Geting User");
             JSONNode data = JSON.Parse(www.downloadHandler.text);
 
             PlayerPrefs.SetInt("avatar", data["avatar"]);
+
+            Debug.Log(PlayerPrefs.GetInt("avatar"));
+
+            SceneManager.LoadScene(2);
         }
+
+
     }
 
     public void onGoogleSignup()

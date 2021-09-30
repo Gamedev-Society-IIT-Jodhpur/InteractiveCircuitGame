@@ -10,4 +10,6 @@ public class AvailableRoutes
 
     public static string checkUser = "http://localhost:4040/api/profile/checkUser?email=";
 
+    public static string updateUser = "http://localhost:4040/api/profile/updateUser";
+
 }

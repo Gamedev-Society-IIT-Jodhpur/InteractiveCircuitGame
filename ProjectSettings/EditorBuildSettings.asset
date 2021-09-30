@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SceneChangeTest/scene1.unity
-    guid: ad1c5c9216aaa694989ef438e927c424
+    path: Assets/Scenes/Loading.unity
+    guid: 8091c8643774f1f4da0f91ad7abb4297
   - enabled: 1
-    path: Assets/SceneChangeTest/scene2.unity
-    guid: e466075101904044da0bd7bfd36d603d
+    path: Assets/Scenes/Login.unity
+    guid: 4ee8e39552d2fb2408ae4a16bc545077
+  - enabled: 1
+    path: Assets/Scenes/AvatarSelection.unity
+    guid: 847fa44454d30764da87b42c68a93f3b
+  - enabled: 1
+    path: Assets/Scenes/Falstad.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 28e3d533fcf50ea448cee47fc1fd0e9e
+  - enabled: 1
+    path: Assets/Scenes/Tinker.unity
+    guid: bfb6f467b893c9645b20cb55888709b0
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: 62d94c8da0abcca41bcc8fb2e522e11d
   m_configObjects: {}
