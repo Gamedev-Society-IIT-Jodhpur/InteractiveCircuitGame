@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraMovemetn : MonoBehaviour
 {
@@ -12,15 +13,23 @@ public class CameraMovemetn : MonoBehaviour
 
     void Update()
     {
-        if (Input.mouseScrollDelta.y > 0.1f )
+        if (!IsMouseOverUI())
         {
-            ZoomOut();
+            if (Input.mouseScrollDelta.y > 0.1f )
+            {
+                ZoomOut();
+            }
+            if (Input.mouseScrollDelta.y < -0.1f )
+            {
+                ZoomIn();
+            }
+            PanCamera();
         }
-        if (Input.mouseScrollDelta.y < -0.1f )
-        {
-            ZoomIn();
-        }
-        PanCamera();
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
     void PanCamera()
