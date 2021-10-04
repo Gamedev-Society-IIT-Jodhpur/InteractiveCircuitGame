@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -26,12 +27,18 @@ public class Item : MonoBehaviour
         */
 
     }
-
+        
     // Update is called once per frame
     void Update()
     {
         if (isMoving)
         {
+            if (GetComponentInChildren<Text>() != null)
+            {
+                GetComponentInChildren<Text>().transform.rotation = Quaternion.identity;
+            }
+
+
             node1Pos = childs[1].position;
             node2Pos = childs[2].position;
 

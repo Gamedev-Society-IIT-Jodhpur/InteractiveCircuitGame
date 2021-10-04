@@ -19,7 +19,6 @@ public class DragManager : MonoBehaviour
     Vector2 child2Pos;
     int currentChild;
     public int mode = 0;
-    //[SerializeField] Texture2D dragCursorTexture;
     int x2, y2, x1, y1;
     GameObject newComponent;
     bool toDraw = true;
