@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Drag : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Drag : MonoBehaviour
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!hasInitiatated)
+        if (!hasInitiatated && !IsMouseOverUI())
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -43,8 +44,9 @@ public class Drag : MonoBehaviour
             }
             //gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
         }
+        
 
-        if ((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated)
+        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated) && !IsMouseOverUI())
         {
             x = worldPoint.x;
             y = worldPoint.y;
@@ -140,6 +142,11 @@ public class Drag : MonoBehaviour
         gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
         //dragThreshold = Vector2.Distance(worldPoint, new Vector2(prevX, prevY));
         dragThreshold = childPos.localScale.x*1.33f;
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
 

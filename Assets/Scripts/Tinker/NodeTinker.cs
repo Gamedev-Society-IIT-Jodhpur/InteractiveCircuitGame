@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NodeTinker : MonoBehaviour
 {
@@ -56,16 +57,24 @@ public class NodeTinker : MonoBehaviour
 
     private void OnMouseOver()
     {
-        GetComponent<SpriteRenderer>().enabled=true;
-        if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire)
+        if (!IsMouseOverUI())
         {
-            wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+            GetComponent<SpriteRenderer>().enabled = true;
+            if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire)
+            {
+                wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+            }
         }
     }
 
     private void OnMouseExit()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
 }
