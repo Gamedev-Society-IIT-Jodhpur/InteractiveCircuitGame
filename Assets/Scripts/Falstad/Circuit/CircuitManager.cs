@@ -171,9 +171,19 @@ public class CircuitManager : MonoBehaviour
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         }
 
+        //to change input value text field
         selected = gameObject;
-        valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
+        if (selected.tag != "Wire" && selected.GetComponent<ComponentInitialization>().a != CircuitManager.component.bjt)
+        {
+            valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
+        }
+        else if (selected.GetComponent<ComponentInitialization>().a == CircuitManager.component.bjt)
+        {
+            valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
+        }
 
+
+        //for changing outline
         if (selected.tag == "Resistor")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);

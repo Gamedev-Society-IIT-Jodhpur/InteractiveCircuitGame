@@ -27,21 +27,22 @@ public class ComponentInitialization : MonoBehaviour
         if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt && a!=CircuitManager.component.diode && a!=CircuitManager.component.zenerDiode)
         {
             childs = GetComponentsInChildren<Transform>();
-            valueText = childs[childs.Length - 1].GetComponent<Text>();
+            valueText = GetComponentInChildren<Text>();
             if (valueText)
             {
+                
                 if (a == CircuitManager.component.resistor)
                 {
 
                     
                     valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9) ));
                 }
-               else if (a == CircuitManager.component.voltage)
+                else if (a == CircuitManager.component.voltage)
                 {
 
                     valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value) , 9,"V");
                 }
-
+                
                 else
                 {
                     valueText.text = "";
@@ -52,6 +53,8 @@ public class ComponentInitialization : MonoBehaviour
         else if (a == CircuitManager.component.bjt)
         {
             value = model.ToString();
+            valueText = GetComponentInChildren<Text>();
+            valueText.text = beta.ToString();
         }
         else if (a == CircuitManager.component.diode)
         {

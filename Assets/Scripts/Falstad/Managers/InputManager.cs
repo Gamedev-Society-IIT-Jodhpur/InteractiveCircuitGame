@@ -17,17 +17,24 @@ public class InputManager : MonoBehaviour
                     
                     component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
                 }
-               else if (component.a == CircuitManager.component.voltage)
+                else if (component.a == CircuitManager.component.voltage)
                 {
                     
                     component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
                 }
-
+                
                 else
                 {
                     component.valueText.text = "";
                 }
             }
+        }
+        else if (component.a == CircuitManager.component.bjt)
+        {
+            component.beta = int.Parse(value);
+            component.valueText.text = value;
+            //print(value);
+
         }
     }
 }

@@ -267,6 +267,7 @@ public class DragManager : MonoBehaviour
                         {
                             newComponent.transform.eulerAngles = new Vector3(0, 0, 90);
                             newComponent.transform.position = new Vector3(x + 0.5f, y1, 0);
+                            //print(childs.Length);
                             childs[1].transform.position = new Vector3(x1, y1, 0);
                         }
                     }
