@@ -45,7 +45,7 @@ public class SIUnits : MonoBehaviour
 		if (va < 1E-3) return v * 1E6 + "u";  // micro
 		if (va < 1) return v * 1E3 + "m";  // milli
 		if (va < 1E3) return v.ToString();
-		if (va < 1E6) return v * 1E-3 + "K"; // kilo
+		if (va < 1E6) return v * 1E-3 + "k"; // kilo
 		if (va < 1E9) return v * 1E-6 + "M"; // mega
 		if (va < 1E12) return v * 1E-9 + "G"; // giga
 		return v * 1E-12 + "T";               // tera

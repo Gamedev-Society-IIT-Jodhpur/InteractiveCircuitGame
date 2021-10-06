@@ -305,7 +305,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
         for (int i = 1; i < circuits.Count; i++)
         {
-            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0");
+            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0","");
 
         }
         circuits.Clear();
