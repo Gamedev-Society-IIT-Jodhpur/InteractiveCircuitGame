@@ -25,11 +25,11 @@ public class AssetManager : MonoBehaviour
         if (tinkerIcons.Count != 0)
         {
             tinkerIconsDict = new Dictionary<string, Sprite>(){
-            { "9V Battery",tinkerIcons[0]},
-            { "Breadboard",tinkerIcons[1]},
-            { "Led",tinkerIcons[2]},
-            { "Resistor",tinkerIcons[3]},
-            { "1.5V Battery",tinkerIcons[4]}
+            { "voltage9",tinkerIcons[0]},
+            { "breadboard",tinkerIcons[1]},
+            { "led",tinkerIcons[2]},
+            { "resistor",tinkerIcons[3]},
+            { "voltage1.5",tinkerIcons[4]}
             };
         }
     }

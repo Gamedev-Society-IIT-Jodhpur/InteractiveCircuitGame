@@ -60,9 +60,14 @@ public class CircuitManagerTinker : MonoBehaviour
         print(componentList.Count);
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
         print(componentList.Count);
-        breadBoard = GameObject.FindGameObjectWithTag("Breadboard").GetComponent<Breadboard>();
-        rows = breadBoard.rows;
-        columns = breadBoard.columns;
+        
+        if (GameObject.FindGameObjectWithTag("Breadboard"))
+        {
+            breadBoard = GameObject.FindGameObjectWithTag("Breadboard").GetComponent<Breadboard>();
+            rows = breadBoard.rows;
+            columns = breadBoard.columns;
+        }
+        
         
         for (int i = 0; i < componentList.Count; i++)
         {
@@ -84,7 +89,7 @@ public class CircuitManagerTinker : MonoBehaviour
             {
                 for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
                 {
-                    if (childs[j].parent.parent.parent!=null && childs[j].parent.parent.parent.tag == "Breadboard")
+                    if (childs[j].parent.parent.parent != null && childs[j].parent.parent.parent.tag == "Breadboard")
                     {
                         string y;
                         if (childs[j].position.y < 0) y = (childs[j].position.y).ToString().Substring(0, 4);
@@ -132,7 +137,7 @@ public class CircuitManagerTinker : MonoBehaviour
             }
             else
             {
-                if(componentList[i].transform.parent!=null && componentList[i].transform.parent.tag == "Breadboard")
+                if (componentList[i].transform.parent != null && componentList[i].transform.parent.tag == "Breadboard")
                 {
                     for (int j = 1; j <= componentList[i].GetComponent<ComponentTinker>().no_nodes; j++)
                     {
@@ -182,7 +187,7 @@ public class CircuitManagerTinker : MonoBehaviour
                         nodes.Add(a + " " + b);
                     }
                 }
-                
+
             }
 
             if (i == 0)

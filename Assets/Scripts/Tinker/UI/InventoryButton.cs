@@ -10,36 +10,74 @@ public class InventoryButton : MonoBehaviour
 
     public string component;
     public string value;
+    public string unit;
     public int quantity;
     Text[] childs;
+    GameObject newComponent;
 
     private void Start()
     {
         componentsDict = new Dictionary<string, GameObject>(){
-            { "9V Battery",components[0]},
-            { "Breadboard",components[1]},
-            { "Led",components[2]},
-            { "Resistor",components[3]}/*,
-            { "1.5V Battery",components[4]}*/
+            { "voltage9",components[0]},
+            { "breadboard",components[1]},
+            { "led",components[2]},
+            { "resistor",components[3]}/*,
+            { "voltage1.5",components[4]}*/
         };
         childs = GetComponentsInChildren<Text>();
+        childs[0].text = quantity.ToString();
+        
+        if (component.Substring(0, 7) != "voltage")
+        {
+            childs[1].text = value+unit;
+        }
+        GetComponent<Button>().image.sprite = AssetManager.tinkerIconsDict[component];
 
     }
 
     public void Instantiate()
     {
-        Instantiate(componentsDict[component]);
+        newComponent = Instantiate(componentsDict[component]);
+
+        if (newComponent.tag != "Breadboard")
+        {
+            newComponent.GetComponent<ComponentTinker>().value = value;
+        }
+
+        //update quatity in InventoryDict
+        if (component.Substring(0, 7) == "voltage")
+        {
+            InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component];
+            buttons.quantity -= 1;
+            GetComponentInParent<InventoryPanel>().inventoryDict[component] = buttons;
+        }
+        else
+        {
+            InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component + value];
+            buttons.quantity -= 1;
+            GetComponentInParent<InventoryPanel>().inventoryDict[component + value] = buttons;
+        }
+
+
+
         if (quantity == 1)
         {
             Destroy(gameObject);
         }
         else
         {
-            quantity -= 1;
-            childs[0].text = quantity.ToString();
+            UpdateQuantity(quantity - 1);
             
         }
     }
+
+    public void UpdateQuantity(int quantity)
+    {
+        this.quantity = quantity;
+        childs[0].text = quantity.ToString();
+    }
+
+
 
 
 }

@@ -14,6 +14,7 @@ public class ComponentTinker : MonoBehaviour
     public int beta = 100;
     public List<string> nodes = new List<string>();
     public Transform[] childs;
+    public bool isWorking = true;
 
     void Start()
     {

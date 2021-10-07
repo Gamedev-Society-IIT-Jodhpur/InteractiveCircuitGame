@@ -19,19 +19,19 @@ public class StaticData : MonoBehaviour
     {
         Inventory = new List<Component>();
         Component res1 = new Component();
-        res1.name = "Resistor";
+        res1.name = "resistor";
         res1.value = "1.5";
         res1.unit = "Ohm";
         res1.quantity = 5;
 
         Component battery9v = new Component();
-        battery9v.name = "9V Battery";
-        battery9v.value = "";
-        battery9v.unit = "";
+        battery9v.name = "voltage9";
+        battery9v.value = "9";
+        battery9v.unit = "V";
         battery9v.quantity = 3;
 
         Component breadboard = new Component();
-        breadboard.name = "Breadboard";
+        breadboard.name = "breadboard";
         breadboard.value = "";
         breadboard.unit = "";
         breadboard.quantity = 1;
