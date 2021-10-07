@@ -98,6 +98,8 @@ public class CircuitManagerTinker : MonoBehaviour
                         if (childs[j].position.x < 0) x = (childs[j].position.x).ToString().Substring(0, 4);
                         else x = (childs[j].position.x).ToString().Substring(0, 3);
 
+                        bool isAddedToNodesList = false;
+
                         //check if wire is connected with powergrid in breadboard
                         for (int k = 0; k < 4; k++)
                         {
@@ -107,6 +109,7 @@ public class CircuitManagerTinker : MonoBehaviour
                             {
                                 a = "0";
                                 nodes.Add(a + " " + y);
+                                isAddedToNodesList = true;
                             }
                         }
                         //check wire is connected with grid other than powergrid
@@ -122,7 +125,16 @@ public class CircuitManagerTinker : MonoBehaviour
                                 if (columns[k, 0].position.y < 0) b = (columns[k, 0].position.y).ToString().Substring(0, 4);
                                 else b = (columns[k, 0].position.y).ToString().Substring(0, 3);
                                 nodes.Add(a + " " + b);
+                                isAddedToNodesList = true;
                             }
+                        }
+                        if (!isAddedToNodesList)
+                        {
+                            if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                            else a = (childs[j].position.x).ToString().Substring(0, 3);
+                            if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
+                            else b = (childs[j].position.y).ToString().Substring(0, 3);
+                            nodes.Add(a + " " + b);
                         }
                     }
                     else
@@ -148,6 +160,8 @@ public class CircuitManagerTinker : MonoBehaviour
                         if (childs[j].position.x < 0) x = (childs[j].position.x).ToString().Substring(0, 4);
                         else x = (childs[j].position.x).ToString().Substring(0, 3);
 
+                        bool isAddedToNodesList = false;
+
                         //check if component is connected with powergrid in breadboard
                         for (int k = 0; k < 4; k++)
                         {
@@ -157,6 +171,7 @@ public class CircuitManagerTinker : MonoBehaviour
                             {
                                 a = "0";
                                 nodes.Add(a + " " + y);
+                                isAddedToNodesList = true;
                             }
                         }
                         //check component is connected with grid other than powergrid
@@ -172,9 +187,20 @@ public class CircuitManagerTinker : MonoBehaviour
                                 if (columns[k, 0].position.y < 0) b = (columns[k, 0].position.y).ToString().Substring(0, 4);
                                 else b = (columns[k, 0].position.y).ToString().Substring(0, 3);
                                 nodes.Add(a + " " + b);
+                                isAddedToNodesList = true;
                             }
                         }
+
+                        if (!isAddedToNodesList)
+                        {
+                            if (childs[j].position.x < 0) a = (childs[j].position.x).ToString().Substring(0, 4);
+                            else a = (childs[j].position.x).ToString().Substring(0, 3);
+                            if (childs[j].position.y < 0) b = (childs[j].position.y).ToString().Substring(0, 4);
+                            else b = (childs[j].position.y).ToString().Substring(0, 3);
+                            nodes.Add(a + " " + b);
+                        }
                     }
+                    
                 }
                 else
                 {
