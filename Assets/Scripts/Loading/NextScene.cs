@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextScene : MonoBehaviour
 { 
     public void ChangScene(int index)
-    { 
-            SceneManager.LoadScene(index);
+    {
+        LoadingManager.instance.LoadGame();
     }
 }
