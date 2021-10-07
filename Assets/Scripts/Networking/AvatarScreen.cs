@@ -44,7 +44,6 @@ public class AvatarScreen : MonoBehaviour
 
         yield return www.SendWebRequest();
 
-
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
@@ -54,5 +53,4 @@ public class AvatarScreen : MonoBehaviour
             Debug.Log("SetAvatar");
         }
     }
-
 }
