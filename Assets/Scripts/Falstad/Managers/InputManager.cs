@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
         else if (component.a == CircuitManager.component.bjt)
         {
             component.beta = int.Parse(value);
-            component.valueText.text = value;
+            component.valueText.text = "β=" + value;
             //print(value);
 
         }

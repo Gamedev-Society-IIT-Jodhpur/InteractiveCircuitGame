@@ -109,7 +109,7 @@ RectTransform:
   m_GameObject: {fileID: 1201091712394854981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.01, z: 1}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 106223021176304250}
   m_RootOrder: 0
@@ -149,10 +149,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 60
+    m_MinSize: 3
     m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -630,9 +630,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 2
+  model: 0
   no_nodes: 2
   nameInCircuit: 
   value: 5
+  beta: 100
   nodes: []
   valueText: {fileID: 0}
 --- !u!1 &9177498069075397207

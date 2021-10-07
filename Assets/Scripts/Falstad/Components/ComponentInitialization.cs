@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
@@ -54,7 +54,7 @@ public class ComponentInitialization : MonoBehaviour
         {
             value = model.ToString();
             valueText = GetComponentInChildren<Text>();
-            valueText.text = beta.ToString();
+            valueText.text = "β=" + beta.ToString();
         }
         else if (a == CircuitManager.component.diode)
         {
