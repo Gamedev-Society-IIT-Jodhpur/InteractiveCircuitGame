@@ -312,13 +312,13 @@ public class CircuitManagerTinker : MonoBehaviour
 
         if (selected.tag == "Resistor")
         {
-            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
+            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 2.0f);
         }
         else
         {
-            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
+            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 3.0f);
         }
-       // selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
+        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
     private void Merge(int i, int j)
