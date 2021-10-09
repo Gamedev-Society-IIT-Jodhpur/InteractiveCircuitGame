@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 195725676981766291}
   - component: {fileID: 195725676981766300}
   m_Layer: 5
-  m_Name: Touch Button (LeanButton)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
