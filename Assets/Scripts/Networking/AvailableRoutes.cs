@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 public class AvailableRoutes
 {
-     public static string  userResults = "http://localhost:4040/api/result/userResults";
-     public static string allResults = "http://localhost:4040/api/result/allResults";
+    public static string root = "https://circuit-simulator-iitj.herokuapp.com/";
+    public static string  userResults = root + "api/result/userResults";
+    public static string allResults = root + "api/result/allResults";
 
-     public static string googleSignup = "http://localhost:4040/";
+    public static string googleSignup = root;
 
-    public static string checkUser = "http://localhost:4040/api/profile/checkUser?email=";
+    public static string checkUser = root + "api/profile/checkUser?email=";
 
-    public static string updateUser = "http://localhost:4040/api/profile/updateUser";
+    public static string updateUser = root + "api/profile/updateUser";
 
 }
