@@ -14,6 +14,7 @@ public class StaticData : MonoBehaviour
         public int quantity;
     }
     public static List<Component> Inventory;
+    public static bool isSoldering=false;
 
     private void Start()
     {

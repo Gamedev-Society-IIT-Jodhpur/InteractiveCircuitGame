@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 public class InventoryPanel : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class InventoryPanel : MonoBehaviour
             buttons.quantity = Inventory[i].quantity;
             buttons.button = newButton.GetComponent<InventoryButton>();
 
-            if (Inventory[i].name.Substring(0,7) != "voltage") //since icons of batteries has value already written in it.
+            if (Inventory[i].name.Substring(0,7) != "voltage") //since 2 types of batteries.
             {
                 inventoryDict[newButton.GetComponent<InventoryButton>().component+Inventory[i].value] = buttons;
             }

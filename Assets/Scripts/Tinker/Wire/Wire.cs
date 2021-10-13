@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Wire : MonoBehaviour
 {
@@ -74,18 +75,24 @@ public class Wire : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.Escape) && !StaticData.isSoldering)
             {
                 GetComponentInParent<NewWireManager>().DestroyWire();
             }
 
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !StaticData.isSoldering && !IsMouseOverUI())
             {
                 hit = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
                     isDrawing = false;
+                    if(hit.transform.parent.tag!="Breadboard grid")
+                    {
+                        AssetManager.solderingIronIcon.Solder(hit.transform.position);
+                        AssetManager.solderingIronIcon.HideCursor();
+
+                    }
                     GetComponent<BoxCollider2D>().enabled = true;
                     WireManager.isDrawingWire = false;
                     GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
@@ -187,5 +194,10 @@ public class Wire : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, angle);
             }
         }
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }

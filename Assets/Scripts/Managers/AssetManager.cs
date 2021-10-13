@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class AssetManager : MonoBehaviour
 {
-    public List<Sprite> tinkerIcons;
-    public static Dictionary<String, Sprite> tinkerIconsDict;
+    public List<Sprite> tinkerComponentSprites;
+    public static Dictionary<String, Sprite> tinkerComponentSpritesDict;
 
     private static AssetManager instace;
     public GameObject wireManagerinstance;
     public static GameObject wireManager;
+    public static bool isSolderingIron;
+    public static SolderingIronIcon solderingIronIcon;
 
     public static AssetManager GetInstance()
     {
@@ -21,15 +23,20 @@ public class AssetManager : MonoBehaviour
         instace = this;
         wireManager = wireManagerinstance;
         
-
-        if (tinkerIcons.Count != 0)
+        if(GameObject.FindWithTag("soldering iron icon"))
         {
-            tinkerIconsDict = new Dictionary<string, Sprite>(){
-            { "voltage9",tinkerIcons[0]},
-            { "breadboard",tinkerIcons[1]},
-            { "led",tinkerIcons[2]},
-            { "resistor",tinkerIcons[3]},
-            { "voltage1.5",tinkerIcons[4]}
+            isSolderingIron = true;
+            solderingIronIcon = GameObject.FindWithTag("soldering iron icon").GetComponent<SolderingIronIcon>();
+        }
+
+        if (tinkerComponentSprites.Count != 0)
+        {
+            tinkerComponentSpritesDict = new Dictionary<string, Sprite>(){
+            { "voltage9",tinkerComponentSprites[0]},
+            { "breadboard",tinkerComponentSprites[1]},
+            { "led",tinkerComponentSprites[2]},
+            { "resistor",tinkerComponentSprites[3]},
+            { "voltage1.5",tinkerComponentSprites[4]}
             };
         }
     }

@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882488958255
 GameObject:
@@ -290,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882490320355
 GameObject:
@@ -436,7 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882512108150
 GameObject:
@@ -582,7 +579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882515611457
 GameObject:
@@ -728,7 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882524091044
 GameObject:
@@ -874,7 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882532026426
 GameObject:
@@ -1020,7 +1014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882596310490
 GameObject:
@@ -1166,7 +1159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882612519114
 GameObject:
@@ -1312,7 +1304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882619944223
 GameObject:
@@ -1458,7 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882625663899
 GameObject:
@@ -1604,7 +1594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882628159198
 GameObject:
@@ -1750,7 +1739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882643515896
 GameObject:
@@ -1896,7 +1884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882657160181
 GameObject:
@@ -2042,7 +2029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882663911505
 GameObject:
@@ -2188,7 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882667067613
 GameObject:
@@ -2334,7 +2319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882669160821
 GameObject:
@@ -2480,7 +2464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882676111373
 GameObject:
@@ -2626,7 +2609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882678916130
 GameObject:
@@ -2772,7 +2754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882697448076
 GameObject:
@@ -2918,7 +2899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882704125111
 GameObject:
@@ -3064,7 +3044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882705773934
 GameObject:
@@ -3210,7 +3189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882721186753
 GameObject:
@@ -3356,7 +3334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882731223196
 GameObject:
@@ -3502,7 +3479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882732419892
 GameObject:
@@ -3648,7 +3624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882740207049
 GameObject:
@@ -3794,7 +3769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882742714009
 GameObject:
@@ -3940,7 +3914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882757567020
 GameObject:
@@ -4086,7 +4059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882762036529
 GameObject:
@@ -4100,7 +4072,7 @@ GameObject:
   - component: {fileID: 2364827882762036543}
   m_Layer: 0
   m_Name: Grid (7)
-  m_TagString: Untagged
+  m_TagString: Breadboard grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4426,7 +4398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882780560618
 GameObject:
@@ -4572,7 +4543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882786580652
 GameObject:
@@ -4718,7 +4688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882789397354
 GameObject:
@@ -4864,7 +4833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882808807822
 GameObject:
@@ -5010,7 +4978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882839482898
 GameObject:
@@ -5156,7 +5123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882843146131
 GameObject:
@@ -5302,7 +5268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882844622393
 GameObject:
@@ -5448,7 +5413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882845148991
 GameObject:
@@ -5594,7 +5558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882846581493
 GameObject:
@@ -5740,7 +5703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882873889036
 GameObject:
@@ -5886,7 +5848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882876744918
 GameObject:
@@ -6032,7 +5993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882899604582
 GameObject:
@@ -6178,7 +6138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882910095086
 GameObject:
@@ -6324,7 +6283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882926522455
 GameObject:
@@ -6470,7 +6428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882936597905
 GameObject:
@@ -6616,7 +6573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882944680952
 GameObject:
@@ -6762,7 +6718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882976008453
 GameObject:
@@ -6776,7 +6731,7 @@ GameObject:
   - component: {fileID: 2364827882976008451}
   m_Layer: 0
   m_Name: Grid (3)
-  m_TagString: Untagged
+  m_TagString: Breadboard grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7012,7 +6967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882985017260
 GameObject:
@@ -7158,7 +7112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882989188017
 GameObject:
@@ -7304,7 +7257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882990618896
 GameObject:
@@ -7450,7 +7402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827882999039485
 GameObject:
@@ -7596,7 +7547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883005734064
 GameObject:
@@ -7742,7 +7692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883029641842
 GameObject:
@@ -7888,7 +7837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883030283808
 GameObject:
@@ -8034,7 +7982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883038817095
 GameObject:
@@ -8180,7 +8127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883041088093
 GameObject:
@@ -8326,7 +8272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883050104794
 GameObject:
@@ -8472,7 +8417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883052327401
 GameObject:
@@ -8618,7 +8562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883056285476
 GameObject:
@@ -8764,7 +8707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883058369393
 GameObject:
@@ -8910,7 +8852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883059697982
 GameObject:
@@ -9056,7 +8997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883063525061
 GameObject:
@@ -9202,7 +9142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883069083581
 GameObject:
@@ -9348,7 +9287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883070285869
 GameObject:
@@ -9494,7 +9432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883092023048
 GameObject:
@@ -9640,7 +9577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883099932517
 GameObject:
@@ -9786,7 +9722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883111117370
 GameObject:
@@ -9932,7 +9867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883120321674
 GameObject:
@@ -10078,7 +10012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883134096925
 GameObject:
@@ -10224,7 +10157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883142702326
 GameObject:
@@ -10370,7 +10302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883142799023
 GameObject:
@@ -10516,7 +10447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883165344284
 GameObject:
@@ -10662,7 +10592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883174392403
 GameObject:
@@ -10808,7 +10737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883177563044
 GameObject:
@@ -10954,7 +10882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883178279974
 GameObject:
@@ -11100,7 +11027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883181040606
 GameObject:
@@ -11246,7 +11172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883183280611
 GameObject:
@@ -11392,7 +11317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883187357517
 GameObject:
@@ -11538,7 +11462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883205266690
 GameObject:
@@ -11684,7 +11607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883217334224
 GameObject:
@@ -11830,7 +11752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883223318986
 GameObject:
@@ -11976,7 +11897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883223437071
 GameObject:
@@ -12122,7 +12042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883226363007
 GameObject:
@@ -12268,7 +12187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883233582472
 GameObject:
@@ -12414,7 +12332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883240718826
 GameObject:
@@ -12560,7 +12477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883243476702
 GameObject:
@@ -12706,7 +12622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883262751431
 GameObject:
@@ -12852,7 +12767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883275728107
 GameObject:
@@ -12998,7 +12912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883288243596
 GameObject:
@@ -13144,7 +13057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883293202273
 GameObject:
@@ -13290,7 +13202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883347835979
 GameObject:
@@ -13436,7 +13347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883359604893
 GameObject:
@@ -13582,7 +13492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883362597633
 GameObject:
@@ -13728,7 +13637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883372915170
 GameObject:
@@ -13874,7 +13782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883385674923
 GameObject:
@@ -14020,7 +13927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883386590791
 GameObject:
@@ -14166,7 +14072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883387607556
 GameObject:
@@ -14312,7 +14217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883391217857
 GameObject:
@@ -14458,7 +14362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883394168379
 GameObject:
@@ -14604,7 +14507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883395072091
 GameObject:
@@ -14750,7 +14652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883395537376
 GameObject:
@@ -14896,7 +14797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883407623965
 GameObject:
@@ -15042,7 +14942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883409170697
 GameObject:
@@ -15188,7 +15087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883415102518
 GameObject:
@@ -15334,7 +15232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883416694804
 GameObject:
@@ -15480,7 +15377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883429837525
 GameObject:
@@ -15626,7 +15522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883430745411
 GameObject:
@@ -15772,7 +15667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883444594264
 GameObject:
@@ -15918,7 +15812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883450481505
 GameObject:
@@ -16064,7 +15957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883490801889
 GameObject:
@@ -16210,7 +16102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883502645059
 GameObject:
@@ -16240,7 +16131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2364827883502645059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0000001, y: -0.50000024, z: 1}
+  m_LocalPosition: {x: -0.38, y: -0.27, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2364827882976008450}
@@ -16506,7 +16397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883531510150
 GameObject:
@@ -16652,7 +16542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883535594607
 GameObject:
@@ -16798,7 +16687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883541220521
 GameObject:
@@ -16944,7 +16832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883577552346
 GameObject:
@@ -17090,7 +16977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883592299450
 GameObject:
@@ -17236,7 +17122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883597480813
 GameObject:
@@ -17382,7 +17267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883645595219
 GameObject:
@@ -17528,7 +17412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883652663243
 GameObject:
@@ -17674,7 +17557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883673870900
 GameObject:
@@ -17820,7 +17702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883682591359
 GameObject:
@@ -17966,7 +17847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883686743030
 GameObject:
@@ -18112,7 +17992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883708190788
 GameObject:
@@ -18258,7 +18137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883722497682
 GameObject:
@@ -18404,7 +18282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883723002948
 GameObject:
@@ -18550,7 +18427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883731111364
 GameObject:
@@ -18696,7 +18572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883740704296
 GameObject:
@@ -18842,7 +18717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883751512982
 GameObject:
@@ -18988,7 +18862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883763347322
 GameObject:
@@ -19134,7 +19007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883776502089
 GameObject:
@@ -19280,7 +19152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883784636667
 GameObject:
@@ -19426,7 +19297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883797559365
 GameObject:
@@ -19572,7 +19442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883815838685
 GameObject:
@@ -19718,7 +19587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883827262348
 GameObject:
@@ -19864,7 +19732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883835574038
 GameObject:
@@ -20010,7 +19877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883849193577
 GameObject:
@@ -20156,7 +20022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883857752272
 GameObject:
@@ -20302,7 +20167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883873152099
 GameObject:
@@ -20448,7 +20312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883880558268
 GameObject:
@@ -20594,7 +20457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883883277062
 GameObject:
@@ -20740,7 +20602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883891260130
 GameObject:
@@ -20886,7 +20747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883893075892
 GameObject:
@@ -21032,7 +20892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883922203183
 GameObject:
@@ -21178,7 +21037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883930082673
 GameObject:
@@ -21324,7 +21182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883933430074
 GameObject:
@@ -21470,7 +21327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883965154352
 GameObject:
@@ -21616,7 +21472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827883978123726
 GameObject:
@@ -21762,7 +21617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884000783616
 GameObject:
@@ -21908,7 +21762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884001528512
 GameObject:
@@ -22054,7 +21907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884040603781
 GameObject:
@@ -22068,7 +21920,7 @@ GameObject:
   - component: {fileID: 2364827884040603779}
   m_Layer: 0
   m_Name: Grid (8)
-  m_TagString: Untagged
+  m_TagString: Breadboard grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22394,7 +22246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884051520489
 GameObject:
@@ -22540,7 +22391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884053931570
 GameObject:
@@ -22686,7 +22536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884056942955
 GameObject:
@@ -22832,7 +22681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884058053878
 GameObject:
@@ -22978,7 +22826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884060961260
 GameObject:
@@ -23124,7 +22971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884063524647
 GameObject:
@@ -23270,7 +23116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884093630374
 GameObject:
@@ -23416,7 +23261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884102269241
 GameObject:
@@ -23562,7 +23406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884106908586
 GameObject:
@@ -23708,7 +23551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884112545019
 GameObject:
@@ -23854,7 +23696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884115784974
 GameObject:
@@ -24000,7 +23841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884130581715
 GameObject:
@@ -24146,7 +23986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884137198495
 GameObject:
@@ -24292,7 +24131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884144972039
 GameObject:
@@ -24438,7 +24276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884158474869
 GameObject:
@@ -24584,7 +24421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884164265602
 GameObject:
@@ -24730,7 +24566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884172673034
 GameObject:
@@ -24876,7 +24711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884174860610
 GameObject:
@@ -25022,7 +24856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884183368015
 GameObject:
@@ -25168,7 +25001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884195847027
 GameObject:
@@ -25314,7 +25146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884201934658
 GameObject:
@@ -25460,7 +25291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884209998541
 GameObject:
@@ -25606,7 +25436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884252088296
 GameObject:
@@ -25752,7 +25581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884263195700
 GameObject:
@@ -25898,7 +25726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884267960688
 GameObject:
@@ -26044,7 +25871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884285952859
 GameObject:
@@ -26190,7 +26016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884305881649
 GameObject:
@@ -26336,7 +26161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884312958837
 GameObject:
@@ -26482,7 +26306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884332279504
 GameObject:
@@ -26628,7 +26451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884342143163
 GameObject:
@@ -26774,7 +26596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884345320355
 GameObject:
@@ -26920,7 +26741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884351083855
 GameObject:
@@ -27066,7 +26886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884372437580
 GameObject:
@@ -27212,7 +27031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884372988961
 GameObject:
@@ -27358,7 +27176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884374904456
 GameObject:
@@ -27504,7 +27321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884376967364
 GameObject:
@@ -27518,7 +27334,7 @@ GameObject:
   - component: {fileID: 2364827884376967362}
   m_Layer: 0
   m_Name: Grid (4)
-  m_TagString: Untagged
+  m_TagString: Breadboard grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27754,7 +27570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884414576666
 GameObject:
@@ -27900,7 +27715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884418278188
 GameObject:
@@ -28046,7 +27860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884436905823
 GameObject:
@@ -28192,7 +28005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884437348576
 GameObject:
@@ -28338,7 +28150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884442009400
 GameObject:
@@ -28484,7 +28295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884449122822
 GameObject:
@@ -28630,7 +28440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884455099813
 GameObject:
@@ -28776,7 +28585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884462458540
 GameObject:
@@ -28922,7 +28730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884465922680
 GameObject:
@@ -29068,7 +28875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884469015166
 GameObject:
@@ -29214,7 +29020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884480768236
 GameObject:
@@ -29360,7 +29165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884480872648
 GameObject:
@@ -29506,7 +29310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884495556969
 GameObject:
@@ -29652,7 +29455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884496996246
 GameObject:
@@ -29798,7 +29600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884497090854
 GameObject:
@@ -29944,7 +29745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884507813184
 GameObject:
@@ -30090,7 +29890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884519538491
 GameObject:
@@ -30236,7 +30035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884521704580
 GameObject:
@@ -30382,7 +30180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884522298402
 GameObject:
@@ -30528,7 +30325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884538123678
 GameObject:
@@ -30674,7 +30470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884545556611
 GameObject:
@@ -30820,7 +30615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884548030492
 GameObject:
@@ -30966,7 +30760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884581345567
 GameObject:
@@ -31112,7 +30905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884582089917
 GameObject:
@@ -31258,7 +31050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &2364827884589612897
 GameObject:
@@ -31404,7 +31195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1001 &11344602612640275
 PrefabInstance:
@@ -31417,6 +31207,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31483,6 +31277,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31549,6 +31347,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31615,6 +31417,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31681,6 +31487,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31747,6 +31557,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31813,6 +31627,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31879,6 +31697,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -31945,6 +31767,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32011,6 +31837,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32077,6 +31907,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32143,6 +31977,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32209,6 +32047,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32275,6 +32117,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32341,6 +32187,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32407,6 +32257,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32473,6 +32327,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32539,6 +32397,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32605,6 +32467,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32671,6 +32537,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32737,6 +32607,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32803,6 +32677,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32869,6 +32747,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -32935,6 +32817,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33001,6 +32887,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33067,6 +32957,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33133,6 +33027,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33199,6 +33097,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33265,6 +33167,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33331,6 +33237,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33397,6 +33307,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33463,6 +33377,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33529,6 +33447,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33595,6 +33517,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33661,6 +33587,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33727,6 +33657,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33793,6 +33727,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33859,6 +33797,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33925,6 +33867,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -33991,6 +33937,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34057,6 +34007,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34123,6 +34077,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34189,6 +34147,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34255,6 +34217,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34321,6 +34287,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34387,6 +34357,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34453,6 +34427,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34519,6 +34497,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34585,6 +34567,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34651,6 +34637,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34717,6 +34707,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34783,6 +34777,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34849,6 +34847,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34919,6 +34921,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -34985,6 +34991,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35051,6 +35061,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35117,6 +35131,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35183,6 +35201,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35249,6 +35271,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35315,6 +35341,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35381,6 +35411,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35447,6 +35481,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35513,6 +35551,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35579,6 +35621,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35645,6 +35691,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35711,6 +35761,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35777,6 +35831,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35843,6 +35901,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35909,6 +35971,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -35975,6 +36041,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36041,6 +36111,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36107,6 +36181,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36173,6 +36251,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36239,6 +36321,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36305,6 +36391,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36371,6 +36461,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36437,6 +36531,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36503,6 +36601,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36569,6 +36671,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36635,6 +36741,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36701,6 +36811,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36767,6 +36881,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36833,6 +36951,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36899,6 +37021,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -36965,6 +37091,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37031,6 +37161,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37097,6 +37231,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37163,6 +37301,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37229,6 +37371,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37295,6 +37441,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37361,6 +37511,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37427,6 +37581,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37493,6 +37651,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37559,6 +37721,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37625,6 +37791,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37691,6 +37861,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37757,6 +37931,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37823,6 +38001,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37889,6 +38071,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -37955,6 +38141,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38021,6 +38211,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38087,6 +38281,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38153,6 +38351,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38219,6 +38421,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38285,6 +38491,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38351,6 +38561,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38417,6 +38631,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38483,6 +38701,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38549,6 +38771,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38615,6 +38841,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38681,6 +38911,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38747,6 +38981,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38813,6 +39051,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38879,6 +39121,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -38945,6 +39191,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39011,6 +39261,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39077,6 +39331,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39143,6 +39401,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39209,6 +39471,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39275,6 +39541,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39341,6 +39611,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39407,6 +39681,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39473,6 +39751,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39539,6 +39821,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39605,6 +39891,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39671,6 +39961,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39737,6 +40031,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39803,6 +40101,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39869,6 +40171,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -39935,6 +40241,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40001,6 +40311,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40067,6 +40381,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40133,6 +40451,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40199,6 +40521,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40265,6 +40591,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40331,6 +40661,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40397,6 +40731,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40463,6 +40801,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40529,6 +40871,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40595,6 +40941,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40661,6 +41011,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40727,6 +41081,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40793,6 +41151,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40859,6 +41221,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40925,6 +41291,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -40991,6 +41361,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41057,6 +41431,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41123,6 +41501,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41189,6 +41571,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41255,6 +41641,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41321,6 +41711,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41387,6 +41781,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41453,6 +41851,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41519,6 +41921,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41585,6 +41991,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41651,6 +42061,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41717,6 +42131,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41783,6 +42201,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41849,6 +42271,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41915,6 +42341,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -41981,6 +42411,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42047,6 +42481,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42113,6 +42551,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42179,6 +42621,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42245,6 +42691,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42311,6 +42761,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42377,6 +42831,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42443,6 +42901,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42509,6 +42971,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42575,6 +43041,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42641,6 +43111,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42707,6 +43181,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42773,6 +43251,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42839,6 +43321,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42905,6 +43391,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -42971,6 +43461,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43037,6 +43531,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43103,6 +43601,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43169,6 +43671,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43235,6 +43741,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43301,6 +43811,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43367,6 +43881,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43433,6 +43951,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43499,6 +44021,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43565,6 +44091,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43631,6 +44161,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43697,6 +44231,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43763,6 +44301,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43829,6 +44371,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43895,6 +44441,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -43961,6 +44511,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44027,6 +44581,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44093,6 +44651,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44159,6 +44721,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44225,6 +44791,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44291,6 +44861,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44357,6 +44931,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44423,6 +45001,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44489,6 +45071,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44555,6 +45141,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44621,6 +45211,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44687,6 +45281,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44753,6 +45351,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44819,6 +45421,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44885,6 +45491,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -44951,6 +45561,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -45017,6 +45631,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -45083,6 +45701,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -45149,6 +45771,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)
@@ -45215,6 +45841,10 @@ PrefabInstance:
       propertyPath: wireManager
       value: 
       objectReference: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
+    - target: {fileID: 6927919289565400363, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
+      propertyPath: solderingIronIcon
+      value: 
+      objectReference: {fileID: 7833424560546150067, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
     - target: {fileID: 6927919289565400364, guid: f891a7088e3c8c5469bd957d2fe52ce8, type: 3}
       propertyPath: m_Name
       value: node(Clone)

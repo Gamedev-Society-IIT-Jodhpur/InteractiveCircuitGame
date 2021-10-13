@@ -12,6 +12,8 @@ TagManager:
   - BJT
   - Breadboard
   - value input
+  - soldering iron icon
+  - Breadboard grid
   layers:
   - Default
   - TransparentFX

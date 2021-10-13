@@ -54,9 +54,21 @@ public class NodeTinker : MonoBehaviour
         if (!IsMouseOverUI())
         {
             GetComponent<SpriteRenderer>().enabled = true;
-            if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire)
+            if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire && !StaticData.isSoldering)
             {
-                wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+                if (AssetManager.isSolderingIron && transform.parent.tag!="Breadboard grid")
+                {
+                    AssetManager.solderingIronIcon.Solder(transform.position);
+                    wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+                }
+                else if(transform.parent.tag != "Breadboard grid")
+                {
+                    print("there is no soldering iron");
+                }
+                if(transform.parent.tag == "Breadboard grid")
+                {
+                    wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
+                }
             }
         }
     }

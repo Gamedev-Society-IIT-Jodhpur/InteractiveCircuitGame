@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555633661357387197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.994999, y: -0.2429998, z: 0}
+  m_LocalPosition: {x: -3.994999, y: -0.2429998, z: 1}
   m_LocalScale: {x: 0.253, y: 0.253, z: 1}
   m_Children: []
   m_Father: {fileID: 1555633662428258215}
@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &1555633662093127977
 GameObject:
@@ -174,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555633662093127977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.994999, y: 0.11000026, z: 0}
+  m_LocalPosition: {x: -3.994999, y: 0.11000026, z: 1}
   m_LocalScale: {x: 0.253, y: 0.253, z: 1}
   m_Children: []
   m_Father: {fileID: 1555633662428258215}
@@ -290,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330c574ebc4bb614ba8c103d3de465a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 2350037641742986857, guid: 6f8ebf21c6650314b91b4bf7c40d469b, type: 3}
   wires: []
 --- !u!1 &1555633662428258265
 GameObject:
@@ -435,5 +433,7 @@ MonoBehaviour:
   no_nodes: 2
   nameInCircuit: 
   value: 9
+  beta: 100
   nodes: []
   childs: []
+  isWorking: 1

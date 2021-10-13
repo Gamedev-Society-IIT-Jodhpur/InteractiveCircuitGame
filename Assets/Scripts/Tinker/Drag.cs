@@ -36,7 +36,7 @@ public class Drag : MonoBehaviour
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!hasInitiatated && !IsMouseOverUI())
+        if (!hasInitiatated && !IsMouseOverUI() && !StaticData.isSoldering)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -46,7 +46,7 @@ public class Drag : MonoBehaviour
         }
         
 
-        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated) && !IsMouseOverUI())
+        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated) && !IsMouseOverUI() && !StaticData.isSoldering)
         {
             x = worldPoint.x;
             y = worldPoint.y;
@@ -108,7 +108,7 @@ public class Drag : MonoBehaviour
     {
         
 
-        if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire)
+        if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDraggin = true;
