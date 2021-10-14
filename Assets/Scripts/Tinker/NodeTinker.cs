@@ -8,6 +8,9 @@ public class NodeTinker : MonoBehaviour
     GameObject wireManager;
     public List<GameObject> wires;
     NodeTinker[] nodes;
+    public bool needSoldering = false;
+    public bool isConnectedToBreadboard = false;
+    public bool isConnectedToComponent = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,17 +21,32 @@ public class NodeTinker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true)
+        if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true/*((GetComponentInParent<Drag>()&& GetComponentInParent<Drag>().isDraggin == true)||
+            (transform.parent.GetComponentInParent<Drag>() && transform.parent.GetComponentInParent<Drag>().isDraggin == true))*/)
         {
             GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
 
-            if (collision.transform.parent.parent!=null && collision.transform.parent.parent.tag == "Breadboard")
+            if (collision.transform.parent.tag == "Breadboard grid")
+            {
+                isConnectedToBreadboard = true;
+            }
+            else
+            {
+                isConnectedToComponent = true;
+            }
+            if(transform.parent.tag!="Breadboard grid") //should not solder when we drag the breadboard.
+            {
+                needSoldering = true;
+            }
+            
+
+            if (collision.transform.parent.tag == "Breadboard grid")
             {
                 transform.parent.SetParent(collision.transform.parent.parent);
 
 
             }
-            else if (transform.parent.parent!=null && transform.parent.parent.tag== "Breadboard")
+            else if (transform.parent.tag == "Breadboard grid")
             {
                 collision.transform.parent.SetParent(transform.parent.parent);
                 nodes = collision.transform.parent.GetComponentsInChildren<NodeTinker>();
@@ -42,11 +60,30 @@ public class NodeTinker : MonoBehaviour
                 }
             }
 
-            if (transform.parent!=null && collision.transform.parent.parent!=null && collision.transform.parent.parent.tag != "Breadboard")
+            if (transform.parent!=null && transform.parent.tag!="Breadboard grid"  && collision.transform.parent.tag != "Breadboard grid"/*collision.transform.parent.parent != null && collision.transform.parent.parent.tag != "Breadboard"*/)
             {
                 transform.parent.SetParent(null);
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true/*((GetComponentInParent<Drag>() && GetComponentInParent<Drag>().isDraggin == true) ||
+            (transform.parent.GetComponentInParent<Drag>() && transform.parent.GetComponentInParent<Drag>().isDraggin == true))*/)
+        {
+            needSoldering = false;
+            if (collision.transform.parent.tag == "Breadboard grid")
+            {
+                isConnectedToBreadboard = false;
+            }
+            else
+            {
+                isConnectedToComponent = false;
+            }
+        }
+
+        
     }
 
     private void OnMouseOver()

@@ -75,9 +75,13 @@ public class Wire : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(KeyCode.Escape) && !StaticData.isSoldering)
+            if (Input.GetKeyDown(KeyCode.Escape) /*&& !StaticData.isSoldering*/)
             {
                 GetComponentInParent<NewWireManager>().DestroyWire();
+                if (StaticData.isSoldering)
+                {
+                    AssetManager.solderingIronIcon.DestroySolderingIron();
+                }
             }
 
 
@@ -86,45 +90,55 @@ public class Wire : MonoBehaviour
                 hit = Physics2D.Raycast(mousePos, Vector2.zero);
                 if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
-                    isDrawing = false;
-                    if(hit.transform.parent.tag!="Breadboard grid")
+                    
+                    if(hit.transform.parent.tag=="Breadboard grid" || AssetManager.isSolderingIron)
                     {
-                        AssetManager.solderingIronIcon.Solder(hit.transform.position);
-                        AssetManager.solderingIronIcon.HideCursor();
+                        if (hit.transform.parent.tag != "Breadboard grid" && AssetManager.isSolderingIron)
+                        {
+                            AssetManager.solderingIronIcon.Solder(hit.transform.position);
+                            //AssetManager.solderingIronIcon.HideCursor();
+                        }
 
+                        isDrawing = false;
+                        GetComponent<BoxCollider2D>().enabled = true;
+                        WireManager.isDrawingWire = false;
+                        GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
+                        GetComponentInParent<NewWireManager>().node2 = Instantiate<GameObject>(wireNode);
+                        GetComponentInParent<NewWireManager>().node2.transform.position = hit.collider.transform.position;
+                        GetComponentInParent<NewWireManager>().node2.transform.SetParent(hit.collider.transform);
+                        node2 = hit.collider.transform;
+                        hit.collider.GetComponent<NodeTinker>().wires.Add(gameObject);
+
+                        mousePos = hit.collider.transform.position;
+                        transform.position = new Vector3((mousePos.x + node1.transform.position.x) / 2, (mousePos.y + node1.transform.position.y) / 2, 0);
+                        distance = Vector2.Distance(mousePos, node1.transform.position);
+                        transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
+                        //transform.localScale = new Vector3(transform.localScale.x, distance/2, transform.localScale.z);
+
+                        angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
+                        if (angleVector.x != 0 || angleVector.y != 0)
+                        {
+                            if (angleVector.x < 0)
+                            {
+                                angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                                transform.eulerAngles = new Vector3(0, 0, -angle);
+                            }
+                            else
+                            {
+                                angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
+                                transform.eulerAngles = new Vector3(0, 0, angle);
+                            }
+                        }
                     }
-                    GetComponent<BoxCollider2D>().enabled = true;
-                    WireManager.isDrawingWire = false;
-                    GetComponentInParent<NewWireManager>().nodes.Add(hit.collider.transform);
-                    GetComponentInParent<NewWireManager>().node2 = Instantiate<GameObject>(wireNode);
-                    GetComponentInParent<NewWireManager>().node2.transform.position = hit.collider.transform.position;
-                    GetComponentInParent<NewWireManager>().node2.transform.SetParent(hit.collider.transform);
-                    node2 = hit.collider.transform;
-                    hit.collider.GetComponent<NodeTinker>().wires.Add(gameObject);
-
-                    mousePos = hit.collider.transform.position;
-                    transform.position = new Vector3((mousePos.x + node1.transform.position.x) / 2, (mousePos.y + node1.transform.position.y) / 2, 0);
-                    distance = Vector2.Distance(mousePos, node1.transform.position);
-                    transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
-                    //transform.localScale = new Vector3(transform.localScale.x, distance/2, transform.localScale.z);
-
-                    angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
-                    if (angleVector.x != 0 || angleVector.y != 0)
+                    else
                     {
-                        if (angleVector.x < 0)
-                        {
-                            angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                            transform.eulerAngles = new Vector3(0, 0, -angle);
-                        }
-                        else
-                        {
-                            angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                            transform.eulerAngles = new Vector3(0, 0, angle);
-                        }
+                        print("there is no soldering iron");
                     }
+                    
                         
 
                 }
+                
                 else if((hit.collider==null)||(hit.collider.tag != "node"))
                 {
                     node2 = Instantiate<GameObject>(wireNode).transform;

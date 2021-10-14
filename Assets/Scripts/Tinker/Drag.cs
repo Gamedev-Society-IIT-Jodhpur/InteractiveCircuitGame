@@ -17,18 +17,22 @@ public class Drag : MonoBehaviour
     float diffX;
     float diffY;
     NodeTinker[] nodes;
-    RaycastHit2D hit;
-    bool hasInitiatated;
+    //RaycastHit2D hit;
+    bool hasInitiated;
+    public  Vector3 previousPos;
+    bool hasTrulyInitiated;
 
     //List<GameObject> wires;
 
     // Start is called before the first frame update
     void Start()
     {
-        hasInitiatated = false;
+        hasInitiated = false;
+        hasTrulyInitiated = false;
         isDraggin = true;
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
+        
     }
 
     // Update is called once per frame
@@ -36,17 +40,21 @@ public class Drag : MonoBehaviour
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!hasInitiatated && !IsMouseOverUI() && !StaticData.isSoldering)
+        if (!hasInitiated  && !StaticData.isSoldering)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
             {
-                hasInitiatated = true;
+                hasInitiated = true;
+            }
+            if (!hasInitiated && Input.GetKeyDown(KeyCode.Escape))
+            {
+                AssetManager.deleteButton.Delete();
             }
             //gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
         }
         
 
-        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiatated) && !IsMouseOverUI() && !StaticData.isSoldering)
+        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiated) && !IsMouseOverUI() && !StaticData.isSoldering)
         {
             x = worldPoint.x;
             y = worldPoint.y;
@@ -84,7 +92,7 @@ public class Drag : MonoBehaviour
 
             
         }
-        else if (isDraggin && hasInitiatated)
+        else if (isDraggin && hasInitiated)
         {
             isDraggin = false;
             nodes= GetComponentsInChildren<NodeTinker>();
@@ -95,12 +103,36 @@ public class Drag : MonoBehaviour
                     wire.GetComponent<Wire>().isMoving = false;
 
                 }
+
+                if (node.needSoldering)
+                {
+                    node.needSoldering = false;
+                    if (node.isConnectedToComponent && !node.isConnectedToBreadboard)
+                    {
+                        if (AssetManager.isSolderingIron)
+                        {
+                            AssetManager.solderingIronIcon.Solder(node.transform.position);
+
+                        }
+                        else if(hasTrulyInitiated)
+                        {
+                            SnapBack();
+                            print("soldering iron is not available");
+                        }
+                        else
+                        {
+                            AssetManager.deleteButton.DeleteComponent(gameObject);
+                            print("soldering iron is not available");
+                        }
+                    }
+                }
             }
 
             if (transform.parent!=null && dragThreshold==0.01f)
             {
                 transform.parent = null;
             }
+            hasTrulyInitiated = true;
         }
     }
 
@@ -128,8 +160,8 @@ public class Drag : MonoBehaviour
             diffX = prevX - prevCursorX;
             diffY = prevY - prevCursorY;
             CircuitManagerTinker.ChangeSelected(gameObject);
+            previousPos = transform.position;
 
-            
         }
     }
 
@@ -147,6 +179,11 @@ public class Drag : MonoBehaviour
     private bool IsMouseOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();
+    }
+
+    public void SnapBack()
+    {
+        transform.position = previousPos;
     }
 }
 

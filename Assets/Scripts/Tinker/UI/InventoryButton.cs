@@ -40,7 +40,7 @@ public class InventoryButton : MonoBehaviour
         
         //if (component.Substring(0, 7) != "voltage")
         //{
-            childs[1].text = value+unit+" "+ componentsNameDict[component];
+            childs[1].text = value + " " + unit+" "+ componentsNameDict[component];
         //}
         GetComponentsInChildren<Image>()[1].sprite = AssetManager.tinkerComponentSpritesDict[component];
 
@@ -51,6 +51,7 @@ public class InventoryButton : MonoBehaviour
         if(!WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             newComponent = Instantiate(componentsDict[component]);
+            CircuitManagerTinker.ChangeSelected(newComponent);
 
             if (newComponent.tag != "Breadboard")
             {
