@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2474fd1b706745e4e8ffb86bf1b2bf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinkerIcons: []
+  tinkerComponentSprites: []
   wireManagerinstance: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: d1d25ce5b54983045ae8ea9f68728ed3, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -3697,8 +3697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1574819697566923944
 MonoBehaviour:

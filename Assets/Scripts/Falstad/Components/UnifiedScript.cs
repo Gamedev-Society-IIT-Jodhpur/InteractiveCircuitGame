@@ -156,14 +156,17 @@ public class UnifiedScript: MonoBehaviour
         scene = SceneManager.GetActiveScene().name;
 
         Del Resistordel = ResistorInitialize;
-        
         dict1.Add("resistor", Resistordel);
+
         Del Voltagedel = VoltageInitialize;
         dict1.Add("voltage", Voltagedel);
+        
         Del Wiredel = WireInitialize;
         dict1.Add("wire", Wiredel);
+        
         Del BJTdel = BJTInitialize;
         dict1.Add("bjt", BJTdel);
+        
         Del Diodedel = DiodeInitialize;
         dict1.Add("diode", Diodedel);
         dict1.Add("zenerDiode", Diodedel);

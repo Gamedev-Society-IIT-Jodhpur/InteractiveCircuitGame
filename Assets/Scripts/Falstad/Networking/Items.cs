@@ -32,7 +32,7 @@ public class Items : MonoBehaviour
         {
             // wherever you want to show the progress: 
 
-            Debug.Log(asyncOperation.progress);
+            //Debug.Log(asyncOperation.progress);
 
             //yield return null;
             // or if you want to stick doing it in certain intervals

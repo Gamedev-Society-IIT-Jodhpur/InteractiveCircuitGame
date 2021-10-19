@@ -15,16 +15,27 @@ public class CameraMovemetn : MonoBehaviour
     {
         if (!IsMouseOverUI())
         {
-            if (Input.mouseScrollDelta.y > 0.1f )
+
+            // Scroll forward
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                ZoomOut();
+                ZoomOrthoCamera(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
             }
-            if (Input.mouseScrollDelta.y < -0.1f )
+
+            // Scoll back
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                ZoomIn();
+                ZoomOrthoCamera(Camera.main.ScreenToWorldPoint(Input.mousePosition), -1);
             }
+
             PanCamera();
         }
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            Debug.Log(Input.GetMouseButtonDown(2));
+        }
+
     }
 
     private bool IsMouseOverUI()
@@ -32,30 +43,35 @@ public class CameraMovemetn : MonoBehaviour
         return EventSystem.current.IsPointerOverGameObject();
     }
 
+
+    // Ortographic camera zoom towards a point (in world coordinates). Negative amount zooms in, positive zooms out
+    // TODO: when reaching zoom limits, stop camera movement as well
+    void ZoomOrthoCamera(Vector3 zoomTowards, float amount)
+    {
+        // Calculate how much we will have to move towards the zoomTowards position
+        float multiplier = (1.0f / cam.orthographicSize * amount);
+
+        // Move camera
+        transform.position += (zoomTowards - transform.position) * multiplier;
+
+        // Zoom camera
+        cam.orthographicSize -= amount;
+
+        // Limit zoom
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+    }
+
     void PanCamera()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetMouseButtonDown(2))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
             cam.transform.position += difference; 
         }
     }
-
-    void ZoomIn()
-    {
-        float newSize = cam.orthographicSize + zoomStap;
-        cam.orthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
-    }
-
-    void ZoomOut()
-    {
-        float newSize = cam.orthographicSize - zoomStap;
-        cam.orthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
-    }
-
-    
+ 
 }
