@@ -7,8 +7,6 @@ using TMPro;
 
 public class AddItem : MonoBehaviour, IPointerClickHandler
 {
-
-    public TextMeshProUGUI cartItems;
     public TextMeshProUGUI header;
     public TMP_Dropdown valuesDropDown;
     public TMP_InputField quantity;
@@ -18,14 +16,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
         int index = valuesDropDown.value;
         string value = valuesDropDown.options[index].text;
-        if (cartItems.text.Equals("Empty"))
-        {
-            cartItems.text = header.text + " - " + value + " ( " + quantity.text + ")";
-        }
-        else
-        {
-            cartItems.text = cartItems.text + "\n" + header.text + " - " + value + " ( " + quantity.text + ")";
-        }
-        
+
+        Store.Items.Add(header.text + " - " + value + " ( " + quantity.text + ")");
     }
 }

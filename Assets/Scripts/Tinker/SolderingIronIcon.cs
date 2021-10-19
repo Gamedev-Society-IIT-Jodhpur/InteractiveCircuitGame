@@ -24,6 +24,11 @@ public class SolderingIronIcon : MonoBehaviour
         newSolderIron.GetComponent<SolderingIron>().Solder(position);
     }
 
+    public void DestroySolderingIron()
+    {
+        newSolderIron.GetComponent<SolderingIron>().DestroySolder();
+    }
+
     public void HideCursor()
     {
         Cursor.visible = false;
