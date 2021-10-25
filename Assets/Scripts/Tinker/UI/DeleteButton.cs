@@ -11,7 +11,7 @@ public class DeleteButton : MonoBehaviour
 
     public void Delete()
     {
-        if (CircuitManagerTinker.selected)
+        if (CircuitManagerTinker.selected && !StaticData.isSoldering)
         {
             GameObject selectedComponent = CircuitManagerTinker.selected;
             selectedComponent.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;

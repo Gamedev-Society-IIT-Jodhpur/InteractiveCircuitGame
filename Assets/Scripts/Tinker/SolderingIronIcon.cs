@@ -6,6 +6,12 @@ public class SolderingIronIcon : MonoBehaviour
 {
     [SerializeField] GameObject solderIron;
     GameObject newSolderIron;
+    public static Queue<Vector2> noOfSolders;
+
+    private void Start()
+    {
+        noOfSolders = new Queue<Vector2>() { };
+    }
 
     private void Update()
     {
@@ -19,9 +25,18 @@ public class SolderingIronIcon : MonoBehaviour
 
     public void Solder(Vector2 position)
     {
-        newSolderIron = Instantiate<GameObject>(solderIron);
-        newSolderIron.transform.position = Camera.main.ScreenToWorldPoint(gameObject.transform.position);
-        newSolderIron.GetComponent<SolderingIron>().Solder(position);
+        if (!StaticData.isSoldering)
+        {
+            //noOfSolders.Enqueue(position);
+            StaticData.isSoldering = true;
+            newSolderIron = Instantiate<GameObject>(solderIron);
+            newSolderIron.transform.position = Camera.main.ScreenToWorldPoint(gameObject.transform.position);
+            newSolderIron.GetComponent<SolderingIron>().Solder(position);
+        }
+        else
+        {
+            noOfSolders.Enqueue(position);
+        }
     }
 
     public void DestroySolderingIron()

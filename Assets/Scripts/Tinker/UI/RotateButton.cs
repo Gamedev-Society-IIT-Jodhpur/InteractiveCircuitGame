@@ -8,7 +8,7 @@ public class RotateButton : MonoBehaviour
 
     public void Rotate()
     {
-        if (CircuitManagerTinker.selected /*&& CircuitManager.selected.tag!="Breadboard"*/)
+        if (CircuitManagerTinker.selected && !StaticData.isSoldering)
         {
             GameObject selectedComponent = CircuitManagerTinker.selected;
             
