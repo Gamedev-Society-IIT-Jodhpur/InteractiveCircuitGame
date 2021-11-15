@@ -90,7 +90,8 @@ public class InventoryButton : MonoBehaviour
     public void UpdateQuantity(int quantity)
     {
         this.quantity = quantity;
-        childs[0].text = quantity.ToString();
+        childs = GetComponentsInChildren<TMP_Text>();
+        childs[0].text =quantity.ToString();
     }
 
 

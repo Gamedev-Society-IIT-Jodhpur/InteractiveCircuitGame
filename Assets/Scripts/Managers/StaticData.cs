@@ -15,6 +15,8 @@ public class StaticData : MonoBehaviour
     }
     public static List<Component> Inventory;
     public static bool isSoldering=false;
+    public static float dragThreshold = 0.01f;
+
 
     private void Start()
     {

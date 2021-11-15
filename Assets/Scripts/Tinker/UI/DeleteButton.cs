@@ -17,7 +17,24 @@ public class DeleteButton : MonoBehaviour
             selectedComponent.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
             if (CircuitManagerTinker.selected.tag != "Breadboard")
             {
-                DeleteComponent(selectedComponent);
+                if (CircuitManagerTinker.selected.transform.parent!=null && CircuitManagerTinker.selected.transform.parent.tag == "soldered")
+                {
+                    GameObject currentParent = CircuitManagerTinker.selected.transform.parent.gameObject;
+                    //DeleteComponent(selectedComponent);
+                    Drag[] connecteds = currentParent.GetComponentsInChildren<Drag>();
+                    for (int i = 0; i < connecteds.Length; i++)
+                    {
+                        DeleteComponent(connecteds[i].gameObject);
+                    }
+                    if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
+                    {
+                        Destroy(currentParent);
+                    }
+                }
+                else
+                {
+                    DeleteComponent(selectedComponent);
+                }
             }
             else
             {
@@ -64,7 +81,7 @@ public class DeleteButton : MonoBehaviour
 
             }
         }
-        else
+        else if(!StaticData.isSoldering)
         {
             print("No component selected");
         }

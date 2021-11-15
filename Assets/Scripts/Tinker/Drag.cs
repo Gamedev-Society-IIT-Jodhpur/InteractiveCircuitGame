@@ -13,14 +13,16 @@ public class Drag : MonoBehaviour
     float prevCursorY;
     float x;
     float y;
-    float dragThreshold = 0.01f;
+    //float dragThreshold = 0.01f;
     float diffX;
     float diffY;
     NodeTinker[] nodes;
     //RaycastHit2D hit;
-    bool hasInitiated;
-    public  Vector3 previousPos;
+    [SerializeField] bool hasInitiated;
+    public Vector3 previousPos;
     bool hasTrulyInitiated;
+    public List<Drag> connecteds;
+    Drag[] solderedWith;
 
     //List<GameObject> wires;
 
@@ -32,7 +34,8 @@ public class Drag : MonoBehaviour
         isDraggin = true;
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
-        
+        connecteds.Add(gameObject.GetComponent<Drag>());
+
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class Drag : MonoBehaviour
     {
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!hasInitiated  && !StaticData.isSoldering)
+        if (!hasInitiated && !StaticData.isSoldering)
         {
             if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
             {
@@ -50,52 +53,76 @@ public class Drag : MonoBehaviour
             {
                 AssetManager.deleteButton.Delete();
             }
-            //gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
         }
-        
 
-        if (((isDraggin && Input.GetMouseButton(0))|| !hasInitiated) && !IsMouseOverUI() && !StaticData.isSoldering)
+
+        if (((isDraggin && Input.GetMouseButton(0)) || !hasInitiated) && !IsMouseOverUI() && !StaticData.isSoldering)
         {
             x = worldPoint.x;
             y = worldPoint.y;
 
-            if (Vector2.Distance(new Vector2(x, y), new Vector2(prevCursorX, prevCursorY)) >= dragThreshold)
+
+            if (Vector2.Distance(new Vector2(x, y), new Vector2(prevCursorX, prevCursorY)) >= StaticData.dragThreshold)
             {
-                if ((x - prevCursorX) >= dragThreshold)
+                if ((x - prevCursorX) >= StaticData.dragThreshold)
                 {
                     prevX += (x - prevCursorX);
                     prevCursorX = x;
-                    dragThreshold = 0.01f;
+                    StaticData.dragThreshold = 0.01f;
                 }
-                else if (prevCursorX - x >= dragThreshold)
+                else if (prevCursorX - x >= StaticData.dragThreshold)
                 {
                     prevX -= (prevCursorX - x);
                     prevCursorX = x;
-                    dragThreshold = 0.01f;
+                    StaticData.dragThreshold = 0.01f;
                 }
-                if ((y - prevCursorY) >= dragThreshold)
+                if ((y - prevCursorY) >= StaticData.dragThreshold)
                 {
                     prevY += (y - prevCursorY);
                     prevCursorY = y;
-                    dragThreshold = 0.01f;
+                    StaticData.dragThreshold = 0.01f;
                 }
-                else if (prevCursorY - y >= dragThreshold)
+                else if (prevCursorY - y >= StaticData.dragThreshold)
                 {
                     prevY -= (prevCursorY - y);
                     prevCursorY = y;
-                    dragThreshold = 0.01f;
+                    StaticData.dragThreshold = 0.01f;
                 }
 
-                gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
-                
+                if (transform.parent != null && transform.parent.tag == "soldered")
+                {
+                    gameObject.transform.parent.position = new Vector3(prevX, prevY, gameObject.transform.parent.position.z);
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
+                }
+
+                //gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
+
             }
 
-            
+
         }
         else if (isDraggin && hasInitiated)
         {
-            isDraggin = false;
-            nodes= GetComponentsInChildren<NodeTinker>();
+            isDraggin=(false);
+
+            if (transform.parent != null && transform.parent.tag == "soldered")
+            {
+                nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
+                /*solderedWith = transform.parent.GetComponentsInChildren<Drag>();
+                for (int i = 0; i < solderedWith.Length; i++)
+                {
+                    solderedWith[i].isDraggin = false;
+                }*/
+            }
+            else
+            {
+                nodes = GetComponentsInChildren<NodeTinker>();
+                //isDraggin = false;
+            }
+
             foreach (NodeTinker node in nodes)
             {
                 foreach (GameObject wire in node.wires)
@@ -103,6 +130,8 @@ public class Drag : MonoBehaviour
                     wire.GetComponent<Wire>().isMoving = false;
 
                 }
+
+                node.needSnapping = false;
 
                 if (node.needSoldering)
                 {
@@ -112,9 +141,9 @@ public class Drag : MonoBehaviour
                         if (AssetManager.isSolderingIron)
                         {
                             AssetManager.solderingIronIcon.Solder(node.transform.position);
-
+                            node.SolderParent();
                         }
-                        else if(hasTrulyInitiated)
+                        else if (hasTrulyInitiated)
                         {
                             SnapBack();
                             print("soldering iron is not available");
@@ -126,35 +155,72 @@ public class Drag : MonoBehaviour
                         }
                     }
                 }
+
+                //node.SolderParent();
+
             }
 
-            if (transform.parent!=null && dragThreshold==0.01f)
+            if (transform.parent != null && transform.parent.tag == "Breadboard" && StaticData.dragThreshold == 0.01f)
             {
                 transform.parent = null;
             }
+            else if (transform.parent != null && transform.parent.tag == "soldered" && transform.parent.parent != null &&
+                transform.parent.parent.tag == "Breadboard" && StaticData.dragThreshold == 0.01f)/////////////////////////////////
+            {
+                transform.parent.parent = null;
+            }
             hasTrulyInitiated = true;
+            StaticData.dragThreshold = 0.01f;
         }
+
+       
     }
 
     private void OnMouseOver()
     {
-        
-
         if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            isDraggin = true;
-            nodes = GetComponentsInChildren<NodeTinker>();
+            isDraggin=(true);
+            if (transform.parent!=null && transform.parent.tag == "soldered")
+            {
+                nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
+                /*solderedWith = transform.parent.GetComponentsInChildren<Drag>();
+                for (int i = 0; i < solderedWith.Length; i++)
+                {
+                    solderedWith[i].isDraggin = true;
+                }*/
+            }
+            else
+            {
+                nodes = GetComponentsInChildren<NodeTinker>();
+                //isDraggin = true;
+            }
             foreach (NodeTinker node in nodes)
             {
-                foreach(GameObject wire in node.wires)
+                foreach (GameObject wire in node.wires)
                 {
                     wire.GetComponent<Wire>().isMoving = true;
 
                 }
+
+                node.needSnapping = true;
             }
-            prevX = gameObject.transform.position.x;
-            prevY = gameObject.transform.position.y;
+
+            if (transform.parent != null && transform.parent.tag == "soldered")
+            {
+                prevX = gameObject.transform.parent.position.x;
+                prevY = gameObject.transform.parent.position.y;
+            }
+            else
+            {
+                prevX = gameObject.transform.position.x;
+                prevY = gameObject.transform.position.y;
+            }
+
+            //prevX = gameObject.transform.position.x;
+            //prevY = gameObject.transform.position.y;
+            prevCursorX = worldPoint.x;
             prevCursorX = worldPoint.x;
             prevCursorY = worldPoint.y;
             diffX = prevX - prevCursorX;
@@ -165,15 +231,31 @@ public class Drag : MonoBehaviour
         }
     }
 
-    public void Snap(Vector3 snapPos,Transform childPos)
+    
+
+    
+
+    public void Snap(Vector3 snapPos, Transform childPos)
     {
-        x = gameObject.transform.position.x - childPos.position.x;
-        y = gameObject.transform.position.y - childPos.position.y;
-        prevX = snapPos.x + x;
-        prevY = snapPos.y + y;
-        gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
-        //dragThreshold = Vector2.Distance(worldPoint, new Vector2(prevX, prevY));
-        dragThreshold = childPos.localScale.x*1.33f;
+        if (transform.parent != null && transform.parent.tag == "soldered")
+        {
+            x = gameObject.transform.parent.position.x - childPos.position.x;
+            y = gameObject.transform.parent.position.y - childPos.position.y;
+            prevX = snapPos.x + x;
+            prevY = snapPos.y + y;
+            gameObject.transform.parent.position = new Vector3(prevX, prevY, gameObject.transform.parent.position.z);
+        }
+        else
+        {
+            x = gameObject.transform.position.x - childPos.position.x;
+            y = gameObject.transform.position.y - childPos.position.y;
+            prevX = snapPos.x + x;
+            prevY = snapPos.y + y;
+            gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
+        }
+
+        //gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
+        StaticData.dragThreshold = childPos.localScale.x * 1.33f;
     }
 
     private bool IsMouseOverUI()

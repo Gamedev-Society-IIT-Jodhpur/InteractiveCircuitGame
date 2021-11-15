@@ -11,18 +11,24 @@ public class NodeTinker : MonoBehaviour
     public bool needSoldering = false;
     public bool isConnectedToBreadboard = false;
     public bool isConnectedToComponent = false;
+    GameObject soldered;
+    Transform collision;
+    public bool needSnapping;
+    //Stack<Transform> prevSoldered;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;
         wireManager = AssetManager.wireManager;
+        soldered = AssetManager.soldered;
+        needSnapping = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true/*((GetComponentInParent<Drag>()&& GetComponentInParent<Drag>().isDraggin == true)||
-            (transform.parent.GetComponentInParent<Drag>() && transform.parent.GetComponentInParent<Drag>().isDraggin == true))*/)
+        if (collision.tag == "node" && /*GetComponentInParent<Drag>().isDraggin == true*/ needSnapping)
         {
             GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
 
@@ -33,7 +39,14 @@ public class NodeTinker : MonoBehaviour
             else
             {
                 isConnectedToComponent = true;
+                this.collision = collision.transform;
+
+                
+
+                collision.GetComponentInParent<Drag>().connecteds.Add(GetComponentInParent<Drag>());
+                GetComponentInParent<Drag>().connecteds.Add(collision.GetComponentInParent<Drag>());
             }
+
             if(transform.parent.tag!="Breadboard grid") //should not solder when we drag the breadboard.
             {
                 needSoldering = true;
@@ -42,13 +55,29 @@ public class NodeTinker : MonoBehaviour
 
             if (collision.transform.parent.tag == "Breadboard grid")
             {
-                transform.parent.SetParent(collision.transform.parent.parent);
-
+                if (transform.parent.parent == null)
+                {
+                    transform.parent.SetParent(collision.transform.parent.parent);
+                }
+                else if (transform.parent.parent.tag == "soldered")
+                {
+                    transform.parent.parent.SetParent(collision.transform.parent.parent);
+                }
+                //transform.parent.SetParent(collision.transform.parent.parent);
 
             }
             else if (transform.parent.tag == "Breadboard grid")
             {
-                collision.transform.parent.SetParent(transform.parent.parent);
+                if (collision.transform.parent.parent == null)
+                {
+                    collision.transform.parent.SetParent(transform.parent.parent);
+                }
+                else if (collision.transform.parent.parent.tag == "soldered")
+                {
+                    collision.transform.parent.parent.SetParent(transform.parent.parent);
+                }
+                //collision.transform.parent.SetParent(transform.parent.parent);
+
                 nodes = collision.transform.parent.GetComponentsInChildren<NodeTinker>();
                 foreach (NodeTinker node in nodes)
                 {
@@ -60,26 +89,76 @@ public class NodeTinker : MonoBehaviour
                 }
             }
 
-            if (transform.parent!=null && transform.parent.tag!="Breadboard grid"  && collision.transform.parent.tag != "Breadboard grid"/*collision.transform.parent.parent != null && collision.transform.parent.parent.tag != "Breadboard"*/)
+            if (transform.parent!=null && transform.parent.tag=="Breadboard"  && collision.transform.parent.tag != "Breadboard grid")
             {
-                transform.parent.SetParent(null);
+                //transform.parent.SetParent(null);
             }
+
+           
+        }
+    }
+
+    public void SolderParent()
+    {
+        if (isConnectedToComponent)
+        {
+            isConnectedToComponent = false;
+            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")) 
+                && collision.transform.parent.parent == null)
+            {
+                GameObject newSoldered = Instantiate<GameObject>(soldered);
+                newSoldered.transform.position = Vector3.zero;
+                transform.parent.SetParent(newSoldered.transform);
+                collision.transform.parent.SetParent(newSoldered.transform);
+            }
+            else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
+            {
+                collision.transform.parent.SetParent(transform.parent.parent);
+                if(transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
+                {
+                    transform.parent.parent.parent = null;
+                }
+
+            }
+            else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered"
+                && (transform.parent.parent == null || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")))
+            {
+                transform.parent.SetParent(collision.transform.parent.parent);
+            }
+            else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered" && transform.parent.parent != null && transform.parent.parent.tag == "soldered")
+            {
+                Drag[] connecteds = transform.parent.parent.GetComponentsInChildren<Drag>();
+                GameObject currentParent = transform.parent.parent.gameObject;
+                for (int i = 0; i < connecteds.Length; i++)
+                {
+                    connecteds[i].transform.SetParent(collision.transform.parent.parent);
+                }
+                if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
+                {
+                    Destroy(currentParent);
+                }
+            }
+            
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "node" && GetComponentInParent<Drag>().isDraggin == true/*((GetComponentInParent<Drag>() && GetComponentInParent<Drag>().isDraggin == true) ||
-            (transform.parent.GetComponentInParent<Drag>() && transform.parent.GetComponentInParent<Drag>().isDraggin == true))*/)
+        if (collision.tag == "node" && /*GetComponentInParent<Drag>().isDraggin == true*/ needSnapping)
         {
             needSoldering = false;
             if (collision.transform.parent.tag == "Breadboard grid")
             {
                 isConnectedToBreadboard = false;
+
+                
             }
             else
             {
                 isConnectedToComponent = false;
+
+                collision.GetComponentInParent<Drag>().connecteds.Remove(GetComponentInParent<Drag>());
+                GetComponentInParent<Drag>().connecteds.Remove(collision.GetComponentInParent<Drag>());
             }
         }
 

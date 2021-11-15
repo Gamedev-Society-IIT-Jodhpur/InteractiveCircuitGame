@@ -32,10 +32,12 @@ public class SolderingIronIcon : MonoBehaviour
             newSolderIron = Instantiate<GameObject>(solderIron);
             newSolderIron.transform.position = Camera.main.ScreenToWorldPoint(gameObject.transform.position);
             newSolderIron.GetComponent<SolderingIron>().Solder(position);
+            //print("noenque" + position);
         }
         else
         {
             noOfSolders.Enqueue(position);
+            print("enque:" + position);
         }
     }
 

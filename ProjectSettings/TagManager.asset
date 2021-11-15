@@ -15,6 +15,7 @@ TagManager:
   - soldering iron icon
   - Breadboard grid
   - delete button
+  - soldered
   layers:
   - Default
   - TransparentFX
