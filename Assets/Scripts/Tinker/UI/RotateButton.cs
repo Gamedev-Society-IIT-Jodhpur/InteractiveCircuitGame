@@ -14,20 +14,44 @@ public class RotateButton : MonoBehaviour
             
             if (selectedComponent.tag != "Breadboard")
             {
-                float z = selectedComponent.transform.eulerAngles.z;
-                z += 90;
-                selectedComponent.transform.rotation = Quaternion.Euler(0, 0, z);
-                selectedComponent.transform.parent = null;
-
-                nodes = selectedComponent.GetComponentsInChildren<NodeTinker>();
-                foreach (NodeTinker node in nodes)
+                if (CircuitManagerTinker.selected.transform.parent != null && CircuitManagerTinker.selected.transform.parent.tag == "soldered")
                 {
-                    foreach (GameObject wire in node.wires)
-                    {
-                        wire.GetComponent<Wire>().RotateWithWire();
+                    selectedComponent = CircuitManagerTinker.selected.transform.parent.gameObject;
+                    float z = selectedComponent.transform.eulerAngles.z;
+                    z += 90;
+                    selectedComponent.transform.rotation = Quaternion.Euler(0, 0, z);
+                    selectedComponent.transform.parent = null;
 
+                    nodes = selectedComponent.GetComponentsInChildren<NodeTinker>();
+                    foreach (NodeTinker node in nodes)
+                    {
+                        foreach (GameObject wire in node.wires)
+                        {
+                            wire.GetComponent<Wire>().RotateWithWire();
+
+                        }
                     }
                 }
+                else
+                {
+                    float z = selectedComponent.transform.eulerAngles.z;
+                    z += 90;
+                    selectedComponent.transform.rotation = Quaternion.Euler(0, 0, z);
+                    selectedComponent.transform.parent = null;
+
+                    nodes = selectedComponent.GetComponentsInChildren<NodeTinker>();
+                    foreach (NodeTinker node in nodes)
+                    {
+                        foreach (GameObject wire in node.wires)
+                        {
+                            wire.GetComponent<Wire>().RotateWithWire();
+
+                        }
+                    }
+                }
+
+
+                
             }
             else
             {

@@ -107,7 +107,7 @@ public class NodeTinker : MonoBehaviour
                 && collision.transform.parent.parent == null)
             {
                 GameObject newSoldered = Instantiate<GameObject>(soldered);
-                newSoldered.transform.position = Vector3.zero;
+                newSoldered.transform.position = transform.position;
                 transform.parent.SetParent(newSoldered.transform);
                 collision.transform.parent.SetParent(newSoldered.transform);
             }
