@@ -47,7 +47,7 @@ public class exp : MonoBehaviour
 
          // Run the simulation
          dc.Run(CircuitManager.ckt);*/
-         void ApplyParameters(Entity entity, string definition)
+        void ApplyParameters(Entity entity, string definition)
         {
             // Get all assignments
             definition = Regex.Replace(definition, @"\s*\=\s*", "=");
@@ -65,7 +65,7 @@ public class exp : MonoBehaviour
                 entity.SetParameter(name, value);
             }
         }
-            BipolarJunctionTransistor CreateBJT(string name,
+        BipolarJunctionTransistor CreateBJT(string name,
             string c, string b, string e, string subst,
             string model)
         {
@@ -80,13 +80,13 @@ public class exp : MonoBehaviour
             ApplyParameters(bjtmodel, parameters);
             return bjtmodel;
         }
-         Diode CreateDiode(string name, string anode, string cathode, string model)
+        Diode CreateDiode(string name, string anode, string cathode, string model)
         {
             var d = new Diode(name, anode, cathode, model);
             return d;
         }
 
-          DiodeModel CreateDiodeModel(string name, string parameters)
+        DiodeModel CreateDiodeModel(string name, string parameters)
         {
             var dm = new DiodeModel(name);
             ApplyParameters(dm, parameters);
