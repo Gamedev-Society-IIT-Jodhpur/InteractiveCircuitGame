@@ -123,6 +123,8 @@ public class Drag : MonoBehaviour
                 //isDraggin = false;
             }
 
+            bool isConnectedToBreadboard = false;
+
             foreach (NodeTinker node in nodes)
             {
                 foreach (GameObject wire in node.wires)
@@ -155,17 +157,20 @@ public class Drag : MonoBehaviour
                         }
                     }
                 }
-
+                if (!isConnectedToBreadboard && node.isConnectedToBreadboard)
+                {
+                    isConnectedToBreadboard = true;
+                }
                 //node.SolderParent();
 
             }
 
-            if (transform.parent != null && transform.parent.tag == "Breadboard" && StaticData.dragThreshold == 0.01f)
+            if (transform.parent != null && transform.parent.tag == "Breadboard" && /*StaticData.dragThreshold == 0.01f*/ !isConnectedToBreadboard )
             {
                 transform.parent = null;
             }
             else if (transform.parent != null && transform.parent.tag == "soldered" && transform.parent.parent != null &&
-                transform.parent.parent.tag == "Breadboard" && StaticData.dragThreshold == 0.01f)/////////////////////////////////
+                transform.parent.parent.tag == "Breadboard" && /*StaticData.dragThreshold == 0.01f*/ !isConnectedToBreadboard)
             {
                 transform.parent.parent = null;
             }

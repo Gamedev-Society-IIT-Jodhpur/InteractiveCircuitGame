@@ -25,7 +25,7 @@ public class StaticData : MonoBehaviour
         res1.name = "resistor";
         res1.value = "1.5";
         res1.unit = "Ohm";
-        res1.quantity = 5;
+        res1.quantity = 20;
 
         Component battery9v = new Component();
         battery9v.name = "voltage9";

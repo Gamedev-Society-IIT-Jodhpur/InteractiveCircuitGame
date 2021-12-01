@@ -32,27 +32,13 @@ public class SolderingIron : MonoBehaviour
     {
         if (isSoldering)
         {
-            //float x = transform.position.x;
-            //float y = transform.position.y;
+            
             Vector2 pastPosition = new Vector2(transform.position.x, transform.position.y);
-            /*if (mode == 1)
+            transform.position=Vector2.Lerp(pastPosition, targetPosition, Time.deltaTime*movingSpeed);
+            if (Vector2.Distance(finalPosition, transform.position) <= 0.1f )
             {
-                x += movingSpeed * Time.deltaTime * (targetPosition.x - x);
-                y += movingSpeed * Time.deltaTime * (targetPosition.y - y);
+                DestroySolder();
             }
-            if (mode == 2)*/
-            //{
-                transform.position=Vector2.Lerp(pastPosition, targetPosition, Time.deltaTime*movingSpeed);
-                //pastPosition.x += movingSpeed * Time.deltaTime * (targetPosition.x - pastPosition.x);
-                //pastPosition.y += movingSpeed * Time.deltaTime * (targetPosition.y- pastPosition.y);
-                //print(targetPosition);
-                
-                if (Vector2.Distance(finalPosition, transform.position) <= 0.1f )
-                {
-                    DestroySolder();
-                }
-            //}
-            //transform.position = pastPosition;
 
             if (Vector2.Distance(targetPosition, transform.position) <= 0.05f && !isWaiting && targetPosition != finalPosition) 
             {
