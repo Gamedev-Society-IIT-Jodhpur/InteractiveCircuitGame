@@ -14,11 +14,6 @@ public class OpenCart : MonoBehaviour
             Animator animator = Panel.GetComponent<Animator>();
             if (animator != null)
             {
-
-                foreach(string s in Store.Items)
-                {
-                    Debug.Log(s);
-                }
                 bool isOpen = animator.GetBool("open");
 
                 animator.SetBool("open", !isOpen);

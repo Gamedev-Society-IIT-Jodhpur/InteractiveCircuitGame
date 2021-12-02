@@ -26,7 +26,7 @@ public class LoadingManager : MonoBehaviour
     {
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.Avatar));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.FALSTAD, LoadSceneMode.Additive));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Falstad, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
 

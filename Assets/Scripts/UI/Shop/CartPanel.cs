@@ -46,7 +46,8 @@ public class CartPanel : MonoBehaviour
             for (int i=n;i<m;i++)
             {
                 g = Instantiate(ItemTemplate, transform);
-                g.transform.GetChild(0).GetComponent<Text>().text = Store.Items[i];
+                Debug.Log(Store.Items[i]);
+                g.transform.GetChild(0).GetComponent<TMP_Text>().text = Store.Items[i];
                 g.transform.GetChild(1).gameObject.GetComponent<RemoveItem>().index = i;
             }
         }

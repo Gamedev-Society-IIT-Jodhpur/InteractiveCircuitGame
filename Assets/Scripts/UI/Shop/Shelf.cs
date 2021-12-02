@@ -1,26 +1,53 @@
+using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Shelf : MonoBehaviour
 {
     public GameObject ItemTemplate;
     public TextAsset csvFile;
 
+
+    public string url = "http://localhost:4040/api/item/availableItems";
+
     void Start()
     {
-        string[] items = csvFile.text.Split('\n');
-        GameObject g;
-        for (int i = 1; i < items.Length-1; i++)
+        StartCoroutine(getData());
+    }
+
+    IEnumerator getData()
+    {
+        Debug.Log("yo");
+        UnityWebRequest itemsListRequest = UnityWebRequest.Get(url);
+
+        yield return itemsListRequest.SendWebRequest();
+
+        if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
-            string[] data = items[i].Split(',');
-            g = Instantiate(ItemTemplate, transform);
-            g.transform.position = new Vector3(g.transform.position[0]+150*(i-1), g.transform.position[1], g.transform.position[2]);
-            g.gameObject.SetActive(true);
-            g.transform.GetChild(0).GetComponent<Text>().text = data[1];
-            g.GetComponent<TooltipTrigger>().itemID = data[0];
+            Debug.Log(itemsListRequest.error);
         }
+        else
+        {
+
+            JSONNode itemsListData = JSON.Parse(itemsListRequest.downloadHandler.text);
+            GameObject g;
+            foreach (var item in itemsListData["data"])
+            {
+                g = Instantiate(ItemTemplate, transform);
+                g.gameObject.SetActive(true);
+                g.transform.GetChild(0).GetComponent<TMP_Text>().text = item.Value["name"];
+                Texture itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["name"]);
+                g.transform.GetChild(1).GetComponent<RawImage>().texture = itemTexture;
+                g.GetComponent<TooltipTrigger>().itemID = item.Value["id"].ToString();
+            }
+
+            StoreAssetmanager.Instance.itemsAvailable = itemsListData["data"];
+        }
+
+        yield return new WaitForSeconds(5);
     }
 }

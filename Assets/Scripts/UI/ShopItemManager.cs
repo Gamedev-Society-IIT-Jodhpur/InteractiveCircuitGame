@@ -1,9 +1,6 @@
 using System;
-using System.Runtime;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class ShopItemManager : MonoBehaviour
 {
@@ -23,7 +20,7 @@ public class ShopItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void increaseItemCount()

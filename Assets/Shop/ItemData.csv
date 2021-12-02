@@ -1,4 +1,22 @@
 ID, Name, Unit, Values,Description
-001,Resistor,ohm,10 20 30,A device having resistance to the passage of an electric current.
-002,Battery,volt,10 20 30,A battery is a source of electric power.
-003,Capacitor,farad,10 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+1,Resistor,ohm,10 20 30,A device having resistance to the passage of an electric current.
+2,Battery,volt,10 20 30,A battery is a source of electric power.
+3,Capacitor,farad,10 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+4,Capacitor,farad,11 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+5,Capacitor,farad,12 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+6,Capacitor,farad,13 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+7,Capacitor,farad,14 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+8,Capacitor,farad,15 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+9,Capacitor,farad,16 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+10,Capacitor,farad,17 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+11,Capacitor,farad,18 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+12,Capacitor,farad,19 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+13,Capacitor,farad,20 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+14,Capacitor,farad,21 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+15,Capacitor,farad,22 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+16,Capacitor,farad,23 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+17,Capacitor,farad,24 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+18,Capacitor,farad,25 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+19,Capacitor,farad,26 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+20,Capacitor,farad,27 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."
+21,Capacitor,farad,28 20 30,"A device used to store an electric charge, consisting of one or more pairs of conductors separated by an insulator."

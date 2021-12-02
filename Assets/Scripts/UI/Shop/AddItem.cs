@@ -1,22 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using TMPro;
 
 public class AddItem : MonoBehaviour, IPointerClickHandler
 {
     public TextMeshProUGUI header;
     public TMP_Dropdown valuesDropDown;
     public TMP_InputField quantity;
+    string unit;
+    string value;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
 
-        int index = valuesDropDown.value;
-        string value = valuesDropDown.options[index].text;
+        foreach (var item in StoreAssetmanager.Instance.itemsAvailable)
+        {
+            if (item.Value["name"] == header.text)
+            {
+                unit = item.Value["unit"];
+                value = item.Value["value"].ToString();
+                break;
+            }
+        }
 
-        Store.Items.Add(header.text + " - " + value + " ( " + quantity.text + ")");
+        Debug.Log("Unit + Value" + unit + value);
+
+        string s = "{0}-{1} {2} ({3})";
+        string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
+
+        Store.Items.Add(itemDesc);
     }
 }

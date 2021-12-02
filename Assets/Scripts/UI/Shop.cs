@@ -15,10 +15,4 @@ public class Shop : MonoBehaviour
         item.transform.SetParent(this.transform);
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
