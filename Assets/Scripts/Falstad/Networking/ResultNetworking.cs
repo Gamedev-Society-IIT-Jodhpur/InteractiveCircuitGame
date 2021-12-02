@@ -1,10 +1,10 @@
+using SimpleJSON;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using SimpleJSON;
-using TMPro;
 
-public class Items : MonoBehaviour
+public class ResultNetworking : MonoBehaviour
 {
     //string uri = "http://localhost:4040/api/result/userResults";
     //string uri = "http://localhost:4040/api/result/allResults";
@@ -12,9 +12,9 @@ public class Items : MonoBehaviour
 
     [SerializeField]
     GameObject ContentView;
-    
+
     [SerializeField]
-    GameObject ListElement; 
+    GameObject ListElement;
 
     void Start()
     {
@@ -23,31 +23,39 @@ public class Items : MonoBehaviour
 
     IEnumerator GetText()
     {
-        string requestUri = uri /*+ "/" + uuId*/;
+        string requestUri = uri + "?date=" + System.DateTime.Now.ToString("dd/MM/yyyy");
         UnityWebRequest www = UnityWebRequest.Get(requestUri);
 
-        var asyncOperation = www.SendWebRequest(); 
+        //var asyncOperation = www.SendWebRequest();
+        yield return www.SendWebRequest();
 
-        while (!asyncOperation.isDone)
-        {
-            // wherever you want to show the progress: 
+        //while (!asyncOperation.isDone)
+        //{
+        //    // wherever you want to show the progress: 
+        //    //http://localhost:4040/api/result/allResults?date=26-09-2021
+        //    //Debug.Log(asyncOperation.progress);
 
-            //Debug.Log(asyncOperation.progress);
+        //    //yield return null;
+        //    // or if you want to stick doing it in certain intervals
+        //    yield return new WaitForSeconds(0.05f);
+        //}
+        
+        
+        Debug.Log(www.downloadHandler.text);
 
-            //yield return null;
-            // or if you want to stick doing it in certain intervals
-            yield return new WaitForSeconds(0.05f);
-        } 
+
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
         }
         else
-        { 
+        {
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             int i = 1;
+            Debug.Log(data);
             foreach (var item in data)
             {
+                Debug.Log(item);
                 AddToList(i.ToString(), item.Value["name"] + " (" + item.Value["rollNo"] + ")", item.Value["score"]);
                 i++;
             }
@@ -55,7 +63,7 @@ public class Items : MonoBehaviour
     }
 
     void AddToList(string number, string name, string score)
-    { 
+    {
         GameObject ParentGameObject = Instantiate(ListElement, ContentView.transform.position, ContentView.transform.rotation);
         ParentGameObject.transform.SetParent(ContentView.transform);
         GameObject ChildGameObject1 = ParentGameObject.transform.GetChild(0).gameObject;
