@@ -64,7 +64,7 @@ public class SolderingIron : MonoBehaviour
                 else
                 {
                     targetPosition = SolderingIronIcon.noOfSolders.Dequeue();
-                    print("target" + targetPosition);
+                    //print("target" + targetPosition);
                 }
                 isSoldering = true;
                 Destroy(newSmoke);
@@ -87,6 +87,7 @@ public class SolderingIron : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         StaticData.isSoldering = false;
+        SolderingIronIcon.checkSoldersSet.Clear();
         Destroy(gameObject);
         if (newSmoke)
         {

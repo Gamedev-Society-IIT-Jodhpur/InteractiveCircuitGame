@@ -14,8 +14,10 @@ public class NodeTinker : MonoBehaviour
     GameObject soldered;
     Transform collision;
     public bool needSnapping;
+    public List<BreakSolder> nodeConnected;
+    GameObject[] soldereds;
     //Stack<Transform> prevSoldered;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,10 @@ public class NodeTinker : MonoBehaviour
         wireManager = AssetManager.wireManager;
         soldered = AssetManager.soldered;
         needSnapping = true;
+        if (transform.parent.tag != "Breadboard grid")
+        {
+            nodeConnected.Add(GetComponentInParent<BreakSolder>());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,8 +49,12 @@ public class NodeTinker : MonoBehaviour
 
                 
 
-                collision.GetComponentInParent<Drag>().connecteds.Add(GetComponentInParent<Drag>());
-                GetComponentInParent<Drag>().connecteds.Add(collision.GetComponentInParent<Drag>());
+                collision.GetComponentInParent<BreakSolder>().connecteds.Add(GetComponentInParent<BreakSolder>());
+                GetComponentInParent<BreakSolder>().connecteds.Add(collision.GetComponentInParent<BreakSolder>());
+
+                nodeConnected.Add(collision.GetComponentInParent<BreakSolder>());
+                collision.GetComponent<NodeTinker>().nodeConnected.Add(GetComponentInParent<BreakSolder>());
+                
             }
 
             if(transform.parent.tag!="Breadboard grid") //should not solder when we drag the breadboard.
@@ -98,7 +108,7 @@ public class NodeTinker : MonoBehaviour
         }
     }
 
-    public void SolderParent()
+    public void SolderParent() //makes all the soldered components childs of single parent
     {
         if (isConnectedToComponent)
         {
@@ -140,7 +150,7 @@ public class NodeTinker : MonoBehaviour
             }
             
         }
-    }
+    } 
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -157,8 +167,11 @@ public class NodeTinker : MonoBehaviour
             {
                 isConnectedToComponent = false;
 
-                collision.GetComponentInParent<Drag>().connecteds.Remove(GetComponentInParent<Drag>());
-                GetComponentInParent<Drag>().connecteds.Remove(collision.GetComponentInParent<Drag>());
+                collision.GetComponentInParent<BreakSolder>().connecteds.Remove(GetComponentInParent<BreakSolder>());
+                GetComponentInParent<BreakSolder>().connecteds.Remove(collision.GetComponentInParent<BreakSolder>());
+
+                nodeConnected.Remove(collision.GetComponentInParent<BreakSolder>());
+                collision.GetComponent<NodeTinker>().nodeConnected.Remove(GetComponentInParent<BreakSolder>());
             }
         }
 
@@ -188,8 +201,48 @@ public class NodeTinker : MonoBehaviour
                     wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
                 }
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                BreakSoldered();
+            }
         }
     }
+
+    public void BreakSoldered()
+    {
+        GameObject currentParent = nodeConnected[0].transform.parent.gameObject;
+        for (int i = 0; i < nodeConnected.Count; i++)
+        {
+            for (int j = 0; j < nodeConnected.Count; j++)
+            {
+                nodeConnected[i].connecteds.Remove(nodeConnected[j]);
+            }
+
+            nodeConnected[i].Break();
+        }
+        Destroy(currentParent);
+        CheckSoldered();
+    }
+
+    public void CheckSoldered() //to ensure soldered parent has more than 1 child
+    {
+        soldereds = GameObject.FindGameObjectsWithTag("soldered");
+        for (int i = soldereds.Length-1; i>=0; i--)
+        {
+            Drag[] childs = soldereds[i].GetComponentsInChildren<Drag>();
+            if (childs.Length == 1)
+            {
+                childs[0].transform.SetParent(null);
+                Destroy(soldereds[i]);
+            }
+            else if (childs.Length == 0)
+            {
+                Destroy(soldereds[i]);
+            }
+        }
+    }
+
 
     private void OnMouseExit()
     {

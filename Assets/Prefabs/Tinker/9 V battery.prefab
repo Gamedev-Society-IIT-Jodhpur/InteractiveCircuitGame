@@ -145,6 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wires: []
+  needSoldering: 0
+  isConnectedToBreadboard: 0
+  isConnectedToComponent: 0
+  needSnapping: 0
+  nodeConnected: []
 --- !u!1 &1555633662093127977
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wires: []
+  needSoldering: 0
+  isConnectedToBreadboard: 0
+  isConnectedToComponent: 0
+  needSnapping: 0
+  nodeConnected: []
 --- !u!1 &1555633662428258265
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +313,7 @@ GameObject:
   - component: {fileID: 1555633662428258213}
   - component: {fileID: 1555633662428258214}
   - component: {fileID: 1555633662428258212}
+  - component: {fileID: 2923545762471214224}
   m_Layer: 0
   m_Name: 9 V battery
   m_TagString: Untagged
@@ -390,6 +401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDraggin: 0
+  hasInitiated: 0
+  previousPos: {x: 0, y: 0, z: 0}
+  connecteds: []
 --- !u!61 &1555633662428258214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,3 +451,15 @@ MonoBehaviour:
   nodes: []
   childs: []
   isWorking: 1
+--- !u!114 &2923545762471214224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555633662428258265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac282c833ff5e824d8995029f87559b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

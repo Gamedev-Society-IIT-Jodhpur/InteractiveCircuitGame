@@ -7,7 +7,7 @@ public class SolderingIronIcon : MonoBehaviour
     [SerializeField] GameObject solderIron;
     GameObject newSolderIron;
     public static Queue<Vector2> noOfSolders;
-    HashSet<Vector2> checkSoldersSet;
+    public static HashSet<Vector2> checkSoldersSet;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class SolderingIronIcon : MonoBehaviour
             newSolderIron.transform.position = Camera.main.ScreenToWorldPoint(gameObject.transform.position);
             newSolderIron.GetComponent<SolderingIron>().Solder(position);
             checkSoldersSet.Add(position);
-            print("noenque" + position);
+            //print("noenque" + position);
         }
         else if (!checkSoldersSet.Contains(position))
         {

@@ -14,15 +14,12 @@ public class Drag : MonoBehaviour
     float x;
     float y;
     //float dragThreshold = 0.01f;
-    float diffX;
-    float diffY;
+    //float diffX;
+    //float diffY;
     NodeTinker[] nodes;
-    //RaycastHit2D hit;
     [SerializeField] bool hasInitiated;
     public Vector3 previousPos;
     bool hasTrulyInitiated;
-    public List<Drag> connecteds;
-    Drag[] solderedWith;
 
     //List<GameObject> wires;
 
@@ -34,7 +31,6 @@ public class Drag : MonoBehaviour
         isDraggin = true;
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gameObject.transform.position = new Vector3(worldPoint.x, worldPoint.y, transform.position.z);
-        connecteds.Add(gameObject.GetComponent<Drag>());
 
     }
 
@@ -111,16 +107,11 @@ public class Drag : MonoBehaviour
             if (transform.parent != null && transform.parent.tag == "soldered")
             {
                 nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
-                /*solderedWith = transform.parent.GetComponentsInChildren<Drag>();
-                for (int i = 0; i < solderedWith.Length; i++)
-                {
-                    solderedWith[i].isDraggin = false;
-                }*/
+                
             }
             else
             {
                 nodes = GetComponentsInChildren<NodeTinker>();
-                //isDraggin = false;
             }
 
             bool isConnectedToBreadboard = false;
@@ -228,8 +219,8 @@ public class Drag : MonoBehaviour
             prevCursorX = worldPoint.x;
             prevCursorX = worldPoint.x;
             prevCursorY = worldPoint.y;
-            diffX = prevX - prevCursorX;
-            diffY = prevY - prevCursorY;
+            //diffX = prevX - prevCursorX;
+            //diffY = prevY - prevCursorY;
             CircuitManagerTinker.ChangeSelected(gameObject);
             previousPos = transform.position;
 

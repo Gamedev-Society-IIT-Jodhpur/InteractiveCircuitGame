@@ -26,7 +26,7 @@ public class DeleteButton : MonoBehaviour
                     {
                         DeleteComponent(connecteds[i].gameObject);
                     }
-                    if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
+                   // if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
                     {
                         Destroy(currentParent);
                     }

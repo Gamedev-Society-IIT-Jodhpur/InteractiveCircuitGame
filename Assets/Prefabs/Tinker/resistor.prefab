@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1999317516781466056}
   - component: {fileID: 1999317516781466055}
   - component: {fileID: 1999317516781466054}
+  - component: {fileID: -1101407022270012743}
   m_Layer: 0
   m_Name: resistor
   m_TagString: Untagged
@@ -126,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDraggin: 0
+  hasInitiated: 0
+  previousPos: {x: 0, y: 0, z: 0}
+  connecteds: []
 --- !u!114 &1999317516781466054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +151,18 @@ MonoBehaviour:
   nodes: []
   childs: []
   isWorking: 1
+--- !u!114 &-1101407022270012743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999317516781466059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac282c833ff5e824d8995029f87559b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1999317517112378661
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wires: []
+  needSoldering: 0
+  isConnectedToBreadboard: 0
+  isConnectedToComponent: 0
+  needSnapping: 0
+  nodeConnected: []
 --- !u!1 &1999317517307750960
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,3 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wires: []
+  needSoldering: 0
+  isConnectedToBreadboard: 0
+  isConnectedToComponent: 0
+  needSnapping: 0
+  nodeConnected: []
