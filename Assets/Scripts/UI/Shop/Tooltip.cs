@@ -10,12 +10,11 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public TextMeshProUGUI headerField;
     public TextMeshProUGUI contentField;
+    public TMP_Text priceField;
 
     public LayoutElement layoutElement;
 
     public int characterLimit;
-
-    public TextAsset csvFile;
 
     public RectTransform rectTransform;
 
@@ -42,6 +41,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 string name = item.Value["name"];
                 headerField.text = item.Value["name"];
                 contentField.text = item.Value["description"];
+                priceField.text = item.Value["price"] + " $";
                 break;
             }
         }

@@ -9,22 +9,54 @@ using UnityEngine.UI;
 public class Shelf : MonoBehaviour
 {
     public GameObject ItemTemplate;
-    public TextAsset csvFile;
 
+    private bool dataLoaded = false;
 
-    public string url = "http://localhost:4040/api/item/availableItems";
+    [SerializeField]
+    private TMP_Text loadingText;
+    [SerializeField]
+    private GameObject background;
 
     void Start()
     {
         StartCoroutine(getData());
     }
 
+    private void Update()
+    {
+        if (dataLoaded)
+        {
+            loadingText.gameObject.SetActive(false);
+            background.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(loadingAnim());
+        }
+    }
+
+    IEnumerator loadingAnim()
+    {
+        loadingText.text = "Loading";
+        yield return new WaitForSeconds(0.2f);
+        loadingText.text = "Loading.";
+        yield return new WaitForSeconds(0.2f);
+        loadingText.text = "Loading..";
+        yield return new WaitForSeconds(0.2f);
+        loadingText.text = "Loading...";
+        yield return new WaitForSeconds(0.2f);
+    }
+
     IEnumerator getData()
     {
         Debug.Log("yo");
-        UnityWebRequest itemsListRequest = UnityWebRequest.Get(url);
+        UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableItems);
+
+        dataLoaded = false;
 
         yield return itemsListRequest.SendWebRequest();
+
+        dataLoaded = true;
 
         if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
@@ -48,6 +80,5 @@ public class Shelf : MonoBehaviour
             StoreAssetmanager.Instance.itemsAvailable = itemsListData["data"];
         }
 
-        yield return new WaitForSeconds(5);
     }
 }
