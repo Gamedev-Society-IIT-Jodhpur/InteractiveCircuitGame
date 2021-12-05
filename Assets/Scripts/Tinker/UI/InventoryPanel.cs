@@ -12,7 +12,7 @@ public class InventoryPanel : MonoBehaviour
         public InventoryButton button;
     }
 
-    List<StaticData.Component> Inventory;
+    List<StaticData.ComponentData> Inventory;
     [SerializeField] GameObject button;
     public Dictionary<string, InventoryButtons> inventoryDict; //will be used to save current items in inventory....main purpose is for delete button
 

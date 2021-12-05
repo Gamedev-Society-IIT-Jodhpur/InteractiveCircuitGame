@@ -32,7 +32,7 @@ public class CircuitManager : MonoBehaviour
     string pos;
     string neg;
     Transform[] childs;
-    GameObject volt=null;
+    public static GameObject volt=null;
     string temp;
     [SerializeField] TMP_Text DisplayText;
     public static GameObject valueinput;

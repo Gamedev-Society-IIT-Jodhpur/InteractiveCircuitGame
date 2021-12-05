@@ -28,7 +28,7 @@ public class CircuitManagerTinker : MonoBehaviour
     public static List<GameObject> componentList;
     public static GameObject selected;
     Transform[] childs;
-    GameObject volt = null;
+    public static GameObject volt = null;
     string temp;
     Breadboard breadBoard;
     Transform[] rows=new Transform[4];

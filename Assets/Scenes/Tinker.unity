@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849916297}
   m_HandleRect: {fileID: 849916296}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3824,6 +3824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 195725676590223728}
   - component: {fileID: 195725676590223743}
+  - component: {fileID: 195725676590223730}
   m_Layer: 5
   m_Name: SimulateButton
   m_TagString: Untagged
@@ -3831,6 +3832,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &195725676590223730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195725676590223729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e62103abe558e438a6a4140fac800d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circuitManager: {fileID: 1331716702}
 --- !u!114 &195725676590223743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3930,9 +3944,9 @@ MonoBehaviour:
   onDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1331716705}
-        m_TargetAssemblyTypeName: CircuitManagerTinker, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 195725676590223730}
+        m_TargetAssemblyTypeName: ValidateScript, Assembly-CSharp
+        m_MethodName: SaveDataTinker
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

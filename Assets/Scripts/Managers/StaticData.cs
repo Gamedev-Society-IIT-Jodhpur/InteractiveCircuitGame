@@ -6,34 +6,56 @@ public class StaticData : MonoBehaviour
 {
     public static List<GameObject> componentList;
 
-    public struct Component
+
+    public struct ComponentValidate
+    {
+        public int isSeries;
+        public List<double> V, I;
+        public string ctype;
+        public List<string> nodes;
+        public string componentID;
+    };
+    public struct series
+    {
+
+
+        public List<string> components;
+
+    };
+    public struct node
+    {
+        public string nodeID;
+        public List<string> attached;
+    };
+    public struct ComponentData
     {
         public string name;
         public string value;
         public string unit;
         public int quantity;
     }
-    public static List<Component> Inventory;
-    public static bool isSoldering=false;
+    public static List<ComponentData> Inventory;
+    public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
+
 
 
     private void Start()
     {
-        Inventory = new List<Component>();
-        Component res1 = new Component();
+        Inventory = new List<ComponentData>();
+        ComponentData res1 = new ComponentData();
         res1.name = "resistor";
         res1.value = "1.5";
         res1.unit = "Ohm";
         res1.quantity = 20;
 
-        Component battery9v = new Component();
+        ComponentData battery9v = new ComponentData();
         battery9v.name = "voltage9";
         battery9v.value = "9";
         battery9v.unit = "V";
         battery9v.quantity = 3;
 
-        Component breadboard = new Component();
+        ComponentData breadboard = new ComponentData();
         breadboard.name = "breadboard";
         breadboard.value = "";
         breadboard.unit = "";
@@ -48,5 +70,6 @@ public class StaticData : MonoBehaviour
     {
         componentList = CircuitManager.componentList;
     }
+
 
 }
