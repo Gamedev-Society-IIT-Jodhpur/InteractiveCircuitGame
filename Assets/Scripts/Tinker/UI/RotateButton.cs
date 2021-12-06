@@ -27,7 +27,7 @@ public class RotateButton : MonoBehaviour
                     {
                         foreach (GameObject wire in node.wires)
                         {
-                            wire.GetComponent<Wire>().RotateWithWire();
+                            wire.GetComponent<Wire>().ResetWirePos();
 
                         }
                     }
@@ -44,7 +44,7 @@ public class RotateButton : MonoBehaviour
                     {
                         foreach (GameObject wire in node.wires)
                         {
-                            wire.GetComponent<Wire>().RotateWithWire();
+                            wire.GetComponent<Wire>().ResetWirePos();
 
                         }
                     }

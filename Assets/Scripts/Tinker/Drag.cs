@@ -181,16 +181,11 @@ public class Drag : MonoBehaviour
             if (transform.parent!=null && transform.parent.tag == "soldered")
             {
                 nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
-                /*solderedWith = transform.parent.GetComponentsInChildren<Drag>();
-                for (int i = 0; i < solderedWith.Length; i++)
-                {
-                    solderedWith[i].isDraggin = true;
-                }*/
+                
             }
             else
             {
                 nodes = GetComponentsInChildren<NodeTinker>();
-                //isDraggin = true;
             }
             foreach (NodeTinker node in nodes)
             {
@@ -235,6 +230,16 @@ public class Drag : MonoBehaviour
     {
         if (transform.parent != null && transform.parent.tag == "soldered")
         {
+            nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
+
+        }
+        else
+        {
+            nodes = GetComponentsInChildren<NodeTinker>();
+        }
+
+        if (transform.parent != null && transform.parent.tag == "soldered")
+        {
             x = gameObject.transform.parent.position.x - childPos.position.x;
             y = gameObject.transform.parent.position.y - childPos.position.y;
             prevX = snapPos.x + x;
@@ -248,6 +253,15 @@ public class Drag : MonoBehaviour
             prevX = snapPos.x + x;
             prevY = snapPos.y + y;
             gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);
+        }
+        //print('x');
+        foreach (NodeTinker node in nodes)
+        {
+            foreach (GameObject wire in node.wires)
+            {
+                wire.GetComponent<Wire>().ResetWirePos();
+
+            }
         }
 
         //gameObject.transform.position = new Vector3(prevX, prevY, gameObject.transform.position.z);

@@ -158,34 +158,12 @@ public class Wire : MonoBehaviour
 
         if (isMoving)
         {
-            node2Pos = node2.transform.position;
-            transform.position = new Vector3((node2Pos.x + node1.transform.position.x) / 2, (node2Pos.y + node1.transform.position.y) / 2, 0);
-            distance = Vector2.Distance(node2Pos, node1.transform.position);
-            transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
-
-            angleVector = new Vector2(node1.transform.position.x - node2Pos.x, node1.transform.position.y - node2Pos.y);
-            
-            
-            if (angleVector.x!=0 || angleVector.y != 0)
-            {
-                if (angleVector.x < 0)
-                {
-                    angle = Mathf.Atan(-angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                    transform.eulerAngles = new Vector3(0, 0, -angle);
-                }
-                else
-                {
-                    angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-                    transform.eulerAngles = new Vector3(0, 0, angle);
-                }
-            }
+            ResetWirePos();
         }
 
     }
 
-
-    //for rotating the component and the wires connected to it
-    public void RotateWithWire()
+    public void ResetWirePos()
     {
         node2Pos = node2.transform.position;
         transform.position = new Vector3((node2Pos.x + node1.transform.position.x) / 2, (node2Pos.y + node1.transform.position.y) / 2, 0);
@@ -209,6 +187,8 @@ public class Wire : MonoBehaviour
             }
         }
     }
+
+    
 
     private bool IsMouseOverUI()
     {

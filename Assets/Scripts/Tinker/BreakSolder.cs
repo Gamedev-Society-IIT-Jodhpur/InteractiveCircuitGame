@@ -11,7 +11,7 @@ public class BreakSolder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        connecteds.Add(gameObject.GetComponent<BreakSolder>());
+        //connecteds.Add(gameObject.GetComponent<BreakSolder>());
         soldered = AssetManager.soldered;
 
     }
