@@ -14,6 +14,8 @@ public class StaticData : MonoBehaviour
         public string ctype;
         public List<string> nodes;
         public string componentID;
+        public  string value;
+        public int beta;
     };
     public struct series
     {
