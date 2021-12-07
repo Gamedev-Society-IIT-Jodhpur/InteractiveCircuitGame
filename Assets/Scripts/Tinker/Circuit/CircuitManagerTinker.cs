@@ -272,15 +272,15 @@ public class CircuitManagerTinker : MonoBehaviour
 
         Groundit();
 
-        /*var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
+        var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
             if (selected.GetComponent<ComponentTinker>().a != component.bjt)
             {
 
-               print ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
-                                 + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+                print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
+                                  + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
             }
             else
             {
@@ -288,15 +288,15 @@ public class CircuitManagerTinker : MonoBehaviour
                 var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
                 var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
                 var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
-                print ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
+                print("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
                                     + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
                              + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
                             + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
             }
-        };*/
+        };
 
         // Run the simulation
-        //dc.Run(ckt);
+        dc.Run(ckt);
         //print(selected.name+" "+ a);
         //print(selected.name + " " + b);
     }

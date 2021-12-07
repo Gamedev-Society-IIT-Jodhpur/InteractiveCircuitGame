@@ -92,7 +92,7 @@ public class NodeTinker : MonoBehaviour
 
            
         }
-        else if (collision.tag == "node" && needSnapping && transform.parent.tag == "Breadboard grid")
+        else if (collision.tag == "node" && collision.transform.parent.tag!= "Breadboard grid" && needSnapping && transform.parent.tag == "Breadboard grid")
         {
 
             collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);

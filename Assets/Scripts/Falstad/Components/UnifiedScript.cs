@@ -109,29 +109,48 @@ public class UnifiedScript: MonoBehaviour
     }
     public static void BJTInitialize(string name, List<string> nodes, string model , string val)
     {
-        if (!(CircuitManager.ckt.Contains(model + val)))
-        {
-            print("model name :"+model+val);
-            if (model == "BC547")
-                CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel(model+val, string.Join(" ",
-               "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
-               "NE=1.46 BR=35.5 NR=1.005 VAR=12.5 IKR=0.03 ISC=1.72E-13 NC=1.27 RB=0.56 ",
-               " RE=0.6 RC=0.25 CJE=1.3E-11 TF=6.4E-10 CJC=4E-12 VJC=0.54 TR=5.072E-8 ",
-               "bf="+ val), 1));
-            if (model == "BC557")
-                CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel(model+val, string.Join(" ",
-            "BF=490 NE=1.5 ISE=12.4e-15 IKF=78e-3 IS=60e-15 VAF=36 ikr=12e-3",
-            "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
-            "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15",
-            "bf=" + val), 0));
-        }
+        
 
         if (scene == "Falstad")
         {
+            if (!(CircuitManager.ckt.Contains(model + val)))
+            {
+                print("model name :" + model + val);
+                if (model == "BC547")
+                    CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
+                   "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
+                   "NE=1.46 BR=35.5 NR=1.005 VAR=12.5 IKR=0.03 ISC=1.72E-13 NC=1.27 RB=0.56 ",
+                   " RE=0.6 RC=0.25 CJE=1.3E-11 TF=6.4E-10 CJC=4E-12 VJC=0.54 TR=5.072E-8 ",
+                   "bf=" + val), 1));
+                if (model == "BC557")
+                    CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
+                "BF=490 NE=1.5 ISE=12.4e-15 IKF=78e-3 IS=60e-15 VAF=36 ikr=12e-3",
+                "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
+                "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15",
+                "bf=" + val), 0));
+            }
+
             CircuitManager.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model+val));
         }
         else
         {
+            if (!(CircuitManagerTinker.ckt.Contains(model + val)))
+            {
+                print("model name :" + model + val);
+                if (model == "BC547")
+                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
+                   "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
+                   "NE=1.46 BR=35.5 NR=1.005 VAR=12.5 IKR=0.03 ISC=1.72E-13 NC=1.27 RB=0.56 ",
+                   " RE=0.6 RC=0.25 CJE=1.3E-11 TF=6.4E-10 CJC=4E-12 VJC=0.54 TR=5.072E-8 ",
+                   "bf=" + val), 1));
+                if (model == "BC557")
+                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
+                "BF=490 NE=1.5 ISE=12.4e-15 IKF=78e-3 IS=60e-15 VAF=36 ikr=12e-3",
+                "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
+                "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15",
+                "bf=" + val), 0));
+            }
+
             CircuitManagerTinker.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model+val));
         }
        

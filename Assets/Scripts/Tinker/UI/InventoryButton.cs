@@ -24,16 +24,16 @@ public class InventoryButton : MonoBehaviour
             { "voltage9",components[0]},
             { "breadboard",components[1]},
             { "led",components[2]},
-            { "resistor",components[3]}/*,
-            { "voltage1.5",components[4]}*/
+            { "resistor",components[3]},
+            { "voltage1.5",components[4]}
         };
 
         componentsNameDict = new Dictionary<string, string>(){
             { "voltage9","Battery"},
             { "breadboard","Breadboard"},
             { "led","LED"},
-            { "resistor","Resistor"}/*,
-            { "voltage1.5","Battery"}*/
+            { "resistor","Resistor"},
+            { "voltage1.5","Battery"}
         };
         childs = GetComponentsInChildren<TMP_Text>();
         childs[0].text = quantity.ToString();

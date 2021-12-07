@@ -7,7 +7,7 @@ public class StaticData : MonoBehaviour
     public static List<GameObject> componentList;
 
 
-    public struct ComponentValidate
+    public struct ComponentValidate 
     {
         public int isSeries;
         public List<double> V, I;
@@ -29,7 +29,7 @@ public class StaticData : MonoBehaviour
         public string nodeID;
         public List<string> attached;
     };
-    public struct ComponentData
+    public struct ComponentData //to save items in inventory
     {
         public string name;
         public string value;
@@ -57,14 +57,21 @@ public class StaticData : MonoBehaviour
         battery9v.unit = "V";
         battery9v.quantity = 3;
 
+        ComponentData battery15v = new ComponentData();
+        battery15v.name = "voltage1.5";
+        battery15v.value = "1.5";
+        battery15v.unit = "V";
+        battery15v.quantity = 3;
+
         ComponentData breadboard = new ComponentData();
         breadboard.name = "breadboard";
         breadboard.value = "";
         breadboard.unit = "";
-        breadboard.quantity = 1;
+        breadboard.quantity = 2;
 
         Inventory.Add(res1);
         Inventory.Add(battery9v);
+        Inventory.Add(battery15v);
         Inventory.Add(breadboard);
     }
 
