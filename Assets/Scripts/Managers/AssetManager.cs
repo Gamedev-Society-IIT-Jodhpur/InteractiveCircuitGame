@@ -45,7 +45,11 @@ public class AssetManager : MonoBehaviour
             { "breadboard",tinkerComponentSprites[1]},
             { "led",tinkerComponentSprites[2]},
             { "resistor",tinkerComponentSprites[3]},
-            { "voltage1.5",tinkerComponentSprites[4]}
+            { "voltage1.5",tinkerComponentSprites[4]},
+            { "bjtnpn",tinkerComponentSprites[5]},
+            { "bjtpnp",tinkerComponentSprites[6]},
+            { "diode",tinkerComponentSprites[7]},
+            { "zenerDiode",tinkerComponentSprites[8]},
             };
         }
     }

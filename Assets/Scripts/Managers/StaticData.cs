@@ -63,6 +63,30 @@ public class StaticData : MonoBehaviour
         battery15v.unit = "V";
         battery15v.quantity = 3;
 
+        ComponentData BJTpnp = new ComponentData();
+        BJTpnp.name = "bjtpnp";
+        BJTpnp.value = "100";
+        BJTpnp.unit = "";
+        BJTpnp.quantity = 3;
+
+        ComponentData BJTnpn = new ComponentData();
+        BJTnpn.name = "bjtnpn";
+        BJTnpn.value = "100";
+        BJTnpn.unit = "";
+        BJTnpn.quantity = 3;
+
+        ComponentData Diode = new ComponentData();
+        Diode.name = "diode";
+        Diode.value = "";
+        Diode.unit = "";
+        Diode.quantity = 3;
+
+        ComponentData ZenerDiode = new ComponentData();
+        ZenerDiode.name = "zenerDiode";
+        ZenerDiode.value = "6";
+        ZenerDiode.unit = "BV";
+        ZenerDiode.quantity = 3;
+
         ComponentData breadboard = new ComponentData();
         breadboard.name = "breadboard";
         breadboard.value = "";
@@ -73,6 +97,10 @@ public class StaticData : MonoBehaviour
         Inventory.Add(battery9v);
         Inventory.Add(battery15v);
         Inventory.Add(breadboard);
+        Inventory.Add(BJTnpn);
+        Inventory.Add(BJTpnp);
+        Inventory.Add(Diode);
+        //Inventory.Add(ZenerDiode);
     }
 
     public static void UpdateComponentList()

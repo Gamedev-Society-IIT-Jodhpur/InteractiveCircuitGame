@@ -25,7 +25,11 @@ public class InventoryButton : MonoBehaviour
             { "breadboard",components[1]},
             { "led",components[2]},
             { "resistor",components[3]},
-            { "voltage1.5",components[4]}
+            { "voltage1.5",components[4]},
+            {"bjtnpn",components[5] },
+            {"bjtpnp",components[6] },
+            {"diode",components[7] },
+            {"zenerDiode",components[8] },
         };
 
         componentsNameDict = new Dictionary<string, string>(){
@@ -33,7 +37,11 @@ public class InventoryButton : MonoBehaviour
             { "breadboard","Breadboard"},
             { "led","LED"},
             { "resistor","Resistor"},
-            { "voltage1.5","Battery"}
+            { "voltage1.5","Battery"},
+            { "bjtnpn","NPN BJT"},
+            { "bjtpnp","PNP BJT"},
+            { "diode","Diode"},
+            { "zenerDiode","Zener Diode"},
         };
         childs = GetComponentsInChildren<TMP_Text>();
         childs[0].text = quantity.ToString();
@@ -56,10 +64,14 @@ public class InventoryButton : MonoBehaviour
             if (newComponent.tag != "Breadboard")
             {
                 newComponent.GetComponent<ComponentTinker>().value = value;
+                if (newComponent.tag == "BJT")
+                {
+                    newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value);
+                }
             }
 
             //update quatity in InventoryDict
-            if (component.Substring(0, 7) == "voltage")
+            if (component.Length>=7 && component.Substring(0, 7) == "voltage")
             {
                 InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component];
                 buttons.quantity -= 1;

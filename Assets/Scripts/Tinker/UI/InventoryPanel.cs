@@ -37,13 +37,15 @@ public class InventoryPanel : MonoBehaviour
             buttons.quantity = Inventory[i].quantity;
             buttons.button = newButton.GetComponent<InventoryButton>();
 
-            if (Inventory[i].name.Substring(0,7) != "voltage") //since 2 types of batteries.
-            {
-                inventoryDict[newButton.GetComponent<InventoryButton>().component+Inventory[i].value] = buttons;
-            }
-            else
+            if (Inventory[i].name.Length >=7 && Inventory[i].name.Substring(0,7) == "voltage") //since 2 types of batteries.
             {
                 inventoryDict[newButton.GetComponent<InventoryButton>().component] = buttons;
+
+            }
+            
+            else
+            {
+                inventoryDict[newButton.GetComponent<InventoryButton>().component + Inventory[i].value] = buttons;
             }
 
         }

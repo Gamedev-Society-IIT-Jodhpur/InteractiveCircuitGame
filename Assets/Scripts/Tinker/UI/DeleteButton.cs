@@ -95,24 +95,45 @@ public class DeleteButton : MonoBehaviour
         CircuitManagerTinker.componentList.Remove(component);
         if (componentTinker.isWorking)
         {
-            InventoryPanel.InventoryButtons buttons;
-            if (inventoryPanel.inventoryDict[componentTinker.a + componentTinker.value].quantity > 0)
+            string utilKey;
+            if (component.tag != "BJT")
             {
-                buttons = inventoryPanel.inventoryDict[componentTinker.a + componentTinker.value];
-                buttons.quantity += 1;
-                buttons.button.UpdateQuantity(buttons.quantity);
-                inventoryPanel.inventoryDict[componentTinker.a + componentTinker.value] = buttons;
+                utilKey = componentTinker.a + componentTinker.value;
+            }
+            else if (component.GetComponent<ComponentTinker>().model==CircuitManagerTinker.model.BC547)
+            {
+                utilKey = "bjtnpn" + componentTinker.beta;
             }
             else
             {
-                buttons = inventoryPanel.inventoryDict[componentTinker.a + componentTinker.value];
+                utilKey = "bjtpnp" + componentTinker.beta;
+            }
+
+            InventoryPanel.InventoryButtons buttons;
+            if (inventoryPanel.inventoryDict[utilKey].quantity > 0)
+            {
+                buttons = inventoryPanel.inventoryDict[utilKey];
+                buttons.quantity += 1;
+                buttons.button.UpdateQuantity(buttons.quantity);
+                inventoryPanel.inventoryDict[utilKey] = buttons;
+            }
+            else
+            {
+                buttons = inventoryPanel.inventoryDict[utilKey];
                 buttons.quantity = 1;
                 GameObject newButton = Instantiate<GameObject>(button);
                 buttons.button = newButton.GetComponent<InventoryButton>();
                 buttons.button.transform.SetParent(inventoryPanel.transform);
                 buttons.button.transform.localScale = new Vector3(1, 1, 1);
 
-                buttons.button.value = componentTinker.value;
+                if (component.tag == "BJT") //bjt needs beta not value in place of button.value
+                {
+                    buttons.button.value = componentTinker.beta.ToString();
+                }
+                else
+                {
+                    buttons.button.value = componentTinker.value;
+                }
                 buttons.button.quantity = 1;
                 buttons.button.unit = buttons.unit;
 
@@ -120,11 +141,22 @@ public class DeleteButton : MonoBehaviour
                 {
                     buttons.button.component = "voltage" + componentTinker.value;
                 }
+                else if (component.tag == "BJT")
+                {
+                    if (component.GetComponent<ComponentTinker>().model == CircuitManagerTinker.model.BC547)
+                    {
+                        buttons.button.component = "bjtnpn";
+                    }
+                    else
+                    {
+                        buttons.button.component = "bjtpnp";
+                    }
+                }
                 else
                 {
                     buttons.button.component = componentTinker.a.ToString();
                 }
-                inventoryPanel.inventoryDict[componentTinker.a + componentTinker.value] = buttons;
+                inventoryPanel.inventoryDict[utilKey] = buttons;
             }
         }
 
