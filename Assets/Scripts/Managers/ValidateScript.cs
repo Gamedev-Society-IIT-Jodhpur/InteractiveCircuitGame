@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
-using SpiceSharp;
-using SpiceSharp.Components;
 using SpiceSharp.Simulations;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ValidateScript : MonoBehaviour
@@ -13,18 +10,28 @@ public class ValidateScript : MonoBehaviour
     [SerializeField]
     GameObject circuitManager;
 
-     Dictionary<string, StaticData.node> NodedataFalstad = new Dictionary<string, StaticData.node>();
-     Dictionary<string, StaticData.ComponentValidate> ComponentdataFalstad = new Dictionary<string, StaticData.ComponentValidate>();
-     List<StaticData.series> serieslistFalstad = new List<StaticData.series>();
 
-     Dictionary<string, List<string>> NotSeriesFalstad = new Dictionary<string, List<string>>();
-     Dictionary<string, StaticData.node> NodedataTinker = new Dictionary<string, StaticData.node>();
-     static Dictionary<string, List<string>> NotSeriesFalstadModified = new Dictionary<string, List<string>>();
-     Dictionary<string, StaticData.ComponentValidate> ComponentdataTinker = new Dictionary<string, StaticData.ComponentValidate>();
-     List<StaticData.series> serieslistTinker = new List<StaticData.series>();
-     Dictionary<string, List<string>> NotSeriesTinker = new Dictionary<string, List<string>>();
+    // Components in series
+    //---- Components in series falstad
+    List<StaticData.series> serieslistFalstad = new List<StaticData.series>();
+    //---- Components in series tinker
+    List<StaticData.series> serieslistTinker = new List<StaticData.series>();
+
+    // Components in seriesd
+    Dictionary<string, StaticData.node> NodedataFalstad = new Dictionary<string, StaticData.node>();
+    Dictionary<string, StaticData.ComponentValidate> ComponentdataFalstad = new Dictionary<string, StaticData.ComponentValidate>();
+
+    Dictionary<string, StaticData.node> NodedataTinker = new Dictionary<string, StaticData.node>();
+    Dictionary<string, StaticData.ComponentValidate> ComponentdataTinker = new Dictionary<string, StaticData.ComponentValidate>();
+
+    // Components not in series
+    Dictionary<string, List<string>> NotSeriesFalstad = new Dictionary<string, List<string>>();
+    Dictionary<string, List<string>> NotSeriesTinker = new Dictionary<string, List<string>>();
+
+    // GameObject data in string form
     static List<string> serieslistFalstadModified = new List<string>();
     static List<string> serieslistTinkerModified = new List<string>();
+    static Dictionary<string, List<string>> NotSeriesFalstadModified = new Dictionary<string, List<string>>();
     static Dictionary<string, List<string>> NotSeriesTinkerModified = new Dictionary<string, List<string>>();
 
     public void Validate()
@@ -32,17 +39,17 @@ public class ValidateScript : MonoBehaviour
 
     }
 
-    public List<string> ModifySeries(List<StaticData.series> series , Dictionary<string, StaticData.ComponentValidate> Componentdata)
+    public List<string> ModifySeries(List<StaticData.series> series, Dictionary<string, StaticData.ComponentValidate> Componentdata)
     {
         var ans = new List<string>();
-        foreach(var i in series)
+        foreach (var i in series)
         {
             var temp = new List<string>();
-            foreach(var j in i.components)
+            foreach (var j in i.components)
             {
-                
+
                 string formattedstring = Componentdata[j].ctype;
-                formattedstring += (" " + Componentdata[j].value );
+                formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
                     formattedstring += (" " + Componentdata[j].I[k]);
@@ -56,7 +63,7 @@ public class ValidateScript : MonoBehaviour
             }
             temp.Sort();
             var output = "";
-            foreach(var k in temp)
+            foreach (var k in temp)
             {
                 output += k + "$";
             }
@@ -65,16 +72,16 @@ public class ValidateScript : MonoBehaviour
         ans.Sort();
         return ans;
     }
-    public Dictionary<string , List<string>> ModifyDict(Dictionary<string , List<string>> Notseries , Dictionary<string, StaticData.ComponentValidate> Componentdata)
+    public Dictionary<string, List<string>> ModifyDict(Dictionary<string, List<string>> Notseries, Dictionary<string, StaticData.ComponentValidate> Componentdata)
     {
         var a = new Dictionary<string, List<string>>();
-        foreach ( var i in Notseries )
+        foreach (var i in Notseries)
         {
             var templist = new List<string>();
             foreach (var j in i.Value)
             {
                 string formattedstring = Componentdata[j].value;
-                for(int k = 0; k < Componentdata[j].I.Count; k++)
+                for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
                     formattedstring += (" " + Componentdata[j].I[k]);
                 }
@@ -85,13 +92,13 @@ public class ValidateScript : MonoBehaviour
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 templist.Add(formattedstring);
             }
-            
+
             templist.Sort();
             a[i.Key] = templist;
         }
         return a;
     }
-    
+
 
     public void SaveDataFalstad()
     {
@@ -311,7 +318,7 @@ public class ValidateScript : MonoBehaviour
             }
         }
 
-       NotSeriesFalstadModified= ModifyDict(NotSeriesFalstad, ComponentdataFalstad);
+        NotSeriesFalstadModified = ModifyDict(NotSeriesFalstad, ComponentdataFalstad);
         serieslistFalstadModified = ModifySeries(serieslistFalstad, ComponentdataFalstad);
         foreach (var i in serieslistFalstadModified)
         {
@@ -538,13 +545,13 @@ public class ValidateScript : MonoBehaviour
             }
         }
 
-       
+
         NotSeriesTinkerModified = ModifyDict(NotSeriesTinker, ComponentdataTinker);
         serieslistTinkerModified = ModifySeries(serieslistTinker, ComponentdataTinker);
-        foreach(var i in NotSeriesTinkerModified)
+        foreach (var i in NotSeriesTinkerModified)
         {
             print(i.Key);
-            foreach(var j in i.Value)
+            foreach (var j in i.Value)
             {
                 print(j);
             }
@@ -560,7 +567,7 @@ public class ValidateScript : MonoBehaviour
         foreach (var i in serieslistTinkerModified)
         {
             print(i);
-           
+
         }
         Evaluate();
     }
@@ -570,9 +577,9 @@ public class ValidateScript : MonoBehaviour
         bool dictsame = true;
         if (NotSeriesFalstadModified.Count == NotSeriesTinkerModified.Count)
         {
-            foreach(var i in NotSeriesFalstadModified)
+            foreach (var i in NotSeriesFalstadModified)
             {
-                if(NotSeriesTinkerModified.ContainsKey(i.Key))
+                if (NotSeriesTinkerModified.ContainsKey(i.Key))
                 {
                     bool dictequal = NotSeriesFalstadModified[i.Key].SequenceEqual(NotSeriesTinkerModified[i.Key]);
                     if (!dictequal)
@@ -580,7 +587,7 @@ public class ValidateScript : MonoBehaviour
                         dictsame = false;
                         break;
                     }
-                    
+
                 }
                 else
                 {

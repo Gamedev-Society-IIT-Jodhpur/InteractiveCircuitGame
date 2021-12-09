@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StaticData : MonoBehaviour
 {
-    public static List<GameObject> componentList;
 
+    public static List<GameObject> componentList;
 
     public struct ComponentValidate 
     {
@@ -17,18 +17,18 @@ public class StaticData : MonoBehaviour
         public  string value;
         public int beta;
     };
+    
     public struct series
     {
-
-
         public List<string> components;
-
     };
+
     public struct node
     {
         public string nodeID;
         public List<string> attached;
     };
+    
     public struct ComponentData //to save items in inventory
     {
         public string name;
@@ -36,14 +36,14 @@ public class StaticData : MonoBehaviour
         public string unit;
         public int quantity;
     }
-    public static List<ComponentData> Inventory;
+
+    public static List<ComponentData> Inventory = new List<ComponentData>();
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
 
-
-
     private void Start()
     {
+        /**
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";
@@ -101,6 +101,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(BJTpnp);
         Inventory.Add(Diode);
         //Inventory.Add(ZenerDiode);
+        */
     }
 
     public static void UpdateComponentList()

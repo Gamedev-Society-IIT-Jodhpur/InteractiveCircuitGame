@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour
     public Image nextButtonImg;
     public Text nextButtonText;
 
+    private string nameOfPlayer = "";
+    private string nameOfBoss = "";
     private int index = 0;
     private bool isCoroutineRunning;
     private Color defaultColor;

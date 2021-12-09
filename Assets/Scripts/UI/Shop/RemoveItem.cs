@@ -11,6 +11,7 @@ public class RemoveItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         Store.Items.RemoveAt(index);
+        StaticData.Inventory.RemoveAt(index);
         CartPanel.remove = true;
     }
 }
