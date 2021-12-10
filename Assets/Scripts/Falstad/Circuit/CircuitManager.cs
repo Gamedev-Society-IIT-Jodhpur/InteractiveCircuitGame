@@ -184,7 +184,7 @@ public class CircuitManager : MonoBehaviour
 
 
         //for changing outline
-        if (selected.tag == "Resistor")
+        if (selected.tag == "Resistor" || selected.tag=="BJT")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
         }
