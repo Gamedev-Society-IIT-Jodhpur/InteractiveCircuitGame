@@ -18,11 +18,11 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
         foreach (var item in StoreAssetmanager.Instance.itemsAvailable)
         {
-            if (item.Value["name"] == header.text)
+            if (item.Value["id"].ToString() == TooltipSystem.getItemID())
             {
                 componentName = item.Value["name"];
                 unit = item.Value["unit"];
-                value = item.Value["value"].ToString();
+                value = item.Value["value"];
                 break;
             }
         }

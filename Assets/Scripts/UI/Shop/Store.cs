@@ -13,10 +13,11 @@ public class Store : MonoBehaviour
     {
         Items = new List<string>();
 
-        //StartCoroutine(getData());
-        Debug.Log("yo");
-        //StartCoroutine(getData());
-        
+        foreach (var item in Items)
+        {
+            Debug.Log(item);
+        }
+
     }
 
 

@@ -45,7 +45,6 @@ public class StoreAssetmanager : MonoBehaviour
     {
         //int index = storeItemIcons.FindIndex(a => a.name.Contains(name));
         int index = storeItemIcons.FindIndex(a => name.Contains(a.name));
-        Debug.Log("Index : " + index);
         return storeItemIcons[index].image;
     }
 

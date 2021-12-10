@@ -6,6 +6,7 @@ public class OpenCart : MonoBehaviour
 {
 
     public GameObject Panel;
+    public static bool isPanelOpen = false;
 
     public void Open()
     {
@@ -15,7 +16,7 @@ public class OpenCart : MonoBehaviour
             if (animator != null)
             {
                 bool isOpen = animator.GetBool("open");
-
+                isPanelOpen = isOpen;
                 animator.SetBool("open", !isOpen);
             }
         }

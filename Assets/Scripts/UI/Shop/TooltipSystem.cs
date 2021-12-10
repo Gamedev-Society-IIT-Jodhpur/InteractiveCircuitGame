@@ -9,6 +9,8 @@ public class TooltipSystem : MonoBehaviour
 
     public Tooltip tooltip;
 
+    public static string item_ID;
+
     public void Awake()
     {
         current = this;
@@ -18,7 +20,14 @@ public class TooltipSystem : MonoBehaviour
     {
         current.tooltip.SetTooltip(itemID);
         current.tooltip.gameObject.SetActive(true);
+        item_ID = itemID;
     }
+
+    public static string getItemID()
+    {
+        return item_ID;
+    }
+    
 
     public static void Hide()
     {
