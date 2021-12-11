@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum SceneIndexes
 {
-    Loading=0,
-    Avatar = 1,
-    Falstad=2,
+    Loading=9,
+    Avatar = 4,
+    Falstad=5,
 }
