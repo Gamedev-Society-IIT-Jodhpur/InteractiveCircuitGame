@@ -173,22 +173,24 @@ public class UnifiedScript: MonoBehaviour
     void Awake()
     {
         scene = SceneManager.GetActiveScene().name;
+       // if (scene == "Falstad")
+       /// {
+            Del Resistordel = ResistorInitialize;
+            dict1.Add("resistor", Resistordel);
 
-        Del Resistordel = ResistorInitialize;
-        dict1.Add("resistor", Resistordel);
+            Del Voltagedel = VoltageInitialize;
+            dict1.Add("voltage", Voltagedel);
 
-        Del Voltagedel = VoltageInitialize;
-        dict1.Add("voltage", Voltagedel);
-        
-        Del Wiredel = WireInitialize;
-        dict1.Add("wire", Wiredel);
-        
-        Del BJTdel = BJTInitialize;
-        dict1.Add("bjt", BJTdel);
-        
-        Del Diodedel = DiodeInitialize;
-        dict1.Add("diode", Diodedel);
-        dict1.Add("zenerDiode", Diodedel);
+            Del Wiredel = WireInitialize;
+            dict1.Add("wire", Wiredel);
+
+            Del BJTdel = BJTInitialize;
+            dict1.Add("bjt", BJTdel);
+
+            Del Diodedel = DiodeInitialize;
+            dict1.Add("diode", Diodedel);
+            dict1.Add("zenerDiode", Diodedel);
+        //}
     }
     
 }

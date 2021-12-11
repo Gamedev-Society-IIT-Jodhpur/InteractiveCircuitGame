@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -65,6 +66,13 @@ public class DialogueManager : MonoBehaviour
 
     public void NextSentence()
     {
+        if (index == sentences_list.Count - 1)
+        {
+            if (nextButtonText.text == "Continue")
+            {
+                SceneManager.LoadScene("Falstad");
+            }
+        }
         if (!isCoroutineRunning)
         {
             if (index < sentences_list.Count - 1)
@@ -80,6 +88,9 @@ public class DialogueManager : MonoBehaviour
         {
             nextButtonImg.color = continueColor;
             nextButtonText.text = "Continue";
+            
+            
+          
         }
     }
 

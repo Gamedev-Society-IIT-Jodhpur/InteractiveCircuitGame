@@ -9,6 +9,8 @@ public class ValidateScript : MonoBehaviour
 {
     [SerializeField]
     GameObject circuitManager;
+    [SerializeField]
+    GameObject gizmo;
 
 
     // Components in series
@@ -98,234 +100,320 @@ public class ValidateScript : MonoBehaviour
         }
         return a;
     }
+    
+    public bool CheckSpecs()
+    {
+        bool passed = false;
+        string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
+        string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
+        Circuit ckt1 = new Circuit();
+        foreach(var i in CircuitManager.ckt)
+        {
+            ckt1.Add(i);
+        }
+        ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
+        Circuit ckt2 = new Circuit();
+        foreach(var i in CircuitManager.ckt)
+        {
+            ckt2.Add(i);
+        }
+        ckt2.Add(new Resistor("CheckResistor1", node1, node2, 40));
+        var dc1 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+        var dc2 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+        var currentExport1 = new RealPropertyExport(dc1, "CheckResistor1", "i");
+        var currentExport2 = new RealPropertyExport(dc2, "CheckResistor1", "i");
+        List<RealPropertyExport> currentexportsources = new List<RealPropertyExport>();
+        List<RealPropertyExport> currentexportsources1 = new List<RealPropertyExport>();
+        foreach (var i in ckt1.ByType<VoltageSource>())
+        {
+            currentexportsources.Add(new RealPropertyExport(dc1, i.Name, "i"));
+        }
+        foreach (var i in ckt1.ByType<VoltageSource>())
+        {
+            currentexportsources1.Add(new RealPropertyExport(dc2, i.Name, "i"));
+        }
+        dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
+        {
+            double power = 0.0;
+            int j = 0;
+            foreach(var i in ckt1.ByType<VoltageSource>())
+            {
 
+                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                j++;
+            }
+            if (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2) - 6) <= 1 &&  Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <=1.2)
+            {
+                passed = true;
+            }
+        };
+        dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
+        {
+            double power = 0.0;
+            int j = 0;
+            foreach (var i in ckt2.ByType<VoltageSource>())
+            {
+
+                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                j++;
+            }
+            if (passed == true)
+            {
+                if (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2) - 6) <= 1 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value)<=1.2)
+                {
+                    passed = true;
+                }
+                else
+                {
+                    passed = false;
+                }
+            }
+
+        };
+        dc1.Run(ckt1);
+        dc2.Run(ckt2);
+
+
+            return passed;
+    }
 
     public void SaveDataFalstad()
     {
         circuitManager.GetComponent<CircuitManager>().Play();
 
-
-
-        //All nodes id are updated
-        HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
-        for (int i = 0; i < CircuitManager.componentList.Count; i++)
-
+        if (CheckSpecs())
         {
-            HashSet<StaticData.node> componentnodes = new HashSet<StaticData.node>(); ;
-            foreach (var j in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
+
+            //All nodes id are updated
+            HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
+            for (int i = 0; i < CircuitManager.componentList.Count; i++)
+
             {
-                var newnode = new StaticData.node();
-                newnode.nodeID = j;
-                newnode.attached = new List<string>();
-                componentnodes.Add(newnode);
+                HashSet<StaticData.node> componentnodes = new HashSet<StaticData.node>(); ;
+                foreach (var j in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
+                {
+                    var newnode = new StaticData.node();
+                    newnode.nodeID = j;
+                    newnode.attached = new List<string>();
+                    componentnodes.Add(newnode);
+                }
+                nodeList.UnionWith(componentnodes);
             }
-            nodeList.UnionWith(componentnodes);
-        }
 
-        foreach (var i in nodeList)
-        {
+            foreach (var i in nodeList)
+            {
 
-            NodedataFalstad[i.nodeID] = i;
+                NodedataFalstad[i.nodeID] = i;
 
-        }
+            }
 
-        //Creating ComponentData as well as updating it in Nodedata 
-        var dc = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+            //Creating ComponentData as well as updating it in Nodedata 
+            var dc = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
 
-        var currentExport = new List<RealPropertyExport>();
-        for (int i = 0; i < CircuitManager.componentList.Count; i++)
-        {
-            currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
-
-        }
-
-
-        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-
+            var currentExport = new List<RealPropertyExport>();
             for (int i = 0; i < CircuitManager.componentList.Count; i++)
             {
-                var newcomp = new StaticData.ComponentValidate();
-                newcomp.V = new List<double>();
-                newcomp.I = new List<double>();
-                if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.bjt && CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.resistor)
-                {
+                currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
 
-                    newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1]));
-
-                    newcomp.I.Add(currentExport[i].Value);
-                }
-                else if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a == CircuitManager.component.resistor)
-                {
-                    newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1])));
-
-                    newcomp.I.Add(Math.Abs(currentExport[i].Value));
-                }
-                else
-                {
-                    var vbe = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
-                    var vbc = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
-                    var ib = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ib");
-                    var ic = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ic");
-
-                    newcomp.V.Add(vbe.Value);
-                    newcomp.V.Add(vbc.Value);
-                    newcomp.I.Add(ib.Value);
-                    newcomp.I.Add(ic.Value);
-                }
-
-
-
-                newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
-                newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
-                newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
-                newcomp.isSeries = -1;
-                newcomp.beta = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().beta;
-                newcomp.value = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().value;
-
-                ComponentdataFalstad[newcomp.componentID] = newcomp;
-                foreach (var k in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
-                {
-                    NodedataFalstad[k].attached.Add(newcomp.componentID);
-                }
             }
-        };
-        dc.Run(CircuitManager.ckt);
 
 
-
-        // Creating Series list
-
-        foreach (var i in NodedataFalstad)
-        {
-            if (i.Value.attached.Count == 2)
+            dc.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
-                if (ComponentdataFalstad[i.Value.attached[0]].isSeries == -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
-                {
-                    print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "Before update");
-                    var newseries = new StaticData.series();
-                    newseries.components = new List<string>();
-                    newseries.components.Add(i.Value.attached[0]);
-                    newseries.components.Add(i.Value.attached[1]);
-                    var temp = ComponentdataFalstad[i.Value.attached[0]];
 
-                    temp.isSeries = serieslistFalstad.Count;
-
-                    ComponentdataFalstad[i.Value.attached[0]] = temp;
-                    var temp1 = ComponentdataFalstad[i.Value.attached[1]];
-                    temp1.isSeries = serieslistFalstad.Count;
-                    ComponentdataFalstad[i.Value.attached[1]] = temp1;
-                    serieslistFalstad.Add(newseries);
-                    print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "After update");
-                }
-                else if (ComponentdataFalstad[i.Value.attached[0]].isSeries != -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
+                for (int i = 0; i < CircuitManager.componentList.Count; i++)
                 {
-                    StaticData.series t = new StaticData.series();
-                    t.components = serieslistFalstad[ComponentdataFalstad[i.Value.attached[0]].isSeries].components;
-                    t.components = t.components.Union(new List<string> { i.Value.attached[1] }).ToList();
-                    serieslistFalstad[ComponentdataFalstad[i.Value.attached[0]].isSeries] = t;
-                    var temp = ComponentdataFalstad[i.Value.attached[1]];
-                    temp.isSeries = ComponentdataFalstad[i.Value.attached[0]].isSeries;
-                    ComponentdataFalstad[i.Value.attached[1]] = temp;
-                }
-                else if (ComponentdataFalstad[i.Value.attached[0]].isSeries == -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries != -1)
-                {
-                    StaticData.series t = new StaticData.series();
-                    t.components = serieslistFalstad[ComponentdataFalstad[i.Value.attached[1]].isSeries].components;
-                    t.components = t.components.Union(new List<string> { i.Value.attached[0] }).ToList();
-                    serieslistFalstad[ComponentdataFalstad[i.Value.attached[1]].isSeries] = t;
-                    var temp = ComponentdataFalstad[i.Value.attached[0]];
-                    temp.isSeries = ComponentdataFalstad[i.Value.attached[1]].isSeries;
-                    ComponentdataFalstad[i.Value.attached[0]] = temp;
-                }
-                else
-                {
-                    if (ComponentdataFalstad[i.Value.attached[0]].isSeries == ComponentdataFalstad[i.Value.attached[1]].isSeries)
+                    var newcomp = new StaticData.ComponentValidate();
+                    newcomp.V = new List<double>();
+                    newcomp.I = new List<double>();
+                    if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.bjt && CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.resistor)
                     {
-                        continue;
+
+                        newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1]));
+
+                        newcomp.I.Add(currentExport[i].Value);
+                    }
+                    else if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a == CircuitManager.component.resistor)
+                    {
+                        newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1])));
+
+                        newcomp.I.Add(Math.Abs(currentExport[i].Value));
                     }
                     else
                     {
-                        int max = Math.Max(ComponentdataFalstad[i.Value.attached[0]].isSeries, ComponentdataFalstad[i.Value.attached[1]].isSeries);
-                        int min = Math.Min(ComponentdataFalstad[i.Value.attached[0]].isSeries, ComponentdataFalstad[i.Value.attached[1]].isSeries);
+                        var vbe = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
+                        var vbc = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
+                        var ib = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ib");
+                        var ic = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ic");
 
-                        foreach (var item in serieslistFalstad[max].components)
+                        newcomp.V.Add(vbe.Value);
+                        newcomp.V.Add(vbc.Value);
+                        newcomp.I.Add(ib.Value);
+                        newcomp.I.Add(ic.Value);
+                    }
+
+
+
+                    newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
+                    newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
+                    newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
+                    newcomp.isSeries = -1;
+                    newcomp.beta = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().beta;
+                    newcomp.value = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().value;
+
+                    ComponentdataFalstad[newcomp.componentID] = newcomp;
+                    foreach (var k in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
+                    {
+                        NodedataFalstad[k].attached.Add(newcomp.componentID);
+                    }
+                }
+            };
+            dc.Run(CircuitManager.ckt);
+
+
+
+            // Creating Series list
+
+            foreach (var i in NodedataFalstad)
+            {
+                if (i.Value.attached.Count == 2)
+                {
+                    if (ComponentdataFalstad[i.Value.attached[0]].isSeries == -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
+                    {
+                        print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "Before update");
+                        var newseries = new StaticData.series();
+                        newseries.components = new List<string>();
+                        newseries.components.Add(i.Value.attached[0]);
+                        newseries.components.Add(i.Value.attached[1]);
+                        var temp = ComponentdataFalstad[i.Value.attached[0]];
+
+                        temp.isSeries = serieslistFalstad.Count;
+
+                        ComponentdataFalstad[i.Value.attached[0]] = temp;
+                        var temp1 = ComponentdataFalstad[i.Value.attached[1]];
+                        temp1.isSeries = serieslistFalstad.Count;
+                        ComponentdataFalstad[i.Value.attached[1]] = temp1;
+                        serieslistFalstad.Add(newseries);
+                        print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "After update");
+                    }
+                    else if (ComponentdataFalstad[i.Value.attached[0]].isSeries != -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
+                    {
+                        StaticData.series t = new StaticData.series();
+                        t.components = serieslistFalstad[ComponentdataFalstad[i.Value.attached[0]].isSeries].components;
+                        t.components = t.components.Union(new List<string> { i.Value.attached[1] }).ToList();
+                        serieslistFalstad[ComponentdataFalstad[i.Value.attached[0]].isSeries] = t;
+                        var temp = ComponentdataFalstad[i.Value.attached[1]];
+                        temp.isSeries = ComponentdataFalstad[i.Value.attached[0]].isSeries;
+                        ComponentdataFalstad[i.Value.attached[1]] = temp;
+                    }
+                    else if (ComponentdataFalstad[i.Value.attached[0]].isSeries == -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries != -1)
+                    {
+                        StaticData.series t = new StaticData.series();
+                        t.components = serieslistFalstad[ComponentdataFalstad[i.Value.attached[1]].isSeries].components;
+                        t.components = t.components.Union(new List<string> { i.Value.attached[0] }).ToList();
+                        serieslistFalstad[ComponentdataFalstad[i.Value.attached[1]].isSeries] = t;
+                        var temp = ComponentdataFalstad[i.Value.attached[0]];
+                        temp.isSeries = ComponentdataFalstad[i.Value.attached[1]].isSeries;
+                        ComponentdataFalstad[i.Value.attached[0]] = temp;
+                    }
+                    else
+                    {
+                        if (ComponentdataFalstad[i.Value.attached[0]].isSeries == ComponentdataFalstad[i.Value.attached[1]].isSeries)
                         {
-                            var temp = ComponentdataFalstad[item];
-                            temp.isSeries = min;
-                            ComponentdataFalstad[item] = temp;
-                            serieslistFalstad[min].components.Add(item);
+                            continue;
                         }
-                        for (int k = max + 1; k <= serieslistFalstad.Count; k++)
+                        else
                         {
-                            foreach (var item in serieslistFalstad[k].components)
+                            int max = Math.Max(ComponentdataFalstad[i.Value.attached[0]].isSeries, ComponentdataFalstad[i.Value.attached[1]].isSeries);
+                            int min = Math.Min(ComponentdataFalstad[i.Value.attached[0]].isSeries, ComponentdataFalstad[i.Value.attached[1]].isSeries);
+
+                            foreach (var item in serieslistFalstad[max].components)
                             {
                                 var temp = ComponentdataFalstad[item];
-                                temp.isSeries = temp.isSeries - 1;
+                                temp.isSeries = min;
                                 ComponentdataFalstad[item] = temp;
+                                serieslistFalstad[min].components.Add(item);
                             }
-                        }
+                            for (int k = max + 1; k <= serieslistFalstad.Count; k++)
+                            {
+                                foreach (var item in serieslistFalstad[k].components)
+                                {
+                                    var temp = ComponentdataFalstad[item];
+                                    temp.isSeries = temp.isSeries - 1;
+                                    ComponentdataFalstad[item] = temp;
+                                }
+                            }
 
-                        serieslistFalstad.RemoveAt(max);
+                            serieslistFalstad.RemoveAt(max);
+                        }
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            // Creating Non-Series Dictionary
+            foreach (var i in ComponentdataFalstad)
+            {
+                if (i.Value.isSeries == -1)
+                {
+                    if (NotSeriesFalstad.ContainsKey(i.Value.ctype))
+                    {
+                        NotSeriesFalstad[i.Value.ctype].Add(i.Key);
+                    }
+                    else
+                    {
+                        NotSeriesFalstad[i.Value.ctype] = new List<string>();
+                        NotSeriesFalstad[i.Value.ctype].Add(i.Key);
                     }
                 }
             }
-            else
+
+            for (int i = serieslistFalstad.Count - 1; i >= 0; i--)
             {
-                continue;
+                for (int j = serieslistFalstad[i].components.Count - 1; j >= 0; j--)
+                {
+                    if (ComponentdataFalstad[serieslistFalstad[i].components[j]].ctype == "wire")
+                    {
+                        serieslistFalstad[i].components.RemoveAt(j);
+                    }
+                }
+                if (serieslistFalstad[i].components.Count == 1)
+                {
+                    if (NotSeriesFalstad.ContainsKey(ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype))
+                    {
+                        NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype].Add(serieslistFalstad[i].components[0]);
+                    }
+                    else
+                    {
+                        NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype] = new List<string>();
+                        NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype].Add(serieslistFalstad[i].components[0]);
+                    }
+
+                    serieslistFalstad.RemoveAt(i);
+                }
+            }
+
+            NotSeriesFalstadModified = ModifyDict(NotSeriesFalstad, ComponentdataFalstad);
+            serieslistFalstadModified = ModifySeries(serieslistFalstad, ComponentdataFalstad);
+            foreach (var i in serieslistFalstadModified)
+            {
+                print(i);
+
+            }
+            foreach (var i in ComponentdataFalstad)
+            {
+                print(i.Key);
+                print(i.Value.ctype);
+                print(i.Value.value);
             }
         }
-
-        // Creating Non-Series Dictionary
-        foreach (var i in ComponentdataFalstad)
+        else
         {
-            if (i.Value.isSeries == -1)
-            {
-                if (NotSeriesFalstad.ContainsKey(i.Value.ctype))
-                {
-                    NotSeriesFalstad[i.Value.ctype].Add(i.Key);
-                }
-                else
-                {
-                    NotSeriesFalstad[i.Value.ctype] = new List<string>();
-                    NotSeriesFalstad[i.Value.ctype].Add(i.Key);
-                }
-            }
+            print("Circuit doesn't meet specifications");
         }
-
-        for (int i = serieslistFalstad.Count - 1; i >= 0; i--)
-        {
-            for (int j = serieslistFalstad[i].components.Count - 1; j >= 0; j--)
-            {
-                if (ComponentdataFalstad[serieslistFalstad[i].components[j]].ctype == "wire")
-                {
-                    serieslistFalstad[i].components.RemoveAt(j);
-                }
-            }
-            if (serieslistFalstad[i].components.Count == 1)
-            {
-                if (NotSeriesFalstad.ContainsKey(ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype))
-                {
-                    NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype].Add(serieslistFalstad[i].components[0]);
-                }
-                else
-                {
-                    NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype] = new List<string>();
-                    NotSeriesFalstad[ComponentdataFalstad[serieslistFalstad[i].components[0]].ctype].Add(serieslistFalstad[i].components[0]);
-                }
-
-                serieslistFalstad.RemoveAt(i);
-            }
-        }
-
-        NotSeriesFalstadModified = ModifyDict(NotSeriesFalstad, ComponentdataFalstad);
-        serieslistFalstadModified = ModifySeries(serieslistFalstad, ComponentdataFalstad);
-        foreach (var i in serieslistFalstadModified)
-        {
-            print(i);
-
-        }
-        SceneManager.LoadScene("Tinker");
     }
 
     public void SaveDataTinker()

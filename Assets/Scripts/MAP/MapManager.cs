@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Pathfinding;
 
-public class MapManager : MonoBehaviour
+
+public class MapManager : MonoBehaviour 
 {
     public enum scene
     {
@@ -20,6 +22,9 @@ public class MapManager : MonoBehaviour
     public List<Lean.Gui.LeanTooltipData> shopstext;
     public Lean.Gui.LeanTooltipData TinkerLab;
     public Lean.Gui.LeanTooltipData falstad;
+    public GameObject tracker;
+    bool btnclick = false;
+    string toscene = "MAP";
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +48,34 @@ public class MapManager : MonoBehaviour
     public  void Change(int i)
     {
         PrevCurrScene.prev = PrevCurrScene.curr;
-        PrevCurrScene.curr = i;
+        PrevCurrScene.curr = i;  
+    }
+
+    public void movetracker(Transform target)
+    {
+        tracker.GetComponent<AIDestinationSetter>().target = target;
+       
+    }
+
+    public void mapscenechange(ButtonFunctionWrapper wrap)
+    {
+        movetracker(wrap.whereto);
+
+
+        btnclick = true;
+        
+        Change(wrap.changeindex);
+        toscene=wrap.scenename;
+    }
+    public void Update()
+    {
+        bool reached = (tracker.GetComponent<AIPath>().reachedDestination);
 
         
+        if(reached && btnclick)
+        {
+            SceneManager.LoadScene(toscene);
+        }
+
     }
 }

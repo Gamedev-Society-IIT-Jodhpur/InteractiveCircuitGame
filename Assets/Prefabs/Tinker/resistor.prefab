@@ -129,7 +129,6 @@ MonoBehaviour:
   isDraggin: 0
   hasInitiated: 0
   previousPos: {x: 0, y: 0, z: 0}
-  connecteds: []
 --- !u!114 &1999317516781466054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac282c833ff5e824d8995029f87559b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connecteds: []
 --- !u!1 &1999317517112378661
 GameObject:
   m_ObjectHideFlags: 0
