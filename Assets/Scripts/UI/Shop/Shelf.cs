@@ -13,9 +13,7 @@ public class Shelf : MonoBehaviour
     private bool dataLoaded = false;
 
     [SerializeField]
-    private TMP_Text loadingText;
-    [SerializeField]
-    private GameObject background;
+    private GameObject loadingWheel;
 
     void Start()
     {
@@ -26,45 +24,31 @@ public class Shelf : MonoBehaviour
     {
         if (dataLoaded)
         {
-            loadingText.gameObject.SetActive(false);
-            background.SetActive(false);
+            loadingWheel.SetActive(false);
         }
-        else
-        {
-            StartCoroutine(loadingAnim());
-        }
-    }
-
-    IEnumerator loadingAnim()
-    {
-        loadingText.text = "Loading";
-        yield return new WaitForSeconds(0.2f);
-        loadingText.text = "Loading.";
-        yield return new WaitForSeconds(0.2f);
-        loadingText.text = "Loading..";
-        yield return new WaitForSeconds(0.2f);
-        loadingText.text = "Loading...";
-        yield return new WaitForSeconds(0.2f);
     }
 
     IEnumerator getData()
     {
-        Debug.Log("yo");
         UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableItems);
 
         dataLoaded = false;
 
-        yield return itemsListRequest.SendWebRequest();
+        UnityWebRequestAsyncOperation asyncLoad = itemsListRequest.SendWebRequest();
+
+        while (!asyncLoad.isDone)
+        {
+            Debug.Log((float)asyncLoad.progress);
+            yield return null;
+        }
 
         dataLoaded = true;
-
         if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(itemsListRequest.error);
         }
         else
         {
-
             JSONNode itemsListData = JSON.Parse(itemsListRequest.downloadHandler.text);
             GameObject g;
             foreach (var item in itemsListData["data"])

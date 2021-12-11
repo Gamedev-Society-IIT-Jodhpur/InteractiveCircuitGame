@@ -7,6 +7,7 @@ public class ModelBox : MonoBehaviour
     public Transform box;
     public CanvasGroup background;
 
+
     private void OnEnable()
     {
         background.alpha = 0;
