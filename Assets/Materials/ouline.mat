@@ -49,7 +49,7 @@ Material:
     - _OutlineMode: 0
     - _OutlinePosition: 1
     - _OutlineShape: 0
-    - _Thickness: 3
+    - _Thickness: 4
     - _TileMode: 0
     - _Weight: 0.52
     m_Colors:

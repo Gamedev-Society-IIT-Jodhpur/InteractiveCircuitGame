@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0414e07b5531384db52aa86119a84df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 50
-  solderingTime: 1
+  movingSpeed: 5
+  solderingTime: 3
   smoke: {fileID: 4014173696676387716, guid: 79a698fc4ec84e14783ca0f58fe14108, type: 3}
 --- !u!1 &6107988659523220691
 GameObject:

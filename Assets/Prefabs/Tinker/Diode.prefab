@@ -445,7 +445,7 @@ MonoBehaviour:
   model: 0
   no_nodes: 2
   nameInCircuit: 
-  value: 5
+  value: Default
   beta: 100
   nodes: []
   childs: []
