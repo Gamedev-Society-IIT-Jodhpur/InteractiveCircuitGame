@@ -148,10 +148,27 @@ public class Drag : MonoBehaviour
                         }
                     }
                 }
-                if (!isConnectedToBreadboard && node.isConnectedToBreadboard)
+                if((transform.parent != null && transform.parent.tag == "Breadboard")||(transform.parent != null && transform.parent.tag == "soldered" 
+                    && transform.parent.parent != null && transform.parent.parent.tag == "Breadboard"))
+                {
+                    node.GetRaycastHits();
+                    foreach(var hit in node.hits)
+                    {
+                        if (!isConnectedToBreadboard)
+                        {
+                            if(hit.transform.parent!=null && hit.transform.parent.tag=="Breadboard grid")
+                            {
+                                isConnectedToBreadboard = true;
+                                break;
+                            }
+                            
+                        }
+                    }
+                }
+                /*if (!isConnectedToBreadboard && node.isConnectedToBreadboard)
                 {
                     isConnectedToBreadboard = true;
-                }
+                }*/
                 //node.SolderParent();
 
             }

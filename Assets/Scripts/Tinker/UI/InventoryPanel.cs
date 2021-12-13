@@ -20,10 +20,10 @@ public class InventoryPanel : MonoBehaviour
     void Start()
     {
         Inventory = StaticData.Inventory;
-        Debug.Log(Inventory[0].name);
+        /*Debug.Log(Inventory[0].name);
         Debug.Log(Inventory[0].value);
         Debug.Log(Inventory[1].name);
-        Debug.Log(Inventory[1].value);
+        Debug.Log(Inventory[1].value);*/
         inventoryDict = new Dictionary<string, InventoryButtons>() { };
         for (int i = 0; i < Inventory.Count; i++)
         {

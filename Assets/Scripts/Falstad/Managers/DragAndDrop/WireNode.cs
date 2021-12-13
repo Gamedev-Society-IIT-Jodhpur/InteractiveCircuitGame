@@ -15,8 +15,8 @@ public class WireNode : MonoBehaviour
     {
         parentPos = transform.parent;
         childs = parentPos.gameObject.GetComponentsInChildren<Transform>();
-        int x = (int)transform.position.x;
-        int y = (int)transform.position.y;
+        int x = Mathf.RoundToInt(transform.position.x);
+        int y = Mathf.RoundToInt(transform.position.y);
 
         transform.position = new Vector3(x, y, 0);
         node1Pos = childs[1].position;

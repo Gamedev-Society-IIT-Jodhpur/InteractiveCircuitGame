@@ -20,11 +20,14 @@ public class Item : MonoBehaviour
     void Start()
     {
         childs = gameObject.GetComponentsInChildren<Transform>();
+        print(childs[1].position);
         /*if (childs[0].tag != "Wire")
         {
             wires = childs[3].GetComponentsInChildren<Transform>();
         }
         */
+        node1Pos = childs[1].position;
+        node2Pos = childs[2].position;
 
     }
         
@@ -41,6 +44,7 @@ public class Item : MonoBehaviour
 
             node1Pos = childs[1].position;
             node2Pos = childs[2].position;
+            //print(node1Pos);
 
             transform.position = (node1Pos + node2Pos) / 2;
 

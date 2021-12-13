@@ -172,8 +172,19 @@ public class ValidateScript : MonoBehaviour
             }
 
         };
-        dc1.Run(ckt1);
-        dc2.Run(ckt2);
+
+        try
+        {
+            dc1.Run(ckt1);
+            dc2.Run(ckt2);
+        }
+        catch (Exception e)
+        {
+
+            print(e.Message);
+            passed = false;
+        }
+        
 
 
             return passed;
@@ -210,67 +221,85 @@ public class ValidateScript : MonoBehaviour
             }
 
             //Creating ComponentData as well as updating it in Nodedata 
-            var dc = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-
-            var currentExport = new List<RealPropertyExport>();
-            for (int i = 0; i < CircuitManager.componentList.Count; i++)
+            try
             {
-                currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
+                var dc = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
 
-            }
-
-
-            dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-            {
-
+                var currentExport = new List<RealPropertyExport>();
                 for (int i = 0; i < CircuitManager.componentList.Count; i++)
                 {
-                    var newcomp = new StaticData.ComponentValidate();
-                    newcomp.V = new List<double>();
-                    newcomp.I = new List<double>();
-                    if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.bjt && CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.resistor)
-                    {
+                    currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
 
-                        newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1]));
-
-                        newcomp.I.Add(currentExport[i].Value);
-                    }
-                    else if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a == CircuitManager.component.resistor)
-                    {
-                        newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1])));
-
-                        newcomp.I.Add(Math.Abs(currentExport[i].Value));
-                    }
-                    else
-                    {
-                        var vbe = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
-                        var vbc = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
-                        var ib = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ib");
-                        var ic = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ic");
-
-                        newcomp.V.Add(vbe.Value);
-                        newcomp.V.Add(vbc.Value);
-                        newcomp.I.Add(ib.Value);
-                        newcomp.I.Add(ic.Value);
-                    }
-
-
-
-                    newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
-                    newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
-                    newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
-                    newcomp.isSeries = -1;
-                    newcomp.beta = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().beta;
-                    newcomp.value = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().value;
-
-                    ComponentdataFalstad[newcomp.componentID] = newcomp;
-                    foreach (var k in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
-                    {
-                        NodedataFalstad[k].attached.Add(newcomp.componentID);
-                    }
                 }
-            };
-            dc.Run(CircuitManager.ckt);
+
+
+                dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+                {
+
+                    for (int i = 0; i < CircuitManager.componentList.Count; i++)
+                    {
+                        var newcomp = new StaticData.ComponentValidate();
+                        newcomp.V = new List<double>();
+                        newcomp.I = new List<double>();
+                        if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.bjt && CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a != CircuitManager.component.resistor)
+                        {
+
+                            newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1]));
+
+                            newcomp.I.Add(currentExport[i].Value);
+                        }
+                        else if (CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a == CircuitManager.component.resistor)
+                        {
+                            newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[0], CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes[1])));
+
+                            newcomp.I.Add(Math.Abs(currentExport[i].Value));
+                        }
+                        else
+                        {
+                            var vbe = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
+                            var vbc = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
+                            var ib = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ib");
+                            var ic = new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "ic");
+
+                            newcomp.V.Add(vbe.Value);
+                            newcomp.V.Add(vbc.Value);
+                            newcomp.I.Add(ib.Value);
+                            newcomp.I.Add(ic.Value);
+                        }
+
+
+
+                        newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
+                        newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
+                        newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
+                        newcomp.isSeries = -1;
+                        newcomp.beta = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().beta;
+                        newcomp.value = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().value;
+
+                        ComponentdataFalstad[newcomp.componentID] = newcomp;
+                        foreach (var k in CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes)
+                        {
+                            NodedataFalstad[k].attached.Add(newcomp.componentID);
+                        }
+                    }
+                };
+                dc.Run(CircuitManager.ckt);
+                try
+                {
+                    dc.Run(CircuitManager.ckt);
+                }
+                catch (Exception e)
+                {
+
+                    print(e.Message);
+                }
+            }
+            catch (Exception e)
+            {
+                print(e.Message);
+                //throw;
+            }
+            
 
 
 
@@ -448,67 +477,88 @@ public class ValidateScript : MonoBehaviour
         }
 
         //Creating ComponentData as well as updating it in Nodedata 
-        var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
-
-        var currentExport = new List<RealPropertyExport>();
-        for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
+        try
         {
-            currentExport.Add(new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "i"));
+            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
 
-        }
-
-
-        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-
+            var currentExport = new List<RealPropertyExport>();
             for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
             {
-                var newcomp = new StaticData.ComponentValidate();
-                newcomp.V = new List<double>();
-                newcomp.I = new List<double>();
-                if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.bjt && CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.resistor)
-                {
+                currentExport.Add(new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "i"));
 
-                    newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[0], CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[1]));
-
-                    newcomp.I.Add(currentExport[i].Value);
-                }
-                else if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.resistor)
-                {
-                    newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[0], CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[1])));
-
-                    newcomp.I.Add(Math.Abs(currentExport[i].Value));
-                }
-                else
-                {
-                    var vbe = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "vbe");
-                    var vbc = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "vbc");
-                    var ib = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "ib");
-                    var ic = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "ic");
-
-                    newcomp.V.Add(vbe.Value);
-                    newcomp.V.Add(vbc.Value);
-                    newcomp.I.Add(ib.Value);
-                    newcomp.I.Add(ic.Value);
-                }
-
-
-
-                newcomp.ctype = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a.ToString();
-                newcomp.nodes = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes;
-                newcomp.componentID = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit;
-                newcomp.isSeries = -1;
-                newcomp.beta = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().beta;
-                newcomp.value = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().value;
-
-                ComponentdataTinker[newcomp.componentID] = newcomp;
-                foreach (var k in CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes)
-                {
-                    NodedataTinker[k].attached.Add(newcomp.componentID);
-                }
             }
-        };
-        dc.Run(CircuitManagerTinker.ckt);
+
+
+            dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+            {
+
+                for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
+                {
+                    var newcomp = new StaticData.ComponentValidate();
+                    newcomp.V = new List<double>();
+                    newcomp.I = new List<double>();
+                    if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.bjt && CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.resistor)
+                    {
+
+                        newcomp.V.Add(exportDataEventArgs.GetVoltage(CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[0], CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[1]));
+
+                        newcomp.I.Add(currentExport[i].Value);
+                    }
+                    else if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.resistor)
+                    {
+                        newcomp.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[0], CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes[1])));
+
+                        newcomp.I.Add(Math.Abs(currentExport[i].Value));
+                    }
+                    else
+                    {
+                        var vbe = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "vbe");
+                        var vbc = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "vbc");
+                        var ib = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "ib");
+                        var ic = new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "ic");
+
+                        newcomp.V.Add(vbe.Value);
+                        newcomp.V.Add(vbc.Value);
+                        newcomp.I.Add(ib.Value);
+                        newcomp.I.Add(ic.Value);
+                    }
+
+
+
+                    newcomp.ctype = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a.ToString();
+                    newcomp.nodes = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes;
+                    newcomp.componentID = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit;
+                    newcomp.isSeries = -1;
+                    newcomp.beta = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().beta;
+                    newcomp.value = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().value;
+
+                    ComponentdataTinker[newcomp.componentID] = newcomp;
+                    foreach (var k in CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes)
+                    {
+                        NodedataTinker[k].attached.Add(newcomp.componentID);
+                    }
+                }
+            };
+            try
+            {
+                dc.Run(CircuitManagerTinker.ckt);
+            }
+            catch (SpiceSharp.Simulations.ValidationFailedException e)
+            {
+
+                //throw;
+
+                print(e.Message);
+                
+            }
+        }
+        catch (Exception e)
+        {
+
+            print(e.Message);
+        }
+        
+        
 
 
 

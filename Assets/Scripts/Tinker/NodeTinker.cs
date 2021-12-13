@@ -16,6 +16,7 @@ public class NodeTinker : MonoBehaviour
     public bool needSnapping;
     public List<BreakSolder> nodeConnected;
     GameObject[] soldereds;
+    public RaycastHit2D[] hits;
     //Stack<Transform> prevSoldered;
 
 
@@ -36,36 +37,42 @@ public class NodeTinker : MonoBehaviour
     {
         if (collision.tag == "node" && /*GetComponentInParent<Drag>().isDraggin == true*/ needSnapping && transform.parent.tag != "Breadboard grid")
         {
-            //GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
-            //collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
+            
 
-            if (collision.transform.parent.tag == "Breadboard grid")
+            if ( collision.transform.parent.tag == "Breadboard grid")
             {
                 GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
                 isConnectedToBreadboard = true;
+            }
+            else if (collision.GetComponentInParent<Breadboard>())
+            {
+                GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
+                isConnectedToComponent = true;
+                print(transform.parent.name);
             }
             else
             {
                 collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
 
                 isConnectedToComponent = true;
-                this.collision = collision.transform;
-
                 
+
+
 
                 collision.GetComponentInParent<BreakSolder>().connecteds.Add(GetComponentInParent<BreakSolder>());
                 GetComponentInParent<BreakSolder>().connecteds.Add(collision.GetComponentInParent<BreakSolder>());
 
                 nodeConnected.Add(collision.GetComponentInParent<BreakSolder>());
                 collision.GetComponent<NodeTinker>().nodeConnected.Add(GetComponentInParent<BreakSolder>());
-                
-            }
 
-            if(transform.parent.tag!="Breadboard grid") //should not solder when we drag the breadboard.
+            }
+            this.collision = collision.transform;
+
+            if (transform.parent.tag != "Breadboard grid") //should not solder when we drag the breadboard.
             {
                 needSoldering = true;
             }
-            
+
 
             if (collision.transform.parent.tag == "Breadboard grid")
             {
@@ -82,17 +89,17 @@ public class NodeTinker : MonoBehaviour
             }
             else if (transform.parent.tag == "Breadboard grid")
             {
-                
+
             }
 
-            if (transform.parent!=null && transform.parent.tag=="Breadboard"  && collision.transform.parent.tag != "Breadboard grid")
+            if (transform.parent != null && transform.parent.tag == "Breadboard" && collision.transform.parent.tag != "Breadboard grid")
             {
                 //transform.parent.SetParent(null);
             }
 
-           
+
         }
-        else if (collision.tag == "node" && collision.transform.parent.tag!= "Breadboard grid" && needSnapping && transform.parent.tag == "Breadboard grid")
+        else if (collision.tag == "node" && collision.transform.parent.tag != "Breadboard grid" && needSnapping && transform.parent.tag == "Breadboard grid")
         {
 
             collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
@@ -119,12 +126,12 @@ public class NodeTinker : MonoBehaviour
 
     }
 
-    public void SolderParent() //makes all the soldered components childs of single parent
+    public void SolderParent() //makes all the soldered components childs of same parent
     {
         if (isConnectedToComponent)
         {
             isConnectedToComponent = false;
-            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")) 
+            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag != "soldered"))
                 && collision.transform.parent.parent == null)
             {
                 GameObject newSoldered = Instantiate<GameObject>(soldered);
@@ -135,7 +142,7 @@ public class NodeTinker : MonoBehaviour
             else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
             {
                 collision.transform.parent.SetParent(transform.parent.parent);
-                if(transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
+                if (transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
                 {
                     transform.parent.parent.parent = null;
                 }
@@ -159,20 +166,24 @@ public class NodeTinker : MonoBehaviour
                     Destroy(currentParent);
                 }
             }
-            
+            else
+            {
+                print("hre");
+            }
+
         }
-    } 
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "node" &&  needSnapping && transform.parent.tag!="Breadboard grid")
+        if (collision.tag == "node" && needSnapping && transform.parent.tag != "Breadboard grid")
         {
             needSoldering = false;
             if (collision.transform.parent.tag == "Breadboard grid")
             {
                 isConnectedToBreadboard = false;
 
-                
+
             }
             else
             {
@@ -186,10 +197,10 @@ public class NodeTinker : MonoBehaviour
             }
         }
 
-        
+
     }
 
-    
+
 
     private void OnMouseOver()
     {
@@ -198,16 +209,16 @@ public class NodeTinker : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire && !StaticData.isSoldering)
             {
-                if (AssetManager.isSolderingIron && transform.parent.tag!="Breadboard grid")
+                if (AssetManager.isSolderingIron && transform.parent.tag != "Breadboard grid")
                 {
                     AssetManager.solderingIronIcon.Solder(transform.position);
                     wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
                 }
-                else if(transform.parent.tag != "Breadboard grid")
+                else if (transform.parent.tag != "Breadboard grid")
                 {
                     print("there is no soldering iron");
                 }
-                if(transform.parent.tag == "Breadboard grid")
+                if (transform.parent.tag == "Breadboard grid")
                 {
                     wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
                 }
@@ -222,24 +233,28 @@ public class NodeTinker : MonoBehaviour
 
     public void BreakSoldered()
     {
-        GameObject currentParent = nodeConnected[0].transform.parent.gameObject;
-        for (int i = 0; i < nodeConnected.Count; i++)
+        if (transform.parent.parent != null && transform.parent.parent.tag == "soldered")
         {
-            for (int j = 0; j < nodeConnected.Count; j++)
+            GameObject currentParent = nodeConnected[0].transform.parent.gameObject;
+            for (int i = 0; i < nodeConnected.Count; i++)
             {
-                nodeConnected[i].connecteds.Remove(nodeConnected[j]);
-            }
+                for (int j = 0; j < nodeConnected.Count; j++)
+                {
+                    nodeConnected[i].connecteds.Remove(nodeConnected[j]);
+                }
 
-            nodeConnected[i].Break();
+                nodeConnected[i].Break();
+            }
+            Destroy(currentParent);
+            CheckSoldered();
         }
-        Destroy(currentParent);
-        CheckSoldered();
+
     }
 
     public void CheckSoldered() //to ensure soldered parent has more than 1 child
     {
         soldereds = GameObject.FindGameObjectsWithTag("soldered");
-        for (int i = soldereds.Length-1; i>=0; i--)
+        for (int i = soldereds.Length - 1; i >= 0; i--)
         {
             Drag[] childs = soldereds[i].GetComponentsInChildren<Drag>();
             if (childs.Length == 1)
@@ -254,6 +269,10 @@ public class NodeTinker : MonoBehaviour
         }
     }
 
+    public void GetRaycastHits()
+    {
+        hits = Physics2D.RaycastAll(transform.position, Vector2.zero);
+    }
 
     private void OnMouseExit()
     {
