@@ -30,6 +30,7 @@ public class InventoryButton : MonoBehaviour
             {"bjtpnp",components[6] },
             {"diode",components[7] },
             {"zenerDiode",components[8] },
+            {"gizmo",components[9] },
         };
 
         componentsNameDict = new Dictionary<string, string>(){
@@ -42,6 +43,7 @@ public class InventoryButton : MonoBehaviour
             { "bjtpnp","PNP BJT"},
             { "diode","Diode"},
             { "zenerDiode","Zener Diode"},
+            { "gizmo","Gizmo"},
         };
         childs = GetComponentsInChildren<TMP_Text>();
         childs[0].text = quantity.ToString();
@@ -61,7 +63,7 @@ public class InventoryButton : MonoBehaviour
             newComponent = Instantiate(componentsDict[component]);
             CircuitManagerTinker.ChangeSelected(newComponent);
 
-            if (newComponent.tag != "Breadboard")
+            if (newComponent.GetComponent<ComponentTinker>())
             {
                 newComponent.GetComponent<ComponentTinker>().value = value;
                 if (newComponent.tag == "BJT")

@@ -15,7 +15,7 @@ public class DeleteButton : MonoBehaviour
         {
             GameObject selectedComponent = CircuitManagerTinker.selected;
             selectedComponent.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
-            if (CircuitManagerTinker.selected.tag != "Breadboard")
+            if (/*CircuitManagerTinker.selected.tag != "Breadboard" || */selectedComponent.GetComponent<ComponentTinker>())
             {
                 if (CircuitManagerTinker.selected.transform.parent!=null && CircuitManagerTinker.selected.transform.parent.tag == "soldered")
                 {
@@ -44,18 +44,28 @@ public class DeleteButton : MonoBehaviour
                     DeleteComponent(breadboardComponents[i].gameObject);
                 }
 
-                //delete breadboard code...
-                InventoryPanel.InventoryButtons buttons;
-                if (inventoryPanel.inventoryDict["breadboard"].quantity > 0)
+                string componentKey;
+                if (selectedComponent.tag == "Breadboard")
                 {
-                    buttons = inventoryPanel.inventoryDict["breadboard"];
-                    buttons.quantity += 1;
-                    buttons.button.UpdateQuantity(buttons.quantity);
-                    inventoryPanel.inventoryDict["breadboard"] = buttons;
+                    componentKey = "breadboard";
                 }
                 else
                 {
-                    buttons = inventoryPanel.inventoryDict["breadboard"];
+                    componentKey = "gizmo";
+                }
+
+                //delete breadboard code...
+                InventoryPanel.InventoryButtons buttons;
+                if (inventoryPanel.inventoryDict[componentKey].quantity > 0)
+                {
+                    buttons = inventoryPanel.inventoryDict[componentKey];
+                    buttons.quantity += 1;
+                    buttons.button.UpdateQuantity(buttons.quantity);
+                    inventoryPanel.inventoryDict[componentKey] = buttons;
+                }
+                else
+                {
+                    buttons = inventoryPanel.inventoryDict[componentKey];
                     buttons.quantity = 1;
                     GameObject newButton = Instantiate<GameObject>(button);
                     buttons.button = newButton.GetComponent<InventoryButton>();
@@ -65,8 +75,8 @@ public class DeleteButton : MonoBehaviour
                     buttons.button.value = "";
                     buttons.button.quantity = 1;
                     buttons.button.unit = "";
-                    buttons.button.component = "breadboard";
-                    inventoryPanel.inventoryDict["breadboard"] = buttons;
+                    buttons.button.component = componentKey;
+                    inventoryPanel.inventoryDict[componentKey] = buttons;
                 }
                 nodes = selectedComponent.GetComponentsInChildren<NodeTinker>();
                 foreach (NodeTinker node in nodes)
@@ -93,7 +103,7 @@ public class DeleteButton : MonoBehaviour
     {
         ComponentTinker componentTinker = component.GetComponent<ComponentTinker>();
         CircuitManagerTinker.componentList.Remove(component);
-        if (componentTinker.isWorking)
+        if ( componentTinker.isWorking)
         {
             string utilKey;
             if (component.tag != "BJT")

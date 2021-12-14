@@ -50,6 +50,7 @@ public class AssetManager : MonoBehaviour
             { "bjtpnp",tinkerComponentSprites[6]},
             { "diode",tinkerComponentSprites[7]},
             { "zenerDiode",tinkerComponentSprites[8]},
+            { "gizmo",tinkerComponentSprites[9]},
             };
         }
     }

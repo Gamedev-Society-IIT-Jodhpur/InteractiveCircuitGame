@@ -2388,6 +2388,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 82e1d3a63ed06404db745144dc5a01c6, type: 3}
   - {fileID: 21300000, guid: 4ee7f50fd85e88e409b7f8aa7405ba0c, type: 3}
   - {fileID: 21300000, guid: d6933e513ad0a9d47b379cdbdc962766, type: 3}
+  - {fileID: 21300000, guid: cf478bdc82687944293156bcb8afc5d7, type: 3}
   wireManagerinstance: {fileID: 1746141380}
   solderedInstance: {fileID: 111471613482395347, guid: 0c09f51f423bc1c46a29e629a182c3c2, type: 3}
   outlineMaterial: {fileID: 2100000, guid: d1d25ce5b54983045ae8ea9f68728ed3, type: 2}
@@ -3498,7 +3499,7 @@ Transform:
   - {fileID: 719308418}
   - {fileID: 1746141381}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905046028
 GameObject:
@@ -5400,7 +5401,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6763506866825939984, guid: 4f6b20dd125a244408023918f7a8eaa3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6763506866825939984, guid: 4f6b20dd125a244408023918f7a8eaa3, type: 3}
       propertyPath: m_LocalPosition.x

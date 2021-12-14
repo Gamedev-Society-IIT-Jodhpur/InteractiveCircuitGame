@@ -158,6 +158,7 @@ MonoBehaviour:
   - {fileID: 6527157549887623183, guid: dc2f8304bf5ab554c87de344dc631668, type: 3}
   - {fileID: 6763506866825939986, guid: 4f6b20dd125a244408023918f7a8eaa3, type: 3}
   - {fileID: 6763506866825939986, guid: 4912d9676d95a784ca328befd83cd62d, type: 3}
+  - {fileID: 2010399531494422067, guid: a520a4c509a51db478c4ffba447ba4f4, type: 3}
   component: 
   value: 
   unit: 
