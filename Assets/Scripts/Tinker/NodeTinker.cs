@@ -48,7 +48,7 @@ public class NodeTinker : MonoBehaviour
             {
                 GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
                 isConnectedToComponent = true;
-                print(transform.parent.name);
+                //print(transform.parent.name);
             }
             else
             {
@@ -131,45 +131,92 @@ public class NodeTinker : MonoBehaviour
         if (isConnectedToComponent)
         {
             isConnectedToComponent = false;
-            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag != "soldered"))
-                && collision.transform.parent.parent == null)
+            Transform prevParent;
+            if (!collision.GetComponentInParent<Breadboard>())
             {
-                GameObject newSoldered = Instantiate<GameObject>(soldered);
-                newSoldered.transform.position = transform.position;
-                transform.parent.SetParent(newSoldered.transform);
-                collision.transform.parent.SetParent(newSoldered.transform);
-            }
-            else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
-            {
-                collision.transform.parent.SetParent(transform.parent.parent);
-                if (transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
+                prevParent = transform.parent.parent;
+                if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag != "soldered"))
+                    && collision.transform.parent.parent == null)
                 {
-                    transform.parent.parent.parent = null;
+
+                    GameObject newSoldered = Instantiate<GameObject>(soldered);
+                    newSoldered.transform.position = transform.position;
+                    transform.parent.SetParent(newSoldered.transform);
+                    collision.transform.parent.SetParent(newSoldered.transform);
+                    newSoldered.transform.SetParent(prevParent);
+                }
+                else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
+                {
+                    collision.transform.parent.SetParent(transform.parent.parent);
+                    if (transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
+                    {
+                        // transform.parent.parent.parent = null;
+                    }
+
+                }
+                else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered"
+                    && (transform.parent.parent == null || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")))
+                {
+                    transform.parent.SetParent(collision.transform.parent.parent);
+                    collision.transform.parent.parent.SetParent(prevParent);
+                }
+                else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered" && transform.parent.parent != null && transform.parent.parent.tag == "soldered")
+                {
+                    prevParent = transform.parent.parent.parent;
+                    Drag[] connecteds = transform.parent.parent.GetComponentsInChildren<Drag>();
+                    GameObject currentParent = transform.parent.parent.gameObject;
+                    for (int i = 0; i < connecteds.Length; i++)
+                    {
+                        connecteds[i].transform.SetParent(collision.transform.parent.parent);
+                    }
+                    if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
+                    {
+                        Destroy(currentParent);
+                    }
+                    collision.transform.parent.parent.SetParent(prevParent);
+
+                }
+            }
+            // to attatch a component with other component with 1 node connected to breadboard.
+            else if (collision.GetComponentInParent<Breadboard>())
+            {
+                prevParent = collision.transform.parent.parent;
+                
+                if(collision.transform.parent.parent.tag!="soldered" && transform.parent.parent == null)
+                {
+                    GameObject newSoldered = Instantiate<GameObject>(soldered);
+                    newSoldered.transform.position = transform.position;
+                    newSoldered.transform.SetParent(prevParent);
+                    collision.transform.parent.SetParent(newSoldered.transform);
+                    transform.parent.SetParent(newSoldered.transform);
+                }
+                else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent.tag != "soldered")
+                {
+                    collision.transform.parent.SetParent(transform.parent.parent);
+                    transform.parent.parent.SetParent(prevParent);
+                }
+                else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered"
+                && transform.parent.parent == null)
+                {
+                    transform.parent.SetParent(collision.transform.parent.parent);
+                }
+                else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered" &&
+                    transform.parent.parent != null && transform.parent.parent.tag == "soldered")
+                {
+                    Drag[] connecteds = transform.parent.parent.GetComponentsInChildren<Drag>();
+                    GameObject currentParent = transform.parent.parent.gameObject;
+                    for (int i = 0; i < connecteds.Length; i++)
+                    {
+                        connecteds[i].transform.SetParent(collision.transform.parent.parent);
+                    }
+                    if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
+                    {
+                        Destroy(currentParent);
+                    }
                 }
 
             }
-            else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered"
-                && (transform.parent.parent == null || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")))
-            {
-                transform.parent.SetParent(collision.transform.parent.parent);
-            }
-            else if (collision.transform.parent.parent != null && collision.transform.parent.parent.tag == "soldered" && transform.parent.parent != null && transform.parent.parent.tag == "soldered")
-            {
-                Drag[] connecteds = transform.parent.parent.GetComponentsInChildren<Drag>();
-                GameObject currentParent = transform.parent.parent.gameObject;
-                for (int i = 0; i < connecteds.Length; i++)
-                {
-                    connecteds[i].transform.SetParent(collision.transform.parent.parent);
-                }
-                if (currentParent.GetComponentsInChildren<Drag>().Length == 0)
-                {
-                    Destroy(currentParent);
-                }
-            }
-            else
-            {
-                print("hre");
-            }
+            
 
         }
     }

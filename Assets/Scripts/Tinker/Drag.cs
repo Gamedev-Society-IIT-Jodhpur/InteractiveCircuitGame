@@ -135,6 +135,17 @@ public class Drag : MonoBehaviour
                         {
                             AssetManager.solderingIronIcon.Solder(node.transform.position);
                             node.SolderParent();
+
+                            //need to update nodes list after solder parent is called.
+                            if (transform.parent != null && transform.parent.tag == "soldered")
+                            {
+                                nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
+
+                            }
+                            else
+                            {
+                                nodes = GetComponentsInChildren<NodeTinker>();
+                            }
                         }
                         else if (hasTrulyInitiated)
                         {
@@ -148,8 +159,14 @@ public class Drag : MonoBehaviour
                         }
                     }
                 }
-                if((transform.parent != null && transform.parent.tag == "Breadboard")||(transform.parent != null && transform.parent.tag == "soldered" 
-                    && transform.parent.parent != null && transform.parent.parent.tag == "Breadboard"))
+            }
+
+            //new loop with updated nodes list.
+            foreach (NodeTinker node in nodes)
+            {
+                if (/*(transform.parent != null && transform.parent.tag == "Breadboard")||(transform.parent != null && transform.parent.tag == "soldered" 
+                    && transform.parent.parent != null && transform.parent.parent.tag == "Breadboard")*/
+                    transform.GetComponentInParent<Breadboard>())
                 {
                     node.GetRaycastHits();
                     foreach(var hit in node.hits)
@@ -165,20 +182,14 @@ public class Drag : MonoBehaviour
                         }
                     }
                 }
-                /*if (!isConnectedToBreadboard && node.isConnectedToBreadboard)
-                {
-                    isConnectedToBreadboard = true;
-                }*/
-                //node.SolderParent();
-
             }
 
-            if (transform.parent != null && transform.parent.tag == "Breadboard" && /*StaticData.dragThreshold == 0.01f*/ !isConnectedToBreadboard )
+            if (transform.parent != null && transform.parent.tag == "Breadboard" && !isConnectedToBreadboard )
             {
                 transform.parent = null;
             }
             else if (transform.parent != null && transform.parent.tag == "soldered" && transform.parent.parent != null &&
-                transform.parent.parent.tag == "Breadboard" && /*StaticData.dragThreshold == 0.01f*/ !isConnectedToBreadboard)
+                transform.parent.parent.tag == "Breadboard" && !isConnectedToBreadboard)
             {
                 transform.parent.parent = null;
             }
