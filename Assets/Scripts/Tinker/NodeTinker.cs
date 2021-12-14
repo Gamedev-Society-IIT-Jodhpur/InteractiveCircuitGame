@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -36,9 +37,9 @@ public class NodeTinker : MonoBehaviour
     {
         if (collision.tag == "node" && /*GetComponentInParent<Drag>().isDraggin == true*/ needSnapping && transform.parent.tag != "Breadboard grid")
         {
-            
 
-            if ( collision.transform.parent.tag == "Breadboard grid")
+
+            if (collision.transform.parent.tag == "Breadboard grid")
             {
                 GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
                 isConnectedToBreadboard = true;
@@ -54,8 +55,6 @@ public class NodeTinker : MonoBehaviour
                 collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
 
                 isConnectedToComponent = true;
-                this.collision = collision.transform;
-
 
 
 
@@ -132,18 +131,12 @@ public class NodeTinker : MonoBehaviour
         if (isConnectedToComponent)
         {
             isConnectedToComponent = false;
-            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard"))
-                && collision.transform.parent.parent == null)
+            Transform prevParent;
+            if (!collision.GetComponentInParent<Breadboard>())
             {
-                GameObject newSoldered = Instantiate<GameObject>(soldered);
-                newSoldered.transform.position = transform.position;
-                transform.parent.SetParent(newSoldered.transform);
-                collision.transform.parent.SetParent(newSoldered.transform);
-            }
-            else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
-            {
-                collision.transform.parent.SetParent(transform.parent.parent);
-                if (transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
+                prevParent = transform.parent.parent;
+                if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag != "soldered"))
+                    && collision.transform.parent.parent == null)
                 {
 
                     GameObject newSoldered = Instantiate<GameObject>(soldered);
@@ -188,8 +181,8 @@ public class NodeTinker : MonoBehaviour
             else if (collision.GetComponentInParent<Breadboard>())
             {
                 prevParent = collision.transform.parent.parent;
-                
-                if(collision.transform.parent.parent.tag!="soldered" && transform.parent.parent == null)
+
+                if (collision.transform.parent.parent.tag != "soldered" && transform.parent.parent == null)
                 {
                     GameObject newSoldered = Instantiate<GameObject>(soldered);
                     newSoldered.transform.position = transform.position;
@@ -223,6 +216,7 @@ public class NodeTinker : MonoBehaviour
                 }
 
             }
+
 
         }
     }
