@@ -16,7 +16,7 @@ TagManager:
   - Breadboard grid
   - delete button
   - soldered
-  - PathCheckpoint
+  - MapButton
   layers:
   - Default
   - TransparentFX

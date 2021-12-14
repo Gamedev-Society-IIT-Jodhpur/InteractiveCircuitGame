@@ -31,6 +31,10 @@ public class ComponentTinker : MonoBehaviour
         {
             value = "Default";
         }
+        else if (a == CircuitManagerTinker.component.zenerDiode)
+        {
+            value = "ZenerDiode";
+        }
 
     }
 

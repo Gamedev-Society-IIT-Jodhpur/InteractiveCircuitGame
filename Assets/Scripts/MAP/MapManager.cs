@@ -33,15 +33,15 @@ public class MapManager : MonoBehaviour
         {
 
             shopstext[i].Text = "Shop" +
-                "\n By Cab: "+(distance[current,i+2]/4.0).ToString()+"seconds"+"  $"+(distance[current,i+2]).ToString()+
-                "\n  By Walking: "+(distance[current,i+2]/2.0).ToString()+"seconds"+"  $ 0";
+                "\n By Cab:     "+(distance[current,i+2]/4.0).ToString()+" seconds"+"  $"+(distance[current,i+2]).ToString()+
+                "\n  By Walking:    "+(distance[current,i+2]/2.0).ToString()+" seconds"+"  $ 0";
         }
        TinkerLab.Text = "TinkerLab" +
-                "\n By Cab: " + (distance[current, 0] / 4.0).ToString() + "seconds" + "  $" + (distance[current, 0]).ToString() +
-                "\n  By Walking: " + (distance[current, 0] / 2.0).ToString() + "seconds" + "  $ 0";
+                "\n By Cab:     " + (distance[current, 0] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 0]).ToString() +
+                "\n  By Walking:    " + (distance[current, 0] / 2.0).ToString() + " seconds" + "  $ 0";
         falstad.Text= "Falstad" +
-                "\n By Cab: " + (distance[current, 1] / 4.0).ToString() + "seconds" + "  $" + (distance[current, 1]).ToString() +
-                "\n  By Walking: " + (distance[current, 1] / 2.0).ToString() + "seconds" + "  $ 0";
+                "\n By Cab:     " + (distance[current, 1] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 1]).ToString() +
+                "\n  By Walking:    " + (distance[current, 1] / 2.0).ToString() + " seconds" + "  $ 0";
     }
 
 
@@ -59,23 +59,24 @@ public class MapManager : MonoBehaviour
 
     public void mapscenechange(ButtonFunctionWrapper wrap)
     {
-        movetracker(wrap.whereto);
+        //movetracker(wrap.whereto);
 
 
         btnclick = true;
         
         Change(wrap.changeindex);
-        toscene=wrap.scenename;
+        //toscene=wrap.scenename;
+        SceneManager.LoadScene(wrap.scenename);
     }
-    public void Update()
+    public void ShowButtons(GameObject tosetActive)
     {
-        bool reached = (tracker.GetComponent<AIPath>().reachedDestination);
-
-        
-        if(reached && btnclick)
+         
+        GameObject[] withTag = GameObject.FindGameObjectsWithTag("MapButton");
+        foreach (var i in withTag)
         {
-            SceneManager.LoadScene(toscene);
+            i.SetActive(false);
         }
 
+        tosetActive.SetActive(true);
     }
 }

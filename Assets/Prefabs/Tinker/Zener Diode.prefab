@@ -441,11 +441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c7c3070a5c0764e88aacf01b6df322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 4
+  a: 5
   model: 0
   no_nodes: 2
   nameInCircuit: 
-  value: 5
+  value: ZenerDiode
   beta: 100
   nodes: []
   childs: []
