@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -55,7 +54,9 @@ public class NodeTinker : MonoBehaviour
                 collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
 
                 isConnectedToComponent = true;
-                
+                this.collision = collision.transform;
+
+
 
 
 
@@ -131,12 +132,18 @@ public class NodeTinker : MonoBehaviour
         if (isConnectedToComponent)
         {
             isConnectedToComponent = false;
-            Transform prevParent;
-            if (!collision.GetComponentInParent<Breadboard>())
+            if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag == "Breadboard"))
+                && collision.transform.parent.parent == null)
             {
-                prevParent = transform.parent.parent;
-                if (((transform.parent.parent == null) || (transform.parent.parent != null && transform.parent.parent.tag != "soldered"))
-                    && collision.transform.parent.parent == null)
+                GameObject newSoldered = Instantiate<GameObject>(soldered);
+                newSoldered.transform.position = transform.position;
+                transform.parent.SetParent(newSoldered.transform);
+                collision.transform.parent.SetParent(newSoldered.transform);
+            }
+            else if (transform.parent.parent != null && transform.parent.parent.tag == "soldered" && collision.transform.parent.parent == null)
+            {
+                collision.transform.parent.SetParent(transform.parent.parent);
+                if (transform.parent.parent.parent != null && transform.parent.parent.parent.tag == "Breadboard")
                 {
 
                     GameObject newSoldered = Instantiate<GameObject>(soldered);
@@ -216,7 +223,6 @@ public class NodeTinker : MonoBehaviour
                 }
 
             }
-            
 
         }
     }
