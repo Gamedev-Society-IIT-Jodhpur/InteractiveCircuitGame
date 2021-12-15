@@ -11,7 +11,12 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
     string unit;
     string value;
     string componentName;
+    public static List<StaticData.ComponentData> tempInventory;
 
+    private void Start()
+    {
+        tempInventory = new List<StaticData.ComponentData>();
+    }
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
@@ -43,7 +48,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         tempComponent.unit = unit;
         tempComponent.quantity = int.Parse(quantity.text);
 
-        StaticData.Inventory.Add(tempComponent);
+        tempInventory.Add(tempComponent);
 
     }
 }
