@@ -83,8 +83,8 @@ public class StaticData : MonoBehaviour
 
         ComponentData ZenerDiode = new ComponentData();
         ZenerDiode.name = "zenerDiode";
-        ZenerDiode.value = "6";
-        ZenerDiode.unit = "BV";
+        ZenerDiode.value = "zenerDiode";
+        ZenerDiode.unit = "";
         ZenerDiode.quantity = 3;
 
         ComponentData breadboard = new ComponentData();
@@ -100,7 +100,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(BJTnpn);
         Inventory.Add(BJTpnp);
         Inventory.Add(Diode);
-        //Inventory.Add(ZenerDiode);
+        Inventory.Add(ZenerDiode);
         
     }
 

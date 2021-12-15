@@ -35,7 +35,7 @@ public class NodeTinker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "node" && /*GetComponentInParent<Drag>().isDraggin == true*/ needSnapping && transform.parent.tag != "Breadboard grid")
+        if (collision.tag == "node" && needSnapping && transform.parent.tag != "Breadboard grid")
         {
 
 
@@ -48,16 +48,18 @@ public class NodeTinker : MonoBehaviour
             {
                 GetComponentInParent<Drag>().Snap(collision.transform.position, gameObject.transform);
                 isConnectedToComponent = true;
+
+                collision.GetComponentInParent<BreakSolder>().connecteds.Add(GetComponentInParent<BreakSolder>());
+                GetComponentInParent<BreakSolder>().connecteds.Add(collision.GetComponentInParent<BreakSolder>());
+
+                nodeConnected.Add(collision.GetComponentInParent<BreakSolder>());
+                collision.GetComponent<NodeTinker>().nodeConnected.Add(GetComponentInParent<BreakSolder>());
                 //print(transform.parent.name);
             }
             else
             {
                 collision.GetComponentInParent<Drag>().Snap(transform.position, collision.transform);
-
                 isConnectedToComponent = true;
-
-
-
 
                 collision.GetComponentInParent<BreakSolder>().connecteds.Add(GetComponentInParent<BreakSolder>());
                 GetComponentInParent<BreakSolder>().connecteds.Add(collision.GetComponentInParent<BreakSolder>());
