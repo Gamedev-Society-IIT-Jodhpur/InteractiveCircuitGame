@@ -5815,6 +5815,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5642886719000988545, guid: e3db15ecf1349f3429ff7aa522acd8d9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1076.3424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642886719000988545, guid: e3db15ecf1349f3429ff7aa522acd8d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 488.17123
+      objectReference: {fileID: 0}
     - target: {fileID: 5642886719050777080, guid: e3db15ecf1349f3429ff7aa522acd8d9, type: 3}
       propertyPath: m_Name
       value: NotificationCanvasa
