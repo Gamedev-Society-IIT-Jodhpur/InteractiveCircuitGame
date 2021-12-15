@@ -5561,10 +5561,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5642886719000988544, guid: e3db15ecf1349f3429ff7aa522acd8d9, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5642886719050777080, guid: e3db15ecf1349f3429ff7aa522acd8d9, type: 3}
       propertyPath: m_Name
       value: NotificationCanvasa
