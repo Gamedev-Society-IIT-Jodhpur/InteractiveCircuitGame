@@ -5622,7 +5622,11 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 329.88635, y: 39.18077}
+<<<<<<< Updated upstream
   m_SizeDelta: {x: 200, y: 345.0185}
+=======
+  m_SizeDelta: {x: 200, y: 346}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1574819697004147628
 GameObject:

@@ -7,7 +7,7 @@ public class CheckNotification : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         StartCoroutine(check());
     }
 
@@ -32,9 +32,4 @@ public class CheckNotification : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

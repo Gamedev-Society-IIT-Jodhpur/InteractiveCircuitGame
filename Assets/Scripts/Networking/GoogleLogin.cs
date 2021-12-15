@@ -12,6 +12,7 @@ public class GoogleLogin : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         if (NetworkSingleton.Instance.CheckNetworkConnection())
         {
             if (PlayerPrefs.GetString("email", "") != "")
