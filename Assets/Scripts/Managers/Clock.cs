@@ -10,6 +10,8 @@ public class Clock : MonoBehaviour
     void Start()
     {
         timeText = GetComponent<TMP_Text>();
+        timeText.text = ((int)Timer.currentTime / 60).ToString() + " : " + (int)Timer.currentTime % 60;
+        Timer.StartTimer();
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class Clock : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) )
         {
+            //Time.timeScale *= 2;
             Timer.StartTimer();
         }
         if (Input.GetKeyDown(KeyCode.Return))

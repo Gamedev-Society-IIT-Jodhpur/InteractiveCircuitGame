@@ -6,13 +6,7 @@ public class Timer : MonoBehaviour
 {
     public static float currentTime = 0;
     public static bool isTimerRunning = false;
-    public static
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
