@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Web;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ComponentInitialization : MonoBehaviour
 
@@ -19,7 +19,7 @@ public class ComponentInitialization : MonoBehaviour
     public int beta = 100;
     public List<string> nodes = new List<string>();
     Transform[] childs;
-    public Text valueText;
+    public TMP_Text valueText;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class ComponentInitialization : MonoBehaviour
         if (a!= CircuitManager.component.wire && a!= CircuitManager.component.bjt && a!=CircuitManager.component.diode && a!=CircuitManager.component.zenerDiode)
         {
             childs = GetComponentsInChildren<Transform>();
-            valueText = GetComponentInChildren<Text>();
+            valueText = GetComponentInChildren<TMP_Text>();
             if (valueText)
             {
                 
@@ -53,7 +53,7 @@ public class ComponentInitialization : MonoBehaviour
         else if (a == CircuitManager.component.bjt)
         {
             value = model.ToString();
-            valueText = GetComponentInChildren<Text>();
+            valueText = GetComponentInChildren<TMP_Text>();
             valueText.text = "β=" + beta.ToString();
         }
         else if (a == CircuitManager.component.diode)
