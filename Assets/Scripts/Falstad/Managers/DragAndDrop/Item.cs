@@ -20,7 +20,6 @@ public class Item : MonoBehaviour
     void Start()
     {
         childs = gameObject.GetComponentsInChildren<Transform>();
-        print(childs[1].position);
         /*if (childs[0].tag != "Wire")
         {
             wires = childs[3].GetComponentsInChildren<Transform>();

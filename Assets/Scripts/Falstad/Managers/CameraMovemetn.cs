@@ -17,23 +17,18 @@ public class CameraMovemetn : MonoBehaviour
         {
 
             // Scroll forward
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && cam.orthographicSize > minZoom)
             {
                 ZoomOrthoCamera(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
             }
 
             // Scoll back
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0 && cam.orthographicSize < maxZoom)
             {
                 ZoomOrthoCamera(Camera.main.ScreenToWorldPoint(Input.mousePosition), -1);
             }
 
             PanCamera();
-        }
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            Debug.Log(Input.GetMouseButtonDown(2));
         }
 
     }
@@ -63,11 +58,11 @@ public class CameraMovemetn : MonoBehaviour
 
     void PanCamera()
     {
-        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
         }
-        if (Input.GetMouseButton(1) || Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButton(1))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
             cam.transform.position += difference; 

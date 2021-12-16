@@ -34,6 +34,7 @@ public class StaticData : MonoBehaviour
         public string name;
         public string value;
         public string unit;
+        public string price;
         public int quantity;
     }
 

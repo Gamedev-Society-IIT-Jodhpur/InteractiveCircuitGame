@@ -10,6 +10,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
     public TMP_InputField quantity;
     string unit;
     string value;
+    string price;
     string componentName;
     public static List<StaticData.ComponentData> tempInventory;
 
@@ -28,17 +29,19 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
                 componentName = item.Value["name"];
                 unit = item.Value["unit"];
                 value = item.Value["value"];
+                price = item.Value["price"];
                 break;
             }
         }
-
-        Debug.Log("Unit + Value" + unit + value);
-        Debug.Log(componentName);
 
         string s = "{0} - {1} - {2} ({3})";
         string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
 
         Store.Items.Add(itemDesc);
+
+        int totalPrice = int.Parse(quantity.text) * int.Parse(price);
+
+        Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 
         StaticData.ComponentData tempComponent = new StaticData.ComponentData();
         componentName =  StoreAssetmanager.Instance.itemsNameMaping[componentName];
@@ -47,6 +50,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         tempComponent.value = value;
         tempComponent.unit = unit;
         tempComponent.quantity = int.Parse(quantity.text);
+        tempComponent.price = price;
 
         tempInventory.Add(tempComponent);
 

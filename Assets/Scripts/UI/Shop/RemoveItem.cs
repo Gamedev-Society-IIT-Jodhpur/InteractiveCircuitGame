@@ -11,6 +11,8 @@ public class RemoveItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         Store.Items.RemoveAt(index);
+        int totalPrice = AddItem.tempInventory[index].quantity * int.Parse(AddItem.tempInventory[index].price);
+        Checkout.totalAmount = (int.Parse(Checkout.totalAmount) - totalPrice).ToString();
         AddItem.tempInventory.RemoveAt(index);
         CartPanel.remove = true;
     }
