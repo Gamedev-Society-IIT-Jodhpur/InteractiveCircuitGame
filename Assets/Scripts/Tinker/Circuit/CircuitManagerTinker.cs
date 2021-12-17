@@ -281,9 +281,9 @@ public class CircuitManagerTinker : MonoBehaviour
 
         var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
         //var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
-        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+        /*dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
-           /* if (selected.GetComponent<ComponentTinker>().a != component.bjt)
+            if (selected.GetComponent<ComponentTinker>().a != component.bjt)
             {
 
                 print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
@@ -299,11 +299,11 @@ public class CircuitManagerTinker : MonoBehaviour
                                     + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
                              + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
                             + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
-            }*/
-        };
+            
+        };*/
 
         // Run the simulation
-        try
+       /* try
         {
             dc.Run(ckt);
         }
@@ -312,7 +312,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
             //throw;
             print(e);
-        }
+        }*/
 
         //print(selected.name+" "+ a);
         //print(selected.name + " " + b);

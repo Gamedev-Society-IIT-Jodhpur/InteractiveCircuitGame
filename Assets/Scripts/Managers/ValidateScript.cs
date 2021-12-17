@@ -56,11 +56,11 @@ public class ValidateScript : MonoBehaviour
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
-                    formattedstring += (" " + Componentdata[j].I[k]);
+                    formattedstring += (" " + Math.Round(Componentdata[j].I[k],5));
                 }
                 for (int k = 0; k < Componentdata[j].V.Count; k++)
                 {
-                    formattedstring += (" " + Componentdata[j].V[k]);
+                    formattedstring += (" " + Math.Round(Componentdata[j].V[k],5));
                 }
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 temp.Add(formattedstring);
@@ -87,11 +87,11 @@ public class ValidateScript : MonoBehaviour
                 string formattedstring = Componentdata[j].value;
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
-                    formattedstring += (" " + Componentdata[j].I[k]);
+                    formattedstring += (" " + Math.Round(Componentdata[j].I[k], 5));
                 }
                 for (int k = 0; k < Componentdata[j].V.Count; k++)
                 {
-                    formattedstring += (" " + Componentdata[j].V[k]);
+                    formattedstring += (" " + Math.Round(Componentdata[j].V[k], 5));
                 }
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 templist.Add(formattedstring);
@@ -194,7 +194,7 @@ public class ValidateScript : MonoBehaviour
     {
         circuitManager.GetComponent<CircuitManager>().Play();
 
-        if (/*CheckSpecs()*/ true)
+        if (CheckSpecs())
         {
 
             //All nodes id are updated
@@ -283,7 +283,7 @@ public class ValidateScript : MonoBehaviour
                         }
                     }
                 };
-                dc.Run(CircuitManager.ckt);
+                
                 try
                 {
                     dc.Run(CircuitManager.ckt);
