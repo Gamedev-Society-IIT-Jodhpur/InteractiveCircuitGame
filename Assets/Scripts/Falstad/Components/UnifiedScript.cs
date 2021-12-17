@@ -10,8 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class UnifiedScript: MonoBehaviour
 {
-    static string scene;
-
+    public static string scene;
+    static bool dictCreated = false;
     
     public  delegate void  Del(string name, List<string> nodes, string value1 , string value2);
     public static Dictionary<string, System.Delegate> dict1 = new Dictionary<string, System.Delegate>();
@@ -172,9 +172,9 @@ public class UnifiedScript: MonoBehaviour
 
     void Awake()
     {
-        scene = SceneManager.GetActiveScene().name;
-       // if (scene == "Falstad")
-       /// {
+        
+       if (!dictCreated)
+       {
             Del Resistordel = ResistorInitialize;
             dict1.Add("resistor", Resistordel);
 
@@ -190,7 +190,9 @@ public class UnifiedScript: MonoBehaviour
             Del Diodedel = DiodeInitialize;
             dict1.Add("diode", Diodedel);
             dict1.Add("zenerDiode", Diodedel);
-        //}
+            dictCreated = true;
+        }
     }
     
+
 }

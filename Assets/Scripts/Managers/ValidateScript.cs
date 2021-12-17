@@ -440,9 +440,13 @@ public class ValidateScript : MonoBehaviour
                 print(i.Value.ctype);
                 print(i.Value.value);
             }
+            ValidationModel.isSuccess = true;
+            ValidationModel.Instance.Open();
         }
         else
         {
+            ValidationModel.isSuccess = false;
+            ValidationModel.Instance.Open();
             print("Circuit doesn't meet specifications");
         }
     }

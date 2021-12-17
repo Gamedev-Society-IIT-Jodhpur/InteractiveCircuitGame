@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ValidationModel : MonoBehaviour
@@ -9,6 +10,7 @@ public class ValidationModel : MonoBehaviour
     // Start is called before the first frame update
 
     public static bool isSuccess = false;
+    public static ValidationModel Instance;
 
     [SerializeField]
     TMP_Text title;
@@ -18,6 +20,12 @@ public class ValidationModel : MonoBehaviour
     Text buttonText;
 
 
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         transform.localScale = Vector2.zero;
@@ -25,12 +33,12 @@ public class ValidationModel : MonoBehaviour
 
     public void Open()
     {
-        isSuccess = !isSuccess;
+        
         if (isSuccess)
         {
             title.text = "Success";
             data.text = "Your circuit is valid";
-            buttonText.text = "Continue";
+            buttonText.text = "Continue to Map";
         }
         else
         {
@@ -56,5 +64,7 @@ public class ValidationModel : MonoBehaviour
     public void Success()
     {
         Debug.Log("Success");
+        LoadingManager.instance.LoadGame(SceneIndexes.Falstad,SceneIndexes.MAP);
+        PrevCurrScene.curr = 1;
     }
 }

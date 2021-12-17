@@ -70,6 +70,8 @@ public class DialogueManager : MonoBehaviour
             if (nextButtonText.text == "Continue")
             {
                 model.SetActive(true);
+                //SceneManager.LoadScene("Falstad");
+                LoadingManager.instance.LoadGame(SceneIndexes.Dialogue, SceneIndexes.Falstad);
             }
         }
         if (!isCoroutineRunning)

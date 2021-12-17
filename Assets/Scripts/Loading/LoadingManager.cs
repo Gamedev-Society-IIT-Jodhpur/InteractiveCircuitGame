@@ -16,18 +16,27 @@ public class LoadingManager : MonoBehaviour
    private void Awake()
     {
         instance = this;
-       SceneManager.LoadSceneAsync((int)SceneIndexes.Avatar, LoadSceneMode.Additive);
+       SceneManager.LoadSceneAsync((int)SceneIndexes.Login, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    // Update is called once per frame
-   public void LoadGame()
+    
+   public void LoadGame(SceneIndexes from , SceneIndexes to)
     {
         loadingScreen.gameObject.SetActive(true);
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.Avatar));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Falstad, LoadSceneMode.Additive));
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)to, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)to));
+    }
+    public void LoadGame(SceneIndexes from, string to)
+    {
+        loadingScreen.gameObject.SetActive(true);
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
+        scenesLoading.Add(SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive));
+        StartCoroutine(GetSceneLoadProgress());
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(to));
     }
 
     float totalSceneProgress;

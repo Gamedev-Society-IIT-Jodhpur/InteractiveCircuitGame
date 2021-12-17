@@ -17,7 +17,8 @@ public class GoogleLogin : MonoBehaviour
         {
             if (PlayerPrefs.GetString("email", "") != "")
             {
-                SceneManager.LoadScene("MainMenu");
+                //SceneManager.LoadScene("MainMenu");
+                LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.MainMenu);
             }
         }
     }
@@ -55,7 +56,8 @@ public class GoogleLogin : MonoBehaviour
 
             Debug.Log(PlayerPrefs.GetInt("avatar"));
 
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
+            LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.MainMenu);
         }
 
 

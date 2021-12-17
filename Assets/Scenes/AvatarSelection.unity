@@ -180,17 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d181c8029c1aa49922e5789d740d44, type: 3}
---- !u!114 &26053446 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3496718771836710906, guid: b8d181c8029c1aa49922e5789d740d44, type: 3}
-  m_PrefabInstance: {fileID: 26053445}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3df2141ae7ac674aaeb01679de6346b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &107159382
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +852,7 @@ GameObject:
   - component: {fileID: 954682296}
   - component: {fileID: 954682295}
   - component: {fileID: 954682297}
+  - component: {fileID: 954682298}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -911,21 +901,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 26053446}
-          m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
-          m_MethodName: LoadScene
-          m_Mode: 5
+        - m_Target: {fileID: 107159383}
+          m_TargetAssemblyTypeName: AvatarScreen, Assembly-CSharp
+          m_MethodName: setNewAvatar
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: MainMenu
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 107159383}
-          m_TargetAssemblyTypeName: AvatarScreen, Assembly-CSharp
-          m_MethodName: setNewAvatar
+        - m_Target: {fileID: 954682298}
+          m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
+          m_MethodName: ChangScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1075,6 +1065,20 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &954682298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954682293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69580090162111241b4b788c09643f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  from: 2
+  to: 3
 --- !u!1 &974873607
 GameObject:
   m_ObjectHideFlags: 0

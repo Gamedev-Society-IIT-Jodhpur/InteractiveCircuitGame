@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
-{ 
-    public void ChangScene(int index)
+{
+    //Add in to buttons used for changing screen
+    public SceneIndexes from;
+    public SceneIndexes to;
+    public void ChangScene()
     {
-        LoadingManager.instance.LoadGame();
+        LoadingManager.instance.LoadGame(from,to);
     }
 }

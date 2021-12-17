@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
     };
     int[,] distance ;
     int current = 1;
+    public List<Transform> trackerpoints;
     public List<Lean.Gui.LeanTooltipData> shopstext;
     public Lean.Gui.LeanTooltipData TinkerLab;
     public Lean.Gui.LeanTooltipData falstad;
@@ -28,6 +29,8 @@ public class MapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        current = PrevCurrScene.curr;
+        tracker.transform.position = trackerpoints[current].position; 
          distance = new int[6, 6] { { 0,1,2,7,9,11} , { 1,0,3,8,10,10} ,{ 2,3,0,5,7,11},{ 7,8,5,0,2,6},{ 9,10,7,2,0,4},{ 11,10,11,6,4,0} };
        for(int i = 0; i < shopstext.Count; i++)
         {
@@ -59,14 +62,25 @@ public class MapManager : MonoBehaviour
 
     public void mapscenechange(ButtonFunctionWrapper wrap)
     {
-        //movetracker(wrap.whereto);
+        
 
 
         btnclick = true;
         
+        
+        if(wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
+        {
+            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]);
+            Timer.SkipTime((distance[current, wrap.changeindex] / 4.0f));
+        }
+        else
+        {
+            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex] / 2.0f);
+            Timer.SkipTime((distance[current, wrap.changeindex] / 2.0f));
+        }
         Change(wrap.changeindex);
-        //toscene=wrap.scenename;
-        SceneManager.LoadScene(wrap.scenename);
+        //SceneManager.LoadScene(wrap.scenename);
+        LoadingManager.instance.LoadGame(SceneIndexes.MAP,wrap.toScene);
     }
     public void ShowButtons(GameObject tosetActive)
     {

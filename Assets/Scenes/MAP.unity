@@ -914,7 +914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 5
   scenename: Shop
-  whereto: {fileID: 505051571}
+  toScene: 7
+  mode: 0
 --- !u!114 &381033619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,7 +1907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 0
   scenename: Tinker
-  whereto: {fileID: 1276291283}
+  toScene: 8
+  mode: 0
 --- !u!1 &562563869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2265,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cdfc094e2409f41b4dd4d1d6b146bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackerpoints:
+  - {fileID: 1276291283}
+  - {fileID: 1674199312}
+  - {fileID: 1384599664}
+  - {fileID: 1335938675}
+  - {fileID: 209920072}
+  - {fileID: 505051571}
   shopstext:
   - {fileID: 282214182}
   - {fileID: 633464410}
@@ -2351,7 +2360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 3
   scenename: Shop
-  whereto: {fileID: 1335938675}
+  toScene: 7
+  mode: 1
 --- !u!114 &673402696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,7 +2510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 5
   scenename: Shop
-  whereto: {fileID: 505051571}
+  toScene: 7
+  mode: 1
 --- !u!114 &679922138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,7 +2665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 3
   scenename: Shop
-  whereto: {fileID: 1335938675}
+  toScene: 7
+  mode: 0
 --- !u!114 &759435537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,7 +2949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 1
   scenename: Falstad
-  whereto: {fileID: 1674199312}
+  toScene: 5
+  mode: 0
 --- !u!114 &778886681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5875,7 +5888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 4
   scenename: Shop
-  whereto: {fileID: 209920072}
+  toScene: 7
+  mode: 1
 --- !u!114 &1291396811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6422,7 +6436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 4
   scenename: Shop
-  whereto: {fileID: 209920072}
+  toScene: 7
+  mode: 0
 --- !u!114 &1511275455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6571,7 +6586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 1
   scenename: Falstad
-  whereto: {fileID: 1674199312}
+  toScene: 5
+  mode: 1
 --- !u!114 &1547401926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6854,7 +6870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 2
   scenename: Shop
-  whereto: {fileID: 1384599664}
+  toScene: 7
+  mode: 0
 --- !u!114 &1563446921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7261,7 +7278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 0
   scenename: Tinker
-  whereto: {fileID: 1276291283}
+  toScene: 8
+  mode: 1
 --- !u!224 &1573914885 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2962985293507291815, guid: 57a19ccdb87f8c24bb36da36cd0503a4, type: 3}
@@ -7878,7 +7896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 0
   scenename: 
-  whereto: {fileID: 0}
+  toScene: 0
+  mode: 0
 --- !u!1 &1767198164
 GameObject:
   m_ObjectHideFlags: 0
@@ -8699,7 +8718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeindex: 2
   scenename: Shop
-  whereto: {fileID: 1384599664}
+  toScene: 7
+  mode: 1
 --- !u!114 &1917865419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41211,7 +41231,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 210.2449, y: 33.933517}
+  m_SizeDelta: {x: 210.2449, y: 33.10469}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8827784690693526843
 MonoBehaviour:
@@ -42160,7 +42180,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 188.47644, y: 0}
+  m_SizeDelta: {x: 189.45848, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8827784692133330855
 MonoBehaviour:

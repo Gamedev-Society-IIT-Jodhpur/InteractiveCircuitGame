@@ -25,6 +25,13 @@ public class Checkout : MonoBehaviour
         Store.Items.Clear();
         AddItem.tempInventory.Clear();
 
+        if (PrevCurrScene.curr <= 1)
+        {
+            PrevCurrScene.prev = PrevCurrScene.curr;
+            PrevCurrScene.curr = 3;
+        }
+        //SceneManager.LoadScene("MAP");
+        LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
 
         if (MoneyAndXPData.money <= int.Parse(totalAmount))
         {

@@ -18,12 +18,13 @@ public class MainMenuNetworking : MonoBehaviour
         startButtonText.text = "Check Games";
     }
 
-    public void CheckAvailableGames(string sceneToChange)
+    public void CheckAvailableGames(string toscene)
     {
 
         if (isGameAvailable)
         {
-            SceneManager.LoadScene(sceneToChange);
+            //SceneManager.LoadScene(sceneToChange);
+            LoadingManager.instance.LoadGame(SceneIndexes.MainMenu, toscene);
         }
         else
         {

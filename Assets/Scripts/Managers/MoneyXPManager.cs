@@ -12,6 +12,7 @@ public class MoneyXPManager : MonoBehaviour
     {
         moneyText = GetComponentsInChildren<TMP_Text>()[0];
         xpText = GetComponentsInChildren<TMP_Text>()[1];
+        UpdateMoneyAndXPText();
     }
 
     public void InitiateMoney(float amount)

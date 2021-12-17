@@ -6,6 +6,7 @@ using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class CircuitManager : MonoBehaviour
 {
@@ -41,12 +42,17 @@ public class CircuitManager : MonoBehaviour
     
     private void Awake()
     {
+        
         valueinput = GameObject.FindGameObjectWithTag("value input");
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
 
-
+    private void Start()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Falstad"));
+        UnifiedScript.scene = SceneManager.GetActiveScene().name;
+    }
     public void Play()
     {
         ckt = new Circuit();

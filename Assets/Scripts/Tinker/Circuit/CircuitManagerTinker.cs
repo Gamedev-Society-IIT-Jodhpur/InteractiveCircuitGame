@@ -6,6 +6,7 @@ using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class CircuitManagerTinker : MonoBehaviour
 {
@@ -45,7 +46,11 @@ public class CircuitManagerTinker : MonoBehaviour
         componentList = new List<GameObject>();
     }
 
-    
+    private void Start()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tinker"));
+        UnifiedScript.scene = SceneManager.GetActiveScene().name;
+    }
 
     public void Play()
     {

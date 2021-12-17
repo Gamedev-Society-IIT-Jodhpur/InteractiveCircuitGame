@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctionWrapper : MonoBehaviour
 {
+    public enum modeOfTransportation
+    {
+        Cab,
+        Walk,
+    };
     // Start is called before the first frame update
     public int changeindex;
     public string scenename;
-    public Transform whereto;
+    public SceneIndexes toScene;
+    public modeOfTransportation mode;
 
     /*public void tempchangescene()
     {
