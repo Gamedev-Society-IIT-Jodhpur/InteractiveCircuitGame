@@ -27,14 +27,57 @@ public class DragManager : MonoBehaviour
     int axis = 0;
     bool forward = true;
     [SerializeField] TMP_Dropdown dropDown;
+    public static bool isGizmoPresent = false;
 
     void Update()
     {
+        #region Keyboard Shortcuts
         if (Input.GetKeyDown(KeyCode.Space))
         {
             mode = 0;
             dropDown.value = 0;
         }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            mode = 1;
+            dropDown.value = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            mode = 1;
+            dropDown.value = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            mode = 1;
+            dropDown.value = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            mode = 1;
+            dropDown.value = 4;
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            mode = 1;
+            dropDown.value = 5;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            mode = 1;
+            dropDown.value = 6;
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            mode = 1;
+            dropDown.value = 7;
+        }
+        else if (Input.GetKeyDown(KeyCode.G) && !isGizmoPresent)
+        {
+            mode = 1;
+            dropDown.value = 8;
+        }
+        #endregion
 
 
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -236,6 +279,13 @@ public class DragManager : MonoBehaviour
                 x1 = Mathf.RoundToInt(worldPoint.x);
                 y1 = Mathf.RoundToInt(worldPoint.y);
                 isDraggin = true;
+                if(toInstantiate.tag=="Gizmo" && isGizmoPresent)
+                {
+                    mode = 0;
+                    dropDown.value = 0;
+                    isDraggin = false;
+                    print("one gizmo already present"); //TODO add notification.
+                }
             }
             if (isDraggin && Input.GetMouseButton(0))
             {
@@ -245,11 +295,17 @@ public class DragManager : MonoBehaviour
                 {
                     toDraw = false;
                     newComponent = Instantiate<GameObject>(toInstantiate);
+                    //print(newComponent.name);
                     CircuitManager.ChangeSelected(newComponent);
                     if(newComponent.tag=="BJT") newComponent.GetComponent<BJTItem>().isMoving = true;
                     else newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
+                    if (toInstantiate.tag == "Gizmo")
+                    {
+                        isGizmoPresent = true;
+                    }
+
                 }
                 //for initializing bjt component
                 if (newComponent && newComponent.tag == "BJT")
@@ -319,6 +375,12 @@ public class DragManager : MonoBehaviour
         {
             mode = 0;
         }
+        /*else if (n==8 && isGizmoPresent)
+        {
+            print("one gizmo already present");  //TODO add notification
+            mode = 0;
+            dropDown.value = 0;
+        }*/
         else
         {
             mode = 1;

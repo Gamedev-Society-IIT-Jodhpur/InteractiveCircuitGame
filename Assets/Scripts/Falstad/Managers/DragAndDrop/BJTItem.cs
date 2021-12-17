@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BJTItem : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class BJTItem : MonoBehaviour
         
         if (isMoving)
         {
-            if (GetComponentInChildren<Text>() != null)
+            if (GetComponentInChildren<TMP_Text>() != null)
             {
-                GetComponentInChildren<Text>().transform.rotation = Quaternion.identity;
+                GetComponentInChildren<TMP_Text>().transform.rotation = Quaternion.identity;
             }
 
             childs[4].localScale = new Vector3(Vector3.Distance(childs[0].position, childs[1].position)*0.9f, childs[4].localScale.y, childs[4].localScale.z);

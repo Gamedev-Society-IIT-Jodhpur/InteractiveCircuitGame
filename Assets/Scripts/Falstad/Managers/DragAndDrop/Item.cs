@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Item : MonoBehaviour
 {
@@ -35,9 +35,9 @@ public class Item : MonoBehaviour
     {
         if (isMoving)
         {
-            if (GetComponentInChildren<Text>() != null)
+            if (GetComponentInChildren<TMP_Text>() != null)
             {
-                GetComponentInChildren<Text>().transform.rotation = Quaternion.identity;
+                GetComponentInChildren<TMP_Text>().transform.rotation = Quaternion.identity;
             }
 
 

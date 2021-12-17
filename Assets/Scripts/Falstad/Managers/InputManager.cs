@@ -7,34 +7,38 @@ public class InputManager : MonoBehaviour
 {
     public void ChangeValue(string value)
     {
-        ComponentInitialization component = CircuitManager.selected.GetComponent<ComponentInitialization>();
-        if (component.tag != "Wire" && component.a !=CircuitManager.component.bjt)
+        if (CircuitManager.selected.tag != "Gizmo")
         {
-            component.value = value;
-            if (component.valueText)
+            ComponentInitialization component = CircuitManager.selected.GetComponent<ComponentInitialization>();
+            if (component.tag != "Wire" && component.a != CircuitManager.component.bjt)
             {
-                if (component.a == CircuitManager.component.resistor) {
-                    
-                    component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
-                }
-                else if (component.a == CircuitManager.component.voltage)
+                component.value = value;
+                if (component.valueText)
                 {
-                    
-                    component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
-                }
-                
-                else
-                {
-                    component.valueText.text = "";
+                    if (component.a == CircuitManager.component.resistor)
+                    {
+
+                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
+                    }
+                    else if (component.a == CircuitManager.component.voltage)
+                    {
+
+                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
+                    }
+
+                    else
+                    {
+                        component.valueText.text = "";
+                    }
                 }
             }
-        }
-        else if (component.a == CircuitManager.component.bjt)
-        {
-            component.beta = int.Parse(value);
-            component.valueText.text = "β=" + value;
-            //print(value);
+            else if (component.a == CircuitManager.component.bjt)
+            {
+                component.beta = int.Parse(value);
+                component.valueText.text = "β=" + value;
+                //print(value);
 
+            }
         }
     }
 }

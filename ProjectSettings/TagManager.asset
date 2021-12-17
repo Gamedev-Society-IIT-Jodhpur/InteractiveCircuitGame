@@ -17,6 +17,7 @@ TagManager:
   - delete button
   - soldered
   - MapButton
+  - Gizmo
   layers:
   - Default
   - TransparentFX

@@ -44,6 +44,7 @@ public class CircuitManager : MonoBehaviour
     {
         
         valueinput = GameObject.FindGameObjectWithTag("value input");
+        valueinput.SetActive(false);
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
@@ -192,8 +193,8 @@ public class CircuitManager : MonoBehaviour
 
     public static void ChangeSelected(GameObject gameObject)
     {
-        
 
+        valueinput.SetActive(false);
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
@@ -201,12 +202,14 @@ public class CircuitManager : MonoBehaviour
 
         //to change input value text field
         selected = gameObject;
-        if (selected.tag != "Wire" && selected.tag=="BJT")
+        if (selected.tag == "Resistor" || selected.tag=="Voltage")
         {
+            valueinput.SetActive(true);
             valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
         }
         else if (selected.tag == "BJT")
         {
+            valueinput.SetActive(true);
             valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
         }
 
