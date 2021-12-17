@@ -9,13 +9,6 @@ public class OpenCloseButton : MonoBehaviour
     bool isOpening = false;
     bool isClosing = false;
     float x;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

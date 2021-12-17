@@ -17,12 +17,6 @@ public class ShopItemManager : MonoBehaviour
         price = transform.Find("BottomBar").transform.Find("Price");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void increaseItemCount()
     {
         quantityInt = quantity.GetComponent<TextMeshProUGUI>().text;

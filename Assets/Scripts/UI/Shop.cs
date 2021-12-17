@@ -7,6 +7,8 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NetworkSingleton.Instance.CheckNetworkConnection();
+
         Transform name = item.transform.Find("Name");
         Transform componenetName = name.transform.Find("ComponentName");
         componenetName.GetComponent<TextMeshProUGUI>().text = "NewCompoenent";

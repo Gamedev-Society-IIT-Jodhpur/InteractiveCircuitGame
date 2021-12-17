@@ -25,9 +25,17 @@ public class Checkout : MonoBehaviour
         Store.Items.Clear();
         AddItem.tempInventory.Clear();
 
-        SceneManager.LoadScene("MAP");
 
-        MoneyXPManager.DeductMoney(int.Parse(totalAmount));
+        if (MoneyAndXPData.money <= int.Parse(totalAmount))
+        {
+            MoneyXPManager.DeductMoney(int.Parse(totalAmount));
+            SceneManager.LoadScene("MAP");
+        }
+        else
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Not enough Money");
+        }
+
 
     }
 }

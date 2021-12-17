@@ -23,9 +23,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     public List<Dialogue> sentences_list;
     
-
-    private string nameOfPlayer = "";
-    private string nameOfBoss = "";
     private int index = 0;
     private bool isCoroutineRunning;
     private Color defaultColor;
