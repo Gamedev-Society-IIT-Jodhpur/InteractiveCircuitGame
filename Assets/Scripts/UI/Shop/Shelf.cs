@@ -38,7 +38,6 @@ public class Shelf : MonoBehaviour
 
         while (!asyncLoad.isDone)
         {
-            Debug.Log((float)asyncLoad.progress);
             yield return null;
         }
 

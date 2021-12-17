@@ -12,19 +12,21 @@ public class ModelBox : MonoBehaviour
     {
         background.alpha = 0;
         background.LeanAlpha(1, 0.5f);
-
         box.localPosition = new Vector2(0, -Screen.height);
-        box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo().delay = 0.1f;
+        box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo();
+
+        //box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo().delay = 0.1f;
     }
 
     public void CloseDialogue()
     {
         background.LeanAlpha(0, 0.5f);
-        box.LeanMoveLocalY(-Screen.height, 0.5f).setEaseOutExpo().setOnComplete(OnComplete);
+        box.LeanMoveLocalY(-2160, 1.0f).setEaseOutExpo().setOnComplete(OnComplete);
     }
 
     void OnComplete()
     {
+        // TODO: Go to map
         gameObject.SetActive(false);
     }
 

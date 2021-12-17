@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,13 +14,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     public RawImage image;
     [SerializeField]
-    public List<Dialogue> sentences_list;
-    [SerializeField]
     public float typeIntervel;
 
     public Image previousButtonImg;
     public Image nextButtonImg;
-    public Text nextButtonText;
+    public TMP_Text nextButtonText;
+    public GameObject model;
+    [SerializeField]
+    public List<Dialogue> sentences_list;
+    
 
     private string nameOfPlayer = "";
     private string nameOfBoss = "";
@@ -70,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (nextButtonText.text == "Continue")
             {
-                SceneManager.LoadScene("Falstad");
+                model.SetActive(true);
             }
         }
         if (!isCoroutineRunning)
@@ -84,13 +86,11 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(Type());
             }
         }
+        print(index == sentences_list.Count - 1);
         if (index == sentences_list.Count - 1)
         {
             nextButtonImg.color = continueColor;
             nextButtonText.text = "Continue";
-            
-            
-          
         }
     }
 
