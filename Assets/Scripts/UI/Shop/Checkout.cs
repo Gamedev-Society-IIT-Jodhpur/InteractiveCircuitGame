@@ -33,15 +33,7 @@ public class Checkout : MonoBehaviour
         //SceneManager.LoadScene("MAP");
         LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
 
-        if (MoneyAndXPData.money <= int.Parse(totalAmount))
-        {
-            MoneyXPManager.DeductMoney(int.Parse(totalAmount));
-            SceneManager.LoadScene("MAP");
-        }
-        else
-        {
-            CustomNotificationManager.Instance.AddNotification(2, "Not enough Money");
-        }
+        
 
 
     }

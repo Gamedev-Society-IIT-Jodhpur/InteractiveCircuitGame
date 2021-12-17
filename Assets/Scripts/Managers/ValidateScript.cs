@@ -51,7 +51,7 @@ public class ValidateScript : MonoBehaviour
             var temp = new List<string>();
             foreach (var j in i.components)
             {
-
+                print("loop works");
                 string formattedstring = Componentdata[j].ctype;
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
@@ -194,7 +194,7 @@ public class ValidateScript : MonoBehaviour
     {
         circuitManager.GetComponent<CircuitManager>().Play();
 
-        if (CheckSpecs())
+        if (/*CheckSpecs()*/ true)
         {
 
             //All nodes id are updated
@@ -434,12 +434,13 @@ public class ValidateScript : MonoBehaviour
                 print(i);
 
             }
-            foreach (var i in ComponentdataFalstad)
+           /* foreach (var i in ComponentdataFalstad)
             {
                 print(i.Key);
                 print(i.Value.ctype);
                 print(i.Value.value);
-            }
+            }*/
+
             ValidationModel.isSuccess = true;
             ValidationModel.Instance.Open();
         }
@@ -447,6 +448,7 @@ public class ValidateScript : MonoBehaviour
         {
             ValidationModel.isSuccess = false;
             ValidationModel.Instance.Open();
+            
             print("Circuit doesn't meet specifications");
         }
     }
@@ -713,6 +715,10 @@ public class ValidateScript : MonoBehaviour
             print(i);
 
         }
+        foreach(var i in serieslistFalstadModified)
+        {
+            print(i);
+        }
         Evaluate();
     }
 
@@ -753,7 +759,15 @@ public class ValidateScript : MonoBehaviour
         }
         else
         {
+            serieslistTinker.Clear();
+            NodedataTinker.Clear();
+            ComponentdataTinker.Clear();
+            NotSeriesTinker.Clear();
+            NotSeriesTinkerModified.Clear();
+            serieslistTinkerModified.Clear();
             print("Failed");
+            print("Dict Comparison:" + dictsame);
+            print("List Comparison:" + seriesequal);
         }
     }
 

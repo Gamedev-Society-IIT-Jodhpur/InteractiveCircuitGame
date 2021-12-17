@@ -16,7 +16,8 @@ public class LoadingManager : MonoBehaviour
    private void Awake()
     {
         instance = this;
-       SceneManager.LoadSceneAsync((int)SceneIndexes.Login, LoadSceneMode.Additive);
+        // TODO: Change Fastad to Login
+        SceneManager.LoadSceneAsync((int)SceneIndexes.Falstad, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
     }
 
@@ -52,7 +53,7 @@ public class LoadingManager : MonoBehaviour
                     totalSceneProgress += operation.progress;
                 }
                 totalSceneProgress = (totalSceneProgress / scenesLoading.Count) * 100f;
-                loadingtext.text = string.Format("Loading Enviornments:{0}%", totalSceneProgress);
+                loadingtext.text = string.Format("Loading :{0}%", totalSceneProgress);
                 progressBar.value = Mathf.RoundToInt(totalSceneProgress);
 
                 yield return null;

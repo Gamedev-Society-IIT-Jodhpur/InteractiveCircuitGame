@@ -69,7 +69,7 @@ public class CircuitManager : MonoBehaviour
         for (int i = 0; i < componentList.Count; i++)
         {
             //Debug.Log("i :"+i+" " +componentList[i].name);
-            print(componentList[i].name);
+            //print(componentList[i].name);
             childs = componentList[i].GetComponentsInChildren<Transform>();
             
             List<string> nodes= new List<string>();
@@ -234,7 +234,7 @@ public class CircuitManager : MonoBehaviour
      */
     private void Groundit()
     {
-        Debug.Log("no of circuits =" + circuits.Count);
+        //Debug.Log("no of circuits =" + circuits.Count);
 
         for (int i = 1; i < circuits.Count; i++)
         {
