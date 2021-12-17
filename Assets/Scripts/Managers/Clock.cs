@@ -6,20 +6,72 @@ using TMPro;
 public class Clock : MonoBehaviour
 {
     TMP_Text timeText;
+    int min;
+    int sec;
+
     // Start is called before the first frame update
     void Start()
     {
         timeText = GetComponent<TMP_Text>();
-        timeText.text = ((int)Timer.currentTime / 60).ToString() + " : " + (int)Timer.currentTime % 60;
+        min = (int)Timer.currentTime / 60;
+        sec= (int)Timer.currentTime % 60;
+        if (min < 10)
+        {
+            if (sec < 10)
+            {
+                timeText.text = "0"+min.ToString() + " : " + "0"+sec;
+            }
+            else
+            {
+                timeText.text = "0" + min.ToString() + " : "  + sec;
+            }
+        }
+        else
+        {
+            if (sec < 10)
+            {
+                timeText.text = min.ToString() + " : " + "0" + sec;
+            }
+            else
+            {
+                timeText.text = min.ToString() + " : " + sec;
+            }
+        }
+        //timeText.text = min.ToString() + " : " + sec;
         Timer.StartTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeText.text = ((int)Timer.currentTime/60).ToString() +" : "+ (int)Timer.currentTime%60;
+        min = (int)Timer.currentTime / 60;
+        sec = (int)Timer.currentTime % 60;
+        if (min < 10)
+        {
+            if (sec < 10)
+            {
+                timeText.text = "0" + min.ToString() + " : " + "0" + sec;
+            }
+            else
+            {
+                timeText.text = "0" + min.ToString() + " : " + sec;
+            }
+        }
+        else
+        {
+            if (sec < 10)
+            {
+                timeText.text = min.ToString() + " : " + "0" + sec;
+            }
+            else
+            {
+                timeText.text = min.ToString() + " : " + sec;
+            }
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) )
+        //timeText.text = ((int)Timer.currentTime/60).ToString() +" : "+ (int)Timer.currentTime%60;
+
+        /*if (Input.GetKeyDown(KeyCode.Space) )
         {
             //Time.timeScale *= 2;
             Timer.StartTimer();
@@ -27,6 +79,6 @@ public class Clock : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
            Timer.StopTimer();
-        }
+        }*/
     }
 }
