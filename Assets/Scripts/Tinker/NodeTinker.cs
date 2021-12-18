@@ -265,7 +265,7 @@ public class NodeTinker : MonoBehaviour
                 }
                 else if (transform.parent.tag != "Breadboard grid")
                 {
-                    print("there is no soldering iron");
+                    CustomNotificationManager.Instance.AddNotification(2, "Soldering iron isn't available");
                 }
                 if (transform.parent.tag == "Breadboard grid")
                 {

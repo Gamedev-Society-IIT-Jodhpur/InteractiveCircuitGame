@@ -51,7 +51,7 @@ public class ValidateScript : MonoBehaviour
             var temp = new List<string>();
             foreach (var j in i.components)
             {
-                print("loop works");
+                //print("loop works");
                 string formattedstring = Componentdata[j].ctype;
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
@@ -448,7 +448,7 @@ public class ValidateScript : MonoBehaviour
         {
             ValidationModel.isSuccess = false;
             ValidationModel.Instance.Open();
-            
+            CustomNotificationManager.Instance.AddNotification(2, "Circuit doesn't meet specifications");
             print("Circuit doesn't meet specifications");
         }
     }

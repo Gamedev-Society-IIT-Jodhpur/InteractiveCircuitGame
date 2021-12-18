@@ -150,12 +150,14 @@ public class Drag : MonoBehaviour
                         else if (hasTrulyInitiated)
                         {
                             SnapBack();
-                            print("soldering iron is not available");
+                            CustomNotificationManager.Instance.AddNotification(2, "Soldering iron isn't available");
+                            //print("soldering iron is not available");
                         }
                         else
                         {
                             AssetManager.deleteButton.DeleteComponent(gameObject);
-                            print("soldering iron is not available");
+                            CustomNotificationManager.Instance.AddNotification(2, "Soldering iron isn't available");
+                            //print("soldering iron is not available");
                         }
                     }
                 }

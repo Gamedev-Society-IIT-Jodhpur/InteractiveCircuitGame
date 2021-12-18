@@ -132,7 +132,8 @@ public class Wire : MonoBehaviour
                     }
                     else
                     {
-                        print("there is no soldering iron");
+                        CustomNotificationManager.Instance.AddNotification(2, "Soldering iron isn't available");
+                        //print("there is no soldering iron");
                     }
                     
                         
@@ -150,8 +151,6 @@ public class Wire : MonoBehaviour
                     newWire.GetComponent<Wire>().node1 = node2;
                     newWire.transform.SetParent(gameObject.transform.parent);
                     GetComponent<BoxCollider2D>().enabled = true;
-
-
                 }
             }
         }

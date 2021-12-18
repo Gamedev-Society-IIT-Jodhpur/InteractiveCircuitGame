@@ -284,7 +284,8 @@ public class DragManager : MonoBehaviour
                     mode = 0;
                     dropDown.value = 0;
                     isDraggin = false;
-                    print("one gizmo already present"); //TODO add notification.
+                    CustomNotificationManager.Instance.AddNotification(2, "Gizmo already present");
+                    //print("one gizmo already present"); //TODO add notification.
                 }
             }
             if (isDraggin && Input.GetMouseButton(0))

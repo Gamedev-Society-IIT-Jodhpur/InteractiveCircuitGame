@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(Type());
             }
         }
-        print(index == sentences_list.Count - 1);
+        //print(index == sentences_list.Count - 1);
         if (index == sentences_list.Count - 1)
         {
             nextButtonImg.color = continueColor;

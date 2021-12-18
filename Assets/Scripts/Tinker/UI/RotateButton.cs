@@ -55,13 +55,16 @@ public class RotateButton : MonoBehaviour
             }
             else
             {
-                print("can't rotate breadboard");
+                CustomNotificationManager.Instance.AddNotification(2, "Can't rotate breadboard");
+                //print("can't rotate breadboard");
             }
 
         }
         else
         {
-            print("select a component to rotate");
+
+            CustomNotificationManager.Instance.AddNotification(1, "Select a component to rotate");
+            //print("select a component to rotate");
         }
     }
 }

@@ -115,7 +115,7 @@ public class UnifiedScript: MonoBehaviour
         {
             if (!(CircuitManager.ckt.Contains(model + val)))
             {
-                print("model name :" + model + val);
+                //print("model name :" + model + val);
                 if (model == "BC547")
                     CircuitManager.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
                    "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
@@ -136,7 +136,7 @@ public class UnifiedScript: MonoBehaviour
         {
             if (!(CircuitManagerTinker.ckt.Contains(model + val)))
             {
-                print("model name :" + model + val);
+                //print("model name :" + model + val);
                 if (model == "BC547")
                     CircuitManagerTinker.ckt.Add(UnifiedScript.CreateBJTModel(model + val, string.Join(" ",
                    "IS=1.8E-14 BF=400 NF=0.9955 VAF=80 IKF=0.14 ISE=5E-14 ",
