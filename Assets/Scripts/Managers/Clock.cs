@@ -39,6 +39,7 @@ public class Clock : MonoBehaviour
         }
         //timeText.text = min.ToString() + " : " + sec;
         Timer.StartTimer();
+        //StartCoroutine(Timer.RunTime());
     }
 
     // Update is called once per frame
@@ -69,16 +70,16 @@ public class Clock : MonoBehaviour
             }
         }
 
-        //timeText.text = ((int)Timer.currentTime/60).ToString() +" : "+ (int)Timer.currentTime%60;
 
-        /*if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale *= 2;
             Timer.StartTimer();
+            //StartCoroutine(Timer.RunTime());
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-           Timer.StopTimer();
-        }*/
+            Timer.StopTimer();
+        }
     }
 }

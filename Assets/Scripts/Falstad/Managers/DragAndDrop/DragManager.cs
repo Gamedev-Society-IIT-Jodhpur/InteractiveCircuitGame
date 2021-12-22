@@ -28,6 +28,7 @@ public class DragManager : MonoBehaviour
     bool forward = true;
     [SerializeField] TMP_Dropdown dropDown;
     public static bool isGizmoPresent = false;
+    [SerializeField]ButtonManager buttonManager;
 
     void Update()
     {
@@ -76,6 +77,10 @@ public class DragManager : MonoBehaviour
         {
             mode = 1;
             dropDown.value = 8;
+        }
+        else if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            buttonManager.DeleteComponent();
         }
         #endregion
 
