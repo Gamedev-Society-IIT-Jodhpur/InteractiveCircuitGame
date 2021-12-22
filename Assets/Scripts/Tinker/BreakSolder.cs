@@ -18,6 +18,7 @@ public class BreakSolder : MonoBehaviour
 
     public void Break()
     {
+        MoneyXPManager.DeductXP(10);
         GameObject newSoldered = Instantiate<GameObject>(soldered);
         newSoldered.transform.position = transform.position;
         transform.SetParent(newSoldered.transform);

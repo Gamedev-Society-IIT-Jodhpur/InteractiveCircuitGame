@@ -284,6 +284,7 @@ public class NodeTinker : MonoBehaviour
     {
         if (transform.parent.parent != null && transform.parent.parent.tag == "soldered")
         {
+            CustomNotificationManager.Instance.AddNotification(1, "Breaking solder costs XP");
             GameObject currentParent = nodeConnected[0].transform.parent.gameObject;
             for (int i = 0; i < nodeConnected.Count; i++)
             {

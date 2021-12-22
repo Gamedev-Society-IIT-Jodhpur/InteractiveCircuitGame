@@ -20,13 +20,27 @@ public class NewWireManager : MonoBehaviour
 
     public void DestroyWire()
     {
+        int multiplier=0;
+        if(node1.transform.parent.parent.tag!="Breadboard grid")
+        {
+            multiplier += 1;
+        }
         childs = GetComponentsInChildren<Transform>();
         WireManager.isDrawingWire = false;
         nodes[0].GetComponent<NodeTinker>().wires.Remove(childs[1].gameObject);
         if (node2 != null)
         {
+            if (node2.transform.parent.parent.tag != "Breadboard grid")
+            {
+                multiplier += 1;
+            }
             nodes[nodes.Count - 1].GetComponent<NodeTinker>().wires.Remove(childs[childs.Length - 1].gameObject);
             Destroy(node2);
+        }
+        if (multiplier > 0)
+        {
+            MoneyXPManager.DeductXP(10 * multiplier);
+            CustomNotificationManager.Instance.AddNotification(1, "Deleting wire soldered to components cost XP");
         }
         Destroy(node1);
         CircuitManagerTinker.componentList.Remove(gameObject);

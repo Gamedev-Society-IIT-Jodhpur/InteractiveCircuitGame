@@ -19,6 +19,8 @@ public class DeleteButton : MonoBehaviour
             if (CircuitManagerTinker.selected.transform.parent != null && CircuitManagerTinker.selected.transform.parent.tag == "soldered"
                 && selectedComponent.tag != "Breadboard")
             {
+                MoneyXPManager.DeductXP(CircuitManagerTinker.selected.transform.parent.childCount * 10);
+                CustomNotificationManager.Instance.AddNotification(1, "Deleting soldered components costs XP");
                 GameObject currentParent = CircuitManagerTinker.selected.transform.parent.gameObject;
                 Drag[] connecteds = currentParent.GetComponentsInChildren<Drag>();
                 for (int i = 0; i < connecteds.Length; i++)

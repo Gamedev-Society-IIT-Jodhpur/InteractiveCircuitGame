@@ -75,7 +75,7 @@ public class Wire : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape) /*&& !StaticData.isSoldering*/)
+            if (Input.GetKeyDown(KeyCode.Escape) && !StaticData.isSoldering)
             {
                 GetComponentInParent<NewWireManager>().DestroyWire();
                 if (StaticData.isSoldering)

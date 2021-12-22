@@ -42,10 +42,10 @@ public class StaticData : MonoBehaviour
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
 
-    private void Start()
+    /*private void Start()
     {
-        
-        /*Inventory = new List<ComponentData>();
+
+        Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";
         res1.value = "1.5";
@@ -101,10 +101,10 @@ public class StaticData : MonoBehaviour
         Inventory.Add(BJTnpn);
         Inventory.Add(BJTpnp);
         Inventory.Add(Diode);
-        Inventory.Add(ZenerDiode);*/
-        
-    }
+        Inventory.Add(ZenerDiode);
 
+    }
+*/
     public static void UpdateComponentList()
     {
         componentList = CircuitManager.componentList;

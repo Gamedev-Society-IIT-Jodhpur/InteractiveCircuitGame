@@ -17,10 +17,11 @@ public class WireManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Shop");
-        }
+            print("Going to shop");
+        }*/
 
 
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
