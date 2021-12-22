@@ -37,9 +37,7 @@ public class Clock : MonoBehaviour
                 timeText.text = min.ToString() + " : " + sec;
             }
         }
-        //timeText.text = min.ToString() + " : " + sec;
         Timer.StartTimer();
-        //StartCoroutine(Timer.RunTime());
     }
 
     // Update is called once per frame
@@ -75,7 +73,6 @@ public class Clock : MonoBehaviour
         {
             //Time.timeScale *= 2;
             Timer.StartTimer();
-            //StartCoroutine(Timer.RunTime());
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {

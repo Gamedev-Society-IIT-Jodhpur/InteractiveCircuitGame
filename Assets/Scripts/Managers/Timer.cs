@@ -24,18 +24,8 @@ public class Timer : MonoBehaviour
                 startSec = int.Parse(System.DateTime.Now.ToString().Substring(17, 2));
             } 
         }
-        //print(System.DateTime.Now.ToString().Substring(17, 2));
 
     }
-
-    /*public static IEnumerator RunTime()
-    {
-        while (isTimerRunning)
-        {
-            currentTime += 1;
-            yield return new WaitForSeconds(1);
-        }
-    }*/
 
 
     public static void StartTimer()
@@ -43,8 +33,6 @@ public class Timer : MonoBehaviour
         isTimerRunning = true;
         startMin = int.Parse(System.DateTime.Now.ToString().Substring(14, 2));
         startSec = int.Parse(System.DateTime.Now.ToString().Substring(17, 2));
-        //StartCoroutine(RunTime());
-
     }
 
     public static void StopTimer()

@@ -19,7 +19,31 @@ public class Checkout : MonoBehaviour
     {
         foreach(var items in AddItem.tempInventory)
         {
-            StaticData.Inventory.Add(items);
+            bool added = false;
+            for (int i = 0; i < StaticData.Inventory.Count; i++)
+            {
+                if(StaticData.Inventory[i].name== items.name && StaticData.Inventory[i].value == items.value)
+                {
+                    StaticData.ComponentData tempComponent = new StaticData.ComponentData();
+
+                    tempComponent.name = StaticData.Inventory[i].name;
+                    tempComponent.value = StaticData.Inventory[i].value;
+                    tempComponent.unit = StaticData.Inventory[i].unit;
+                    tempComponent.quantity = StaticData.Inventory[i].quantity+items.quantity;
+                    tempComponent.price = StaticData.Inventory[i].price;
+                    StaticData.Inventory.RemoveAt(i);
+                    StaticData.Inventory.Add(tempComponent);
+                    added = true;
+                    break;
+                }
+                
+            }
+            if (!added)
+            {
+                StaticData.Inventory.Add(items);
+            }
+
+
         }
 
         Store.Items.Clear();
@@ -30,7 +54,7 @@ public class Checkout : MonoBehaviour
             PrevCurrScene.prev = PrevCurrScene.curr;
             PrevCurrScene.curr = 3;
         }
-        //SceneManager.LoadScene("MAP");
+        //SceneManager.LoadScene("Tinker");
         LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
 
         MoneyXPManager.DeductMoney(int.Parse(totalAmount));
