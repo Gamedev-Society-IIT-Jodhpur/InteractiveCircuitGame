@@ -53,8 +53,8 @@ public class MoneyXPManager : MonoBehaviour
 
     static void UpdateMoneyAndXPText()
     {
-        moneyText.text = "Money Left: \u20A8 " + MoneyAndXPData.money.ToString();
-        xpText.text = "XP: "+ MoneyAndXPData.xp.ToString();
+        moneyText.text = /*"Money Left: \u20A8 " + */MoneyAndXPData.money.ToString();
+        xpText.text = /*"XP: "+ */MoneyAndXPData.xp.ToString();
     }
 
     private void Update()

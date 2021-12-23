@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +42,7 @@ public class StaticData : MonoBehaviour
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
 
-    /*private void Start()
+  /*  private void Start()
     {
 
         Inventory = new List<ComponentData>();
@@ -67,13 +67,13 @@ public class StaticData : MonoBehaviour
         ComponentData BJTpnp = new ComponentData();
         BJTpnp.name = "bjtpnp";
         BJTpnp.value = "100";
-        BJTpnp.unit = "";
+        BJTpnp.unit = "β";
         BJTpnp.quantity = 3;
 
         ComponentData BJTnpn = new ComponentData();
         BJTnpn.name = "bjtnpn";
         BJTnpn.value = "100";
-        BJTnpn.unit = "";
+        BJTnpn.unit = "β";
         BJTnpn.quantity = 3;
 
         ComponentData Diode = new ComponentData();
@@ -104,6 +104,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(ZenerDiode);
 
     }
+
 */
     public static void UpdateComponentList()
     {
