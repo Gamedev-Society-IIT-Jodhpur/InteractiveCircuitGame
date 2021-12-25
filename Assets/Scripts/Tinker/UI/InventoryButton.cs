@@ -61,7 +61,7 @@ public class InventoryButton : MonoBehaviour
         if(!WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             newComponent = Instantiate(componentsDict[component]);
-            CircuitManagerTinker.ChangeSelected(newComponent);
+            
 
             if (newComponent.GetComponent<ComponentTinker>())
             {
@@ -71,6 +71,7 @@ public class InventoryButton : MonoBehaviour
                     newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value);
                 }
             }
+            CircuitManagerTinker.ChangeSelected(newComponent);
 
             //update quatity in InventoryDict
             if (component.Length>=7 && component.Substring(0, 7) == "voltage")

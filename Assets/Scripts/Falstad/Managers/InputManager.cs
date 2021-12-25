@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField]TMP_InputField inputField;
+
+    private void Start()
+    {
+        inputField.characterValidation = TMP_InputField.CharacterValidation.Decimal;
+    }
+
     public void ChangeValue(string value)
     {
         if (CircuitManager.selected.tag != "Gizmo")

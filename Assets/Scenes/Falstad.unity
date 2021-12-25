@@ -434,11 +434,11 @@ RectTransform:
   - {fileID: 8822478}
   - {fileID: 2067242075}
   - {fileID: 511636422}
+  - {fileID: 1062151488}
   - {fileID: 1574819696859158075}
   - {fileID: 1637142603}
   - {fileID: 602789546}
   - {fileID: 1911772509}
-  - {fileID: 1062151488}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1232,6 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf34efe9c7b3154d9b0c938dd076242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 2067242076}
 --- !u!4 &409589896
 Transform:
   m_ObjectHideFlags: 0
@@ -1691,7 +1692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1553032659890006328, guid: 7509173ce135a5641a577b116924e102, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1553032659890006328, guid: 7509173ce135a5641a577b116924e102, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3790,7 +3791,7 @@ RectTransform:
   - {fileID: 1204372200}
   - {fileID: 195725677440103968}
   m_Father: {fileID: 125224666}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4568,7 +4569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405685027999035662, guid: a69ed1015dd89e945857f81807c7ce6f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 405685027999035662, guid: a69ed1015dd89e945857f81807c7ce6f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5033,7 +5034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2962985293507291815, guid: 57a19ccdb87f8c24bb36da36cd0503a4, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2962985293507291815, guid: 57a19ccdb87f8c24bb36da36cd0503a4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5399,7 +5400,6 @@ GameObject:
   - component: {fileID: 2067242078}
   - component: {fileID: 2067242077}
   - component: {fileID: 2067242076}
-  - component: {fileID: 689486924787243247}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: value input
@@ -6119,18 +6119,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af0d40a97498e64193060c72370cd62, type: 3}
---- !u!114 &689486924787243247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067242074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1053652663483094026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6278,7 +6266,7 @@ RectTransform:
   - {fileID: 1574819697902723861}
   - {fileID: 1574819697045594424}
   m_Father: {fileID: 125224666}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

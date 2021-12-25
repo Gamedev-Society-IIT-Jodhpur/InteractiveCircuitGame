@@ -1,4 +1,5 @@
-using System.Collections;
+﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SpiceSharp;
@@ -36,6 +37,8 @@ public class CircuitManagerTinker : MonoBehaviour
     Transform[] rows=new Transform[4];
     Transform[,] columns= new Transform[60,2];
     List<List<string>> circuits = new List<List<string>>() { };
+    public static TMP_Text valueText;
+    public TMP_Text valueTextInstance;
 
     string a, b;
 
@@ -50,6 +53,7 @@ public class CircuitManagerTinker : MonoBehaviour
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tinker"));
         UnifiedScript.scene = SceneManager.GetActiveScene().name;
+        valueText = valueTextInstance;
     }
 
     public void Play()
@@ -323,10 +327,11 @@ public class CircuitManagerTinker : MonoBehaviour
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+            valueText.gameObject.SetActive(false);
         }
 
         selected = gameObject;
-
+        
         if (selected.tag == "Resistor")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 2.0f);
@@ -336,6 +341,7 @@ public class CircuitManagerTinker : MonoBehaviour
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 3.0f);
         }
         selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
+        ShowValue();
     }
 
     private void Merge(int i, int j)
@@ -357,6 +363,31 @@ public class CircuitManagerTinker : MonoBehaviour
 
         }
         circuits.Clear();
+    }
+
+
+    //to show value of the component when selected
+    static void ShowValue()
+    {
+        if (selected.GetComponent<ComponentTinker>())
+        {
+            ComponentTinker componentType = selected.GetComponent<ComponentTinker>();
+
+            if (componentType.a == CircuitManagerTinker.component.resistor)
+            {
+                valueText.gameObject.SetActive(true);
+                valueText.text = "Resistance: " + SIUnits.NormalizeRounded(Convert.ToDouble(componentType.value), 9, Char.ToString(((char)0x03A9)));
+            }
+            else if (componentType.a == CircuitManagerTinker.component.bjt)
+            {
+                valueText.gameObject.SetActive(true);
+                valueText.text = "β=" + componentType.beta.ToString();
+            }
+            else if (componentType.a == CircuitManagerTinker.component.zenerDiode)
+            {
+                ///// TODO show zener breakdown when atharv parameterises it.
+            }
+        }
     }
 
 }

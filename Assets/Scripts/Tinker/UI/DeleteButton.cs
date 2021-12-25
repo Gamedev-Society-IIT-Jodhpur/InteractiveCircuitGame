@@ -48,7 +48,7 @@ public class DeleteButton : MonoBehaviour
         //TODO add notification
         else if (!StaticData.isSoldering)
         {
-            CustomNotificationManager.Instance.AddNotification(2, "No component selected");
+            CustomNotificationManager.Instance.AddNotification(1, "No component selected");
             //print("No component selected");
         }
     }
