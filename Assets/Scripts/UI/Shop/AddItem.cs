@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 public class AddItem : MonoBehaviour, IPointerClickHandler
 {
     public TextMeshProUGUI header;
-    public TMP_Dropdown valuesDropDown;
-    public TMP_InputField quantity;
+    //public TMP_Dropdown valuesDropDown;
+    //public TMP_InputField quantity;
+    [SerializeField] TMP_Text quantityText;
+    int quantity=1;
     string unit;
     string value;
     string price;
@@ -16,7 +18,9 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+
         tempInventory = new List<StaticData.ComponentData>();
+        quantityText.text = quantity.ToString();
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -35,11 +39,13 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         }
 
         string s = "{0} - {1} - {2} ({3})";
-        string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
+        //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
+        string itemDesc = string.Format(s, header.text, value, unit, quantity);
 
         Store.Items.Add(itemDesc);
 
-        int totalPrice = int.Parse(quantity.text) * int.Parse(price);
+        //int totalPrice = int.Parse(quantity.text) * int.Parse(price);
+        int totalPrice = quantity * int.Parse(price);
 
         Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 
@@ -49,10 +55,26 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         tempComponent.name = componentName;
         tempComponent.value = value;
         tempComponent.unit = unit;
-        tempComponent.quantity = int.Parse(quantity.text);
+        //tempComponent.quantity = int.Parse(quantity.text);
+        tempComponent.quantity = quantity;
         tempComponent.price = price;
 
         tempInventory.Add(tempComponent);
 
+    }
+
+    public void IncreaseQuantity()
+    {
+        quantity += 1;
+        quantityText.text = quantity.ToString();
+    }
+
+    public void DecreaseQuantity()
+    {
+        if (quantity > 0)
+        {
+            quantity -= 1;
+            quantityText.text = quantity.ToString();
+        }
     }
 }
