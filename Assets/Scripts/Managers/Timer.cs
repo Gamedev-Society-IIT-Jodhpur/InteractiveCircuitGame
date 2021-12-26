@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public static bool isTimerRunning = false;
     public static int startMin;
     public static int startSec;
+    public static int startHr;
     int timeElapsed;
     
 
@@ -16,12 +17,15 @@ public class Timer : MonoBehaviour
     {
         if (isTimerRunning)
         {
-            timeElapsed = ((int.Parse(System.DateTime.Now.ToString().Substring(14, 2)) - startMin) * 60) + (int.Parse(System.DateTime.Now.ToString().Substring(17, 2)) - startSec);
+            timeElapsed = ((int.Parse(System.DateTime.Now.ToString().Substring(11, 2)) - startHr) * 60*60) + 
+                ((int.Parse(System.DateTime.Now.ToString().Substring(14, 2)) - startMin) * 60) + 
+                (int.Parse(System.DateTime.Now.ToString().Substring(17, 2)) - startSec);
             if (timeElapsed>=1)
             {
                 currentTime += timeElapsed;
                 startMin = int.Parse(System.DateTime.Now.ToString().Substring(14, 2));
                 startSec = int.Parse(System.DateTime.Now.ToString().Substring(17, 2));
+                startHr = int.Parse(System.DateTime.Now.ToString().Substring(11, 2));
             } 
         }
 
@@ -33,6 +37,7 @@ public class Timer : MonoBehaviour
         isTimerRunning = true;
         startMin = int.Parse(System.DateTime.Now.ToString().Substring(14, 2));
         startSec = int.Parse(System.DateTime.Now.ToString().Substring(17, 2));
+        startHr = int.Parse(System.DateTime.Now.ToString().Substring(11, 2));
     }
 
     public static void StopTimer()

@@ -42,7 +42,7 @@ public class StaticData : MonoBehaviour
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
 
-   /* private void Start()
+    private void Start()
     {
 
         Inventory = new List<ComponentData>();
@@ -112,7 +112,7 @@ public class StaticData : MonoBehaviour
 
     }
 
-*/
+
     public static void UpdateComponentList()
     {
         componentList = CircuitManager.componentList;

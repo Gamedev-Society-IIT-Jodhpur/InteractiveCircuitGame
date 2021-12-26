@@ -36,6 +36,7 @@ public class CircuitManager : MonoBehaviour
     public static GameObject volt=null;
     string temp;
     [SerializeField] TMP_Text DisplayText;
+    static TMP_Text DisplayTextStatic;
     public static GameObject valueinput;
     List<List<string>> circuits = new List<List<string>>() { };
 
@@ -45,6 +46,7 @@ public class CircuitManager : MonoBehaviour
         
         valueinput = GameObject.FindGameObjectWithTag("value input");
         valueinput.SetActive(false);
+        DisplayTextStatic = DisplayText;
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
@@ -148,6 +150,7 @@ public class CircuitManager : MonoBehaviour
 
             dc.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
+                DisplayText.gameObject.SetActive(true);
                 if (selected.GetComponent<ComponentInitialization>().a != component.bjt)
                 {
 
@@ -195,35 +198,39 @@ public class CircuitManager : MonoBehaviour
     {
 
         valueinput.SetActive(false);
+        DisplayTextStatic.gameObject.SetActive(false);
         if (selected)
         {
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
         }
 
-        //to change input value text field
-        selected = gameObject;
-        if (selected.tag == "Resistor" || selected.tag=="Voltage")
+        if (gameObject)
         {
-            valueinput.SetActive(true);
-            valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
-        }
-        else if (selected.tag == "BJT")
-        {
-            valueinput.SetActive(true);
-            valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
-        }
+            //to change input value text field
+            selected = gameObject;
+            if (selected.tag == "Resistor" || selected.tag == "Voltage")
+            {
+                valueinput.SetActive(true);
+                valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
+            }
+            else if (selected.tag == "BJT")
+            {
+                valueinput.SetActive(true);
+                valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
+            }
 
 
-        //for changing outline
-        if (selected.tag == "Resistor" || selected.tag=="BJT")
-        {
-            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
+            //for changing outline
+            if (selected.tag == "Resistor" || selected.tag == "BJT")
+            {
+                AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 4.0f);
+            }
+            else
+            {
+                AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 15.0f);
+            }
+            selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
         }
-        else
-        {
-            AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 15.0f);
-        }
-        selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
     }
 
     private void Merge(int i, int j)

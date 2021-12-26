@@ -14,7 +14,8 @@ public class ButtonManager : MonoBehaviour
     {
         if(CircuitManager.selected)
         {
-            CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
+            CircuitManager.ChangeSelected(null);
+            //CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
             CircuitManager.componentList.Remove(CircuitManager.selected);
             Destroy(CircuitManager.selected);
             if (CircuitManager.selected.tag == "Gizmo")
