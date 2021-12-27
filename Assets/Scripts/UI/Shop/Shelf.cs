@@ -55,8 +55,8 @@ public class Shelf : MonoBehaviour
                 g = Instantiate(ItemTemplate, transform);
                 g.gameObject.SetActive(true);
                 g.transform.GetChild(0).GetComponent<TMP_Text>().text = item.Value["name"];
-                Texture itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["name"]);
-                g.transform.GetChild(1).GetComponent<RawImage>().texture = itemTexture;
+                Sprite itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["name"]);
+                g.transform.GetChild(1).GetComponent<Image>().sprite = itemTexture;
                 g.GetComponent<TooltipTrigger>().itemID = item.Value["id"].ToString();
             }
 

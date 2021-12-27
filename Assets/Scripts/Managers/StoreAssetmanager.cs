@@ -15,7 +15,7 @@ public class StoreAssetmanager : MonoBehaviour
     public struct StoreItemIcon
     {
         public string name;
-        public Texture image;
+        public Sprite image;
     }
 
     public List<StoreItemIcon> storeItemIcons;
@@ -41,7 +41,7 @@ public class StoreAssetmanager : MonoBehaviour
         itemsNameMaping.Add("Breadboard", "breadboard");
     }
 
-    public Texture getItemIcon(string name)
+    public Sprite getItemIcon(string name)
     {
         //int index = storeItemIcons.FindIndex(a => a.name.Contains(name));
         int index = storeItemIcons.FindIndex(a => name.Contains(a.name));
