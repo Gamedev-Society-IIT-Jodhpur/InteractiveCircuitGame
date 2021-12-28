@@ -290,6 +290,7 @@ public class DragManager : MonoBehaviour
                     dropDown.value = 0;
                     isDraggin = false;
                     CustomNotificationManager.Instance.AddNotification(2, "Gizmo already present");
+                    
                     //print("one gizmo already present"); //TODO add notification.
                 }
             }
@@ -310,6 +311,7 @@ public class DragManager : MonoBehaviour
                     if (toInstantiate.tag == "Gizmo")
                     {
                         isGizmoPresent = true;
+                        ValidateScript.gizmo = newComponent;
                     }
 
                 }
