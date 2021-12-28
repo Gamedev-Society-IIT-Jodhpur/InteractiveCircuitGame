@@ -42,13 +42,13 @@ public class StaticData : MonoBehaviour
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
 
-    private void Start()
+  /*  private void Start()
     {
 
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";
-        res1.value = "1.5";
+        res1.value = "15";
         res1.unit = "Ohm";
         res1.quantity = 20;
 
@@ -98,7 +98,7 @@ public class StaticData : MonoBehaviour
         breadboard.name = "breadboard";
         breadboard.value = "";
         breadboard.unit = "";
-        breadboard.quantity = 1;
+        breadboard.quantity = 2;
 
         Inventory.Add(res1);
         Inventory.Add(battery9v);
@@ -111,7 +111,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(res2);
 
     }
-
+*/
 
     public static void UpdateComponentList()
     {

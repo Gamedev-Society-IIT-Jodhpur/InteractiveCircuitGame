@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9449237, g: 0.9449237, b: 0.9449237, a: 1}
+  m_IndirectSpecularColor: {r: 0.9449217, g: 0.9449217, b: 0.9449217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849916297}
   m_HandleRect: {fileID: 849916296}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3427,7 +3427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuitManager: {fileID: 1331716702}
-  gizmo: {fileID: 0}
 --- !u!114 &2118560185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4172,7 +4171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuitManager: {fileID: 1331716702}
-  gizmo: {fileID: 0}
 --- !u!114 &195725676590223743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5321,19 +5319,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5107845152919893908, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150065, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0fd287ff2b4a2624491cd19540241545, type: 3}
+      objectReference: {fileID: 21300000, guid: ecdf7db09d7ceb142b62d0a5673855af, type: 3}
     - target: {fileID: 7833424560546150070, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_Name
       value: Soldering iron icon
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150070, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_Pivot.x
@@ -5353,7 +5351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5361,15 +5359,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 170
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5401,11 +5399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833424560546150071, guid: d90033e824d6178459ef9a4e61a5ae22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
