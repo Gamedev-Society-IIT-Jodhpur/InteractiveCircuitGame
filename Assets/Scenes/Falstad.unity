@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.049605638, g: 0.18192905, b: 0.40061182, a: 1}
+  m_IndirectSpecularColor: {r: 0.049603783, g: 0.18192965, b: 0.40061215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1481,6 +1481,9 @@ MonoBehaviour:
   zoomStap: 0.5
   minZoom: 5
   maxZoom: 25
+  cursorTexture: {fileID: 2800000, guid: b27135b2c97e11342bb68a3e9ca0922d, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 16, y: 16}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -6149,7 +6152,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 329.88635, y: 39.18077}
-  m_SizeDelta: {x: 200, y: 345.0185}
+  m_SizeDelta: {x: 200, y: 328.4991}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1574819697004147628
 GameObject:

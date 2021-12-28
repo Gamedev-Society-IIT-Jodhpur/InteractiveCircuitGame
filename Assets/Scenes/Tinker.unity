@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9449217, g: 0.9449217, b: 0.9449217, a: 1}
+  m_IndirectSpecularColor: {r: 0.9449237, g: 0.9449237, b: 0.9449237, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849916297}
   m_HandleRect: {fileID: 849916296}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2542,6 +2542,9 @@ MonoBehaviour:
   zoomStap: 0.5
   minZoom: 5
   maxZoom: 25
+  cursorTexture: {fileID: 2800000, guid: b27135b2c97e11342bb68a3e9ca0922d, type: 3}
+  cursorMode: 1
+  hotSpot: {x: 16, y: 16}
 --- !u!1001 &1722623174
 PrefabInstance:
   m_ObjectHideFlags: 0
