@@ -54,6 +54,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         rectTransform.pivot = new Vector2(pivotX, pivotY);
 
+
         transform.position = point;
     }
 

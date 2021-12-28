@@ -44,7 +44,7 @@ public class StaticData : MonoBehaviour
 
     private void Start()
     {
-
+        /*
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";
@@ -109,6 +109,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(Diode);
         Inventory.Add(ZenerDiode);
         Inventory.Add(res2);
+        */
 
     }
 

@@ -19,9 +19,6 @@ public class ValidationModel : MonoBehaviour
     [SerializeField]
     Text buttonText;
 
-
-
-
     private void Awake()
     {
         Instance = this;
@@ -46,18 +43,18 @@ public class ValidationModel : MonoBehaviour
             data.text = "Your circuit is invalid";
             buttonText.text = "Close";
         }
-        transform.LeanScale(Vector2.one, 0.8f);
+        transform.LeanScale(Vector2.one, 0.5f);
     }
 
     public void Close()
     {
         if (isSuccess)
         {
-            transform.LeanScale(Vector2.zero, 1.0f).setEaseInBack().setOnComplete(Success);
+            transform.LeanScale(Vector2.zero, .5f).setEaseInBack().setOnComplete(Success);
         }
         else
         {
-            transform.LeanScale(Vector2.zero, 1.0f).setEaseInBack();
+            transform.LeanScale(Vector2.zero, .5f).setEaseInBack();
         }
     }
 

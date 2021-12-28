@@ -77,5 +77,4 @@ public class CameraMovemetn : MonoBehaviour
             Cursor.SetCursor(null, Vector2.zero, cursorMode);
         }
     }
- 
 }
