@@ -63,6 +63,8 @@ public class ComponentInitialization : MonoBehaviour
         else if (a == CircuitManager.component.zenerDiode)
         {
             value = "ZenerDiode";
+            valueText = GetComponentInChildren<TMP_Text>();
+            valueText.text = "BV=" + beta.ToString();
         }
        // print(a.ToString());
 

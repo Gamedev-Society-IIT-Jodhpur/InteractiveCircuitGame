@@ -213,7 +213,7 @@ public class CircuitManager : MonoBehaviour
                 valueinput.SetActive(true);
                 valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().value;
             }
-            else if (selected.tag == "BJT")
+            else if (selected.tag!="Gizmo" && (selected.tag == "BJT" || selected.GetComponent<ComponentInitialization>().a == component.zenerDiode))
             {
                 valueinput.SetActive(true);
                 valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
