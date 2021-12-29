@@ -15,9 +15,8 @@ public class ButtonFunctionWrapper : MonoBehaviour
     public string scenename;
     public SceneIndexes toScene;
     public modeOfTransportation mode;
+    public Transform  end;
+    public int  to;
 
-    /*public void tempchangescene()
-    {
-        SceneManager.LoadScene("Tinker");
-    }*/
+    
 }

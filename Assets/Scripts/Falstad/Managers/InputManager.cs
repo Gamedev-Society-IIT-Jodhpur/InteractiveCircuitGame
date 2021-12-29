@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
             }
             else if ( component.a == CircuitManager.component.zenerDiode)
             {
-                component.beta = int.Parse(value);
+                component.beta = double.Parse(value);
                 component.valueText.text = "BV=" + value;
                 //print(value);
 

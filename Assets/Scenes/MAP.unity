@@ -1071,6 +1071,7 @@ GameObject:
   - component: {fileID: 381033620}
   - component: {fileID: 381033619}
   - component: {fileID: 381033618}
+  - component: {fileID: 381033622}
   m_Layer: 5
   m_Name: Cab
   m_TagString: Untagged
@@ -1114,6 +1115,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 0
+  end: {fileID: 505051571}
+  to: 7
 --- !u!114 &381033619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,13 +1161,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 381033622}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 381033618}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1208,6 +1211,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381033616}
   m_CullTransparentMesh: 1
+--- !u!114 &381033622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381033616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 381033618}
+  direc: 0
 --- !u!1 &425811368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,6 +1998,7 @@ GameObject:
   - component: {fileID: 515471511}
   - component: {fileID: 515471510}
   - component: {fileID: 515471509}
+  - component: {fileID: 515471513}
   - component: {fileID: 515471512}
   m_Layer: 5
   m_Name: Cab
@@ -2041,13 +2071,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 515471513}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 515471512}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2107,6 +2137,34 @@ MonoBehaviour:
   scenename: Tinker
   toScene: 8
   mode: 0
+  end: {fileID: 1276291283}
+  to: 2
+--- !u!114 &515471513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515471507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 515471512}
+  direc: 0
 --- !u!1 &562563869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2575,7 @@ GameObject:
   - component: {fileID: 673402697}
   - component: {fileID: 673402696}
   - component: {fileID: 673402695}
+  - component: {fileID: 673402699}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -2560,6 +2619,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 1
+  end: {fileID: 1335938675}
+  to: 5
 --- !u!114 &673402696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2604,13 +2665,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 673402699}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 673402695}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2654,6 +2715,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673402693}
   m_CullTransparentMesh: 1
+--- !u!114 &673402699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673402693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 673402695}
+  direc: 0
 --- !u!1 &679922135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2754,7 @@ GameObject:
   - component: {fileID: 679922139}
   - component: {fileID: 679922138}
   - component: {fileID: 679922137}
+  - component: {fileID: 679922141}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -2710,6 +2798,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 1
+  end: {fileID: 505051571}
+  to: 7
 --- !u!114 &679922138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,13 +2844,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 679922141}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 679922137}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2804,6 +2894,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679922135}
   m_CullTransparentMesh: 1
+--- !u!114 &679922141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679922135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 679922137}
+  direc: 0
 --- !u!224 &746636831 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 405685027999035662, guid: a69ed1015dd89e945857f81807c7ce6f, type: 3}
@@ -2822,6 +2938,7 @@ GameObject:
   - component: {fileID: 759435538}
   - component: {fileID: 759435537}
   - component: {fileID: 759435536}
+  - component: {fileID: 759435540}
   m_Layer: 5
   m_Name: Cab
   m_TagString: Untagged
@@ -2865,6 +2982,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 0
+  end: {fileID: 1335938675}
+  to: 5
 --- !u!114 &759435537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,13 +3028,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 759435540}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 759435536}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2959,6 +3078,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759435534}
   m_CullTransparentMesh: 1
+--- !u!114 &759435540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759435534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 759435536}
+  direc: 0
 --- !u!1 &773879610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,6 +3251,7 @@ GameObject:
   - component: {fileID: 778886682}
   - component: {fileID: 778886681}
   - component: {fileID: 778886680}
+  - component: {fileID: 778886684}
   m_Layer: 5
   m_Name: Cab
   m_TagString: Untagged
@@ -3149,6 +3295,8 @@ MonoBehaviour:
   scenename: Falstad
   toScene: 5
   mode: 0
+  end: {fileID: 1674199312}
+  to: 1
 --- !u!114 &778886681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3193,13 +3341,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 778886684}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 778886680}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3243,6 +3391,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778886678}
   m_CullTransparentMesh: 1
+--- !u!114 &778886684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778886678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 778886680}
+  direc: 0
 --- !u!1 &784919453
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,6 +6074,7 @@ GameObject:
   - component: {fileID: 1291396812}
   - component: {fileID: 1291396811}
   - component: {fileID: 1291396810}
+  - component: {fileID: 1291396814}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -5943,6 +6118,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 1
+  end: {fileID: 209920072}
+  to: 6
 --- !u!114 &1291396811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5987,13 +6164,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1291396814}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1291396810}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6037,6 +6214,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291396808}
   m_CullTransparentMesh: 1
+--- !u!114 &1291396814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291396808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1291396810}
+  direc: 0
 --- !u!1 &1305268853
 GameObject:
   m_ObjectHideFlags: 0
@@ -6448,6 +6651,7 @@ GameObject:
   - component: {fileID: 1511275456}
   - component: {fileID: 1511275455}
   - component: {fileID: 1511275454}
+  - component: {fileID: 1511275458}
   m_Layer: 5
   m_Name: Cab
   m_TagString: Untagged
@@ -6491,6 +6695,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 0
+  end: {fileID: 209920072}
+  to: 6
 --- !u!114 &1511275455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,13 +6741,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1511275458}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1511275454}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6585,6 +6791,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511275452}
   m_CullTransparentMesh: 1
+--- !u!114 &1511275458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511275452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1511275454}
+  direc: 0
 --- !u!1 &1547401923
 GameObject:
   m_ObjectHideFlags: 0
@@ -6598,6 +6830,7 @@ GameObject:
   - component: {fileID: 1547401927}
   - component: {fileID: 1547401926}
   - component: {fileID: 1547401925}
+  - component: {fileID: 1547401929}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -6641,6 +6874,8 @@ MonoBehaviour:
   scenename: Falstad
   toScene: 5
   mode: 1
+  end: {fileID: 1674199312}
+  to: 1
 --- !u!114 &1547401926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6685,13 +6920,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1547401929}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1547401925}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6735,6 +6970,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547401923}
   m_CullTransparentMesh: 1
+--- !u!114 &1547401929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547401923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1547401925}
+  direc: 0
 --- !u!1 &1554522952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6882,6 +7143,7 @@ GameObject:
   - component: {fileID: 1563446922}
   - component: {fileID: 1563446921}
   - component: {fileID: 1563446920}
+  - component: {fileID: 1563446924}
   m_Layer: 5
   m_Name: Cab
   m_TagString: Untagged
@@ -6925,6 +7187,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 0
+  end: {fileID: 1384599664}
+  to: 3
 --- !u!114 &1563446921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6969,13 +7233,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1563446924}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1563446920}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7019,6 +7283,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563446918}
   m_CullTransparentMesh: 1
+--- !u!114 &1563446924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563446918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1563446920}
+  direc: 0
 --- !u!1 &1568701645
 GameObject:
   m_ObjectHideFlags: 0
@@ -7196,6 +7486,7 @@ GameObject:
   - component: {fileID: 1571943538}
   - component: {fileID: 1571943537}
   - component: {fileID: 1571943540}
+  - component: {fileID: 1571943541}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -7267,13 +7558,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1571943541}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1571943540}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7333,6 +7624,34 @@ MonoBehaviour:
   scenename: Tinker
   toScene: 8
   mode: 1
+  end: {fileID: 1276291283}
+  to: 2
+--- !u!114 &1571943541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571943535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1571943540}
+  direc: 0
 --- !u!1 &1590243865
 GameObject:
   m_ObjectHideFlags: 0
@@ -7946,6 +8265,8 @@ MonoBehaviour:
   scenename: 
   toScene: 0
   mode: 0
+  end: {fileID: 0}
+  to: 0
 --- !u!1 &1767198164
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,6 +9046,7 @@ GameObject:
   - component: {fileID: 1917865420}
   - component: {fileID: 1917865419}
   - component: {fileID: 1917865418}
+  - component: {fileID: 1917865422}
   m_Layer: 5
   m_Name: Walk
   m_TagString: Untagged
@@ -8768,6 +9090,8 @@ MonoBehaviour:
   scenename: Shop
   toScene: 7
   mode: 1
+  end: {fileID: 1384599664}
+  to: 3
 --- !u!114 &1917865419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8812,13 +9136,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 664061256}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: mapscenechange
-        m_Mode: 2
+      - m_Target: {fileID: 1917865422}
+        m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
+        m_MethodName: Animate
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1917865418}
-          m_ObjectArgumentAssemblyTypeName: ButtonFunctionWrapper, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8862,6 +9186,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917865416}
   m_CullTransparentMesh: 1
+--- !u!114 &1917865422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917865416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f54928a8c06b3746bb32b62f3b475f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints:
+  - {fileID: 822288055}
+  - {fileID: 845279373}
+  - {fileID: 615225738}
+  - {fileID: 45618990}
+  - {fileID: 1353524190}
+  - {fileID: 1664225578}
+  - {fileID: 1085913057}
+  - {fileID: 562563870}
+  - {fileID: 1645069027}
+  manager: {fileID: 664061256}
+  tracker: {fileID: 338424195}
+  wrap: {fileID: 1917865418}
+  direc: 0
 --- !u!1 &1935357467
 GameObject:
   m_ObjectHideFlags: 0
@@ -41279,7 +41629,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 210.2449, y: 33.933517}
+  m_SizeDelta: {x: 210.2449, y: 32.846153}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8827784690693526843
 MonoBehaviour:
@@ -42227,8 +42577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 188.47644, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8827784692133330855
 MonoBehaviour:

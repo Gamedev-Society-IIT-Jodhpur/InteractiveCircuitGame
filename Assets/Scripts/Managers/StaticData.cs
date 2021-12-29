@@ -15,7 +15,7 @@ public class StaticData : MonoBehaviour
         public List<string> nodes;
         public string componentID;
         public string value;
-        public int beta;
+        public double beta;
     };
     
     public struct series
@@ -109,7 +109,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(Diode);
         Inventory.Add(ZenerDiode);
         Inventory.Add(res2);
-        */
+        
 
     }
 */
