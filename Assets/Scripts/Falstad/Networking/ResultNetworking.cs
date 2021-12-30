@@ -9,7 +9,8 @@ public class ResultNetworking : MonoBehaviour
 {
     //string uri = "http://localhost:4040/api/result/userResults";
     //string uri = "http://localhost:4040/api/result/allResults";
-    string uri = AvailableRoutes.allResults;
+    string addResult = AvailableRoutes.addResult;
+    string allResults = AvailableRoutes.allResults;
     public GameObject loadingAnimation;
 
     [SerializeField]
@@ -20,13 +21,16 @@ public class ResultNetworking : MonoBehaviour
 
     void Start()
     {
+        // TODO: To be removed------------------
         PlayerPrefs.SetString("email", "sanodariya.1@iitj.ac.in");
-        StartCoroutine(GetText());
+        AddResult();
+        // -------------------------------------
+        StartCoroutine(GetResult());
     }
 
-    IEnumerator GetText()
+    IEnumerator GetResult()
     {
-        string requestUri = "http://localhost:4040/api/result/allResults" + "?date=" + System.DateTime.Now.ToString("dd/MM/yyyy");
+        string requestUri = allResults + "?date=" + System.DateTime.Now.ToString("dd/MM/yyyy");
         UnityWebRequest www = UnityWebRequest.Get(requestUri);
         UnityWebRequestAsyncOperation asyncLoad = www.SendWebRequest();
 
@@ -64,13 +68,13 @@ public class ResultNetworking : MonoBehaviour
     {
         WWWForm postResult = new WWWForm();
 
-        postResult.AddField("email", "sanodariya.1@iitj.ac.in");
+        postResult.AddField("email", "shekhar.1@iitj.ac.in");
         postResult.AddField("time", 60);
         postResult.AddField("money", 120);
-        postResult.AddField("score", 140);
+        postResult.AddField("score", 150);
         postResult.AddField("xp", 100);
 
-        UnityWebRequest uwr = UnityWebRequest.Post("http://localhost:4040/api/result/addResult", postResult);
+        UnityWebRequest uwr = UnityWebRequest.Post(addResult, postResult);
         yield return uwr.SendWebRequest();
 
         if (uwr.result == UnityWebRequest.Result.ConnectionError)
