@@ -68,7 +68,7 @@ public class CircuitManager : MonoBehaviour
         "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
         "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15"), 0));
         CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
-        CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode","Is =18.8e-9 N=2 Cjo=30e-12 M=0.33 bv=6 ibv=5e-6"));
+        CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode","bv=6"));
         for (int i = 0; i < componentList.Count; i++)
         {
             //Debug.Log("i :"+i+" " +componentList[i].name);
