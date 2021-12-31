@@ -26,6 +26,8 @@ public class MapManager : MonoBehaviour
     public GameObject tracker;
     bool btnclick = false;
     string toscene = "MAP";
+    public  bool isanimating = false;
+   public  GameObject todisable;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,13 +86,17 @@ public class MapManager : MonoBehaviour
     }
     public void ShowButtons(GameObject tosetActive)
     {
-         
-        GameObject[] withTag = GameObject.FindGameObjectsWithTag("MapButton");
-        foreach (var i in withTag)
+        if (!isanimating)
         {
-            i.SetActive(false);
-        }
+            GameObject[] withTag = GameObject.FindGameObjectsWithTag("MapButton");
+            foreach (var i in withTag)
+            {
+                i.SetActive(false);
+            }
 
-        tosetActive.SetActive(true);
+            tosetActive.SetActive(true);
+            todisable = tosetActive;
+        }
+       
     }
 }

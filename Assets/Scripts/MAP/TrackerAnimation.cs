@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class TrackerAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -57,28 +58,57 @@ public class TrackerAnimation : MonoBehaviour
         }
 
     }
-    public void Animate()
+    public void Animate( MapManager manager)
     {
+        if (!manager.isanimating)
+        {
+            end = wrap.end;
+
+            to = wrap.to;
+            if (((from == 1 || from == 2) && to == 7) || ((to == 1 || to == 2) && from == 7))
+            {
+                direc = direction.CounterClockwise;
+            }
+            if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
+            {
+                speedfactor = 1;
+            }
+            else
+            {
+                speedfactor = 0.5f;
+            }
+            PointA = start;
+            PointB = Checkpoints[from];
+            current = from;
+            buttonpressed = true;
+
+            var buttons=manager.todisable.transform.GetComponentsInChildren<Button>();
+            foreach(var comp in buttons)
+            {
+                comp.enabled = false;
+            }
+            var images = manager.todisable.transform.GetComponentsInChildren<Image>();
+            foreach(var comp in images)
+            {
+                comp.enabled = false;
+            }
+            for(int i = 0; i < manager.todisable.transform.childCount; i++)
+            {
+                var tmp = manager.todisable.transform.GetChild(i).GetComponentsInChildren<TextMeshProUGUI>();
+
+                foreach (var comp in tmp)
+                {
+                    comp.enabled = false;
+                }
+            }
+            
+
+
+
+            manager.isanimating = true;
+        }
         
-        end = wrap.end;
         
-        to = wrap.to;
-        if (((from == 1 || from == 2) && to == 7) || ((to == 1 || to == 2) && from == 7))
-        {
-            direc = direction.CounterClockwise;
-        }
-        if(wrap.mode== ButtonFunctionWrapper.modeOfTransportation.Cab)
-        {
-            speedfactor = 1;
-        }
-        else
-        {
-            speedfactor = 0.5f;
-        }
-        PointA = start;
-        PointB = Checkpoints[from]; 
-        current = from;
-        buttonpressed = true;
     }
     public void LerpPointToPoint(Transform pointa, Transform pointb)
     {
@@ -114,16 +144,32 @@ public class TrackerAnimation : MonoBehaviour
                         {
                             if (!firstiteration)
                             {
-                                current = mod((current + 1) , (Checkpoints.Count));
+                                
+                                if (to > from)
+                                {
+                                    current = mod((current + 1), (Checkpoints.Count));
+                                }
+                                else
+                                {
+                                    current = mod((current - 1), (Checkpoints.Count));
+                                }
                             }
                             else
                             {
                                 firstiteration = false;
                             }
                             
-                            if (current != to)
+                            if (current != to  )
                             {
-                                LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                if(to > from)
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                }
+                                else
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                }
+                                
                             }
                             else
                             {
@@ -135,7 +181,14 @@ public class TrackerAnimation : MonoBehaviour
                         {
                             if (current != to)
                             {
-                                LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                if (to > from)
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                }
+                                else
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                }
                             }
                             else
                             {
@@ -171,7 +224,15 @@ public class TrackerAnimation : MonoBehaviour
                             if (!firstiteration)
                             {
 
-                                current = mod((current - 1),(Checkpoints.Count));
+                                if (to < from)
+                                {
+                                    current = mod((current + 1), (Checkpoints.Count));
+                                }
+                                else
+                                {
+                                    current = mod((current - 1), (Checkpoints.Count));
+                                }
+
                             }
                             else
                             {
@@ -180,7 +241,14 @@ public class TrackerAnimation : MonoBehaviour
 
                             if (current != to)
                             {
-                                LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                if (to < from)
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                }
+                                else
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                }
                             }
                             else
                             {
@@ -192,7 +260,14 @@ public class TrackerAnimation : MonoBehaviour
                         {
                             if (current != to)
                             {
-                                LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                if (to < from)
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
+                                }
+                                else
+                                {
+                                    LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
+                                }
                             }
                             else
                             {

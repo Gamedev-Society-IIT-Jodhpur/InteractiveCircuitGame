@@ -1164,10 +1164,10 @@ MonoBehaviour:
       - m_Target: {fileID: 381033622}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2074,10 +2074,10 @@ MonoBehaviour:
       - m_Target: {fileID: 515471513}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2536,6 +2536,7 @@ MonoBehaviour:
   TinkerLab: {fileID: 8827784691992528170}
   falstad: {fileID: 494822308}
   tracker: {fileID: 338424195}
+  isanimating: 0
 --- !u!4 &664061257
 Transform:
   m_ObjectHideFlags: 0
@@ -2668,10 +2669,10 @@ MonoBehaviour:
       - m_Target: {fileID: 673402699}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2847,10 +2848,10 @@ MonoBehaviour:
       - m_Target: {fileID: 679922141}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3031,10 +3032,10 @@ MonoBehaviour:
       - m_Target: {fileID: 759435540}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3344,10 +3345,10 @@ MonoBehaviour:
       - m_Target: {fileID: 778886684}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6167,10 +6168,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1291396814}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6744,10 +6745,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1511275458}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6923,10 +6924,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1547401929}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7236,10 +7237,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1563446924}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7561,10 +7562,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1571943541}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9139,10 +9140,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1917865422}
         m_TargetAssemblyTypeName: TrackerAnimation, Assembly-CSharp
         m_MethodName: Animate
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 664061256}
+          m_ObjectArgumentAssemblyTypeName: MapManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -41629,7 +41630,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 210.2449, y: 32.846153}
+  m_SizeDelta: {x: 210.2449, y: 30.76923}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8827784690693526843
 MonoBehaviour:

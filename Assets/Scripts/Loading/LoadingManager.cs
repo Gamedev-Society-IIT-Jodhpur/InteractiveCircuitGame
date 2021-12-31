@@ -17,7 +17,7 @@ public class LoadingManager : MonoBehaviour
     {
         instance = this;
         // TODO: Change Fastad to Login
-        SceneManager.LoadSceneAsync((int)SceneIndexes.Falstad, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)SceneIndexes.MAP, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
     }
 
