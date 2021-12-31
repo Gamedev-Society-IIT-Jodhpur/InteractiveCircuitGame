@@ -16,7 +16,7 @@ public class ComponentInitialization : MonoBehaviour
     public int no_nodes =2;
     public string nameInCircuit;
     public string value ;
-    public double beta = 100;
+    public double beta = 6;
     public List<string> nodes = new List<string>();
     Transform[] childs;
     public TMP_Text valueText;

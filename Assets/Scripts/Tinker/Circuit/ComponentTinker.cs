@@ -11,7 +11,7 @@ public class ComponentTinker : MonoBehaviour
     public int no_nodes = 2;
     public string nameInCircuit;
     public string value;
-    public int beta = 100;
+    public int beta = 6;
     public List<string> nodes = new List<string>();
     public Transform[] childs;
     public bool isWorking = true;

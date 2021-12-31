@@ -446,7 +446,7 @@ MonoBehaviour:
   no_nodes: 2
   nameInCircuit: 
   value: ZenerDiode
-  beta: 100
+  beta: 6
   nodes: []
   childs: []
   isWorking: 1
