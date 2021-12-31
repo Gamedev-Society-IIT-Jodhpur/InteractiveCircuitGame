@@ -9,6 +9,11 @@ public class SceneLoadManager : MonoBehaviour
       
         SceneManager.LoadScene(sceneToLoad);
     }
+    public void Change(int i)
+    {
+        PrevCurrScene.prev = PrevCurrScene.curr;
+        PrevCurrScene.curr = i;
+    }
 
     public void QuitGame()
     {

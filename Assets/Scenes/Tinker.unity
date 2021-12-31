@@ -3371,7 +3371,6 @@ GameObject:
   - component: {fileID: 2118560185}
   - component: {fileID: 2118560187}
   - component: {fileID: 2118560184}
-  - component: {fileID: 2118560186}
   - component: {fileID: 2118560183}
   m_Layer: 5
   m_Name: MapButton
@@ -3526,8 +3525,8 @@ MonoBehaviour:
   onDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118560186}
-        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+      - m_Target: {fileID: 2118560183}
+        m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
         m_MethodName: Change
         m_Mode: 3
         m_Arguments:
@@ -3553,23 +3552,6 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2118560186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118560181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9cdfc094e2409f41b4dd4d1d6b146bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackerpoints: []
-  shopstext: []
-  TinkerLab: {fileID: 0}
-  falstad: {fileID: 0}
-  tracker: {fileID: 0}
 --- !u!114 &2118560187
 MonoBehaviour:
   m_ObjectHideFlags: 0
