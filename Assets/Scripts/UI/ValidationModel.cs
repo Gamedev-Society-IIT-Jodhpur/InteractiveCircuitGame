@@ -34,13 +34,13 @@ public class ValidationModel : MonoBehaviour
         if (isSuccess)
         {
             title.text = "Success";
-            data.text = "Your circuit is valid";
+            data.text = "Your circuit is valid.\nProceed to store to buy the components.\nChoose mode of travel wisely in the map.";
             buttonText.text = "Continue to Map";
         }
         else
         {
             title.text = "Error";
-            data.text = "Your circuit is invalid";
+            data.text = "Your circuit does not meet the specifications";
             buttonText.text = "Close";
         }
         transform.LeanScale(Vector2.one, 0.5f);

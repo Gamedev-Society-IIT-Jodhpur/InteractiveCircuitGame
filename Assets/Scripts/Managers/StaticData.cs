@@ -41,10 +41,19 @@ public class StaticData : MonoBehaviour
     public static List<ComponentData> Inventory = new List<ComponentData>();
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
+    public static bool isSolderingIron=true;
+    public static bool hasSolderBroken = false;
 
-  /*  private void Start()
+
+    private void Awake()
     {
-        /*
+        UpdateSolderingIron();
+    }
+
+    private void Start()
+    {
+       /* 
+        #region Custom Inventory Items
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";
@@ -109,10 +118,11 @@ public class StaticData : MonoBehaviour
         Inventory.Add(Diode);
         Inventory.Add(ZenerDiode);
         Inventory.Add(res2);
-        
+        #endregion
+*/
 
     }
-*/
+
 
     public static void UpdateComponentList()
     {
@@ -120,4 +130,18 @@ public class StaticData : MonoBehaviour
     }
 
 
+    //TODO call this function when we need to show if soldering iron is present in tinker or not.
+    //also change issolderingiron to true if player buys soldering iron from shop. 
+    private void UpdateSolderingIron()
+    {
+        if (Mathf.RoundToInt(Random.Range(0, 2)) == 0)
+        {
+            isSolderingIron = true;
+        }
+        else
+        {
+            isSolderingIron = false;
+        }
+        print(isSolderingIron);
+    }
 }

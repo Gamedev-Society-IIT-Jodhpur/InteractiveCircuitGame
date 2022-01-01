@@ -11,6 +11,7 @@ public class SolderingIronIcon : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(StaticData.isSolderingIron);
         noOfSolders = new Queue<Vector2>() { };
         checkSoldersSet = new HashSet<Vector2>() { };
     }
