@@ -67,10 +67,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (index == sentences_list.Count - 1)
         {
-            if (nextButtonText.text == "Continue")
+            if (nextButtonText.text == "Start Quest")
             {
                 model.SetActive(true);
-                //SceneManager.LoadScene("Falstad");
                 LoadingManager.instance.LoadGame(SceneIndexes.Dialogue, SceneIndexes.Falstad);
             }
         }
@@ -89,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         if (index == sentences_list.Count - 1)
         {
             nextButtonImg.color = continueColor;
-            nextButtonText.text = "Continue";
+            nextButtonText.text = "Start Quest";
         }
     }
 

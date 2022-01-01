@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9449217, g: 0.9449217, b: 0.9449217, a: 1}
+  m_IndirectSpecularColor: {r: 0.9449237, g: 0.9449237, b: 0.9449237, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -230,14 +230,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9882353, g: 0.25882354, b: 0.48235294, a: 1}
+  m_Color: {r: 0.4188679, g: 1, b: 0.44524056, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: e93f1271c236e2d44a05f85c845e8320, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: dda672b698f5c1442a14be45ac47afc9, type: 3}
   m_PreserveAspect: 0
 --- !u!222 &209661625
 CanvasRenderer:
@@ -647,8 +647,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 939918452}
   - {fileID: 1121837090}
+  - {fileID: 939918452}
   - {fileID: 1060147917}
   - {fileID: 2080233093}
   m_Father: {fileID: 0}
@@ -906,7 +906,7 @@ RectTransform:
   - {fileID: 645630248}
   - {fileID: 1795040495}
   m_Father: {fileID: 624447670}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1638,7 +1638,7 @@ RectTransform:
   - {fileID: 2118560182}
   - {fileID: 1585726175}
   m_Father: {fileID: 624447670}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}

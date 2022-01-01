@@ -58,6 +58,7 @@ public class Checkout : MonoBehaviour
         LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
 
         MoneyXPManager.DeductMoney(int.Parse(totalAmount));
+        totalAmount = "0";
 
     }
 }
