@@ -47,12 +47,12 @@ public class StaticData : MonoBehaviour
 
     private void Awake()
     {
-        UpdateSolderingIron();
+        //UpdateSolderingIron();
     }
 
     private void Start()
     {
-/*
+
         #region Custom Inventory Items
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
@@ -119,7 +119,7 @@ public class StaticData : MonoBehaviour
         Inventory.Add(ZenerDiode);
         Inventory.Add(res2);
         #endregion
-*/
+
 
     }
 

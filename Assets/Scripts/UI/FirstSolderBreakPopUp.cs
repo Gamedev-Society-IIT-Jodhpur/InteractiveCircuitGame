@@ -21,6 +21,8 @@ public class FirstSolderBreakPopUp : MonoBehaviour
     public NodeTinker currentSolderedNode;
     bool isBreadboardPresent = false;
     [SerializeField] GameObject closeButton;
+    public delegate void delFunction();
+    delFunction del;
 
     private void Awake()
     {
@@ -48,13 +50,13 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         }
     }
 
-    public void Open(NodeTinker currentNode)
+    public void Open(delFunction function,string dataText, string titleText="Warning")
     {
 
-        title.text = "Warning";
-        data.text = "You are about to break soldered components.\nIt'll cost you XP.";
+        title.text = titleText;
+        data.text = dataText;
         buttonText.text = "Continue";
-        currentSolderedNode = currentNode;
+        del = function;
         closeButton.SetActive(true);
         transform.LeanScale(Vector2.one, 0.5f);
         //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -67,7 +69,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
 
     public void Continue()
     {
-        if (!isBreadboardPresent && !StaticData.isSolderingIron)
+        if (!isBreadboardPresent && !StaticData.isSolderingIron) 
         {
             transform.LeanScale(Vector2.zero, .5f).setEaseInBack().setOnComplete(GoToMap);
         }
@@ -75,7 +77,8 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         {
             transform.LeanScale(Vector2.zero, .5f).setEaseInBack();
             StaticData.hasSolderBroken = true;
-            currentSolderedNode.BreakSoldered();
+            del();
+            //currentSolderedNode.BreakSoldered();
         }
 
         

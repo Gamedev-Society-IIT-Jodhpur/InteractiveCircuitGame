@@ -11,7 +11,7 @@ public class AssetManager : MonoBehaviour
     private static AssetManager instace;
     public GameObject wireManagerinstance;
     public static GameObject wireManager;
-    public static bool isSolderingIron;
+    //public static bool isSolderingIron;
     public static SolderingIronIcon solderingIronIcon;
     public static DeleteButton deleteButton;
     public static GameObject soldered;
@@ -29,7 +29,7 @@ public class AssetManager : MonoBehaviour
         
         if(GameObject.FindWithTag("soldering iron icon"))
         {
-            isSolderingIron = true;
+            //isSolderingIron = true;
             solderingIronIcon = GameObject.FindWithTag("soldering iron icon").GetComponent<SolderingIronIcon>();
         }
         if (GameObject.FindWithTag("delete button"))

@@ -131,7 +131,7 @@ public class Drag : MonoBehaviour
                     node.needSoldering = false;
                     if (node.isConnectedToComponent && !node.isConnectedToBreadboard)
                     {
-                        if (AssetManager.isSolderingIron)
+                        if (StaticData.isSolderingIron)
                         {
                             AssetManager.solderingIronIcon.Solder(node.transform.position);
                             node.SolderParent();

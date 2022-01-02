@@ -19,6 +19,12 @@ public class DeleteButton : MonoBehaviour
             if (CircuitManagerTinker.selected.transform.parent != null && CircuitManagerTinker.selected.transform.parent.tag == "soldered"
                 && selectedComponent.tag != "Breadboard")
             {
+                if (!StaticData.hasSolderBroken)
+                {
+                    FirstSolderBreakPopUp.Instance.Open(Delete, "You are about to delete soldered components.\nIt'll cost you XP.");
+                    return;
+                }
+
                 MoneyXPManager.DeductXP(CircuitManagerTinker.selected.transform.parent.childCount * 10);
                 CustomNotificationManager.Instance.AddNotification(1, "Deleting soldered components costs XP");
                 GameObject currentParent = CircuitManagerTinker.selected.transform.parent.gameObject;
@@ -57,6 +63,17 @@ public class DeleteButton : MonoBehaviour
 
     public void DeleteComponent(GameObject component)
     {
+        nodes = component.GetComponentsInChildren<NodeTinker>();
+        foreach (NodeTinker node in nodes)
+        {
+            for (int i = node.wires.Count - 1; i >= 0; i--)
+            {
+                node.wires[i].GetComponentInParent<NewWireManager>().DestroyWire();
+            }
+
+        }
+
+
         if (component.GetComponent<ComponentTinker>())
         {
             ComponentTinker componentTinker = component.GetComponent<ComponentTinker>();
@@ -168,7 +185,7 @@ public class DeleteButton : MonoBehaviour
         }
 
 
-        nodes = component.GetComponentsInChildren<NodeTinker>();
+        /*nodes = component.GetComponentsInChildren<NodeTinker>();
         foreach (NodeTinker node in nodes)
         {
             for (int i = node.wires.Count - 1; i >= 0; i--)
@@ -176,7 +193,7 @@ public class DeleteButton : MonoBehaviour
                 node.wires[i].GetComponentInParent<NewWireManager>().DestroyWire();
             }
 
-        }
+        }*/
         Destroy(component);
     }
 }

@@ -91,9 +91,9 @@ public class Wire : MonoBehaviour
                 if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
                     
-                    if(hit.transform.parent.tag=="Breadboard grid" || AssetManager.isSolderingIron)
+                    if(hit.transform.parent.tag=="Breadboard grid" || StaticData.isSolderingIron)
                     {
-                        if (hit.transform.parent.tag != "Breadboard grid" && AssetManager.isSolderingIron)
+                        if (hit.transform.parent.tag != "Breadboard grid" && StaticData.isSolderingIron)
                         {
                             AssetManager.solderingIronIcon.Solder(hit.transform.position);
                             //AssetManager.solderingIronIcon.HideCursor();

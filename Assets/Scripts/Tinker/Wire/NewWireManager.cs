@@ -39,6 +39,12 @@ public class NewWireManager : MonoBehaviour
         }
         if (multiplier > 0)
         {
+            if (!StaticData.hasSolderBroken)
+            {
+                FirstSolderBreakPopUp.Instance.Open(DestroyWire,"You are about to delete soldered wire.\nIt'll cost you XP.");
+                return;
+            }
+
             MoneyXPManager.DeductXP(10 * multiplier);
             CustomNotificationManager.Instance.AddNotification(1, "Deleting wire soldered to components cost XP");
         }

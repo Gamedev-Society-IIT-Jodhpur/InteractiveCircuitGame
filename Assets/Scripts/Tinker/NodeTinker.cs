@@ -258,7 +258,7 @@ public class NodeTinker : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire && !StaticData.isSoldering)
             {
-                if (AssetManager.isSolderingIron && transform.parent.tag != "Breadboard grid")
+                if (StaticData.isSolderingIron && transform.parent.tag != "Breadboard grid")
                 {
                     AssetManager.solderingIronIcon.Solder(transform.position);
                     wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
@@ -291,7 +291,7 @@ public class NodeTinker : MonoBehaviour
 
             if (!StaticData.hasSolderBroken)
             {
-                FirstSolderBreakPopUp.Instance.Open(this);
+                FirstSolderBreakPopUp.Instance.Open(BreakSoldered,"You are about to break soldered components.\nIt'll cost you XP.");
                 return;
             }
 
