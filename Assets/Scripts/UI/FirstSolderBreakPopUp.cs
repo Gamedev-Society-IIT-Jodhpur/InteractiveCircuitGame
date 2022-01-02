@@ -85,7 +85,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
     void GoToMap()
     {
         LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.MAP);
-        PrevCurrScene.curr = 1;
+        PrevCurrScene.curr = 0;
     }
 
     
