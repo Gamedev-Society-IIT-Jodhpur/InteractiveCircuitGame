@@ -8,19 +8,34 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI header;
     //public TMP_Dropdown valuesDropDown;
     //public TMP_InputField quantity;
-    [SerializeField] TMP_Text quantityText;
-    int quantity=1;
+    public TMP_Text quantityText;
+    public static int quantity=1;
     string unit;
     string value;
     string price;
     string componentName;
     public static List<StaticData.ComponentData> tempInventory;
+    public static int breadboardCountInventroy=0;
+    public static int breadboardCountCart=0;
+
+    private void OnEnable()
+    {
+        quantityText.text = quantity.ToString();
+    }
 
     private void Start()
     {
-
         tempInventory = new List<StaticData.ComponentData>();
         quantityText.text = quantity.ToString();
+
+        for (int i = 0; i < StaticData.Inventory.Count; i++)
+        {
+            if (StaticData.Inventory[i].name== "breadboard")
+            {
+                breadboardCountInventroy=StaticData.Inventory[i].quantity;
+                break;
+            }
+        }
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -42,12 +57,34 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
         string itemDesc = string.Format(s, header.text, value, unit, quantity);
 
-        Store.Items.Add(itemDesc);
+        if(componentName== "Breadboard" && breadboardCountCart+breadboardCountInventroy<1)
+        {
+            breadboardCountCart += 1;
+            Store.Items.Add(itemDesc);
+            int totalPrice = quantity * int.Parse(price);
+            Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
+
+
+        }
+        else if (componentName == "Breadboard" && breadboardCountCart > 0)
+        {
+            //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard. 1 already in cart.");
+        }
+        else if (componentName == "Breadboard" && breadboardCountInventroy > 0)
+        {
+            //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard. 1 already in Inventory");
+        }
+        else
+        {
+            Store.Items.Add(itemDesc);
+            int totalPrice = quantity * int.Parse(price);
+            Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
+
+        }
 
         //int totalPrice = int.Parse(quantity.text) * int.Parse(price);
-        int totalPrice = quantity * int.Parse(price);
 
-        Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
+
 
         StaticData.ComponentData tempComponent = new StaticData.ComponentData();
         componentName =  StoreAssetmanager.Instance.itemsNameMaping[componentName];
@@ -65,13 +102,29 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
     public void IncreaseQuantity()
     {
-        quantity += 1;
-        quantityText.text = quantity.ToString();
+        if (header.text== "Breadboard")
+        {
+            if (quantity >= 1)
+            {
+                quantity = 1;
+                quantityText.text = quantity.ToString();
+                //TODO add notification
+                //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard");
+
+            }
+            
+        }
+        else
+        {
+            quantity += 1;
+            quantityText.text = quantity.ToString();
+        }
+       
     }
 
     public void DecreaseQuantity()
     {
-        if (quantity > 0)
+        if (quantity > 1)
         {
             quantity -= 1;
             quantityText.text = quantity.ToString();

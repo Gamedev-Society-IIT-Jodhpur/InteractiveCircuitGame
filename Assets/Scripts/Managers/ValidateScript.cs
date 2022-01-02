@@ -459,7 +459,7 @@ public class ValidateScript : MonoBehaviour
     {
         circuitManager.GetComponent<CircuitManagerTinker>().Play();
 
-
+        
 
         //All nodes id are updated
         HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();

@@ -71,15 +71,15 @@ public class CircuitManagerTinker : MonoBehaviour
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
         ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", "Is =18.8e-9 N=2 Cjo=30e-12 M=0.33 bv=6 ibv=5e-6"));
         print(componentList.Count);
-        
+
         if (GameObject.FindGameObjectWithTag("Breadboard"))
         {
             breadBoard = GameObject.FindGameObjectWithTag("Breadboard").GetComponent<Breadboard>();
             rows = breadBoard.rows;
             columns = breadBoard.columns;
         }
-        
-        
+
+
         for (int i = 0; i < componentList.Count; i++)
         {
             //get nodes of wire component
@@ -92,7 +92,7 @@ public class CircuitManagerTinker : MonoBehaviour
             }
             //get nodes of other components
             else childs = componentList[i].GetComponent<ComponentTinker>().childs;
-            
+
             List<string> nodes = new List<string>();
 
             //to check if component is attatched to breadboard and add to the nodes list
@@ -211,7 +211,7 @@ public class CircuitManagerTinker : MonoBehaviour
                             nodes.Add(a + " " + b);
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -243,7 +243,7 @@ public class CircuitManagerTinker : MonoBehaviour
                     nodes[j] = "0";
                 }
             }
-            print("nodes length " + nodes.Count+" "+componentList[i].name);
+            print("nodes length " + nodes.Count + " " + componentList[i].name);
             componentList[i].GetComponent<ComponentTinker>().nodes = nodes;
             componentList[i].GetComponent<ComponentTinker>().Initialize(i, nodes);
 
@@ -283,9 +283,9 @@ public class CircuitManagerTinker : MonoBehaviour
 
         Groundit();
 
-        var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
-        //var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
-        /*dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+        /*var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
+        var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
+        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
             if (selected.GetComponent<ComponentTinker>().a != component.bjt)
             {
@@ -303,11 +303,11 @@ public class CircuitManagerTinker : MonoBehaviour
                                     + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
                              + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
                             + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
-            
-        };*/
 
+            };
+        };
         // Run the simulation
-       /* try
+        try
         {
             dc.Run(ckt);
         }
@@ -318,8 +318,8 @@ public class CircuitManagerTinker : MonoBehaviour
             print(e);
         }*/
 
-        //print(selected.name+" "+ a);
-        //print(selected.name + " " + b);
+        
+        
     }
 
     public static void ChangeSelected(GameObject gameObject)

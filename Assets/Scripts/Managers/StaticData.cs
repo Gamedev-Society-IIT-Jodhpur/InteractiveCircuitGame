@@ -52,7 +52,7 @@ public class StaticData : MonoBehaviour
 
     private void Start()
     {
-       /* 
+/*
         #region Custom Inventory Items
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
@@ -107,7 +107,7 @@ public class StaticData : MonoBehaviour
         breadboard.name = "breadboard";
         breadboard.value = "";
         breadboard.unit = "";
-        breadboard.quantity = 2;
+        breadboard.quantity = 1;
 
         Inventory.Add(res1);
         Inventory.Add(battery9v);
