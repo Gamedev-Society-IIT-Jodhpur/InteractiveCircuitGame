@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Pathfinding;
+
 
 
 public class MapManager : MonoBehaviour 
@@ -56,11 +56,7 @@ public class MapManager : MonoBehaviour
         PrevCurrScene.curr = i;  
     }
 
-    public void movetracker(Transform target)
-    {
-        tracker.GetComponent<AIDestinationSetter>().target = target;
-       
-    }
+  
 
     public void mapscenechange(ButtonFunctionWrapper wrap , float animationTime)
     {

@@ -2537,6 +2537,7 @@ MonoBehaviour:
   falstad: {fileID: 494822308}
   tracker: {fileID: 338424195}
   isanimating: 0
+  todisable: {fileID: 0}
 --- !u!4 &664061257
 Transform:
   m_ObjectHideFlags: 0
@@ -8128,7 +8129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 298dc74c412f07bf-806e22604f3868b4
 --- !u!1 &1765000485
 GameObject:
   m_ObjectHideFlags: 0
@@ -41418,7 +41418,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 500, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8827784690438932255
 MonoBehaviour:
@@ -41630,7 +41630,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 210.2449, y: 30.76923}
+  m_SizeDelta: {x: 210.2449, y: 31.557896}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8827784690693526843
 MonoBehaviour:
@@ -42051,7 +42051,7 @@ RectTransform:
   m_GameObject: {fileID: 8827784691462764391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8827784690693526842}
   m_RootOrder: 1
@@ -42536,12 +42536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectable: {fileID: 0}
-  text: 'TinkerLab : Where Designs come true...
-
-    By Cab : $50 , 3 sec
-
-    By
-    Walinkg : $0 , 6 sec'
+  text: "TinkerLab \nBy Cab : $50 , 3 sec\nBy Walinkg : $0 , 6 sec"
 --- !u!1 &8827784692133330853
 GameObject:
   m_ObjectHideFlags: 0
@@ -42578,8 +42573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
+  m_SizeDelta: {x: 185.93684, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8827784692133330855
 MonoBehaviour:
@@ -42602,7 +42597,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d54323c94c164de478170d5e7d0273be, type: 3}
+    m_Font: {fileID: 12800000, guid: 8dec1c2387563a44184ffcbb9858e702, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -42613,7 +42608,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: Example tooltip text!
 --- !u!222 &8827784692133330856
 CanvasRenderer:
