@@ -30,6 +30,12 @@ public class DragManager : MonoBehaviour
     public static bool isGizmoPresent = false;
     [SerializeField]ButtonManager buttonManager;
 
+
+    private void Start()
+    {
+        isGizmoPresent = false;
+    }
+
     void Update()
     {
         #region Keyboard Shortcuts

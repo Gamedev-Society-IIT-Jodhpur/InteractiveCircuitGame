@@ -50,12 +50,12 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         }
     }
 
-    public void Open(delFunction function,string dataText, string titleText="Warning")
+    public void Open(delFunction function,string dataText, string titleText="Warning",string buttonText="Continue")
     {
 
         title.text = titleText;
         data.text = dataText;
-        buttonText.text = "Continue";
+        this.buttonText.text = buttonText;
         del = function;
         closeButton.SetActive(true);
         transform.LeanScale(Vector2.one, 0.5f);
@@ -92,4 +92,6 @@ public class FirstSolderBreakPopUp : MonoBehaviour
     }
 
     
+
+
 }

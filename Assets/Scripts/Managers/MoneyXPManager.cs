@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class MoneyXPManager : MonoBehaviour
 {
     static TMP_Text moneyText;
@@ -10,6 +11,7 @@ public class MoneyXPManager : MonoBehaviour
 
     private void Start()
     {
+        MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
         moneyText = GetComponentsInChildren<TMP_Text>()[0];
         xpText = GetComponentsInChildren<TMP_Text>()[1];
         UpdateMoneyAndXPText();
@@ -21,11 +23,11 @@ public class MoneyXPManager : MonoBehaviour
         UpdateMoneyAndXPText();
     }
 
-    public static void InitiateXP(float value)
+    /*public static void InitiateXP(float value)
     {
         MoneyAndXPData.InitiateXP(value);
         UpdateMoneyAndXPText();
-    }
+    }*/
 
     public static void DeductMoney(float amount)
     {

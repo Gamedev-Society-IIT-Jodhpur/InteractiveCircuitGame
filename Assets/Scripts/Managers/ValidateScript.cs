@@ -758,6 +758,7 @@ public class ValidateScript : MonoBehaviour
         if (seriesequal && dictsame == true)
         {
             print("Hurray You have Passed");
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.", "Congratulations!!");
         }
         else
         {
@@ -770,7 +771,14 @@ public class ValidateScript : MonoBehaviour
             print("Failed");
             print("Dict Comparison:" + dictsame);
             print("List Comparison:" + seriesequal);
+            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!","Try Again");
         }
+    }
+
+    void GoToResult()
+    {
+        LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+        //PrevCurrScene.curr = 0;
     }
 
 
