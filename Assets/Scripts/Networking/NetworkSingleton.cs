@@ -24,8 +24,7 @@ public class NetworkSingleton : MonoBehaviour
         //REACHABLE VIA LOCAL NETWORK OR CARRIER DATA
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            Debug.LogWarning("Connected to WiFi or Carrier network");
-            CustomNotificationManager.Instance.AddNotification(2, "No Internet Connection");
+            CustomNotificationManager.Instance.AddNotification(1, "No Internet Connection");
             return true;
         }
         else

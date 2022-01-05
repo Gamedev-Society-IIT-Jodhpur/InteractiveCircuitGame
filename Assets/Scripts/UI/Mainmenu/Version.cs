@@ -9,6 +9,6 @@ public class Version : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("email");
+        gameObject.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("player_email");
     }
 }

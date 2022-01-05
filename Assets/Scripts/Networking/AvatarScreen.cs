@@ -13,7 +13,7 @@ public class AvatarScreen : MonoBehaviour
 
     private void Awake()
     {
-        oldavatar = PlayerPrefs.GetInt("avatar", 0);
+        oldavatar = PlayerPrefs.GetInt("player_avatar", 0);
     }
 
     private void Start()
@@ -25,7 +25,8 @@ public class AvatarScreen : MonoBehaviour
     {
         avatars[oldavatar].GetComponent<RawImage>().color = new Color32(37, 37, 92, 255);
         avatars[index].GetComponent<RawImage>().color = new Color32(25, 156, 252, 255);
-        PlayerPrefs.SetInt("avatar", index);
+        PlayerPrefs.SetInt("player_avatar", index);
+        CustomNotificationManager.Instance.AddNotification(0, "New avatar set");
         oldavatar = index;
     }
 
@@ -37,10 +38,10 @@ public class AvatarScreen : MonoBehaviour
     IEnumerator onSetNewAvatar()
     {
 
-        Debug.Log(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("email", "") + "&avatar=" + PlayerPrefs.GetInt("avatar"));
+        Debug.Log(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar"));
          
 
-        UnityWebRequest www = UnityWebRequest.Post(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("email", "") + "&avatar=" + PlayerPrefs.GetInt("avatar") , "");
+        UnityWebRequest www = UnityWebRequest.Post(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar") , "");
 
         yield return www.SendWebRequest();
 

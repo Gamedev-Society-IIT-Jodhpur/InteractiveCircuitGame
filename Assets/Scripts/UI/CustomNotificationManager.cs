@@ -24,7 +24,6 @@ public class CustomNotificationManager : MonoBehaviour
 
     public void AddNotification(int idx, string message )
     {
-        Debug.Log("Adding Notification");
         GameObject tempNotification = Instantiate(notification, transform);
 
         Color iconColor = Color.white;

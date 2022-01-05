@@ -16,8 +16,8 @@ public class LoadingManager : MonoBehaviour
    private void Awake()
     {
         instance = this;
-        // TODO: Change Fastad to Login
-        SceneManager.LoadSceneAsync((int)SceneIndexes.MAP, LoadSceneMode.Additive);
+        // TODO: Change to Login
+        SceneManager.LoadSceneAsync((int)SceneIndexes.Login, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
     }
 

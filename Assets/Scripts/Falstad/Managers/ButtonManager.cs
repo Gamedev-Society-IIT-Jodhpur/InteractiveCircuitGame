@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-
-    private void Start()
-    {
-        //Debug.Log(PlayerPrefs.GetInt("avatar"));
-    }
     public void DeleteComponent()
     {
         if(CircuitManager.selected)

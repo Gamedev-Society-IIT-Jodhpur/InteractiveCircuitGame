@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CheckNotification : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
         StartCoroutine(check());
     }
 
@@ -31,5 +30,4 @@ public class CheckNotification : MonoBehaviour
         CustomNotificationManager.Instance.AddNotification(1, "This is an warning message");
         yield return new WaitForSeconds(4.0f);
     }
-
 }

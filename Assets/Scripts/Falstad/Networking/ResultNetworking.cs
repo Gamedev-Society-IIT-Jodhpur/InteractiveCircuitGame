@@ -22,8 +22,8 @@ public class ResultNetworking : MonoBehaviour
     void Start()
     {
         // TODO: To be removed------------------
-        PlayerPrefs.SetString("email", "sanodariya.1@iitj.ac.in");
-        AddResult();
+        //PlayerPrefs.SetString("email", "sanodariya.1@iitj.ac.in");
+        //AddResult();
         // -------------------------------------
         StartCoroutine(GetResult());
     }
@@ -52,7 +52,7 @@ public class ResultNetworking : MonoBehaviour
             //Debug.Log(data);
             foreach (var item in data)
             {
-                bool isUser = item.Value["email"] == PlayerPrefs.GetString("email");
+                bool isUser = item.Value["email"] == PlayerPrefs.GetString("player_email");
                 AddToList(i.ToString(), item.Value["name"] + " (" + item.Value["rollNo"] + ")", item.Value["score"], item.Value["xp"], isUser);
                 i++;
             }

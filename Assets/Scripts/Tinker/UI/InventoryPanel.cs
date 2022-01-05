@@ -25,6 +25,7 @@ public class InventoryPanel : MonoBehaviour
         gizmo.value = "";
         gizmo.unit = "";
         gizmo.quantity = 1;
+        
         if (!Inventory.Contains(gizmo))
         {
             Inventory.Add(gizmo);

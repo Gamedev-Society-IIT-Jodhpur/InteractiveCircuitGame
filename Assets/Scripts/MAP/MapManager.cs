@@ -60,11 +60,7 @@ public class MapManager : MonoBehaviour
 
     public void mapscenechange(ButtonFunctionWrapper wrap , float animationTime)
     {
-        
-
-
         btnclick = true;
-        
         
         if(wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
