@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using System;
 using TMPro;
+using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField]TMP_InputField inputField;
+    [SerializeField] TMP_InputField inputField;
 
     private void Start()
     {
@@ -18,7 +16,7 @@ public class InputManager : MonoBehaviour
         if (CircuitManager.selected.tag != "Gizmo")
         {
             ComponentInitialization component = CircuitManager.selected.GetComponent<ComponentInitialization>();
-            if (component.tag != "Wire" && component.a != CircuitManager.component.bjt && component.a!= CircuitManager.component.zenerDiode)
+            if (component.tag != "Wire" && component.a != CircuitManager.component.bjt && component.a != CircuitManager.component.zenerDiode)
             {
                 component.value = value;
                 if (component.valueText)
@@ -40,14 +38,14 @@ public class InputManager : MonoBehaviour
                     }
                 }
             }
-            else if (component.a == CircuitManager.component.bjt )
+            else if (component.a == CircuitManager.component.bjt)
             {
                 component.beta = int.Parse(value);
                 component.valueText.text = "β=" + value;
                 //print(value);
 
             }
-            else if ( component.a == CircuitManager.component.zenerDiode)
+            else if (component.a == CircuitManager.component.zenerDiode)
             {
                 component.beta = double.Parse(value);
                 component.valueText.text = "BV=" + value;

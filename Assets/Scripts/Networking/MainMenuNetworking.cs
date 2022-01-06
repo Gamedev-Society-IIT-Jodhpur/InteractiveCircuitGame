@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
-using TMPro;
 using SimpleJSON;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class MainMenuNetworking : MonoBehaviour
 {
@@ -51,7 +48,7 @@ public class MainMenuNetworking : MonoBehaviour
         {
             JSONNode gameData = JSON.Parse(www.downloadHandler.text);
             print(gameData.AsArray.Count);
-            if(gameData.AsArray.Count > 0)
+            if (gameData.AsArray.Count > 0)
             {
                 startButtonText.text = "Start";
                 isGameAvailable = true;

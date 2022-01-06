@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
 public class Checkout : MonoBehaviour
 {
 
@@ -17,26 +14,26 @@ public class Checkout : MonoBehaviour
 
     public void CheckoutItems()
     {
-        foreach(var items in AddItem.tempInventory)
+        foreach (var items in AddItem.tempInventory)
         {
             bool added = false;
             for (int i = 0; i < StaticData.Inventory.Count; i++)
             {
-                if(StaticData.Inventory[i].name== items.name && StaticData.Inventory[i].value == items.value)
+                if (StaticData.Inventory[i].name == items.name && StaticData.Inventory[i].value == items.value)
                 {
                     StaticData.ComponentData tempComponent = new StaticData.ComponentData();
 
                     tempComponent.name = StaticData.Inventory[i].name;
                     tempComponent.value = StaticData.Inventory[i].value;
                     tempComponent.unit = StaticData.Inventory[i].unit;
-                    tempComponent.quantity = StaticData.Inventory[i].quantity+items.quantity;
+                    tempComponent.quantity = StaticData.Inventory[i].quantity + items.quantity;
                     tempComponent.price = StaticData.Inventory[i].price;
                     StaticData.Inventory.RemoveAt(i);
                     StaticData.Inventory.Add(tempComponent);
                     added = true;
                     break;
                 }
-                
+
             }
             if (!added)
             {

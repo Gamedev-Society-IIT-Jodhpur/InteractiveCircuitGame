@@ -1,12 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 
 
-public class MapManager : MonoBehaviour 
+public class MapManager : MonoBehaviour
 {
     public enum scene
     {
@@ -17,7 +14,7 @@ public class MapManager : MonoBehaviour
         shop3,
         shop4,
     };
-    int[,] distance ;
+    int[,] distance;
     int current = 1;
     public List<Transform> trackerpoints;
     public List<Lean.Gui.LeanTooltipData> shopstext;
@@ -26,43 +23,43 @@ public class MapManager : MonoBehaviour
     public GameObject tracker;
     bool btnclick = false;
     string toscene = "MAP";
-    public  bool isanimating = false;
-   public  GameObject todisable;
+    public bool isanimating = false;
+    public GameObject todisable;
     // Start is called before the first frame update
     void Start()
     {
         current = PrevCurrScene.curr;
-        tracker.transform.position = trackerpoints[current].position; 
-         distance = new int[6, 6] { { 0,1,2,7,9,11} , { 1,0,3,8,10,10} ,{ 2,3,0,5,7,11},{ 7,8,5,0,2,6},{ 9,10,7,2,0,4},{ 11,10,11,6,4,0} };
-       for(int i = 0; i < shopstext.Count; i++)
+        tracker.transform.position = trackerpoints[current].position;
+        distance = new int[6, 6] { { 0, 1, 2, 7, 9, 11 }, { 1, 0, 3, 8, 10, 10 }, { 2, 3, 0, 5, 7, 11 }, { 7, 8, 5, 0, 2, 6 }, { 9, 10, 7, 2, 0, 4 }, { 11, 10, 11, 6, 4, 0 } };
+        for (int i = 0; i < shopstext.Count; i++)
         {
 
             shopstext[i].Text = "Shop" +
-                "\n By Cab:     "+(distance[current,i+2]/4.0).ToString()+" seconds"+"  $"+(distance[current,i+2]).ToString()+
-                "\n  By Walking:    "+(distance[current,i+2]/2.0).ToString()+" seconds"+"  $ 0";
+                "\n By Cab:     " + (distance[current, i + 2] / 4.0).ToString() + " seconds" + "  $" + (distance[current, i + 2]).ToString() +
+                "\n  By Walking:    " + (distance[current, i + 2] / 2.0).ToString() + " seconds" + "  $ 0";
         }
-       TinkerLab.Text = "TinkerLab" +
-                "\n By Cab:     " + (distance[current, 0] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 0]).ToString() +
-                "\n  By Walking:    " + (distance[current, 0] / 2.0).ToString() + " seconds" + "  $ 0";
-        falstad.Text= "Falstad" +
+        TinkerLab.Text = "TinkerLab" +
+                 "\n By Cab:     " + (distance[current, 0] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 0]).ToString() +
+                 "\n  By Walking:    " + (distance[current, 0] / 2.0).ToString() + " seconds" + "  $ 0";
+        falstad.Text = "Falstad" +
                 "\n By Cab:     " + (distance[current, 1] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 1]).ToString() +
                 "\n  By Walking:    " + (distance[current, 1] / 2.0).ToString() + " seconds" + "  $ 0";
     }
 
 
-    public  void Change(int i)
+    public void Change(int i)
     {
         PrevCurrScene.prev = PrevCurrScene.curr;
-        PrevCurrScene.curr = i;  
+        PrevCurrScene.curr = i;
     }
 
-  
 
-    public void mapscenechange(ButtonFunctionWrapper wrap , float animationTime)
+
+    public void mapscenechange(ButtonFunctionWrapper wrap, float animationTime)
     {
         btnclick = true;
-        
-        if(wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
+
+        if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
             MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]);
             Timer.SkipTime((distance[current, wrap.changeindex] / 4.0f) - animationTime);
@@ -74,7 +71,7 @@ public class MapManager : MonoBehaviour
         }
         Change(wrap.changeindex);
         //SceneManager.LoadScene(wrap.scenename);
-        LoadingManager.instance.LoadGame(SceneIndexes.MAP,wrap.toScene);
+        LoadingManager.instance.LoadGame(SceneIndexes.MAP, wrap.toScene);
     }
     public void ShowButtons(GameObject tosetActive)
     {
@@ -89,6 +86,6 @@ public class MapManager : MonoBehaviour
             tosetActive.SetActive(true);
             todisable = tosetActive;
         }
-       
+
     }
 }

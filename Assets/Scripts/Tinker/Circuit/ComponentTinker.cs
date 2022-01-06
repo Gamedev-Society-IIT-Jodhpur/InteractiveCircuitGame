@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ComponentTinker : MonoBehaviour
 
@@ -40,7 +38,7 @@ public class ComponentTinker : MonoBehaviour
 
     public void Initialize(int i, List<string> nodes)
     {
-        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value , beta.ToString());
+        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
         nameInCircuit = a.ToString() + i;
     }
 }

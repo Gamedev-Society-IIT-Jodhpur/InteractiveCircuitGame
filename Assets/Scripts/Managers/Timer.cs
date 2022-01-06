@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -10,25 +8,24 @@ public class Timer : MonoBehaviour
     public static int startSec;
     public static int startHr;
     int timeElapsed;
-    
+
 
     // Update is called once per frame
     void Update()
     {
         if (isTimerRunning)
         {
-            timeElapsed = ((int.Parse(System.DateTime.Now.ToString().Substring(11, 2)) - startHr) * 60*60) + 
-                ((int.Parse(System.DateTime.Now.ToString().Substring(14, 2)) - startMin) * 60) + 
+            timeElapsed = ((int.Parse(System.DateTime.Now.ToString().Substring(11, 2)) - startHr) * 60 * 60) +
+                ((int.Parse(System.DateTime.Now.ToString().Substring(14, 2)) - startMin) * 60) +
                 (int.Parse(System.DateTime.Now.ToString().Substring(17, 2)) - startSec);
-            if (timeElapsed>=1)
+            if (timeElapsed >= 1)
             {
                 currentTime += timeElapsed;
                 startMin = int.Parse(System.DateTime.Now.ToString().Substring(14, 2));
                 startSec = int.Parse(System.DateTime.Now.ToString().Substring(17, 2));
                 startHr = int.Parse(System.DateTime.Now.ToString().Substring(11, 2));
-            } 
+            }
         }
-
     }
 
 
@@ -49,5 +46,4 @@ public class Timer : MonoBehaviour
     {
         currentTime += time;
     }
-
 }

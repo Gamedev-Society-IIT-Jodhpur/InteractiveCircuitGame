@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -22,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject model;
     [SerializeField]
     public List<Dialogue> sentences_list;
-    
+
     private int index = 0;
     private bool isCoroutineRunning;
     private Color defaultColor;

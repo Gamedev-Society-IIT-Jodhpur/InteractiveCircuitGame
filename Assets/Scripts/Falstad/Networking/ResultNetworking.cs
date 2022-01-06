@@ -2,8 +2,8 @@ using SimpleJSON;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ResultNetworking : MonoBehaviour
 {
@@ -59,34 +59,6 @@ public class ResultNetworking : MonoBehaviour
         }
     }
 
-    public void AddResult()
-    {
-        StartCoroutine(AddResultCoroutine());
-    }
-
-    IEnumerator AddResultCoroutine()
-    {
-        WWWForm postResult = new WWWForm();
-
-        postResult.AddField("email", "shekhar.1@iitj.ac.in");
-        postResult.AddField("time", 60);
-        postResult.AddField("money", 120);
-        postResult.AddField("score", 150);
-        postResult.AddField("xp", 100);
-
-        UnityWebRequest uwr = UnityWebRequest.Post(addResult, postResult);
-        yield return uwr.SendWebRequest();
-
-        if (uwr.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.Log("Error While Sending: " + uwr.error);
-        }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
-        }
-    }
-
     void AddToList(string number, string name, string score, string xp, bool isUser)
     {
         GameObject ParentGameObject = Instantiate(ListElement, ContentView.transform);
@@ -116,6 +88,6 @@ public class ResultNetworking : MonoBehaviour
             ChildGameObject3.GetComponent<RawImage>().color = new Color32(249, 127, 81, 255);
             ChildGameObject4.GetComponent<RawImage>().color = new Color32(249, 127, 81, 255);
         }
-        
+
     }
 }

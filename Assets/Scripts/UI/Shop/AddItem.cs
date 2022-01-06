@@ -9,14 +9,14 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
     //public TMP_Dropdown valuesDropDown;
     //public TMP_InputField quantity;
     public TMP_Text quantityText;
-    public static int quantity=1;
+    public static int quantity = 1;
     string unit;
     string value;
     string price;
     string componentName;
     public static List<StaticData.ComponentData> tempInventory;
-    public static int breadboardCountInventroy=0;
-    public static int breadboardCountCart=0;
+    public static int breadboardCountInventroy = 0;
+    public static int breadboardCountCart = 0;
 
     private void OnEnable()
     {
@@ -30,9 +30,9 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
         for (int i = 0; i < StaticData.Inventory.Count; i++)
         {
-            if (StaticData.Inventory[i].name== "breadboard")
+            if (StaticData.Inventory[i].name == "breadboard")
             {
-                breadboardCountInventroy=StaticData.Inventory[i].quantity;
+                breadboardCountInventroy = StaticData.Inventory[i].quantity;
                 break;
             }
         }
@@ -57,7 +57,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
         string itemDesc = string.Format(s, header.text, value, unit, quantity);
 
-        if(componentName== "Breadboard" && breadboardCountCart+breadboardCountInventroy<1)
+        if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
             breadboardCountCart += 1;
             Store.Items.Add(itemDesc);
@@ -87,7 +87,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
 
         StaticData.ComponentData tempComponent = new StaticData.ComponentData();
-        componentName =  StoreAssetmanager.Instance.itemsNameMaping[componentName];
+        componentName = StoreAssetmanager.Instance.itemsNameMaping[componentName];
 
         tempComponent.name = componentName;
         tempComponent.value = value;
@@ -102,7 +102,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
     public void IncreaseQuantity()
     {
-        if (header.text== "Breadboard")
+        if (header.text == "Breadboard")
         {
             if (quantity >= 1)
             {
@@ -112,14 +112,14 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
                 //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard");
 
             }
-            
+
         }
         else
         {
             quantity += 1;
             quantityText.text = quantity.ToString();
         }
-       
+
     }
 
     public void DecreaseQuantity()

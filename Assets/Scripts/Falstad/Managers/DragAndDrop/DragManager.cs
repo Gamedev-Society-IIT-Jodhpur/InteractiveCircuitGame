@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System;
 using TMPro;
+using UnityEngine;
 
 
 public class DragManager : MonoBehaviour
@@ -28,7 +26,7 @@ public class DragManager : MonoBehaviour
     bool forward = true;
     [SerializeField] TMP_Dropdown dropDown;
     public static bool isGizmoPresent = false;
-    [SerializeField]ButtonManager buttonManager;
+    [SerializeField] ButtonManager buttonManager;
 
 
     private void Start()
@@ -107,13 +105,13 @@ public class DragManager : MonoBehaviour
 
                     if (hit.collider.gameObject.tag == "node")
                     {
-                        
+
                         hit.collider.gameObject.GetComponentInParent<Item>().isMoving = true;
                         CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
                         childs = hit.collider.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>();
                         child1Pos = childs[1].transform.position;
                         child2Pos = childs[2].transform.position;
-                        if(Vector2.Distance(worldPoint,child1Pos)< Vector2.Distance(worldPoint, child2Pos))
+                        if (Vector2.Distance(worldPoint, child1Pos) < Vector2.Distance(worldPoint, child2Pos))
                         {
                             currentChild = 1;
                         }
@@ -123,7 +121,7 @@ public class DragManager : MonoBehaviour
                         }
 
                     }
-                    else if(hit.collider.gameObject.tag == "bjt node")
+                    else if (hit.collider.gameObject.tag == "bjt node")
                     {
                         hit.collider.transform.parent.gameObject.GetComponent<BJTItem>().isMoving = true;
                         CircuitManager.ChangeSelected(hit.collider.gameObject.transform.parent.gameObject);
@@ -174,7 +172,7 @@ public class DragManager : MonoBehaviour
                     int y = Mathf.RoundToInt(worldPoint.y);
 
 
-                    if (currentChild== 2)
+                    if (currentChild == 2)
                     {
                         if (Vector3.Distance(childs[1].transform.position, new Vector3(x, y, 0)) >= 2)
                         {
@@ -190,7 +188,7 @@ public class DragManager : MonoBehaviour
                     }
 
                 }
-                else if(hit.collider.gameObject.tag == "bjt node")
+                else if (hit.collider.gameObject.tag == "bjt node")
                 {
                     if (axis == 0)
                     {
@@ -211,7 +209,7 @@ public class DragManager : MonoBehaviour
                                 hit.collider.transform.position = new Vector3Int(x, y, 0);
                             }
                         }
-                        
+
                     }
                     else
                     {
@@ -232,7 +230,7 @@ public class DragManager : MonoBehaviour
                                 hit.collider.transform.position = new Vector3Int(x, y, 0);
                             }
                         }
-                        
+
                     }
 
                 }
@@ -241,7 +239,7 @@ public class DragManager : MonoBehaviour
                     float x = worldPoint.x;
                     float y = worldPoint.y;
 
-                    if (Vector2.Distance(new Vector2(x,y),new Vector2(prevCursorX, prevCursorY)) >= 1)
+                    if (Vector2.Distance(new Vector2(x, y), new Vector2(prevCursorX, prevCursorY)) >= 1)
                     {
                         if ((x - prevCursorX) >= 1)
                         {
@@ -290,13 +288,13 @@ public class DragManager : MonoBehaviour
                 x1 = Mathf.RoundToInt(worldPoint.x);
                 y1 = Mathf.RoundToInt(worldPoint.y);
                 isDraggin = true;
-                if(toInstantiate.tag=="Gizmo" && isGizmoPresent)
+                if (toInstantiate.tag == "Gizmo" && isGizmoPresent)
                 {
                     mode = 0;
                     dropDown.value = 0;
                     isDraggin = false;
                     CustomNotificationManager.Instance.AddNotification(2, "Gizmo already present");
-                    
+
                     //print("one gizmo already present"); //TODO add notification.
                 }
             }
@@ -310,7 +308,7 @@ public class DragManager : MonoBehaviour
                     newComponent = Instantiate<GameObject>(toInstantiate);
                     //print(newComponent.name);
                     CircuitManager.ChangeSelected(newComponent);
-                    if(newComponent.tag=="BJT") newComponent.GetComponent<BJTItem>().isMoving = true;
+                    if (newComponent.tag == "BJT") newComponent.GetComponent<BJTItem>().isMoving = true;
                     else newComponent.GetComponent<Item>().isMoving = true;
                     childs = newComponent.GetComponentsInChildren<Transform>();
                     childs[1].transform.position = new Vector3(x1, y1, 0);
@@ -326,11 +324,12 @@ public class DragManager : MonoBehaviour
                 {
                     int x = Mathf.RoundToInt(worldPoint.x);
                     int y = Mathf.RoundToInt(worldPoint.y);
-                    if (Mathf.Abs(x1-x)> Mathf.Abs(y1 - y)){
+                    if (Mathf.Abs(x1 - x) > Mathf.Abs(y1 - y))
+                    {
                         if (x1 > x)
                         {
                             newComponent.transform.eulerAngles = new Vector3(0, 0, -90);
-                            newComponent.transform.position = new Vector3(x+0.5f,y1 , 0);
+                            newComponent.transform.position = new Vector3(x + 0.5f, y1, 0);
                             childs[1].transform.position = new Vector3(x1, y1, 0);
                         }
                         else
@@ -346,7 +345,7 @@ public class DragManager : MonoBehaviour
                         if (y1 > y)
                         {
                             newComponent.transform.eulerAngles = new Vector3(0, 0, 0);
-                            newComponent.transform.position = new Vector3(x1, y+0.5f, 0);
+                            newComponent.transform.position = new Vector3(x1, y + 0.5f, 0);
                             childs[1].transform.position = new Vector3(x1, y1, 0);
                         }
                         else
@@ -374,7 +373,7 @@ public class DragManager : MonoBehaviour
             else if (isDraggin)
             {
                 isDraggin = false;
-                if (newComponent && newComponent.tag=="BJT") newComponent.GetComponent<BJTItem>().isMoving = false;
+                if (newComponent && newComponent.tag == "BJT") newComponent.GetComponent<BJTItem>().isMoving = false;
                 else if (newComponent) newComponent.GetComponent<Item>().isMoving = false;
                 newComponent = null;
                 toDraw = true;
@@ -403,5 +402,5 @@ public class DragManager : MonoBehaviour
 
     }
 
-    
+
 }

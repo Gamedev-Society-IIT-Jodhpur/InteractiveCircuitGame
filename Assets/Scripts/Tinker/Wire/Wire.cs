@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,7 +8,7 @@ public class Wire : MonoBehaviour
     Vector2 mousePos;
     Vector2 node2Pos;
     bool isDrawing;
-    public bool isMoving=false;
+    public bool isMoving = false;
     public Transform node1;
     public Transform node2;
     float distance;
@@ -54,9 +52,9 @@ public class Wire : MonoBehaviour
         if (isDrawing)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position=new Vector3((mousePos.x+node1.transform.position.x)/2, (mousePos.y + node1.transform.position.y) / 2,0);
+            transform.position = new Vector3((mousePos.x + node1.transform.position.x) / 2, (mousePos.y + node1.transform.position.y) / 2, 0);
             distance = Vector2.Distance(mousePos, node1.transform.position);
-            transform.localScale =new Vector3(distance,transform.localScale.y,transform.localScale.z);
+            transform.localScale = new Vector3(distance, transform.localScale.y, transform.localScale.z);
             //transform.localScale =new Vector3(transform.localScale.x,distance/2,transform.localScale.z);
 
             angleVector = new Vector2(node1.transform.position.x - mousePos.x, node1.transform.position.y - mousePos.y);
@@ -88,10 +86,10 @@ public class Wire : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !StaticData.isSoldering && !IsMouseOverUI())
             {
                 hit = Physics2D.Raycast(mousePos, Vector2.zero);
-                if (hit.collider!=null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject!=GetComponentInParent<NewWireManager>().nodes[0].gameObject)
+                if (hit.collider != null && hit.collider.gameObject.tag == "node" && hit.collider.gameObject != GetComponentInParent<NewWireManager>().nodes[0].gameObject)
                 {
-                    
-                    if(hit.transform.parent.tag=="Breadboard grid" || StaticData.isSolderingIron)
+
+                    if (hit.transform.parent.tag == "Breadboard grid" || StaticData.isSolderingIron)
                     {
                         if (hit.transform.parent.tag != "Breadboard grid" && StaticData.isSolderingIron)
                         {
@@ -135,12 +133,12 @@ public class Wire : MonoBehaviour
                         CustomNotificationManager.Instance.AddNotification(2, "Soldering iron isn't available");
                         //print("there is no soldering iron");
                     }
-                    
-                        
+
+
 
                 }
-                
-                else if((hit.collider==null)||(hit.collider.tag != "node"))
+
+                else if ((hit.collider == null) || (hit.collider.tag != "node"))
                 {
                     node2 = Instantiate<GameObject>(wireNode).transform;
                     node2.transform.position = mousePos/*+new Vector2(0,0.0001f)*/;
@@ -187,7 +185,7 @@ public class Wire : MonoBehaviour
         }
     }
 
-    
+
 
     private bool IsMouseOverUI()
     {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Breadboard : MonoBehaviour
@@ -20,21 +18,21 @@ public class Breadboard : MonoBehaviour
             grandChilds = childs[k].GetComponentsInChildren<Transform>();
             if (childs[k].isPowerGrid)
             {
-                rows[0+x] = grandChilds[1];
-                rows[1+x] = grandChilds[2];
-                x+=2;
+                rows[0 + x] = grandChilds[1];
+                rows[1 + x] = grandChilds[2];
+                x += 2;
             }
             else
             {
                 for (int i = 1, j = 0; i < grandChilds.Length; i += 5, j++)
                 {
-                    columns[j+y, 0] = grandChilds[i];
-                    columns[j+y, 1] = grandChilds[i + 4];
+                    columns[j + y, 0] = grandChilds[i];
+                    columns[j + y, 1] = grandChilds[i + 4];
                 }
                 y += 30;
             }
         }
-        
+
     }
 
 }

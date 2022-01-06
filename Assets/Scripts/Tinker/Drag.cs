@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -102,12 +100,12 @@ public class Drag : MonoBehaviour
         }
         else if (isDraggin && hasInitiated)
         {
-            isDraggin=(false);
+            isDraggin = (false);
 
             if (transform.parent != null && transform.parent.tag == "soldered")
             {
                 nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
-                
+
             }
             else
             {
@@ -171,22 +169,22 @@ public class Drag : MonoBehaviour
                     transform.GetComponentInParent<Breadboard>())
                 {
                     node.GetRaycastHits();
-                    foreach(var hit in node.hits)
+                    foreach (var hit in node.hits)
                     {
                         if (!isConnectedToBreadboard)
                         {
-                            if(hit.transform.parent!=null && hit.transform.parent.tag=="Breadboard grid")
+                            if (hit.transform.parent != null && hit.transform.parent.tag == "Breadboard grid")
                             {
                                 isConnectedToBreadboard = true;
                                 break;
                             }
-                            
+
                         }
                     }
                 }
             }
 
-            if (transform.parent != null && transform.parent.tag == "Breadboard" && !isConnectedToBreadboard )
+            if (transform.parent != null && transform.parent.tag == "Breadboard" && !isConnectedToBreadboard)
             {
                 transform.parent = null;
             }
@@ -199,7 +197,7 @@ public class Drag : MonoBehaviour
             StaticData.dragThreshold = 0.01f;
         }
 
-       
+
     }
 
     private void OnMouseOver()
@@ -207,11 +205,11 @@ public class Drag : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isDraggin && !WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            isDraggin=(true);
-            if (transform.parent!=null && transform.parent.tag == "soldered")
+            isDraggin = (true);
+            if (transform.parent != null && transform.parent.tag == "soldered")
             {
                 nodes = transform.parent.GetComponentsInChildren<NodeTinker>();
-                
+
             }
             else
             {
@@ -252,9 +250,9 @@ public class Drag : MonoBehaviour
         }
     }
 
-    
 
-    
+
+
 
     public void Snap(Vector3 snapPos, Transform childPos)
     {

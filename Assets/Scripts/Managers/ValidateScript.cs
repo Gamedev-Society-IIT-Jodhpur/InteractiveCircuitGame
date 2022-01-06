@@ -1,11 +1,12 @@
+using SpiceSharp;
+using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using SpiceSharp;
-using SpiceSharp.Components;
+using UnityEngine.Networking;
 
 public class ValidateScript : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ValidateScript : MonoBehaviour
     GameObject circuitManager;
     [SerializeField]
     public static GameObject gizmo;
+
+    string addResult = AvailableRoutes.addResult;
 
 
     // Components in series
@@ -56,11 +59,11 @@ public class ValidateScript : MonoBehaviour
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].I[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].I[k], 5));
                 }
                 for (int k = 0; k < Componentdata[j].V.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].V[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].V[k], 5));
                 }
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 temp.Add(formattedstring);
@@ -102,20 +105,20 @@ public class ValidateScript : MonoBehaviour
         }
         return a;
     }
-    
+
     public bool CheckSpecs()
     {
         bool passed = false;
         string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
         string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
         Circuit ckt1 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        foreach (var i in CircuitManager.ckt)
         {
             ckt1.Add(i);
         }
         ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
         Circuit ckt2 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        foreach (var i in CircuitManager.ckt)
         {
             ckt2.Add(i);
         }
@@ -138,13 +141,13 @@ public class ValidateScript : MonoBehaviour
         {
             double power = 0.0;
             int j = 0;
-            foreach(var i in ckt1.ByType<VoltageSource>())
+            foreach (var i in ckt1.ByType<VoltageSource>())
             {
 
                 power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
                 j++;
             }
-            if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 &&  Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <=1.2)
+            if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
             {
                 passed = true;
             }
@@ -161,9 +164,9 @@ public class ValidateScript : MonoBehaviour
             }
             if (passed == true)
             {
-                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6 
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value)<=1.2)
+                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
+                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
                 {
                     passed = true;
                 }
@@ -186,10 +189,10 @@ public class ValidateScript : MonoBehaviour
             print(e.Message);
             passed = false;
         }
-        
 
 
-            return passed;
+
+        return passed;
     }
 
     public void SaveDataFalstad()
@@ -285,7 +288,7 @@ public class ValidateScript : MonoBehaviour
                         }
                     }
                 };
-                
+
                 try
                 {
                     dc.Run(CircuitManager.ckt);
@@ -301,7 +304,7 @@ public class ValidateScript : MonoBehaviour
                 print(e.Message);
                 //throw;
             }
-            
+
 
 
 
@@ -436,12 +439,12 @@ public class ValidateScript : MonoBehaviour
                 print(i);
 
             }
-           /* foreach (var i in ComponentdataFalstad)
-            {
-                print(i.Key);
-                print(i.Value.ctype);
-                print(i.Value.value);
-            }*/
+            /* foreach (var i in ComponentdataFalstad)
+             {
+                 print(i.Key);
+                 print(i.Value.ctype);
+                 print(i.Value.value);
+             }*/
 
             ValidationModel.isSuccess = true;
             ValidationModel.Instance.Open();
@@ -459,7 +462,7 @@ public class ValidateScript : MonoBehaviour
     {
         circuitManager.GetComponent<CircuitManagerTinker>().Play();
 
-        
+
 
         //All nodes id are updated
         HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
@@ -557,7 +560,7 @@ public class ValidateScript : MonoBehaviour
                 //throw;
 
                 print(e.Message);
-                
+
             }
         }
         catch (Exception e)
@@ -565,8 +568,8 @@ public class ValidateScript : MonoBehaviour
 
             print(e.Message);
         }
-        
-        
+
+
 
 
 
@@ -717,7 +720,7 @@ public class ValidateScript : MonoBehaviour
             print(i);
 
         }
-        foreach(var i in serieslistFalstadModified)
+        foreach (var i in serieslistFalstadModified)
         {
             print(i);
         }
@@ -771,15 +774,45 @@ public class ValidateScript : MonoBehaviour
             print("Failed");
             print("Dict Comparison:" + dictsame);
             print("List Comparison:" + seriesequal);
-            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!","Try Again");
+            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
         }
     }
 
     void GoToResult()
     {
-        LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+
+        string email = PlayerPrefs.GetString("player_email", "");
+        int time = (int)Timer.currentTime;
+        int money = (int)MoneyAndXPData.money;
+        int score = (int)ScoringScript.CalcScore();
+        int xp = (int)MoneyAndXPData.xp;
+
+        StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
+
+
         //PrevCurrScene.curr = 0;
     }
 
+    IEnumerator AddResultCoroutine(string email, int time, int money, int score, int xp)
+    {
+        WWWForm postResult = new WWWForm();
 
+        postResult.AddField("email", email);
+        postResult.AddField("time", time);
+        postResult.AddField("money", money);
+        postResult.AddField("score", score);
+        postResult.AddField("xp", xp);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(addResult, postResult);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit the result");
+        }
+        else
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+        }
+    }
 }

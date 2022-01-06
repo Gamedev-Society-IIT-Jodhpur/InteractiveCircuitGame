@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class RemoveItem : MonoBehaviour, IPointerClickHandler
 {
@@ -10,7 +7,7 @@ public class RemoveItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if (Store.Items[index].Substring(0, 10)== "Breadboard")
+        if (Store.Items[index].Substring(0, 10) == "Breadboard")
         {
             AddItem.breadboardCountCart = 0;
         }

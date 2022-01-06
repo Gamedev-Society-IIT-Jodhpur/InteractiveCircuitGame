@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,7 +5,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void DeleteComponent()
     {
-        if(CircuitManager.selected)
+        if (CircuitManager.selected)
         {
             CircuitManager.ChangeSelected(null);
             //CircuitManager.selected.GetComponent<Renderer>().material = AssetManager.GetInstance().defaultMaterial;
@@ -20,7 +18,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No component selected"); 
+            Debug.Log("No component selected");
         }
-    } 
+    }
 }

@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class CustomNotificationManager : MonoBehaviour
 {
@@ -22,17 +21,17 @@ public class CustomNotificationManager : MonoBehaviour
         }
     }
 
-    public void AddNotification(int idx, string message )
+    public void AddNotification(int idx, string message)
     {
         GameObject tempNotification = Instantiate(notification, transform);
 
         Color iconColor = Color.white;
 
-        if(idx == 0)
+        if (idx == 0)
         {
             iconColor = Color.blue;
         }
-        else if(idx == 1)
+        else if (idx == 1)
         {
             iconColor = Color.yellow;
         }

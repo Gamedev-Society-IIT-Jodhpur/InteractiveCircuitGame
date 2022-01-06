@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WireNode : MonoBehaviour
@@ -31,7 +29,7 @@ public class WireNode : MonoBehaviour
         else
         {
             float angle = Mathf.Atan(angleVector.y / angleVector.x) * (180 / Mathf.PI);
-            parentPos.eulerAngles = new Vector3(0, 0, angle+180);
+            parentPos.eulerAngles = new Vector3(0, 0, angle + 180);
         }
 
         node1Scale = new Vector3(childs[1].localScale.x * parentPos.localScale.x, childs[1].localScale.y * parentPos.localScale.y, childs[1].localScale.z * parentPos.localScale.z);
@@ -48,6 +46,6 @@ public class WireNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

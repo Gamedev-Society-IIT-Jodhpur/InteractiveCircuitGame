@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class StaticData : MonoBehaviour
@@ -7,7 +6,7 @@ public class StaticData : MonoBehaviour
 
     public static List<GameObject> componentList;
 
-    public struct ComponentValidate 
+    public struct ComponentValidate
     {
         public int isSeries;
         public List<double> V, I;
@@ -17,7 +16,7 @@ public class StaticData : MonoBehaviour
         public string value;
         public double beta;
     };
-    
+
     public struct series
     {
         public List<string> components;
@@ -28,7 +27,7 @@ public class StaticData : MonoBehaviour
         public string nodeID;
         public List<string> attached;
     };
-    
+
     public struct ComponentData //to save items in inventory
     {
         public string name;
@@ -41,7 +40,7 @@ public class StaticData : MonoBehaviour
     public static List<ComponentData> Inventory = new List<ComponentData>();
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
-    public static bool isSolderingIron=true;
+    public static bool isSolderingIron = true;
     public static bool hasSolderBroken = false;
 
 

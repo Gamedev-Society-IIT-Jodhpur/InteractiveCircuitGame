@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class LoadingManager : MonoBehaviour
 {
@@ -12,8 +12,8 @@ public class LoadingManager : MonoBehaviour
     public GameObject loadingScreen;
     public Slider progressBar;
     public TextMeshProUGUI loadingtext;
-    
-   private void Awake()
+
+    private void Awake()
     {
         instance = this;
         // TODO: Change to Login
@@ -22,8 +22,8 @@ public class LoadingManager : MonoBehaviour
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    
-   public void LoadGame(SceneIndexes from , SceneIndexes to)
+
+    public void LoadGame(SceneIndexes from, SceneIndexes to)
     {
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
@@ -43,12 +43,12 @@ public class LoadingManager : MonoBehaviour
     float totalSceneProgress;
     public IEnumerator GetSceneLoadProgress()
     {
-        for(int i = 0; i < scenesLoading.Count; i++)
+        for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
                 totalSceneProgress = 0;
-                foreach(AsyncOperation operation in scenesLoading)
+                foreach (AsyncOperation operation in scenesLoading)
                 {
                     totalSceneProgress += operation.progress;
                 }
@@ -61,6 +61,6 @@ public class LoadingManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         loadingScreen.gameObject.SetActive(false);
-        
+
     }
 }
