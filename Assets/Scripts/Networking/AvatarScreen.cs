@@ -1,15 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Networking;
-using SimpleJSON;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class AvatarScreen : MonoBehaviour
 {
     public GameObject[] avatars;
-    int oldavatar = 0; 
+    int oldavatar = 0;
 
     private void Awake()
     {
@@ -34,14 +31,10 @@ public class AvatarScreen : MonoBehaviour
     {
         StartCoroutine(onSetNewAvatar());
     }
-     
+
     IEnumerator onSetNewAvatar()
     {
-
-        Debug.Log(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar"));
-         
-
-        UnityWebRequest www = UnityWebRequest.Post(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar") , "");
+        UnityWebRequest www = UnityWebRequest.Post(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar"), "");
 
         yield return www.SendWebRequest();
 
