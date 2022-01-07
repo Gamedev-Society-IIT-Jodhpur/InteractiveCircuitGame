@@ -24,8 +24,12 @@ public class ModelBox : MonoBehaviour
 
     void OnComplete()
     {
-        // TODO: Go to map
         gameObject.SetActive(false);
+    }
+
+    public void StartQuest()
+    {
+        LoadingManager.instance.LoadGame(SceneIndexes.Dialogue, SceneIndexes.Falstad);
     }
 
 }

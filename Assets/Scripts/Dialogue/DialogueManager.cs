@@ -58,18 +58,21 @@ public class DialogueManager : MonoBehaviour
         {
             previousButtonImg.color = defaultColor;
         }
+        if (nextButtonText.text == "Continue")
+        {
+            nextButtonImg.color = continueColor;
+        }
         yield return null;
-
     }
 
     public void NextSentence()
     {
         if (index == sentences_list.Count - 1)
         {
-            if (nextButtonText.text == "Start Quest")
+            if (nextButtonText.text == "Continue")
             {
+                nextButtonImg.color = continueColor;
                 model.SetActive(true);
-                LoadingManager.instance.LoadGame(SceneIndexes.Dialogue, SceneIndexes.Falstad);
             }
         }
         if (!isCoroutineRunning)
@@ -87,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         if (index == sentences_list.Count - 1)
         {
             nextButtonImg.color = continueColor;
-            nextButtonText.text = "Start Quest";
+            nextButtonText.text = "Continue";
         }
     }
 

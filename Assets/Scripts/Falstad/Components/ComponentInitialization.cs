@@ -63,9 +63,6 @@ public class ComponentInitialization : MonoBehaviour
             valueText = GetComponentInChildren<TMP_Text>();
             valueText.text = "BV=" + beta.ToString();
         }
-        // print(a.ToString());
-
-
     }
 
     public void Initialize(int i, List<string> nodes)
@@ -75,10 +72,7 @@ public class ComponentInitialization : MonoBehaviour
             value = beta.ToString();
         }
         UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i,  nodes, value , beta.ToString());
+
         nameInCircuit = a.ToString() + i;
-
     }
-
-
-
 }
