@@ -69,7 +69,7 @@ public class CircuitManagerTinker : MonoBehaviour
         "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15"), 0));
         print(componentList.Count);
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
-        ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", "Is =18.8e-9 N=2 Cjo=30e-12 M=0.33 bv=6 ibv=5e-6"));
+        ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", " bv=6"));
         print(componentList.Count);
 
         if (GameObject.FindGameObjectWithTag("Breadboard"))
@@ -283,29 +283,30 @@ public class CircuitManagerTinker : MonoBehaviour
 
         Groundit();
 
-        /*var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
-        var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
-        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            if (selected.GetComponent<ComponentTinker>().a != component.bjt)
-            {
+        /* var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
+         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
+         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+         {
+              if (selected.GetComponent<ComponentTinker>().a != component.bjt)
+              {
 
-                print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
-                                  + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
-            }
-            else
-            {
-                var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbe");
-                var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
-                var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
-                var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
-                print("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
-                                    + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
-                             + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
-                            + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+                  print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
+                                    + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+              }
+              else
+              {
+                  var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbe");
+                  var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
+                  var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
+                  var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
+                  print("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
+                                      + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
+                               + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
+                              + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
 
-            };
-        };
+
+              };
+    };
         // Run the simulation
         try
         {
@@ -316,10 +317,10 @@ public class CircuitManagerTinker : MonoBehaviour
 
             //throw;
             print(e);
-        }*/
+        }
+        */
 
-        
-        
+
     }
 
     public static void ChangeSelected(GameObject gameObject)

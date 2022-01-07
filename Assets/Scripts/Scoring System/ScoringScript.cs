@@ -8,7 +8,7 @@ public class ScoringScript
      static List<int> errors ;
      static List<double> penalty;
      
-    static double score = 0.0;
+    public static double score = 0.0;
     /*
      ClassNo Error Class                            Penality Score
      0       Solder-Break                           10

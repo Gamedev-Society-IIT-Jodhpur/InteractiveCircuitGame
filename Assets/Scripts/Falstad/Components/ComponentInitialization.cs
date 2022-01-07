@@ -62,7 +62,7 @@ public class ComponentInitialization : MonoBehaviour
         }
         else if (a == CircuitManager.component.zenerDiode)
         {
-            value = "ZenerDiode";
+            value = beta.ToString();
             valueText = GetComponentInChildren<TMP_Text>();
             valueText.text = "BV=" + beta.ToString();
         }
@@ -73,8 +73,10 @@ public class ComponentInitialization : MonoBehaviour
     
     public void Initialize(int i, List<string> nodes)
     {
-
-        
+        if (a == CircuitManager.component.zenerDiode)
+        {
+            value = beta.ToString();
+        }
         UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i,  nodes, value , beta.ToString());
         nameInCircuit = a.ToString() + i;
 

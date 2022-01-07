@@ -304,7 +304,7 @@ MonoBehaviour:
   no_nodes: 2
   nameInCircuit: 
   value: ZenerDiode
-  beta: 100
+  beta: 6
   nodes: []
   valueText: {fileID: 5369837466426268200}
 --- !u!1 &1701383916631288583

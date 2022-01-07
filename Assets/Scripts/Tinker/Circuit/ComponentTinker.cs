@@ -33,14 +33,24 @@ public class ComponentTinker : MonoBehaviour
         }
         else if (a == CircuitManagerTinker.component.zenerDiode)
         {
-            value = "ZenerDiode";
+            value = beta.ToString();
         }
 
     }
 
     public void Initialize(int i, List<string> nodes)
     {
-        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value , beta.ToString());
-        nameInCircuit = a.ToString() + i;
+        if (a == CircuitManagerTinker.component.zenerDiode)
+        {
+           
+            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, value);
+            nameInCircuit = a.ToString() + i;
+        }
+        else
+        {
+            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
+            nameInCircuit = a.ToString() + i;
+        }
+        
     }
 }

@@ -160,22 +160,7 @@ public class UnifiedScript: MonoBehaviour
     {
         if (scene == "Falstad")
         {
-            if(model !="ZenerDiode")
-            {
-                if (!(CircuitManager.ckt.Contains(model)))
-                {
-                    CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel(val + "BV", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1 "));
-                }
-                try
-                {
-                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
-                }
-                catch (System.Exception e)
-                {
-                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
-                }
-            }
-            else
+            if(model !="Default")
             {
                 if (!(CircuitManager.ckt.Contains(val + "BV")))
                 {
@@ -184,6 +169,24 @@ public class UnifiedScript: MonoBehaviour
                 try
                 {
                     CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], val + "BV"));
+                    Debug.LogError(val + "BV");
+                }
+                catch (System.Exception e)
+                {
+                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], "ZenerDiode"));
+                }
+            }
+            else
+            {
+               
+
+                if (!(CircuitManager.ckt.Contains(model)))
+                {
+                    CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel(model, "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1 "));
+                }
+                try
+                {
+                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
                 }
                 catch (System.Exception e)
                 {
@@ -197,22 +200,7 @@ public class UnifiedScript: MonoBehaviour
         else
         {
             //CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
-            if (model != "ZenerDiode")
-            {
-                if (!(CircuitManagerTinker.ckt.Contains(model)))
-                {
-                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateDiodeModel(model + "BV", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1 "));
-                }
-                try
-                {
-                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
-                }
-                catch (System.Exception e)
-                {
-                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
-                }
-            }
-            else
+            if (model != "Default")
             {
                 if (!(CircuitManagerTinker.ckt.Contains(val + "BV")))
                 {
@@ -221,13 +209,31 @@ public class UnifiedScript: MonoBehaviour
                 try
                 {
                     CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], val + "BV"));
+                    Debug.LogError(val + "BV");
+                }
+                catch (System.Exception e)
+                {
+                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], "ZenerDiode"));
+                }
+            }
+            else
+            {
+
+
+                if (!(CircuitManagerTinker.ckt.Contains(model)))
+                {
+                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateDiodeModel(model, "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1 "));
+                }
+                try
+                {
+                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
                 }
                 catch (System.Exception e)
                 {
                     CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
                 }
             }
-            
+
         }
            
     }

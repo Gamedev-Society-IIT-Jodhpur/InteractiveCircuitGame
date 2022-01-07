@@ -1,11 +1,10 @@
+using SpiceSharp;
+using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using SpiceSharp;
-using SpiceSharp.Components;
 
 public class ValidateScript : MonoBehaviour
 {
@@ -38,11 +37,6 @@ public class ValidateScript : MonoBehaviour
     static Dictionary<string, List<string>> NotSeriesFalstadModified = new Dictionary<string, List<string>>();
     static Dictionary<string, List<string>> NotSeriesTinkerModified = new Dictionary<string, List<string>>();
 
-    public void Validate()
-    {
-
-    }
-
     public List<string> ModifySeries(List<StaticData.series> series, Dictionary<string, StaticData.ComponentValidate> Componentdata)
     {
         var ans = new List<string>();
@@ -56,11 +50,11 @@ public class ValidateScript : MonoBehaviour
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].I[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].I[k], 5));
                 }
                 for (int k = 0; k < Componentdata[j].V.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].V[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].V[k], 5));
                 }
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 temp.Add(formattedstring);
@@ -102,20 +96,20 @@ public class ValidateScript : MonoBehaviour
         }
         return a;
     }
-    
+
     public bool CheckSpecs()
     {
         bool passed = false;
         string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
         string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
         Circuit ckt1 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        foreach (var i in CircuitManager.ckt)
         {
             ckt1.Add(i);
         }
         ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
         Circuit ckt2 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        foreach (var i in CircuitManager.ckt)
         {
             ckt2.Add(i);
         }
@@ -138,13 +132,13 @@ public class ValidateScript : MonoBehaviour
         {
             double power = 0.0;
             int j = 0;
-            foreach(var i in ckt1.ByType<VoltageSource>())
+            foreach (var i in ckt1.ByType<VoltageSource>())
             {
 
                 power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
                 j++;
             }
-            if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 &&  Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <=1.2)
+            if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
             {
                 passed = true;
             }
@@ -161,9 +155,9 @@ public class ValidateScript : MonoBehaviour
             }
             if (passed == true)
             {
-                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6 
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value)<=1.2)
+                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
+                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
                 {
                     passed = true;
                 }
@@ -182,23 +176,25 @@ public class ValidateScript : MonoBehaviour
         }
         catch (Exception e)
         {
-
             print(e.Message);
             passed = false;
         }
-        
 
-
-            return passed;
+        return passed;
     }
 
     public void SaveDataFalstad()
     {
         circuitManager.GetComponent<CircuitManager>().Play();
+        serieslistFalstad.Clear();
+        NodedataFalstad.Clear();
+        ComponentdataFalstad.Clear();
+        NotSeriesFalstad.Clear();
+        NotSeriesFalstadModified.Clear();
+        serieslistFalstadModified.Clear();
 
         if (CheckSpecs())
         {
-
             //All nodes id are updated
             HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
             for (int i = 0; i < CircuitManager.componentList.Count; i++)
@@ -217,9 +213,7 @@ public class ValidateScript : MonoBehaviour
 
             foreach (var i in nodeList)
             {
-
                 NodedataFalstad[i.nodeID] = i;
-
             }
 
             //Creating ComponentData as well as updating it in Nodedata 
@@ -233,7 +227,6 @@ public class ValidateScript : MonoBehaviour
                     currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
 
                 }
-
 
                 dc.ExportSimulationData += (sender, exportDataEventArgs) =>
                 {
@@ -269,8 +262,6 @@ public class ValidateScript : MonoBehaviour
                             newcomp.I.Add(ic.Value);
                         }
 
-
-
                         newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
                         newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
                         newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
@@ -285,26 +276,20 @@ public class ValidateScript : MonoBehaviour
                         }
                     }
                 };
-                
+
                 try
                 {
                     dc.Run(CircuitManager.ckt);
                 }
                 catch (Exception e)
                 {
-
                     print(e.Message);
                 }
             }
             catch (Exception e)
             {
                 print(e.Message);
-                //throw;
             }
-            
-
-
-
             // Creating Series list
 
             foreach (var i in NodedataFalstad)
@@ -436,12 +421,12 @@ public class ValidateScript : MonoBehaviour
                 print(i);
 
             }
-           /* foreach (var i in ComponentdataFalstad)
-            {
-                print(i.Key);
-                print(i.Value.ctype);
-                print(i.Value.value);
-            }*/
+            /* foreach (var i in ComponentdataFalstad)
+             {
+                 print(i.Key);
+                 print(i.Value.ctype);
+                 print(i.Value.value);
+             }*/
 
             ValidationModel.isSuccess = true;
             ValidationModel.Instance.Open();
@@ -457,10 +442,14 @@ public class ValidateScript : MonoBehaviour
 
     public void SaveDataTinker()
     {
+
         circuitManager.GetComponent<CircuitManagerTinker>().Play();
-
-        
-
+        serieslistTinker.Clear();
+        NodedataTinker.Clear();
+        ComponentdataTinker.Clear();
+        NotSeriesTinker.Clear();
+        NotSeriesTinkerModified.Clear();
+        serieslistTinkerModified.Clear();
         //All nodes id are updated
         HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
         for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
@@ -487,15 +476,14 @@ public class ValidateScript : MonoBehaviour
         //Creating ComponentData as well as updating it in Nodedata 
         try
         {
-            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
-
+            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, 
+                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 
+                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
             var currentExport = new List<RealPropertyExport>();
             for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
             {
                 currentExport.Add(new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "i"));
-
             }
-
 
             dc.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
@@ -505,6 +493,7 @@ public class ValidateScript : MonoBehaviour
                     var newcomp = new StaticData.ComponentValidate();
                     newcomp.V = new List<double>();
                     newcomp.I = new List<double>();
+                   
                     if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.bjt && CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.resistor)
                     {
 
@@ -531,8 +520,6 @@ public class ValidateScript : MonoBehaviour
                         newcomp.I.Add(ic.Value);
                     }
 
-
-
                     newcomp.ctype = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a.ToString();
                     newcomp.nodes = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes;
                     newcomp.componentID = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit;
@@ -553,11 +540,7 @@ public class ValidateScript : MonoBehaviour
             }
             catch (SpiceSharp.Simulations.ValidationFailedException e)
             {
-
-                //throw;
-
                 print(e.Message);
-                
             }
         }
         catch (Exception e)
@@ -565,11 +548,6 @@ public class ValidateScript : MonoBehaviour
 
             print(e.Message);
         }
-        
-        
-
-
-
         // Creating Series list
 
         foreach (var i in NodedataTinker)
@@ -632,6 +610,7 @@ public class ValidateScript : MonoBehaviour
                             ComponentdataTinker[item] = temp;
                             serieslistTinker[min].components.Add(item);
                         }
+
                         for (int k = max + 1; k <= serieslistTinker.Count; k++)
                         {
                             foreach (var item in serieslistTinker[k].components)
@@ -704,6 +683,14 @@ public class ValidateScript : MonoBehaviour
                 print(j);
             }
         }
+        foreach (var i in NotSeriesFalstadModified)
+        {
+            print(i.Key);
+            foreach (var j in i.Value)
+            {
+                print(j);
+            }
+        }
         /* foreach (var i in serieslistTinker)
          {
              print(serieslistTinker.IndexOf(i));
@@ -715,9 +702,8 @@ public class ValidateScript : MonoBehaviour
         foreach (var i in serieslistTinkerModified)
         {
             print(i);
-
         }
-        foreach(var i in serieslistFalstadModified)
+        foreach (var i in serieslistFalstadModified)
         {
             print(i);
         }
@@ -739,7 +725,6 @@ public class ValidateScript : MonoBehaviour
                         dictsame = false;
                         break;
                     }
-
                 }
                 else
                 {
