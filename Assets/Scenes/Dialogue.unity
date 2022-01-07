@@ -1301,19 +1301,34 @@ MonoBehaviour:
   sentences_list:
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: 'Hello How are you doing? '
+    sentences: Hello! What a fine day it is. I have come to you with our new project...
   - name: Employee
     image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
-    sentences: Im fine and work is progressing
+    sentences: Hello! It is indeed a great day. I am enthusiastic about the new project.
+      Could you please tell me about it?
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: Good, keep going. Send me the report by tomorrow.
+    sentences: Our client company has decided to launch their product and our testing
+      team says that a voltage regulating system is required. I want you to design
+      the circuit for that system ASAP !!! We have to launch the product by the end
+      of the week.
   - name: Employee
     image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
-    sentences: Sure sir I will do that.
+    sentences: Could you please brief me regarding the specifications?
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: Good
+    sentences: The gizmo requires a voltage of precisely 6.0 Volts, and at a maximum
+      will require a power of 1.2 Watts. It will require a standard battery(s) as
+      a source (the kind you buy at Kendriya bhandar), with as high a voltage as
+      possible. However, at least 60% of this battery power must be delivered to
+      it. The regulator must likewise be simple and cheap.
+  - name: Employee
+    image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
+    sentences: Could you provide me the requirements and specifications for future
+      reference?
+  - name: Boss
+    image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
+    sentences: Sure. Try to spend the money cautiously and get me the product ASAP.
 --- !u!4 &2004375003
 Transform:
   m_ObjectHideFlags: 0
@@ -1810,7 +1825,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.1
+  m_fontSize: 63.05
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2340,7 +2355,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.1
+  m_fontSize: 63.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
