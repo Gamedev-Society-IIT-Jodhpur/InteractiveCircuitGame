@@ -615,7 +615,7 @@ public class ValidateScript : MonoBehaviour
                             serieslistTinker[min].components.Add(item);
                         }
 
-                        for (int k = max + 1; k <= serieslistTinker.Count; k++)
+                        for (int k = max + 1; k < serieslistTinker.Count; k++)
                         {
                             foreach (var item in serieslistTinker[k].components)
                             {
