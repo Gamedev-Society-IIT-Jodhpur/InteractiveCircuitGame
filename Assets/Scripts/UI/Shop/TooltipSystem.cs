@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TooltipSystem : MonoBehaviour
@@ -28,7 +26,7 @@ public class TooltipSystem : MonoBehaviour
     {
         return item_ID;
     }
-    
+
 
     public static void Hide()
     {

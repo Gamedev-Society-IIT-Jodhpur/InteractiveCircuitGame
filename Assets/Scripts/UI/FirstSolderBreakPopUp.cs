@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class FirstSolderBreakPopUp : MonoBehaviour
 {
@@ -31,16 +29,16 @@ public class FirstSolderBreakPopUp : MonoBehaviour
     void Start()
     {
         transform.localScale = Vector2.zero;
-        foreach(var item in StaticData.Inventory)
+        foreach (var item in StaticData.Inventory)
         {
-            if (item.name== "breadboard")
+            if (item.name == "breadboard")
             {
                 isBreadboardPresent = true;
                 break;
             }
         }
 
-        if(!isBreadboardPresent && !StaticData.isSolderingIron)
+        if (!isBreadboardPresent && !StaticData.isSolderingIron)
         {
             title.text = "Warning";
             data.text = "You don't have either breadboard or soldering iron.\nGo back to the shop to purchase either one of them.";
@@ -50,7 +48,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         }
     }
 
-    public void Open(delFunction function,string dataText, string titleText="Warning",string buttonText="Continue")
+    public void Open(delFunction function, string dataText, string titleText = "Warning", string buttonText = "Continue")
     {
 
         title.text = titleText;
@@ -69,7 +67,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
 
     public void Continue()
     {
-        if (!isBreadboardPresent && !StaticData.isSolderingIron) 
+        if (!isBreadboardPresent && !StaticData.isSolderingIron)
         {
             transform.LeanScale(Vector2.zero, .5f).setEaseInBack().setOnComplete(GoToMap);
         }
@@ -81,7 +79,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
             //currentSolderedNode.BreakSoldered();
         }
 
-        
+
 
     }
 
@@ -91,7 +89,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         PrevCurrScene.curr = 0;
     }
 
-    
+
 
 
 }

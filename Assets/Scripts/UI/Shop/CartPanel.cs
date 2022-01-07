@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CartPanel : MonoBehaviour
 {
@@ -97,7 +96,7 @@ public class CartPanel : MonoBehaviour
                 firstElement = false;
                 continue;
             }
-            child.gameObject.SetActive( !OpenCart.isPanelOpen );
+            child.gameObject.SetActive(!OpenCart.isPanelOpen);
         }
     }
     void itemRemoved()

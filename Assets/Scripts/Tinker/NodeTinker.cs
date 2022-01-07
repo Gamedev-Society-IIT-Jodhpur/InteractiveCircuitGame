@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -291,7 +290,7 @@ public class NodeTinker : MonoBehaviour
 
             if (!StaticData.hasSolderBroken)
             {
-                FirstSolderBreakPopUp.Instance.Open(BreakSoldered,"You are about to break soldered components.\nIt'll cost you XP.");
+                FirstSolderBreakPopUp.Instance.Open(BreakSoldered, "You are about to break soldered components.\nIt'll cost you XP.");
                 return;
             }
 

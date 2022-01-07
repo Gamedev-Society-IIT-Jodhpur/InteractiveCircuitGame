@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -70,7 +68,7 @@ public class CameraMovemetn : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += difference; 
+            cam.transform.position += difference;
         }
         else
         {

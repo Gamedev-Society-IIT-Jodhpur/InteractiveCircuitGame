@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +35,7 @@ public class BreakSolder : MonoBehaviour
         transform.SetParent(parent);
         for (int i = 0; i < connecteds.Count; i++)
         {
-            if (connecteds[i].transform.parent!=parent)
+            if (connecteds[i].transform.parent != parent)
             {
                 connecteds[i].ChangeParent(parent);
             }

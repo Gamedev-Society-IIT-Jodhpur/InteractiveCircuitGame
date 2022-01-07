@@ -1,22 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using SpiceSharp;
 using SpiceSharp.Components;
 using SpiceSharp.Entities;
-using System.Text.RegularExpressions;
 using System;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEngine;
 
-public class UnifiedScript: MonoBehaviour
+public class UnifiedScript : MonoBehaviour
 {
     public static string scene;
     static bool dictCreated = false;
-    
-    public  delegate void  Del(string name, List<string> nodes, string value1 , string value2);
+
+    public delegate void Del(string name, List<string> nodes, string value1, string value2);
     public static Dictionary<string, System.Delegate> dict1 = new Dictionary<string, System.Delegate>();
 
-    public static void  ResistorInitialize(string name , List<string> nodes , string value , string val)
+    public static void ResistorInitialize(string name, List<string> nodes, string value, string val)
     {
         //Debug.Log("resistor value line 15 of UnifiedScript : "+value);
         if (scene == "Falstad")
@@ -28,20 +25,20 @@ public class UnifiedScript: MonoBehaviour
             CircuitManagerTinker.ckt.Add(new Resistor(name, nodes[0], nodes[1], double.Parse(value)));
         }
     }
-    public static void  VoltageInitialize(string name, List<string> nodes, string value , string val )
+    public static void VoltageInitialize(string name, List<string> nodes, string value, string val)
     {
         //Debug.Log("yay working ");
         if (scene == "Falstad")
         {
-            CircuitManager.ckt.Add(new VoltageSource(name, nodes[0],nodes[1], double.Parse(value)));
+            CircuitManager.ckt.Add(new VoltageSource(name, nodes[0], nodes[1], double.Parse(value)));
         }
         else
         {
             CircuitManagerTinker.ckt.Add(new VoltageSource(name, nodes[0], nodes[1], double.Parse(value)));
         }
     }
-    
-    public static void  WireInitialize(string name, List<string> nodes, string value , string val)
+
+    public static void WireInitialize(string name, List<string> nodes, string value, string val)
     {
         //Debug.Log("yay working ");
         if (scene == "Falstad")
@@ -60,21 +57,21 @@ public class UnifiedScript: MonoBehaviour
         return d;
     }
 
-   public static DiodeModel CreateDiodeModel(string name, string parameters)
+    public static DiodeModel CreateDiodeModel(string name, string parameters)
     {
         var dm = new DiodeModel(name);
         ApplyParameters(dm, parameters);
         return dm;
     }
 
-    static  BipolarJunctionTransistor CreateBJT(string name,string c, string b, string e, string subst,string model)
+    static BipolarJunctionTransistor CreateBJT(string name, string c, string b, string e, string subst, string model)
     {
         // Create the transistor
         var bjt = new BipolarJunctionTransistor(name, c, b, e, subst, model);
         return bjt;
     }
 
-    static  void ApplyParameters(Entity entity, string definition)
+    static void ApplyParameters(Entity entity, string definition)
     {
         // Get all assignments
         definition = Regex.Replace(definition, @"\s*\=\s*", "=");
@@ -93,7 +90,7 @@ public class UnifiedScript: MonoBehaviour
         }
     }
 
-   public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters , int i)
+    public static BipolarJunctionTransistorModel CreateBJTModel(string name, string parameters, int i)
     {
         BipolarJunctionTransistorModel bjtmodel = new BipolarJunctionTransistorModel(name);
         ApplyParameters(bjtmodel, parameters);
@@ -107,9 +104,9 @@ public class UnifiedScript: MonoBehaviour
         }
         return bjtmodel;
     }
-    public static void BJTInitialize(string name, List<string> nodes, string model , string val)
+    public static void BJTInitialize(string name, List<string> nodes, string model, string val)
     {
-        
+
 
         if (scene == "Falstad")
         {
@@ -130,7 +127,7 @@ public class UnifiedScript: MonoBehaviour
                 "bf=" + val), 0));
             }
 
-            CircuitManager.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model+val));
+            CircuitManager.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model + val));
         }
         else
         {
@@ -151,12 +148,12 @@ public class UnifiedScript: MonoBehaviour
                 "bf=" + val), 0));
             }
 
-            CircuitManagerTinker.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model+val));
+            CircuitManagerTinker.ckt.Add(CreateBJT(name, nodes[0], nodes[1], nodes[2], "0", model + val));
         }
-       
+
     }
 
-    public static void DiodeInitialize(string name, List<string> nodes, string model , string val)
+    public static void DiodeInitialize(string name, List<string> nodes, string model, string val)
     {
         if (scene == "Falstad")
         {
@@ -193,7 +190,7 @@ public class UnifiedScript: MonoBehaviour
                     CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
                 }
             }
-            
+
         }
 
 
@@ -239,14 +236,19 @@ public class UnifiedScript: MonoBehaviour
     }
         
 
-    
-    
+        }
+
+    }
+
+
+
+
 
     void Awake()
     {
-        
-       if (!dictCreated)
-       {
+
+        if (!dictCreated)
+        {
             Del Resistordel = ResistorInitialize;
             dict1.Add("resistor", Resistordel);
 
@@ -265,6 +267,6 @@ public class UnifiedScript: MonoBehaviour
             dictCreated = true;
         }
     }
-    
+
 
 }

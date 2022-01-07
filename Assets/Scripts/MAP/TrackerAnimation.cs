@@ -1,22 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 public class TrackerAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
-    public  List<Transform> Checkpoints;
-     Transform start , end ;
-     int from, to , current;
-    public  MapManager manager;
-    public  GameObject tracker  ;
-      Transform PointA ,PointB ;
-     float speedfactor;
-     float time = 0;
-    
+    public List<Transform> Checkpoints;
+    Transform start, end;
+    int from, to, current;
+    public MapManager manager;
+    public GameObject tracker;
+    Transform PointA, PointB;
+    float speedfactor;
+    float time = 0;
+
     public ButtonFunctionWrapper wrap;
-     float animationTime = 0;
+    float animationTime = 0;
     bool buttonpressed = false;
     bool endreached = false;
     bool roadReached = false;
@@ -30,13 +29,13 @@ public class TrackerAnimation : MonoBehaviour
     private void Awake()
     {
         PointA = tracker.transform;
-            PointB = tracker.transform;
+        PointB = tracker.transform;
         start = tracker.transform;
         if (PrevCurrScene.curr == 0)
         {
             from = 2;
         }
-        else if(PrevCurrScene.curr == 1)
+        else if (PrevCurrScene.curr == 1)
         {
             from = 1;
         }
@@ -58,7 +57,7 @@ public class TrackerAnimation : MonoBehaviour
         }
 
     }
-    public void Animate( MapManager manager)
+    public void Animate(MapManager manager)
     {
         if (!manager.isanimating)
         {
@@ -82,17 +81,17 @@ public class TrackerAnimation : MonoBehaviour
             current = from;
             buttonpressed = true;
 
-            var buttons=manager.todisable.transform.GetComponentsInChildren<Button>();
-            foreach(var comp in buttons)
+            var buttons = manager.todisable.transform.GetComponentsInChildren<Button>();
+            foreach (var comp in buttons)
             {
                 comp.enabled = false;
             }
             var images = manager.todisable.transform.GetComponentsInChildren<Image>();
-            foreach(var comp in images)
+            foreach (var comp in images)
             {
                 comp.enabled = false;
             }
-            for(int i = 0; i < manager.todisable.transform.childCount; i++)
+            for (int i = 0; i < manager.todisable.transform.childCount; i++)
             {
                 var tmp = manager.todisable.transform.GetChild(i).GetComponentsInChildren<TextMeshProUGUI>();
 
@@ -101,14 +100,14 @@ public class TrackerAnimation : MonoBehaviour
                     comp.enabled = false;
                 }
             }
-            
+
 
 
 
             manager.isanimating = true;
         }
-        
-        
+
+
     }
     public void LerpPointToPoint(Transform pointa, Transform pointb)
     {
@@ -116,7 +115,7 @@ public class TrackerAnimation : MonoBehaviour
         PointA = pointa.transform;
         PointB = pointb.transform;
         time = 0;
-        
+
     }
     int mod(int x, int m)
     {
@@ -135,16 +134,16 @@ public class TrackerAnimation : MonoBehaviour
         {
             if (direc == direction.Clockwise)
             {
-               
-                    if (tracker.transform.position == PointB.position  )
-                    {
+
+                if (tracker.transform.position == PointB.position)
+                {
                     if (!endreached)
                     {
                         if (roadReached)
                         {
                             if (!firstiteration)
                             {
-                                
+
                                 if (to > from)
                                 {
                                     current = mod((current + 1), (Checkpoints.Count));
@@ -158,10 +157,10 @@ public class TrackerAnimation : MonoBehaviour
                             {
                                 firstiteration = false;
                             }
-                            
-                            if (current != to  )
+
+                            if (current != to)
                             {
-                                if(to > from)
+                                if (to > from)
                                 {
                                     LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current + 1), (Checkpoints.Count))]);
                                 }
@@ -169,7 +168,7 @@ public class TrackerAnimation : MonoBehaviour
                                 {
                                     LerpPointToPoint(Checkpoints[current], Checkpoints[mod((current - 1), (Checkpoints.Count))]);
                                 }
-                                
+
                             }
                             else
                             {
@@ -197,22 +196,22 @@ public class TrackerAnimation : MonoBehaviour
                             }
                             roadReached = true;
                         }
-                            
-                        
-                        
+
+
+
 
                     }
                     else
                     {
-                        if(tracker.transform.position == end.position)
+                        if (tracker.transform.position == end.position)
                         {
                             manager.mapscenechange(wrap, animationTime);
                         }
-                        
+
                     }
-                        
-                    }
+
                 }
+            }
             else
             {
                 if (tracker.transform.position == PointB.position)
@@ -293,10 +292,10 @@ public class TrackerAnimation : MonoBehaviour
                 }
 
             }
-            }
-            }
-           
         }
-    
+    }
+
+}
+
 
 

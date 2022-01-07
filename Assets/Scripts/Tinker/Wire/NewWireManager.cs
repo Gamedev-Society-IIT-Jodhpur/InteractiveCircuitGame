@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +19,8 @@ public class NewWireManager : MonoBehaviour
 
     public void DestroyWire()
     {
-        int multiplier=0;
-        if(node1.transform.parent.parent.tag!="Breadboard grid")
+        int multiplier = 0;
+        if (node1.transform.parent.parent.tag != "Breadboard grid")
         {
             multiplier += 1;
         }
@@ -41,7 +40,7 @@ public class NewWireManager : MonoBehaviour
         {
             if (!StaticData.hasSolderBroken)
             {
-                FirstSolderBreakPopUp.Instance.Open(DestroyWire,"You are about to delete soldered wire.\nIt'll cost you XP.");
+                FirstSolderBreakPopUp.Instance.Open(DestroyWire, "You are about to delete soldered wire.\nIt'll cost you XP.");
                 return;
             }
 

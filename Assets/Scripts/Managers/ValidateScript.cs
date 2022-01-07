@@ -2,9 +2,11 @@ using SpiceSharp;
 using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ValidateScript : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class ValidateScript : MonoBehaviour
     GameObject circuitManager;
     [SerializeField]
     public static GameObject gizmo;
+
+    string addResult = AvailableRoutes.addResult;
 
 
     // Components in series
@@ -756,15 +760,45 @@ public class ValidateScript : MonoBehaviour
             print("Failed");
             print("Dict Comparison:" + dictsame);
             print("List Comparison:" + seriesequal);
-            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!","Try Again");
+            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
         }
     }
 
     void GoToResult()
     {
-        LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+
+        string email = PlayerPrefs.GetString("player_email", "");
+        int time = (int)Timer.currentTime;
+        int money = (int)MoneyAndXPData.money;
+        int score = (int)ScoringScript.CalcScore();
+        int xp = (int)MoneyAndXPData.xp;
+
+        StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
+
+
         //PrevCurrScene.curr = 0;
     }
 
+    IEnumerator AddResultCoroutine(string email, int time, int money, int score, int xp)
+    {
+        WWWForm postResult = new WWWForm();
 
+        postResult.AddField("email", email);
+        postResult.AddField("time", time);
+        postResult.AddField("money", money);
+        postResult.AddField("score", score);
+        postResult.AddField("xp", xp);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(addResult, postResult);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit the result");
+        }
+        else
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+        }
+    }
 }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
@@ -10,6 +7,6 @@ public class NextScene : MonoBehaviour
     public SceneIndexes to;
     public void ChangScene()
     {
-        LoadingManager.instance.LoadGame(from,to);
+        LoadingManager.instance.LoadGame(from, to);
     }
 }

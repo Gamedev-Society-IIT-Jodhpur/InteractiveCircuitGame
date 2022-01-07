@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BGrid : MonoBehaviour
@@ -17,7 +15,7 @@ public class BGrid : MonoBehaviour
     void Awake()
     {
         //nodes = new List<List<GameObject>>();
-        cellSize = (nodeScale+0.1f);
+        cellSize = (nodeScale + 0.1f);
         CreateGrid(width, height, cellSize);
     }
 
@@ -41,7 +39,7 @@ public class BGrid : MonoBehaviour
             {
                 GameObject node1 = Instantiate(node, gameObject.transform.position + GetWorldposition(x, y), Quaternion.identity);
                 node1.transform.SetParent(gameObject.transform);
-                node1.transform.localScale = new Vector3(nodeScale,nodeScale, 1);
+                node1.transform.localScale = new Vector3(nodeScale, nodeScale, 1);
                 //nodes[x].Add(node1);
 
             }

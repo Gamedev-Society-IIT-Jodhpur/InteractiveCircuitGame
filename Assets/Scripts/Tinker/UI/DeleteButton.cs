@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeleteButton : MonoBehaviour
@@ -34,7 +32,7 @@ public class DeleteButton : MonoBehaviour
                     DeleteComponent(connecteds[i].gameObject);
                 }
                 Destroy(currentParent);
-                
+
             }
             else if (selectedComponent.tag != "Breadboard")
             {

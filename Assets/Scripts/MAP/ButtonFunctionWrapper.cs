@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ButtonFunctionWrapper : MonoBehaviour
 {
@@ -15,8 +12,8 @@ public class ButtonFunctionWrapper : MonoBehaviour
     public string scenename;
     public SceneIndexes toScene;
     public modeOfTransportation mode;
-    public Transform  end;
-    public int  to;
+    public Transform end;
+    public int to;
 
-    
+
 }

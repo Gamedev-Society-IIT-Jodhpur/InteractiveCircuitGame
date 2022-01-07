@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic; 
-
 public class AvailableRoutes
 {
     public static string root = "http://circuit-maverick.herokuapp.com/";
@@ -10,7 +7,7 @@ public class AvailableRoutes
     public static string allResults = root + "api/result/allResults";
     public static string addResult = root + "api/result/addResult";
 
-    
+
     public static string googleSignup = root;
 
 

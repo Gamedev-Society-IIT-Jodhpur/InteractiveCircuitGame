@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomNotification : MonoBehaviour
@@ -19,6 +17,6 @@ public class CustomNotification : MonoBehaviour
 
     private void Destroy()
     {
-        Destroy(gameObject);   
+        Destroy(gameObject);
     }
 }

@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class InventoryButton : MonoBehaviour
 {
@@ -47,10 +46,10 @@ public class InventoryButton : MonoBehaviour
         };
         childs = GetComponentsInChildren<TMP_Text>();
         childs[0].text = quantity.ToString();
-        
+
         //if (component.Substring(0, 7) != "voltage")
         //{
-            childs[1].text = value + " " + unit+" "+ componentsNameDict[component];
+        childs[1].text = value + " " + unit + " " + componentsNameDict[component];
         //}
         GetComponentsInChildren<Image>()[1].sprite = AssetManager.tinkerComponentSpritesDict[component];
 
@@ -58,10 +57,10 @@ public class InventoryButton : MonoBehaviour
 
     public void Instantiate()
     {
-        if(!WireManager.isDrawingWire && !StaticData.isSoldering)
+        if (!WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             newComponent = Instantiate(componentsDict[component]);
-            
+
 
             if (newComponent.GetComponent<ComponentTinker>())
             {
@@ -74,7 +73,7 @@ public class InventoryButton : MonoBehaviour
             CircuitManagerTinker.ChangeSelected(newComponent);
 
             //update quatity in InventoryDict
-            if (component.Length>=7 && component.Substring(0, 7) == "voltage")
+            if (component.Length >= 7 && component.Substring(0, 7) == "voltage")
             {
                 InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component];
                 buttons.quantity -= 1;
@@ -99,14 +98,14 @@ public class InventoryButton : MonoBehaviour
 
             }
         }
-        
+
     }
 
     public void UpdateQuantity(int quantity)
     {
         this.quantity = quantity;
         childs = GetComponentsInChildren<TMP_Text>();
-        childs[0].text =quantity.ToString();
+        childs[0].text = quantity.ToString();
     }
 
 

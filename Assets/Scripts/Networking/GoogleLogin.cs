@@ -3,7 +3,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 public class GoogleLogin : MonoBehaviour
 {
@@ -28,7 +27,8 @@ public class GoogleLogin : MonoBehaviour
         }
     }
 
-    private IEnumerator GetXP() {
+    private IEnumerator GetXP()
+    {
         UnityWebRequest xp = UnityWebRequest.Get(AvailableRoutes.getXP + PlayerPrefs.GetString("player_email", ""));
         yield return xp.SendWebRequest();
 
@@ -39,7 +39,7 @@ public class GoogleLogin : MonoBehaviour
         else
         {
             JSONNode data = JSON.Parse(xp.downloadHandler.text);
-            PlayerPrefs.SetInt("player_xp", data["xp"] );
+            PlayerPrefs.SetInt("player_xp", data["xp"]);
         }
     }
 
@@ -68,7 +68,7 @@ public class GoogleLogin : MonoBehaviour
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             PlayerPrefs.SetInt("player_avatar", data["avatar"]);
             PlayerPrefs.SetInt("player_xp", data["xp"]);
-            Debug.Log("player_xp: "+ data["xp"]);
+            Debug.Log("player_xp: " + data["xp"]);
             setEmail();
 
             LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.AvatarSelection);

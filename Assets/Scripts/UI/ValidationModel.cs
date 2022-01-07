@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
 
 public class ValidationModel : MonoBehaviour
 {
@@ -30,7 +27,7 @@ public class ValidationModel : MonoBehaviour
 
     public void Open()
     {
-        
+
         if (isSuccess)
         {
             title.text = "Success";
@@ -61,7 +58,7 @@ public class ValidationModel : MonoBehaviour
     public void Success()
     {
         Debug.Log("Success");
-        LoadingManager.instance.LoadGame(SceneIndexes.Falstad,SceneIndexes.MAP);
+        LoadingManager.instance.LoadGame(SceneIndexes.Falstad, SceneIndexes.MAP);
         PrevCurrScene.curr = 1;
     }
 }

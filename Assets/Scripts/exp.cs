@@ -1,21 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using SpiceSharp;
 using SpiceSharp.Components;
-using SpiceSharp.Simulations;
 using SpiceSharp.Entities;
-using SpiceSharp.Behaviors;
+using SpiceSharp.Simulations;
 using System;
-using System.Globalization;
-using System.Linq;
-using System.Numerics;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 
 public class exp : MonoBehaviour
 {
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,7 +108,7 @@ public class exp : MonoBehaviour
                 // CreateDiodeModel("1N914", "Is=2.52e-9 Rs=0.568 N=1.752 Cjo=4e-12 M=0.4 tt=20e-9"),
                 new VoltageSource("V1", "OUT", "0", 8000),
                 new Resistor("R1", "OUT", "0", 1000)
-                 ) ;
+                 );
 
 
         // Create simulation
@@ -124,20 +118,20 @@ public class exp : MonoBehaviour
             });*/
         var dc = new DC("DC", "V1", 8000, 8000, 10e-3);
         var currentExport = new RealPropertyExport(dc, "R1", "i");
-       // IExport<double>[] exports = { new RealPropertyExport(dc, "V2", "i"), new RealPropertyExport(dc, "V1", "i") };
+        // IExport<double>[] exports = { new RealPropertyExport(dc, "V2", "i"), new RealPropertyExport(dc, "V1", "i") };
 
         // Provided by Spice 3f5
-      
+
 
         // Run test
-       
+
         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
         {
             // Debug.Log("vb ="+exportDataEventArgs.GetVoltage("b"));
-           // Debug.Log("vc ="+exportDataEventArgs.GetVoltage("c"));
-           // foreach (var i in exports) {
-              //  Debug.Log("exports =" + i.Value);
-           // }
+            // Debug.Log("vc ="+exportDataEventArgs.GetVoltage("c"));
+            // foreach (var i in exports) {
+            //  Debug.Log("exports =" + i.Value);
+            // }
 
             Debug.Log(currentExport.Value);
         };
@@ -145,13 +139,13 @@ public class exp : MonoBehaviour
         dc.Run(ckt);
 
 
-      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 

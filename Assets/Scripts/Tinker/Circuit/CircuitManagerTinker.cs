@@ -1,12 +1,9 @@
-﻿using System.Collections;
+﻿using SpiceSharp;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using SpiceSharp;
-using SpiceSharp.Components;
-using SpiceSharp.Simulations;
-using TMPro;
 using System.Linq;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CircuitManagerTinker : MonoBehaviour
@@ -34,8 +31,8 @@ public class CircuitManagerTinker : MonoBehaviour
     public static GameObject volt = null;
     string temp;
     Breadboard breadBoard;
-    Transform[] rows=new Transform[4];
-    Transform[,] columns= new Transform[60,2];
+    Transform[] rows = new Transform[4];
+    Transform[,] columns = new Transform[60, 2];
     List<List<string>> circuits = new List<List<string>>() { };
     public static TMP_Text valueText;
     public TMP_Text valueTextInstance;
@@ -44,7 +41,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
     private void Awake()
     {
-        
+
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
@@ -332,7 +329,7 @@ public class CircuitManagerTinker : MonoBehaviour
         }
 
         selected = gameObject;
-        
+
         if (selected.tag == "Resistor")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 2.0f);
@@ -360,7 +357,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
         for (int i = 1; i < circuits.Count; i++)
         {
-            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0","");
+            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0", "");
 
         }
         circuits.Clear();
