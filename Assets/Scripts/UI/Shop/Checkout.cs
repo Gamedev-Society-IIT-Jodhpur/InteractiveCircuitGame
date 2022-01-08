@@ -52,10 +52,13 @@ public class Checkout : MonoBehaviour
             PrevCurrScene.curr = 3;
         }
         //SceneManager.LoadScene("Tinker");
-        LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
 
         MoneyXPManager.DeductMoney(int.Parse(totalAmount));
-        totalAmount = "0";
+        if (MoneyAndXPData.money - int.Parse(totalAmount) >= 0)
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
+            totalAmount = "0";
+        }
 
     }
 }

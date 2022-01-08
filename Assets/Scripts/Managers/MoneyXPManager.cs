@@ -6,31 +6,40 @@ public class MoneyXPManager : MonoBehaviour
 {
     static TMP_Text moneyText;
     static TMP_Text xpText;
+    [SerializeField] GameObject popUp;
+    static bool popUpOpen = false;
 
     private void Start()
     {
-        MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
+        
         moneyText = GetComponentsInChildren<TMP_Text>()[0];
         xpText = GetComponentsInChildren<TMP_Text>()[1];
         UpdateMoneyAndXPText();
     }
 
-    public void InitiateMoney(float amount)
+    public static void InitiateMoney(float amount)
     {
         MoneyAndXPData.InitiateMoney(amount);
         UpdateMoneyAndXPText();
     }
 
-    /*public static void InitiateXP(float value)
+    public static void InitiateXP()
     {
-        MoneyAndXPData.InitiateXP(value);
+        MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
         UpdateMoneyAndXPText();
-    }*/
+    }
 
     public static void DeductMoney(float amount)
     {
-        MoneyAndXPData.money -= amount;
-        UpdateMoneyAndXPText();
+        if (MoneyAndXPData.money-amount > 0)
+        {
+            MoneyAndXPData.money -= amount;
+            UpdateMoneyAndXPText();
+        }
+        else
+        {
+            popUpOpen = true;
+        }
     }
 
     public static void DeductXP(float value)
@@ -59,10 +68,13 @@ public class MoneyXPManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (popUpOpen)
         {
-            IncreaseXP(100);
-            AddMoney(5);
+            popUpOpen = false;
+            popUp.GetComponent<GameOverPopUp>().Open();
+            
         }
     }
+
+    
 }

@@ -59,12 +59,23 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
+            print("breadboard added");
             breadboardCountCart += 1;
             Store.Items.Add(itemDesc);
             int totalPrice = quantity * int.Parse(price);
             Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 
+            StaticData.ComponentData tempComponent = new StaticData.ComponentData();
+            componentName = StoreAssetmanager.Instance.itemsNameMaping[componentName];
 
+            tempComponent.name = componentName;
+            tempComponent.value = value;
+            tempComponent.unit = unit;
+            //tempComponent.quantity = int.Parse(quantity.text);
+            tempComponent.quantity = quantity;
+            tempComponent.price = price;
+
+            tempInventory.Add(tempComponent);
         }
         else if (componentName == "Breadboard" && breadboardCountCart > 0)
         {
@@ -76,27 +87,29 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            print("some item added");
             Store.Items.Add(itemDesc);
             int totalPrice = quantity * int.Parse(price);
             Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 
+            StaticData.ComponentData tempComponent = new StaticData.ComponentData();
+            componentName = StoreAssetmanager.Instance.itemsNameMaping[componentName];
+
+            tempComponent.name = componentName;
+            tempComponent.value = value;
+            tempComponent.unit = unit;
+            //tempComponent.quantity = int.Parse(quantity.text);
+            tempComponent.quantity = quantity;
+            tempComponent.price = price;
+
+            tempInventory.Add(tempComponent);
         }
 
         //int totalPrice = int.Parse(quantity.text) * int.Parse(price);
 
 
 
-        StaticData.ComponentData tempComponent = new StaticData.ComponentData();
-        componentName = StoreAssetmanager.Instance.itemsNameMaping[componentName];
-
-        tempComponent.name = componentName;
-        tempComponent.value = value;
-        tempComponent.unit = unit;
-        //tempComponent.quantity = int.Parse(quantity.text);
-        tempComponent.quantity = quantity;
-        tempComponent.price = price;
-
-        tempInventory.Add(tempComponent);
+        
 
     }
 

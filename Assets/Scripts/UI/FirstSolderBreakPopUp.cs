@@ -14,7 +14,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
     [SerializeField]
     TMP_Text data;
     [SerializeField]
-    Text buttonText;
+    TMP_Text buttonText;
 
     public NodeTinker currentSolderedNode;
     bool isBreadboardPresent = false;
