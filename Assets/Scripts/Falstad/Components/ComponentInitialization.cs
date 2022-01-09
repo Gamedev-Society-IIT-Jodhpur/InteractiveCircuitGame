@@ -71,7 +71,7 @@ public class ComponentInitialization : MonoBehaviour
         {
             value = beta.ToString();
         }
-        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i,  nodes, value , beta.ToString());
+        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
 
         nameInCircuit = a.ToString() + i;
     }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScoringScript
 {
-     static List<int> errors ;
-     static List<double> penalty;
-     
+    static List<int> errors;
+    static List<double> penalty;
+
     public static double score = 0.0;
     /*
      ClassNo Error Class                            Penality Score
@@ -63,7 +63,7 @@ public class ScoringScript
         double weight1 = 0.6; // For getting it right 
         double weight2 = 0.2; // For fast solving
         double weight3 = 0.2; // Respecting Budget constraint
-        score = Sigmoid(TotalPenalty,100,-0.07,80) * weight1 + Sigmoid(Time, 100, -0.5, 15) * weight2 + Sigmoid(money,100,0.03,0) * weight3;
+        score = Sigmoid(TotalPenalty, 100, -0.07, 80) * weight1 + Sigmoid(Time, 100, -0.5, 15) * weight2 + Sigmoid(money, 100, 0.03, 0) * weight3;
         // TO-DO figure out hyperparameters for sigmoids of totalpenalty as well as money contraint and customize weights
 
         return score;
@@ -71,7 +71,7 @@ public class ScoringScript
 
     static double Sigmoid(double x, double k = 1, double a = 1, double b = 0)
     {
-        return (k / (1 + Math.Exp(a*b - a * x)));
+        return (k / (1 + Math.Exp(a * b - a * x)));
     }
 
 }

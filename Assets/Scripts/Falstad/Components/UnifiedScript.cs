@@ -157,7 +157,7 @@ public class UnifiedScript : MonoBehaviour
     {
         if (scene == "Falstad")
         {
-            if(model !="Default")
+            if (model != "Default")
             {
                 if (!(CircuitManager.ckt.Contains(val + "BV")))
                 {
@@ -175,7 +175,7 @@ public class UnifiedScript : MonoBehaviour
             }
             else
             {
-               
+
 
                 if (!(CircuitManager.ckt.Contains(model)))
                 {
@@ -232,11 +232,11 @@ public class UnifiedScript : MonoBehaviour
             }
 
         }
-           
-    }
-        
 
-        
+    }
+
+
+
 
 
 

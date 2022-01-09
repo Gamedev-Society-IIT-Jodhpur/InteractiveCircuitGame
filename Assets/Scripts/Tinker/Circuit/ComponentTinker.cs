@@ -40,7 +40,7 @@ public class ComponentTinker : MonoBehaviour
     {
         if (a == CircuitManagerTinker.component.zenerDiode)
         {
-           
+
             UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, value);
             nameInCircuit = a.ToString() + i;
         }
@@ -49,6 +49,6 @@ public class ComponentTinker : MonoBehaviour
             UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
             nameInCircuit = a.ToString() + i;
         }
-        
+
     }
 }

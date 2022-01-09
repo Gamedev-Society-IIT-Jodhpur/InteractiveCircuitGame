@@ -64,7 +64,7 @@ public class TrackerAnimation : MonoBehaviour
             MoneyXPManager.DeductMoney(manager.deduceMoney(wrap));
             if (MoneyAndXPData.money - manager.deduceMoney(wrap) < 0)
             {
-               
+
             }
 
             else
@@ -111,7 +111,7 @@ public class TrackerAnimation : MonoBehaviour
 
                 manager.isanimating = true;
             }
-            
+
         }
 
 

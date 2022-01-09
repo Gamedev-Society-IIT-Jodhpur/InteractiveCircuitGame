@@ -22,8 +22,6 @@ public class AvatarScreen : MonoBehaviour
     {
         avatars[oldavatar].GetComponent<RawImage>().color = new Color32(37, 37, 92, 255);
         avatars[index].GetComponent<RawImage>().color = new Color32(25, 156, 252, 255);
-        PlayerPrefs.SetInt("player_avatar", index);
-        CustomNotificationManager.Instance.AddNotification(0, "New avatar set");
         oldavatar = index;
     }
 
@@ -44,7 +42,8 @@ public class AvatarScreen : MonoBehaviour
         }
         else
         {
-            Debug.Log("SetAvatar");
+            PlayerPrefs.SetInt("player_avatar", oldavatar);
+            CustomNotificationManager.Instance.AddNotification(0, "New avatar set");
         }
     }
 }

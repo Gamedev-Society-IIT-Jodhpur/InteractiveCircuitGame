@@ -14,7 +14,7 @@ public class MapManager : MonoBehaviour
         shop3,
         shop4,
     };
-     int[,] distance;
+    int[,] distance;
     int current = 1;
     public List<Transform> trackerpoints;
     public List<Lean.Gui.LeanTooltipData> shopstext;
@@ -57,14 +57,16 @@ public class MapManager : MonoBehaviour
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-            /*MoneyXPManager.DeductMoney*/return(distance[current, wrap.changeindex]);
-            
-            
+            /*MoneyXPManager.DeductMoney*/
+            return (distance[current, wrap.changeindex]);
+
+
         }
         else
         {
-            /*MoneyXPManager.DeductMoney*/return(0);
-            
+            /*MoneyXPManager.DeductMoney*/
+            return (0);
+
         }
     }
 
@@ -74,12 +76,12 @@ public class MapManager : MonoBehaviour
 
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-           
+
             Timer.SkipTime((distance[current, wrap.changeindex] / 4.0f) - animationTime);
         }
         else
         {
-           
+
             Timer.SkipTime((distance[current, wrap.changeindex] / 2.0f) - animationTime);
         }
         Change(wrap.changeindex);

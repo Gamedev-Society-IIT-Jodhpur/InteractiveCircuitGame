@@ -480,8 +480,8 @@ public class ValidateScript : MonoBehaviour
         //Creating ComponentData as well as updating it in Nodedata 
         try
         {
-            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, 
-                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 
+            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit,
+                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value),
                                     double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
             var currentExport = new List<RealPropertyExport>();
             for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
@@ -497,7 +497,7 @@ public class ValidateScript : MonoBehaviour
                     var newcomp = new StaticData.ComponentValidate();
                     newcomp.V = new List<double>();
                     newcomp.I = new List<double>();
-                   
+
                     if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.bjt && CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.resistor)
                     {
 
