@@ -53,16 +53,17 @@ public class MapManager : MonoBehaviour
         PrevCurrScene.curr = i;
     }
 
-    public void deduceMoney(ButtonFunctionWrapper wrap)
+    public float deduceMoney(ButtonFunctionWrapper wrap)
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]);
+            /*MoneyXPManager.DeductMoney*/return(distance[current, wrap.changeindex]);
+            
             
         }
         else
         {
-            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex] / 2.0f);
+            /*MoneyXPManager.DeductMoney*/return(0);
             
         }
     }
@@ -85,6 +86,8 @@ public class MapManager : MonoBehaviour
         //SceneManager.LoadScene(wrap.scenename);
         LoadingManager.instance.LoadGame(SceneIndexes.MAP, wrap.toScene);
     }
+
+
     public void ShowButtons(GameObject tosetActive)
     {
         if (!isanimating)
