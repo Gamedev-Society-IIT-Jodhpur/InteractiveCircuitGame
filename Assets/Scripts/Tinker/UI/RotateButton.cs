@@ -4,6 +4,15 @@ public class RotateButton : MonoBehaviour
 {
     NodeTinker[] nodes;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Rotate();
+        }
+    }
+
+
     public void Rotate()
     {
         if (CircuitManagerTinker.selected && !StaticData.isSoldering)
