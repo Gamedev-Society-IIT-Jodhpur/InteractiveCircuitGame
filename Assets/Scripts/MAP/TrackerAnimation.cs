@@ -61,50 +61,55 @@ public class TrackerAnimation : MonoBehaviour
     {
         if (!manager.isanimating)
         {
-            end = wrap.end;
+            manager.deduceMoney(wrap);
+            if (MoneyAndXPData.money < 0)
+            {
+                // Add code here
+            }
+            else {
+                end = wrap.end;
 
-            to = wrap.to;
-            if (((from == 1 || from == 2) && to == 7) || ((to == 1 || to == 2) && from == 7))
-            {
-                direc = direction.CounterClockwise;
-            }
-            if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
-            {
-                speedfactor = 1;
-            }
-            else
-            {
-                speedfactor = 0.5f;
-            }
-            PointA = start;
-            PointB = Checkpoints[from];
-            current = from;
-            buttonpressed = true;
+                to = wrap.to;
+                if (((from == 1 || from == 2) && to == 7) || ((to == 1 || to == 2) && from == 7))
+                {
+                    direc = direction.CounterClockwise;
+                }
+                if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
+                {
+                    speedfactor = 1;
+                }
+                else
+                {
+                    speedfactor = 0.5f;
+                }
+                PointA = start;
+                PointB = Checkpoints[from];
+                current = from;
+                buttonpressed = true;
 
-            var buttons = manager.todisable.transform.GetComponentsInChildren<Button>();
-            foreach (var comp in buttons)
-            {
-                comp.enabled = false;
-            }
-            var images = manager.todisable.transform.GetComponentsInChildren<Image>();
-            foreach (var comp in images)
-            {
-                comp.enabled = false;
-            }
-            for (int i = 0; i < manager.todisable.transform.childCount; i++)
-            {
-                var tmp = manager.todisable.transform.GetChild(i).GetComponentsInChildren<TextMeshProUGUI>();
-
-                foreach (var comp in tmp)
+                var buttons = manager.todisable.transform.GetComponentsInChildren<Button>();
+                foreach (var comp in buttons)
                 {
                     comp.enabled = false;
                 }
+                var images = manager.todisable.transform.GetComponentsInChildren<Image>();
+                foreach (var comp in images)
+                {
+                    comp.enabled = false;
+                }
+                for (int i = 0; i < manager.todisable.transform.childCount; i++)
+                {
+                    var tmp = manager.todisable.transform.GetChild(i).GetComponentsInChildren<TextMeshProUGUI>();
+
+                    foreach (var comp in tmp)
+                    {
+                        comp.enabled = false;
+                    }
+                }
+
+                manager.isanimating = true;
             }
-
-
-
-
-            manager.isanimating = true;
+            
         }
 
 
