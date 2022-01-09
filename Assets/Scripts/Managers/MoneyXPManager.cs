@@ -26,7 +26,7 @@ public class MoneyXPManager : MonoBehaviour
     public static void InitiateXP()
     {
         MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
-        UpdateMoneyAndXPText();
+        //UpdateMoneyAndXPText();
     }
 
     public static void DeductMoney(float amount)

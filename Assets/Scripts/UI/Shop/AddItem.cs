@@ -79,11 +79,11 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         }
         else if (componentName == "Breadboard" && breadboardCountCart > 0)
         {
-            //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard. 1 already in cart.");
+            CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in cart.");
         }
         else if (componentName == "Breadboard" && breadboardCountInventroy > 0)
         {
-            //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard. 1 already in Inventory");
+            CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in Inventory");
         }
         else
         {
@@ -122,7 +122,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
                 quantity = 1;
                 quantityText.text = quantity.ToString();
                 //TODO add notification
-                //CustomNotificationManager.Instance.AddNotification(2, "Can't purchase more than 1 Breadboard");
+                CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard");
 
             }
 

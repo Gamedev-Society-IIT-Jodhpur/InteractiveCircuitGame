@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        StaticData.UpdateSolderingIron();
+
         textDisplay.text = "";
         ColorUtility.TryParseHtmlString("#0894F7", out defaultColor);
         ColorUtility.TryParseHtmlString("#CAD3C8", out disabledColor);
