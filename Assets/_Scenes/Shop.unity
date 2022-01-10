@@ -177,9 +177,9 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 09024d3d1d13e634e98c0f17c7416699, type: 3}
   - name: Diode
     image: {fileID: 21300000, guid: 4ee7f50fd85e88e409b7f8aa7405ba0c, type: 3}
-  - name: BJT_NPN
+  - name: BJT NPN
     image: {fileID: 21300000, guid: 255c6124168b83f4c8d18c77dc9295d2, type: 3}
-  - name: BJT_PNP
+  - name: BJT PNP
     image: {fileID: 21300000, guid: 82e1d3a63ed06404db745144dc5a01c6, type: 3}
   - name: Zener Diode
     image: {fileID: 21300000, guid: d6933e513ad0a9d47b379cdbdc962766, type: 3}
@@ -2946,7 +2946,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 16.5, y: 50}
+  m_Spacing: {x: 16.5, y: 60}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &731427126

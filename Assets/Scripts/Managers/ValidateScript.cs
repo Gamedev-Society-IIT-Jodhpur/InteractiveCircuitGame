@@ -774,9 +774,6 @@ public class ValidateScript : MonoBehaviour
         int xp = (int)MoneyAndXPData.xp;
 
         StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
-
-
-        //PrevCurrScene.curr = 0;
     }
 
     IEnumerator AddResultCoroutine(string email, int time, int money, int score, int xp)

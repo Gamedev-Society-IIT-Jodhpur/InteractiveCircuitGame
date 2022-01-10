@@ -32,7 +32,6 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetTooltip(string itemID)
     {
-
         foreach (var item in StoreAssetmanager.Instance.itemsAvailable)
         {
             if (item.Value["id"].ToString() == itemID)
