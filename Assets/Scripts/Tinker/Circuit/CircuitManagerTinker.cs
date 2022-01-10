@@ -36,6 +36,7 @@ public class CircuitManagerTinker : MonoBehaviour
     List<List<string>> circuits = new List<List<string>>() { };
     public static TMP_Text valueText;
     public TMP_Text valueTextInstance;
+    static bool isfirsttime=true;
 
     string a, b;
 
@@ -51,6 +52,11 @@ public class CircuitManagerTinker : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tinker"));
         UnifiedScript.scene = SceneManager.GetActiveScene().name;
         valueText = valueTextInstance;
+        if (isfirsttime)
+        {
+            MoneyXPManager.IncreaseXP(100);
+            isfirsttime = false;
+        }
     }
 
     public void Play()
