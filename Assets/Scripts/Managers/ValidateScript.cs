@@ -16,6 +16,7 @@ public class ValidateScript : MonoBehaviour
     public static GameObject gizmo;
 
     string addResult = AvailableRoutes.addResult;
+    string addErrors = AvailableRoutes.addError;
 
 
     // Components in series
@@ -775,16 +776,42 @@ public class ValidateScript : MonoBehaviour
         }
     }
 
+
     void GoToResult()
     {
-
         string email = PlayerPrefs.GetString("player_email", "");
+        StartCoroutine(AddErrorsCoroutine(email));
+    }
+
+    IEnumerator AddErrorsCoroutine(string email)
+    {
         int time = (int)Timer.currentTime;
         int money = (int)MoneyAndXPData.money;
         int score = (int)ScoringScript.CalcScore();
         int xp = (int)MoneyAndXPData.xp;
+        WWWForm postError = new WWWForm();
 
-        StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
+        List<int> errors = ScoringScript.GetError();
+
+        postError.AddField("email", email);
+        postError.AddField("Solder_Break", errors[0]);
+        postError.AddField("Non_Standard", errors[1]);
+        postError.AddField("Forgets_To_Buy", errors[2]);
+        postError.AddField("Doesnt_Meet_Specs", errors[3]);
+        postError.AddField("Circuit_Doesnt_Match", errors[4]);
+        postError.AddField("Component_Damage", errors[5]);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(addErrors, postError);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit errors");
+        }
+        else
+        {
+            StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
+        }
     }
 
     IEnumerator AddResultCoroutine(string email, int time, int money, int score, int xp)

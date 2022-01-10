@@ -8,12 +8,14 @@ public class AvailableRoutes
     public static string addResult = root + "api/result/addResult";
 
 
+    public static string addError = root + "api/error/submitErrors";
+
+
     public static string googleSignup = root;
 
 
     public static string getXP = root + "api/profile/getXP";
     public static string setXP = root + "api/profile/updateXP";
-
 
 
     public static string checkUser = root + "api/profile/checkUser?email=";
