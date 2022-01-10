@@ -25,7 +25,8 @@ public class LoadingManager : MonoBehaviour
     void Start()
     {
         //TODO remove this code
-        MoneyAndXPData.InitiateMoney(500);
+        MoneyAndXPData.InitiateMoney(50000);
+        print("remove above code in final version");
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();

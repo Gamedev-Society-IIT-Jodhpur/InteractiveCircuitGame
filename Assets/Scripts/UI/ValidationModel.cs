@@ -24,8 +24,9 @@ public class ValidationModel : MonoBehaviour
     }
     void Start()
     {
+        transform.localScale = Vector2.zero;
         if (isfirsttime && SceneManager.GetActiveScene().name=="MAP") {
-            transform.localScale = Vector2.zero;
+            
             title.text = "Note ";
             data.text = "There are 3 Shops in your locality. You may choose any.";
             buttonText.text = "Continue to Map";
