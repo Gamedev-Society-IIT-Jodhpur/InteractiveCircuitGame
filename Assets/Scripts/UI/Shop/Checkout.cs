@@ -58,6 +58,7 @@ public class Checkout : MonoBehaviour
         {
             LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MAP);
             totalAmount = "0";
+            AddItem.breadboardCountCart = 0;
         }
 
     }

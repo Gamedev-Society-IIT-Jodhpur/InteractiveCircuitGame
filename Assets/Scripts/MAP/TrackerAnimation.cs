@@ -61,12 +61,14 @@ public class TrackerAnimation : MonoBehaviour
     {
         if (!manager.isanimating)
         {
-            manager.deduceMoney(wrap);
-            if (MoneyAndXPData.money < 0)
+            MoneyXPManager.DeductMoney(manager.deduceMoney(wrap));
+            if (MoneyAndXPData.money - manager.deduceMoney(wrap) < 0)
             {
-                // Add code here
+
             }
-            else {
+
+            else
+            {
                 end = wrap.end;
 
                 to = wrap.to;
@@ -109,7 +111,7 @@ public class TrackerAnimation : MonoBehaviour
 
                 manager.isanimating = true;
             }
-            
+
         }
 
 
@@ -132,9 +134,9 @@ public class TrackerAnimation : MonoBehaviour
         tracker.transform.position = Vector3.Lerp(PointA.position, PointB.position, time);
         time += speedfactor * Time.deltaTime;
         animationTime += Time.deltaTime;
-        print(current);
+        /*print(current);
         print(roadReached);
-        print(endreached);
+        print(endreached);*/
         if (buttonpressed)
         {
             if (direc == direction.Clockwise)

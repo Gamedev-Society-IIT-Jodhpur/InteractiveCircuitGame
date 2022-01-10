@@ -14,7 +14,7 @@ public class MapManager : MonoBehaviour
         shop3,
         shop4,
     };
-     int[,] distance;
+    int[,] distance;
     int current = 1;
     public List<Transform> trackerpoints;
     public List<Lean.Gui.LeanTooltipData> shopstext;
@@ -53,7 +53,7 @@ public class MapManager : MonoBehaviour
         PrevCurrScene.curr = i;
     }
 
-    public void deduceMoney(ButtonFunctionWrapper wrap)
+    public float deduceMoney(ButtonFunctionWrapper wrap)
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
@@ -81,6 +81,8 @@ public class MapManager : MonoBehaviour
         //SceneManager.LoadScene(wrap.scenename);
         LoadingManager.instance.LoadGame(SceneIndexes.MAP, wrap.toScene);
     }
+
+
     public void ShowButtons(GameObject tosetActive)
     {
         if (!isanimating)

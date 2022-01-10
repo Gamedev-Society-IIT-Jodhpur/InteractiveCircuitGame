@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 public class GameOverPopUp : MonoBehaviour
 {
     [SerializeField] TMP_Text titleText;
@@ -16,8 +14,9 @@ public class GameOverPopUp : MonoBehaviour
         messageText.text = "You don't have enough money left.\nBuy something else or play again";
         blocker.SetActive(true);
         //image.LeanScale(Vector2.one, 0.5f);
-        
+
     }
+
 
     public void Close()
     {
@@ -31,8 +30,4 @@ public class GameOverPopUp : MonoBehaviour
     {
 
     }
-
-
-
-
 }

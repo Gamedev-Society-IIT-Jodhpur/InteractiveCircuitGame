@@ -45,15 +45,8 @@ public class StoreAssetmanager : MonoBehaviour
     }
     public Sprite getItemIcon(string name)
     {
-        //int index = storeItemIcons.FindIndex(a => a.name.Contains(name));
-        int index = storeItemIcons.FindIndex(a => name.Contains(a.name));
+        int index = storeItemIcons.FindIndex(a => string.Equals(name, a.name));
+
         return storeItemIcons[index].image;
     }
-
-
-
-    //public string getitemname(string name)
-    //{
-
-    //}
 }

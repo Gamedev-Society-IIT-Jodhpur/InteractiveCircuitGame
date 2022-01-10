@@ -12,13 +12,21 @@ public class LoadingManager : MonoBehaviour
     public GameObject loadingScreen;
     public Slider progressBar;
     public TextMeshProUGUI loadingtext;
+    [SerializeField] SceneIndexes sceneIndexes;
 
     private void Awake()
     {
         instance = this;
         // TODO: Change Fastad to Login
-        SceneManager.LoadSceneAsync((int)SceneIndexes.MAP, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)sceneIndexes, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
+
+    }
+
+    void Start()
+    {
+        //TODO remove this code
+        MoneyAndXPData.InitiateMoney(500);
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();

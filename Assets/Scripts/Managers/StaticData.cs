@@ -129,7 +129,7 @@ public class StaticData : MonoBehaviour
 
     //TODO call this function when we need to show if soldering iron is present in tinker or not.
     //also change issolderingiron to true if player buys soldering iron from shop. 
-    private void UpdateSolderingIron()
+    public static void UpdateSolderingIron()
     {
         if (Mathf.RoundToInt(Random.Range(0, 2)) == 0)
         {

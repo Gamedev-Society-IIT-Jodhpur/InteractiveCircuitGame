@@ -11,7 +11,7 @@ public class MoneyXPManager : MonoBehaviour
 
     private void Start()
     {
-        
+
         moneyText = GetComponentsInChildren<TMP_Text>()[0];
         xpText = GetComponentsInChildren<TMP_Text>()[1];
         UpdateMoneyAndXPText();
@@ -26,12 +26,13 @@ public class MoneyXPManager : MonoBehaviour
     public static void InitiateXP()
     {
         MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
-        UpdateMoneyAndXPText();
+        //UpdateMoneyAndXPText();
     }
 
     public static void DeductMoney(float amount)
     {
-        if (MoneyAndXPData.money-amount > 0)
+        print(amount);
+        if (MoneyAndXPData.money - amount >= 0)
         {
             MoneyAndXPData.money -= amount;
             UpdateMoneyAndXPText();
@@ -72,9 +73,9 @@ public class MoneyXPManager : MonoBehaviour
         {
             popUpOpen = false;
             popUp.GetComponent<GameOverPopUp>().Open();
-            
+
         }
     }
 
-    
+
 }
