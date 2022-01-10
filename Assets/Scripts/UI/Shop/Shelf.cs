@@ -61,6 +61,5 @@ public class Shelf : MonoBehaviour
 
             StoreAssetmanager.Instance.itemsAvailable = itemsListData["data"];
         }
-
     }
 }

@@ -17,7 +17,6 @@ public class LoadingManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        // TODO: Change Fastad to Login
         SceneManager.LoadSceneAsync((int)sceneIndexes, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
 
@@ -33,6 +32,7 @@ public class LoadingManager : MonoBehaviour
 
     public void LoadGame(SceneIndexes from, SceneIndexes to)
     {
+        NetworkSingleton.Instance.SetXp();
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)to, LoadSceneMode.Additive));
@@ -41,6 +41,7 @@ public class LoadingManager : MonoBehaviour
     }
     public void LoadGame(SceneIndexes from, string to)
     {
+        NetworkSingleton.Instance.SetXp();
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive));
@@ -69,6 +70,5 @@ public class LoadingManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         loadingScreen.gameObject.SetActive(false);
-
     }
 }
