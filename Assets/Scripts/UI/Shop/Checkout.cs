@@ -43,6 +43,12 @@ public class Checkout : MonoBehaviour
 
         }
 
+        if (AddItem.solderingCountCart > 0)
+        {
+            StaticData.isSolderingIron = true;
+            
+        }
+
         Store.Items.Clear();
         AddItem.tempInventory.Clear();
 

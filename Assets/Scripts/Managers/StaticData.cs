@@ -40,7 +40,7 @@ public class StaticData : MonoBehaviour
     public static List<ComponentData> Inventory = new List<ComponentData>();
     public static bool isSoldering = false;
     public static float dragThreshold = 0.01f;
-    public static bool isSolderingIron = true;
+    public static bool isSolderingIron;
     public static bool hasSolderBroken = false;
 
 
@@ -49,8 +49,9 @@ public class StaticData : MonoBehaviour
         //UpdateSolderingIron();
     }
 
-    //private void Start()
-    //{
+    private void Start()
+    {
+        print("isSolderingIron"+isSolderingIron);
 
     //    #region Custom Inventory Items
     //    Inventory = new List<ComponentData>();
@@ -118,7 +119,7 @@ public class StaticData : MonoBehaviour
     //    Inventory.Add(ZenerDiode);
     //    Inventory.Add(res2);
     //    #endregion
-    //}
+    }
 
 
     public static void UpdateComponentList()

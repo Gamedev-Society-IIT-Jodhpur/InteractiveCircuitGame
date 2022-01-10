@@ -9,18 +9,18 @@ public class GameOverPopUp : MonoBehaviour
 
     public void Open()
     {
-        //image.transform.localScale = Vector2.zero;
+        image.transform.localScale = Vector2.zero;
         titleText.text = "Not Enough Money!";
         messageText.text = "You don't have enough money left.\nBuy something else or play again";
         blocker.SetActive(true);
-        //image.LeanScale(Vector2.one, 0.5f);
+        image.LeanScale(Vector2.one, 0.5f);
 
     }
 
 
     public void Close()
     {
-        //image.transform.LeanScale(Vector2.zero, .5f).setEaseInBack();
+        image.transform.LeanScale(Vector2.zero, .5f).setEaseInBack();
         blocker.SetActive(false);
     }
 
