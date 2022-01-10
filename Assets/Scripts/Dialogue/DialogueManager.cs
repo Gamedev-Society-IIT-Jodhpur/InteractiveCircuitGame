@@ -21,8 +21,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject model;
     [SerializeField]
     public List<Dialogue> sentences_list;
+    public List<Texture> avatars;
 
     private int index = 0;
+    private int avatarIndex = 0;
     private bool isCoroutineRunning;
     private Color defaultColor;
     private Color disabledColor;
@@ -31,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         StaticData.UpdateSolderingIron();
+        avatarIndex = PlayerPrefs.GetInt("player_avatar", 3);
 
         textDisplay.text = "";
         ColorUtility.TryParseHtmlString("#0894F7", out defaultColor);
@@ -48,7 +51,14 @@ public class DialogueManager : MonoBehaviour
         previousButtonImg.color = disabledColor;
         Dialogue tempDialogue = sentences_list[index];
         name_avatar.text = tempDialogue.name;
-        image.texture = tempDialogue.image;
+        if(tempDialogue.name == "Employee")
+        {
+            image.texture = avatars[avatarIndex];
+        }
+        else
+        {
+            image.texture = tempDialogue.image;
+        }
         foreach (char letter in tempDialogue.sentences.ToCharArray())
         {
             textDisplay.text += letter;

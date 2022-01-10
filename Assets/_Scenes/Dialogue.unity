@@ -1303,7 +1303,7 @@ MonoBehaviour:
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
     sentences: Hello! What a fine day it is. I have come to you with our new project...
   - name: Employee
-    image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
+    image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
     sentences: Hello! It is indeed a great day. I am enthusiastic about the new project.
       Could you please tell me about it?
   - name: Boss
@@ -1323,12 +1323,19 @@ MonoBehaviour:
       possible. However, at least 60% of this battery power must be delivered to
       it. The regulator must likewise be simple and cheap.
   - name: Employee
-    image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
+    image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
     sentences: Could you provide me the requirements and specifications for future
       reference?
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
     sentences: Sure. Try to spend the money cautiously and get me the product ASAP.
+  avatars:
+  - {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
+  - {fileID: 2800000, guid: b12b5a910b1bb5641b154455adad8707, type: 3}
+  - {fileID: 2800000, guid: c201484a5d3a5b1419a54a183595376b, type: 3}
+  - {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
+  - {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
+  - {fileID: 2800000, guid: 5597e7e0eb970324791ad35cf4983ea2, type: 3}
 --- !u!4 &2004375003
 Transform:
   m_ObjectHideFlags: 0

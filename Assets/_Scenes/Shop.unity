@@ -183,6 +183,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 82e1d3a63ed06404db745144dc5a01c6, type: 3}
   - name: Zener Diode
     image: {fileID: 21300000, guid: d6933e513ad0a9d47b379cdbdc962766, type: 3}
+  - name: Soldering Iron
+    image: {fileID: 21300000, guid: f61781f0813e2d9428fa017c3fce45fe, type: 3}
 --- !u!1 &19720348
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,6 +6768,10 @@ PrefabInstance:
     - target: {fileID: 7919991453485148670, guid: 73cf803e8ca9bb94a80f61ac94379b1c, type: 3}
       propertyPath: m_Name
       value: GameOverPopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919991453485148670, guid: 73cf803e8ca9bb94a80f61ac94379b1c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919991453485148671, guid: 73cf803e8ca9bb94a80f61ac94379b1c, type: 3}
       propertyPath: m_RootOrder
