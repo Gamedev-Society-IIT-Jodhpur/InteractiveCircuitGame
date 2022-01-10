@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ValidationModel : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public static bool isSuccess = false;
+    public static bool isfirsttime = true;
     public static ValidationModel Instance;
 
     [SerializeField]
@@ -22,7 +24,15 @@ public class ValidationModel : MonoBehaviour
     }
     void Start()
     {
-        transform.localScale = Vector2.zero;
+        if (isfirsttime && SceneManager.GetActiveScene().name=="MAP") {
+            transform.localScale = Vector2.zero;
+            title.text = "Note ";
+            data.text = "There are 3 Shops in your locality. You may choose any.";
+            buttonText.text = "Continue to Map";
+            transform.LeanScale(Vector2.one, 0.5f);
+            isfirsttime = false;
+        }
+        
     }
 
     public void Open()
@@ -42,6 +52,8 @@ public class ValidationModel : MonoBehaviour
         }
         transform.LeanScale(Vector2.one, 0.5f);
     }
+
+    
 
     public void Close()
     {

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -31,19 +31,19 @@ public class MapManager : MonoBehaviour
         current = PrevCurrScene.curr;
         tracker.transform.position = trackerpoints[current].position;
         distance = new int[6, 6] { { 0, 1, 2, 7, 9, 11 }, { 1, 0, 3, 8, 10, 10 }, { 2, 3, 0, 5, 7, 11 }, { 7, 8, 5, 0, 2, 6 }, { 9, 10, 7, 2, 0, 4 }, { 11, 10, 11, 6, 4, 0 } };
-        for (int i = 0; i < shopstext.Count; i++)
+        for (int i = 1; i < shopstext.Count; i++)
         {
 
             shopstext[i].Text = "Shop" +
-                "\n By Cab:     " + (distance[current, i + 2] / 4.0).ToString() + " seconds" + "  $" + (distance[current, i + 2]).ToString() +
-                "\n  By Walking:    " + (distance[current, i + 2] / 2.0).ToString() + " seconds" + "  $ 0";
+                "\n By Cab:     " + (160*(distance[current, i + 2] / 4) /60).ToString() + " min " + (160 * (distance[current, i + 2] / 4)%60).ToString() +" secs "+ " ₹ " + ((distance[current, i + 2]) * 60).ToString() +
+                "\n  By Walking:    " + (160*distance[current, i + 2] /60).ToString() + " min "+ (160 * (distance[current, i + 2] ) % 60).ToString() + " secs " + "  ₹ 0";
         }
         TinkerLab.Text = "TinkerLab" +
-                 "\n By Cab:     " + (distance[current, 0] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 0]).ToString() +
-                 "\n  By Walking:    " + (distance[current, 0] / 2.0).ToString() + " seconds" + "  $ 0";
+                 "\n By Cab:     " + ((distance[current, 0] *40)/60).ToString()  + " min " + (160 * (distance[current, 0] / 4) % 60).ToString() + " secs " + "  ₹" + (distance[current, 0] * 60).ToString() +
+                 "\n  By Walking:    " + (160 * distance[current, 0] / 60).ToString() + " min " + (160 * (distance[current, 0]) % 60).ToString() + " secs " + "  ₹ 0";
         falstad.Text = "Falstad" +
-                "\n By Cab:     " + (distance[current, 1] / 4.0).ToString() + " seconds" + "  $" + (distance[current, 1]).ToString() +
-                "\n  By Walking:    " + (distance[current, 1] / 2.0).ToString() + " seconds" + "  $ 0";
+                "\n By Cab:     " + (40 * (distance[current, 1] ) / 60).ToString() + " min " + (40 * (distance[current, 1] ) % 60).ToString() + " secs " + "  ₹" + (distance[current, 1] * 60).ToString() +
+                "\n  By Walking:    " + (160 * distance[current, 1] / 60).ToString() + " min " + (160 * (distance[current, 1]) % 60).ToString() + " secs " + "  ₹ 0";
     }
 
 
@@ -57,14 +57,10 @@ public class MapManager : MonoBehaviour
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]);
+            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex] * 60);
             
         }
-        else
-        {
-            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex] / 2.0f);
-            
-        }
+        
     }
 
     public void mapscenechange(ButtonFunctionWrapper wrap, float animationTime)
@@ -74,12 +70,12 @@ public class MapManager : MonoBehaviour
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
            
-            Timer.SkipTime((distance[current, wrap.changeindex] / 4.0f) - animationTime);
+            Timer.SkipTime(160*(distance[current, wrap.changeindex] / 4.0f) - animationTime);
         }
         else
         {
            
-            Timer.SkipTime((distance[current, wrap.changeindex] / 2.0f) - animationTime);
+            Timer.SkipTime(320*(distance[current, wrap.changeindex] / 2.0f) - animationTime);
         }
         Change(wrap.changeindex);
         //SceneManager.LoadScene(wrap.scenename);

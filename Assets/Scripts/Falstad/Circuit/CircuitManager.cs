@@ -53,6 +53,7 @@ public class CircuitManager : MonoBehaviour
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Falstad"));
         UnifiedScript.scene = SceneManager.GetActiveScene().name;
+        ScoringScript.UpdateError(1);
     }
     public void Play()
     {
@@ -143,28 +144,43 @@ public class CircuitManager : MonoBehaviour
         try
         {
             dc = new DC("dc", volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(volt.GetComponent<ComponentInitialization>().value), double.Parse(volt.GetComponent<ComponentInitialization>().value), 0.001);
-            var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
+            RealPropertyExport currentExport;
+            if (selected.tag == "Gizmo")
+            {
+                currentExport = new RealPropertyExport(dc, volt.GetComponent<ComponentInitialization>().nameInCircuit, "i");
+            }
+            else
+            {
+                currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "i");
+            }
 
 
             dc.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
-                DisplayText.gameObject.SetActive(true);
-                if (selected.GetComponent<ComponentInitialization>().a != component.bjt)
-                {
+                if (selected.tag != "Gizmo") {
+                    DisplayText.gameObject.SetActive(true);
+                    if (selected.GetComponent<ComponentInitialization>().a != component.bjt)
+                    {
 
-                    DisplayText.text = ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0], selected.GetComponent<ComponentInitialization>().nodes[1]), 9, "V")
-                                     + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+                        DisplayText.text = ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0], selected.GetComponent<ComponentInitialization>().nodes[1]), 9, "V")
+                                         + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+                    }
+                    else
+                    {
+                        var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
+                        var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
+                        var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ib");
+                        var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ic");
+                        DisplayText.text = ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
+                                            + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
+                                     + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
+                                    + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+                    }
+                   
                 }
                 else
                 {
-                    var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbe");
-                    var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
-                    var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ib");
-                    var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ic");
-                    DisplayText.text = ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
-                                        + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
-                                 + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
-                                + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+                    CustomNotificationManager.Instance.AddNotification(1,"Cannot check voltage and current across gizmo. Please select any other component");
                 }
 
                 //Debug.Log(selected.GetComponent<ComponentInitialization>().nameInCircuit + " " + currentExport1.Value);

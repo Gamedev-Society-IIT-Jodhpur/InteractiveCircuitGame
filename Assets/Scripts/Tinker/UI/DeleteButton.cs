@@ -24,6 +24,7 @@ public class DeleteButton : MonoBehaviour
                 }
 
                 MoneyXPManager.DeductXP(CircuitManagerTinker.selected.transform.parent.childCount * 10);
+                ScoringScript.UpdateError(0, CircuitManagerTinker.selected.transform.parent.childCount);
                 CustomNotificationManager.Instance.AddNotification(1, "Deleting soldered components costs XP");
                 GameObject currentParent = CircuitManagerTinker.selected.transform.parent.gameObject;
                 Drag[] connecteds = currentParent.GetComponentsInChildren<Drag>();

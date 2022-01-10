@@ -39,7 +39,10 @@ public class StoreAssetmanager : MonoBehaviour
         itemsNameMaping.Add("Zener Diode", "zenerDiode");
         itemsNameMaping.Add("Breadboard", "breadboard");
     }
-
+    private void Start()
+    {
+        ScoringScript.UpdateError(2);
+    }
     public Sprite getItemIcon(string name)
     {
         //int index = storeItemIcons.FindIndex(a => a.name.Contains(name));

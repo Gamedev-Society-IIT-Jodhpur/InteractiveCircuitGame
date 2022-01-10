@@ -21,7 +21,7 @@ public class ScoringScript
      */
     public static void InitializeScoring()
     {
-        int[] inError = { 0, 0, 0, 0, 0, 0 };
+        int[] inError = { 0, -1, -1, 0, 0, 0 };
         double[] inPenality = { 10, 10, 0, 20, 20, 20 };
         errors = new List<int>(inError);
         penalty = new List<double>(inPenality);
@@ -67,6 +67,16 @@ public class ScoringScript
         // TO-DO figure out hyperparameters for sigmoids of totalpenalty as well as money contraint and customize weights
 
         return score;
+    }
+
+    public static List<int> GetError()
+    {
+        return errors;
+    }
+
+    public static List<double> Penalty()
+    {
+        return penalty;
     }
 
     static double Sigmoid(double x, double k = 1, double a = 1, double b = 0)

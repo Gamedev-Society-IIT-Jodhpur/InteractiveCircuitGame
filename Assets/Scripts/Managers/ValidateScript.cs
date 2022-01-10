@@ -103,88 +103,97 @@ public class ValidateScript : MonoBehaviour
 
     public bool CheckSpecs()
     {
-        bool passed = false;
-        string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
-        string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
-        Circuit ckt1 = new Circuit();
-        foreach (var i in CircuitManager.ckt)
+        if (gizmo == null)
         {
-            ckt1.Add(i);
+            CustomNotificationManager.Instance.AddNotification(1, "Gizmo Not Present. Please add gizmo to your design.");
+            return false;
         }
-        ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
-        Circuit ckt2 = new Circuit();
-        foreach (var i in CircuitManager.ckt)
+        else
         {
-            ckt2.Add(i);
-        }
-        ckt2.Add(new Resistor("CheckResistor1", node1, node2, 30));
-        var dc1 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-        var dc2 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-        var currentExport1 = new RealPropertyExport(dc1, "CheckResistor1", "i");
-        var currentExport2 = new RealPropertyExport(dc2, "CheckResistor1", "i");
-        List<RealPropertyExport> currentexportsources = new List<RealPropertyExport>();
-        List<RealPropertyExport> currentexportsources1 = new List<RealPropertyExport>();
-        foreach (var i in ckt1.ByType<VoltageSource>())
-        {
-            currentexportsources.Add(new RealPropertyExport(dc1, i.Name, "i"));
-        }
-        foreach (var i in ckt1.ByType<VoltageSource>())
-        {
-            currentexportsources1.Add(new RealPropertyExport(dc2, i.Name, "i"));
-        }
-        dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            double power = 0.0;
-            int j = 0;
+            bool passed = false;
+            string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
+            string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
+            Circuit ckt1 = new Circuit();
+            foreach (var i in CircuitManager.ckt)
+            {
+                ckt1.Add(i);
+            }
+            ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
+            Circuit ckt2 = new Circuit();
+            foreach (var i in CircuitManager.ckt)
+            {
+                ckt2.Add(i);
+            }
+            ckt2.Add(new Resistor("CheckResistor1", node1, node2, 30));
+            var dc1 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+            var dc2 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+            var currentExport1 = new RealPropertyExport(dc1, "CheckResistor1", "i");
+            var currentExport2 = new RealPropertyExport(dc2, "CheckResistor1", "i");
+            List<RealPropertyExport> currentexportsources = new List<RealPropertyExport>();
+            List<RealPropertyExport> currentexportsources1 = new List<RealPropertyExport>();
             foreach (var i in ckt1.ByType<VoltageSource>())
             {
+                currentexportsources.Add(new RealPropertyExport(dc1, i.Name, "i"));
+            }
+            foreach (var i in ckt1.ByType<VoltageSource>())
+            {
+                currentexportsources1.Add(new RealPropertyExport(dc2, i.Name, "i"));
+            }
+            dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
+            {
+                double power = 0.0;
+                int j = 0;
+                foreach (var i in ckt1.ByType<VoltageSource>())
+                {
 
-                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                j++;
-            }
-            if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
-            {
-                passed = true;
-            }
-        };
-        dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            double power = 0.0;
-            int j = 0;
-            foreach (var i in ckt2.ByType<VoltageSource>())
-            {
-
-                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                j++;
-            }
-            if (passed == true)
-            {
-                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
+                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                    j++;
+                }
+                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
                 {
                     passed = true;
                 }
-                else
+            };
+            dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
+            {
+                double power = 0.0;
+                int j = 0;
+                foreach (var i in ckt2.ByType<VoltageSource>())
                 {
-                    passed = false;
+
+                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                    j++;
                 }
+                if (passed == true)
+                {
+                    if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
+                    {
+                        passed = true;
+                    }
+                    else
+                    {
+                        passed = false;
+                    }
+                }
+
+            };
+
+            try
+            {
+                dc1.Run(ckt1);
+                dc2.Run(ckt2);
+            }
+            catch (Exception e)
+            {
+                print(e.Message);
+                passed = false;
             }
 
-        };
-
-        try
-        {
-            dc1.Run(ckt1);
-            dc2.Run(ckt2);
+            return passed;
         }
-        catch (Exception e)
-        {
-            print(e.Message);
-            passed = false;
-        }
-
-        return passed;
+        
     }
 
     public void SaveDataFalstad()
@@ -441,6 +450,7 @@ public class ValidateScript : MonoBehaviour
             ValidationModel.Instance.Open();
             CustomNotificationManager.Instance.AddNotification(2, "Circuit doesn't meet specifications");
             print("Circuit doesn't meet specifications");
+            ScoringScript.UpdateError(3);
         }
     }
 
@@ -761,6 +771,7 @@ public class ValidateScript : MonoBehaviour
             print("Dict Comparison:" + dictsame);
             print("List Comparison:" + seriesequal);
             FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
+            ScoringScript.UpdateError(4);
         }
     }
 

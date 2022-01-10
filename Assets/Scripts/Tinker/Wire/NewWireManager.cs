@@ -45,6 +45,7 @@ public class NewWireManager : MonoBehaviour
             }
 
             MoneyXPManager.DeductXP(10 * multiplier);
+            ScoringScript.UpdateError(0);
             CustomNotificationManager.Instance.AddNotification(1, "Deleting wire soldered to components cost XP");
         }
         Destroy(node1);
