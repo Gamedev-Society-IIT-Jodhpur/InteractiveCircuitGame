@@ -28,6 +28,6 @@ public class GameOverPopUp : MonoBehaviour
     //todo function to call after play again is pressed on game over popup.
     public void GameOver()
     {
-        NetworkSingleton.Instance.SetXp();
+        //NetworkSingleton.Instance.SetXp();
     }
 }
