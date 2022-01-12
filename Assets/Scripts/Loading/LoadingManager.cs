@@ -67,7 +67,7 @@ public class LoadingManager : MonoBehaviour
                     totalSceneProgress += operation.progress;
                 }
                 totalSceneProgress = (totalSceneProgress / scenesLoading.Count) * 100f;
-                loadingtext.text = string.Format("Loading :{0}%", totalSceneProgress);
+                loadingtext.text = string.Format("Loading :{0}%", Mathf.RoundToInt(totalSceneProgress));
                 progressBar.value = Mathf.RoundToInt(totalSceneProgress);
 
                 yield return null;

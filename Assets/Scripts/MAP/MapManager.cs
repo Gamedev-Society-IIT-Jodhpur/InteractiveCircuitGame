@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -27,6 +28,7 @@ public class MapManager : MonoBehaviour
     public bool isanimating = false;
     public GameObject todisable;
     // Start is called before the first frame update
+  
     void Start()
     {
         if (isfirsttime)
