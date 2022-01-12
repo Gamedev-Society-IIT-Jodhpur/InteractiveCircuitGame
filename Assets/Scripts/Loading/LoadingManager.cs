@@ -33,7 +33,9 @@ public class LoadingManager : MonoBehaviour
 
     public void LoadGame(SceneIndexes from, SceneIndexes to)
     {
-        //NetworkSingleton.Instance.SetXp();
+        //----------------------
+        NetworkSingleton.Instance.SetXp();
+        //----------------------
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)to, LoadSceneMode.Additive));
@@ -42,7 +44,9 @@ public class LoadingManager : MonoBehaviour
     }
     public void LoadGame(SceneIndexes from, string to)
     {
-        //NetworkSingleton.Instance.SetXp();
+        //----------------------
+        NetworkSingleton.Instance.SetXp();
+        //----------------------
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive));

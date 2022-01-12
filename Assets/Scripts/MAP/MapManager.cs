@@ -63,20 +63,13 @@ public class MapManager : MonoBehaviour
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-            //MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]*60);
-            /*MoneyXPManager.DeductMoney*/
+            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]*60);
             return (distance[current, wrap.changeindex]*60);
-
-
         }
         else
         {
-           
-            /*MoneyXPManager.DeductMoney*/
             return (0);
-
         }
-
     }
 
     public void mapscenechange(ButtonFunctionWrapper wrap, float animationTime)
@@ -94,7 +87,6 @@ public class MapManager : MonoBehaviour
             Timer.SkipTime(320*(distance[current, wrap.changeindex] / 2.0f) - animationTime);
         }
         Change(wrap.changeindex);
-        //SceneManager.LoadScene(wrap.scenename);
         LoadingManager.instance.LoadGame(SceneIndexes.MAP, wrap.toScene);
     }
 
