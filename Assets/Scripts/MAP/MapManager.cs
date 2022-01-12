@@ -63,7 +63,7 @@ public class MapManager : MonoBehaviour
     {
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
-            MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]*60);
+            //MoneyXPManager.DeductMoney(distance[current, wrap.changeindex]*60);
             /*MoneyXPManager.DeductMoney*/
             return (distance[current, wrap.changeindex]*60);
 
