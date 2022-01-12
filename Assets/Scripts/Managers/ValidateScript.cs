@@ -188,7 +188,9 @@ public class ValidateScript : MonoBehaviour
             }
             catch (Exception e)
             {
-                print(e.Message);
+                CustomNotificationManager.Instance.AddNotification(2, "Invalid Circuit");
+
+                //print(e.Message);
                 passed = false;
             }
 
@@ -297,12 +299,16 @@ public class ValidateScript : MonoBehaviour
                 }
                 catch (Exception e)
                 {
-                    print(e.Message);
+                    CustomNotificationManager.Instance.AddNotification(2, "Invalid circuit");
+
+                    //print(e.Message);
                 }
             }
             catch (Exception e)
             {
-                print(e.Message);
+                CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
+
+                //print(e.Message);
             }
             // Creating Series list
 
@@ -555,13 +561,16 @@ public class ValidateScript : MonoBehaviour
             }
             catch (SpiceSharp.Simulations.ValidationFailedException e)
             {
-                print(e.Message);
+
+                CustomNotificationManager.Instance.AddNotification(2, "Invalid circuit");
+
+                //print(e.Message);
             }
         }
         catch (Exception e)
         {
-
-            print(e.Message);
+            CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
+            //print(e.Message);
         }
         // Creating Series list
 

@@ -192,16 +192,14 @@ public class CircuitManager : MonoBehaviour
             }
             catch (System.Exception e)
             {
-
-                print(e.Message);
+                CustomNotificationManager.Instance.AddNotification(2, "Invalid Circuit");
+                //print(e.Message);
             }
         }
         catch (System.Exception e)
         {
-            
-            //throw;
-            //CustomNotificationManager.Instance.AddNotification(2, "There is no voltage component in ");
-            print(e.Message);
+            CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
+            //print(e.Message);
         }
 
 
