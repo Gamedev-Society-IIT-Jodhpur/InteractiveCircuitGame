@@ -198,8 +198,9 @@ public class CircuitManager : MonoBehaviour
         }
         catch (System.Exception e)
         {
-
+            
             //throw;
+            //CustomNotificationManager.Instance.AddNotification(2, "There is no voltage component in ");
             print(e.Message);
         }
 

@@ -16,8 +16,8 @@ public class ModelBox : MonoBehaviour
         background.alpha = 0;
         background.LeanAlpha(1, 0.5f);
         box.localPosition = new Vector2(0, -Screen.height);
-        
-        if (SceneManager.GetActiveScene().name == "Dialogue")
+        //print(SceneManager.GetSceneAt(1).name);
+        if (SceneManager.GetSceneAt(1).name == "Dialogue")
         {
             solderAvailableText = "<b>Luckily you already have a Soldering iron present in the tinkering lab</b> so you don't need to buy one. Though you can also get a breadboard from the shop " +
             "for your convenience. ";
