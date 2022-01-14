@@ -19,9 +19,8 @@ public class ModelBox : MonoBehaviour
         //print(SceneManager.GetSceneAt(1).name);
         if (SceneManager.GetSceneAt(1).name == "Dialogue")
         {
-            solderAvailableText = "<b>Luckily you already have a Soldering iron present in the tinkering lab</b> so you don't need to buy one. Though you can also get a breadboard from the shop " +
-            "for your convenience. ";
-            solderNotAvailableText = "<b>Unfortunately you don't have either of them in the tinkering lab. Don't forget to get atleast one of them from the shop.</b>";
+            solderAvailableText = "Soldering Iron (01)";
+            solderNotAvailableText = "Sorry, the inventory is empty.";
             box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo();
 
             if (StaticData.isSolderingIron)
@@ -33,12 +32,12 @@ public class ModelBox : MonoBehaviour
                 finalSolderText = solderNotAvailableText;
             }
 
-            panelText.text = "The gizmo requires a voltage of precisely <b>6.0 Volts</b>, and at a maximum will require power of <b>1.2 Watts</b>. The gizmo will require a standard battery(s)" +
-                " as a source (the kind you buy at Quick Trip), with as high a voltage as possible. However, at least <b>60%</b> of this battery power must be delivered to the gizmo.\n\n" +
-                "- Your first step is to design a circuit in a circuit simulator.\n" +
-                "- Then you should go to the shop via map to buy the required components.Note that you can buy only standard components, <b>So, use only standard components in your design.</b> \n" +
-                "- Then go to the Tinkering lab to fabricate your design. <b>Note that you have to make the same circuit as you designed in the circuit simulator.</b> \n" +
-                "- You'll need either a breadboard or a Soldering iron to fabricate your design in the Tinkering lab. " + finalSolderText;
+            panelText.text = "The gizmo requires a voltage of precisely <b>6.0 Volts</b>, and at a maximum will require a power of " +
+                "<b>1.2 Watts</b>. It should use standard components (the kind you can buy at any electronics store), with <b>as high a source</b>" +
+                " <b>voltage as possible</b>. However, <b>at least 60% of this battery power</b> must be delivered to it. The regulator must " +
+                "likewise be simple and cheap.\n\n" +
+                "<b>Available in Inventory of Tinkering Lab</b>\n" + finalSolderText;
+                
 
         }
 
