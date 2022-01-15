@@ -162,8 +162,8 @@ public class CircuitManager : MonoBehaviour
                     if (selected.GetComponent<ComponentInitialization>().a != component.bjt)
                     {
 
-                        DisplayText.text = ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0], selected.GetComponent<ComponentInitialization>().nodes[1]), 9, "V")
-                                         + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+                        DisplayText.text = ("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentInitialization>().nodes[0], selected.GetComponent<ComponentInitialization>().nodes[1]), 2, "V")
+                                         + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 2, "A"));
                     }
                     else
                     {
@@ -171,10 +171,10 @@ public class CircuitManager : MonoBehaviour
                         var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "vbc");
                         var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ib");
                         var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentInitialization>().nameInCircuit, "ic");
-                        DisplayText.text = ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
-                                            + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
-                                     + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
-                                    + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
+                        DisplayText.text = ("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 2, "V")
+                                            + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 2, "V")
+                                     + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 2, "A")
+                                    + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 2, "A"));
                     }
                    
                 }
