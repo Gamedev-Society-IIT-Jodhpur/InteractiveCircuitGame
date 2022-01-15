@@ -9,7 +9,7 @@ public class Checkout : MonoBehaviour
 
     private void Update()
     {
-        totalAmountText.text = "Total : " + totalAmount;
+        totalAmountText.text = "Total : Rs. " + totalAmount;
     }
 
     public void CheckoutItems()
