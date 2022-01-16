@@ -29,7 +29,7 @@ public class Shelf : MonoBehaviour
 
     IEnumerator getData()
     {
-        UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableItems);
+        UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableShopItems);
 
         dataLoaded = false;
 
@@ -41,6 +41,7 @@ public class Shelf : MonoBehaviour
         }
 
         dataLoaded = true;
+
         if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(itemsListRequest.error);

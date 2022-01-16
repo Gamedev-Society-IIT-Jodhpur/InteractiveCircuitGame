@@ -23,5 +23,6 @@ public class AvailableRoutes
 
 
     public static string availableItems = root + "api/item/availableItems";
+    public static string availableShopItems = root + "api/shop/availableItems";
     public static string availableGames = root + "api/game/getAvailableGames";
 }
