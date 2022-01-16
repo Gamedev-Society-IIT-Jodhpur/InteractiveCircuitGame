@@ -55,9 +55,9 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        string s = "{0} - {1} - {2} ({3})";
+        string s = "{0} - {1} - {2} ({3}) (Rs. {4})";
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
-        string itemDesc = string.Format(s, header.text, value, unit, quantity);
+        string itemDesc = string.Format(s, header.text, value, unit, quantity, price);
 
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
