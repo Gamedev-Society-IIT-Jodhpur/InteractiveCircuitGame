@@ -44,8 +44,8 @@ public class ValidationModel : MonoBehaviour
         if (isSuccess)
         {
             title.text = "Success";
-            data.text = "Your circuit is valid.\nProceed to store to buy the components.\nChoose mode of travel wisely in the map.";
-            buttonText.text = "Continue to Map";
+            data.text = "Your circuit meets the specifications.\nProceed to the Store to buy the components.\nChoose mode of travel wisely in the Map.";
+            buttonText.text = "Continue to the Map";
         }
         else
         {

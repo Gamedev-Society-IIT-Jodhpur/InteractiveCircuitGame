@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,11 +9,35 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        inputField.characterValidation = TMP_InputField.CharacterValidation.Decimal;
+        inputField = GetComponentInChildren<TMP_InputField>();
+        //inputField.characterValidation = TMP_InputField.CharacterValidation.Decimal;
     }
 
-    public void ChangeValue(string value)
+    private void OnEnable()
     {
+        transform.rotation = Quaternion.identity;
+        inputField.text = "";
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
+        inputField.OnPointerClick(new PointerEventData(EventSystem.current));
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            OK();
+        }
+        if (inputField.gameObject.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
+            inputField.OnPointerClick(new PointerEventData(EventSystem.current));
+        }
+    }
+
+    public void ChangeValue()
+    {
+        string value = inputField.text;
+        if (inputField.text == "") return;
         if (CircuitManager.selected.tag != "Gizmo")
         {
             ComponentInitialization component = CircuitManager.selected.GetComponent<ComponentInitialization>();
@@ -54,5 +79,32 @@ public class InputManager : MonoBehaviour
             }
 
         }
+    }
+
+
+    public void OK()
+    {
+        if (inputField.text == "") return;
+        else
+        {
+            ChangeValue();
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void DisableOther()
+    {
+        GameObject[] editPanels = GameObject.FindGameObjectsWithTag(gameObject.tag);
+        for (int i = 0; i < editPanels.Length; i++)
+        {
+            if (editPanels[i] != gameObject)
+            {
+                editPanels[i].SetActive(false);
+            }
+        }
+        CircuitManager.ChangeSelected(GetComponentInParent<ComponentInitialization>().gameObject);
+            
+
+        
     }
 }

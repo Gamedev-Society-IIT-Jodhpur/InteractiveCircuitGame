@@ -18,6 +18,7 @@ TagManager:
   - soldered
   - MapButton
   - Gizmo
+  - Edit Panel
   layers:
   - Default
   - TransparentFX

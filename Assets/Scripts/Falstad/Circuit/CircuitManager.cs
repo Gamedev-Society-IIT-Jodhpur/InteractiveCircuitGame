@@ -35,15 +35,15 @@ public class CircuitManager : MonoBehaviour
     string temp;
     [SerializeField] TMP_Text DisplayText;
     static TMP_Text DisplayTextStatic;
-    public static GameObject valueinput;
+    //public static GameObject valueinput;
     List<List<string>> circuits = new List<List<string>>() { };
 
 
     private void Awake()
     {
 
-        valueinput = GameObject.FindGameObjectWithTag("value input");
-        valueinput.SetActive(false);
+        //valueinput = GameObject.FindGameObjectWithTag("value input");
+        //valueinput.SetActive(false);
         DisplayTextStatic = DisplayText;
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
@@ -210,7 +210,7 @@ public class CircuitManager : MonoBehaviour
     public static void ChangeSelected(GameObject gameObject)
     {
 
-        valueinput.SetActive(false);
+        //valueinput.SetActive(false);
         DisplayTextStatic.gameObject.SetActive(false);
         if (selected)
         {
@@ -219,8 +219,9 @@ public class CircuitManager : MonoBehaviour
 
         if (gameObject)
         {
-            //to change input value text field
             selected = gameObject;
+            //to change input value text field
+            /*
             if (selected.tag == "Resistor" || selected.tag == "Voltage")
             {
                 valueinput.SetActive(true);
@@ -230,7 +231,7 @@ public class CircuitManager : MonoBehaviour
             {
                 valueinput.SetActive(true);
                 valueinput.GetComponent<TMP_InputField>().text = gameObject.GetComponent<ComponentInitialization>().beta.ToString();
-            }
+            }*/
 
 
             //for changing outline

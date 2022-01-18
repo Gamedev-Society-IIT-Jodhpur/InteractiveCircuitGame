@@ -37,6 +37,11 @@ public class Item : MonoBehaviour
             {
                 GetComponentInChildren<TMP_Text>().transform.rotation = Quaternion.identity;
             }
+            if (GetComponentInChildren<InputManager>() != null)
+            {
+                GetComponentInChildren<InputManager>().transform.rotation = Quaternion.identity;
+            }
+
 
 
             node1Pos = childs[1].position;
