@@ -3,30 +3,50 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 public class GoogleLogin : MonoBehaviour
 {
     public GameObject emailInputField;
 
-
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
         if (NetworkSingleton.Instance.CheckNetworkConnection())
         {
-            if (PlayerPrefs.GetString("email", "") != "")
+            StartCoroutine(GetXP());
+        }
+    }
+
+    private void Start()
+    {
+        if (NetworkSingleton.Instance.CheckNetworkConnection())
+        {
+            if (PlayerPrefs.GetString("player_email", "") != "")
             {
-                //SceneManager.LoadScene("MainMenu");
                 LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.MainMenu);
             }
         }
     }
 
-    public void setEmail(string email)
+    private IEnumerator GetXP()
+    {
+        UnityWebRequest xp = UnityWebRequest.Get(AvailableRoutes.getXP + PlayerPrefs.GetString("player_email", ""));
+        yield return xp.SendWebRequest();
+
+        if (xp.result != UnityWebRequest.Result.Success)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't get XP");
+        }
+        else
+        {
+            JSONNode data = JSON.Parse(xp.downloadHandler.text);
+            PlayerPrefs.SetInt("player_xp", data["xp"]);
+        }
+    }
+
+    public void setEmail()
     {
         string text = emailInputField.GetComponent<TMP_InputField>().text;
-        PlayerPrefs.SetString("email", text);
+        PlayerPrefs.SetString("player_email", text);
     }
 
     public void onLogin()
@@ -34,33 +54,25 @@ public class GoogleLogin : MonoBehaviour
         StartCoroutine(onLoginToServer());
     }
 
-
     IEnumerator onLoginToServer()
     {
-        Debug.Log(AvailableRoutes.checkUser + PlayerPrefs.GetString("email", ""));
-        UnityWebRequest www = UnityWebRequest.Get(AvailableRoutes.checkUser + PlayerPrefs.GetString("email", ""));
+        UnityWebRequest www = UnityWebRequest.Get(AvailableRoutes.checkUser + emailInputField.GetComponent<TMP_InputField>().text);
         yield return www.SendWebRequest();
-
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
+            CustomNotificationManager.Instance.AddNotification(2, "Login Error");
         }
         else
         {
-
-            Debug.Log("Kshitij Geting User");
             JSONNode data = JSON.Parse(www.downloadHandler.text);
+            PlayerPrefs.SetInt("player_avatar", data["avatar"]);
+            PlayerPrefs.SetInt("player_xp", data["xp"]);
+            Debug.Log("player_xp: " + data["xp"]);
+            setEmail();
 
-            PlayerPrefs.SetInt("avatar", data["avatar"]);
-
-            Debug.Log(PlayerPrefs.GetInt("avatar"));
-
-            //SceneManager.LoadScene(2);
-            LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.MainMenu);
+            LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.AvatarSelection);
         }
-
-
     }
 
     public void onGoogleSignup()

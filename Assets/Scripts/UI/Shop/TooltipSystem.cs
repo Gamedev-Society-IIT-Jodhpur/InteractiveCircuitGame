@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TooltipSystem : MonoBehaviour
@@ -18,6 +16,7 @@ public class TooltipSystem : MonoBehaviour
 
     public static void Show(string itemID)
     {
+        AddItem.quantity = 1;
         current.tooltip.SetTooltip(itemID);
         current.tooltip.gameObject.SetActive(true);
         item_ID = itemID;
@@ -27,7 +26,7 @@ public class TooltipSystem : MonoBehaviour
     {
         return item_ID;
     }
-    
+
 
     public static void Hide()
     {

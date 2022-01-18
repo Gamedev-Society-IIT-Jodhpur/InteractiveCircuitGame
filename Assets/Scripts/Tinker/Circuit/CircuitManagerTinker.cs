@@ -1,12 +1,9 @@
-﻿using System.Collections;
+﻿using SpiceSharp;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using SpiceSharp;
-using SpiceSharp.Components;
-using SpiceSharp.Simulations;
-using TMPro;
 using System.Linq;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CircuitManagerTinker : MonoBehaviour
@@ -34,17 +31,18 @@ public class CircuitManagerTinker : MonoBehaviour
     public static GameObject volt = null;
     string temp;
     Breadboard breadBoard;
-    Transform[] rows=new Transform[4];
-    Transform[,] columns= new Transform[60,2];
+    Transform[] rows = new Transform[4];
+    Transform[,] columns = new Transform[60, 2];
     List<List<string>> circuits = new List<List<string>>() { };
     public static TMP_Text valueText;
     public TMP_Text valueTextInstance;
+    static bool isfirsttime=true;
 
     string a, b;
 
     private void Awake()
     {
-        
+
         components = new Dictionary<string, int>();
         componentList = new List<GameObject>();
     }
@@ -54,6 +52,11 @@ public class CircuitManagerTinker : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tinker"));
         UnifiedScript.scene = SceneManager.GetActiveScene().name;
         valueText = valueTextInstance;
+        if (isfirsttime)
+        {
+            MoneyXPManager.IncreaseXP(100);
+            isfirsttime = false;
+        }
     }
 
     public void Play()
@@ -69,17 +72,17 @@ public class CircuitManagerTinker : MonoBehaviour
         "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15"), 0));
         print(componentList.Count);
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
-        ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", "Is =18.8e-9 N=2 Cjo=30e-12 M=0.33 bv=6 ibv=5e-6"));
+        ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", " bv=6"));
         print(componentList.Count);
-        
+
         if (GameObject.FindGameObjectWithTag("Breadboard"))
         {
             breadBoard = GameObject.FindGameObjectWithTag("Breadboard").GetComponent<Breadboard>();
             rows = breadBoard.rows;
             columns = breadBoard.columns;
         }
-        
-        
+
+
         for (int i = 0; i < componentList.Count; i++)
         {
             //get nodes of wire component
@@ -92,7 +95,7 @@ public class CircuitManagerTinker : MonoBehaviour
             }
             //get nodes of other components
             else childs = componentList[i].GetComponent<ComponentTinker>().childs;
-            
+
             List<string> nodes = new List<string>();
 
             //to check if component is attatched to breadboard and add to the nodes list
@@ -211,7 +214,7 @@ public class CircuitManagerTinker : MonoBehaviour
                             nodes.Add(a + " " + b);
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -243,7 +246,7 @@ public class CircuitManagerTinker : MonoBehaviour
                     nodes[j] = "0";
                 }
             }
-            print("nodes length " + nodes.Count+" "+componentList[i].name);
+            print("nodes length " + nodes.Count + " " + componentList[i].name);
             componentList[i].GetComponent<ComponentTinker>().nodes = nodes;
             componentList[i].GetComponent<ComponentTinker>().Initialize(i, nodes);
 
@@ -283,31 +286,32 @@ public class CircuitManagerTinker : MonoBehaviour
 
         Groundit();
 
-        var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
-        //var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
-        /*dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            if (selected.GetComponent<ComponentTinker>().a != component.bjt)
-            {
+        /* var dc = new DC("dc", volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(volt.GetComponent<ComponentTinker>().value), double.Parse(volt.GetComponent<ComponentTinker>().value), 0.001);
+         var currentExport = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "i");
+         dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+         {
+              if (selected.GetComponent<ComponentTinker>().a != component.bjt)
+              {
 
-                print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
-                                  + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
-            }
-            else
-            {
-                var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbe");
-                var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
-                var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
-                var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
-                print("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
-                                    + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
-                             + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
-                            + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
-            
-        };*/
+                  print("Voltage: " + SIUnits.NormalizeRounded(exportDataEventArgs.GetVoltage(selected.GetComponent<ComponentTinker>().nodes[0], selected.GetComponent<ComponentTinker>().nodes[1]), 9, "V")
+                                    + "\nCurrent: " + SIUnits.NormalizeRounded(currentExport.Value, 9, "A"));
+              }
+              else
+              {
+                  var vbe = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbe");
+                  var vbc = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "vbc");
+                  var ib = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ib");
+                  var ic = new RealPropertyExport(dc, selected.GetComponent<ComponentTinker>().nameInCircuit, "ic");
+                  print("Vbe: " + SIUnits.NormalizeRounded(vbe.Value, 9, "V")
+                                      + "\nVbc: " + SIUnits.NormalizeRounded(vbc.Value, 9, "V")
+                               + "\nIc: " + SIUnits.NormalizeRounded(ic.Value, 9, "A")
+                              + "\nIb: " + SIUnits.NormalizeRounded(ib.Value, 9, "A"));
 
+
+              };
+    };
         // Run the simulation
-       /* try
+        try
         {
             dc.Run(ckt);
         }
@@ -316,10 +320,10 @@ public class CircuitManagerTinker : MonoBehaviour
 
             //throw;
             print(e);
-        }*/
+        }
+        */
 
-        //print(selected.name+" "+ a);
-        //print(selected.name + " " + b);
+
     }
 
     public static void ChangeSelected(GameObject gameObject)
@@ -331,7 +335,7 @@ public class CircuitManagerTinker : MonoBehaviour
         }
 
         selected = gameObject;
-        
+
         if (selected.tag == "Resistor")
         {
             AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 2.0f);
@@ -359,7 +363,7 @@ public class CircuitManagerTinker : MonoBehaviour
 
         for (int i = 1; i < circuits.Count; i++)
         {
-            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0","");
+            UnifiedScript.WireInitialize("GroundingWire" + i, new List<string> { circuits[i][0], "0" }, "0", "");
 
         }
         circuits.Clear();

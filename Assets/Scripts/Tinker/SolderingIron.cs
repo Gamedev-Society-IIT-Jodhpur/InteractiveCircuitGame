@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SolderingIron : MonoBehaviour
@@ -6,11 +5,11 @@ public class SolderingIron : MonoBehaviour
     bool isSoldering = false;
     Vector2 targetPosition;
     Vector2 initialPosition;
-    [SerializeField] int movingSpeed=10;
-    [SerializeField] float solderingTime=3;
+    [SerializeField] int movingSpeed = 10;
+    [SerializeField] float solderingTime = 3;
     //int mode = 1; //is coming or going
     float currentWait = 0;
-    bool isWaiting=false;
+    bool isWaiting = false;
     [SerializeField] GameObject smoke;
     GameObject newSmoke;
     Vector2 finalPosition;
@@ -32,15 +31,15 @@ public class SolderingIron : MonoBehaviour
     {
         if (isSoldering)
         {
-            
+
             Vector2 pastPosition = new Vector2(transform.position.x, transform.position.y);
-            transform.position=Vector2.Lerp(pastPosition, targetPosition, Time.deltaTime*movingSpeed);
-            if (Vector2.Distance(finalPosition, transform.position) <= 0.1f )
+            transform.position = Vector2.Lerp(pastPosition, targetPosition, Time.deltaTime * movingSpeed);
+            if (Vector2.Distance(finalPosition, transform.position) <= 0.1f)
             {
                 DestroySolder();
             }
 
-            if (Vector2.Distance(targetPosition, transform.position) <= 0.05f && !isWaiting && targetPosition != finalPosition) 
+            if (Vector2.Distance(targetPosition, transform.position) <= 0.05f && !isWaiting && targetPosition != finalPosition)
             {
                 isWaiting = true;
                 isSoldering = false;
@@ -59,7 +58,7 @@ public class SolderingIron : MonoBehaviour
                 {
                     targetPosition = finalPosition;
                     //mode = 2;
-                    
+
                 }
                 else
                 {
@@ -95,9 +94,9 @@ public class SolderingIron : MonoBehaviour
         }
     }
 
-    
 
-    
+
+
 
 
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -258,7 +257,7 @@ public class NodeTinker : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             if (Input.GetMouseButtonDown(0) && !WireManager.isDrawingWire && !StaticData.isSoldering)
             {
-                if (AssetManager.isSolderingIron && transform.parent.tag != "Breadboard grid")
+                if (StaticData.isSolderingIron && transform.parent.tag != "Breadboard grid")
                 {
                     AssetManager.solderingIronIcon.Solder(transform.position);
                     wireManager.GetComponent<WireManager>().DrawWire(gameObject.transform);
@@ -284,6 +283,17 @@ public class NodeTinker : MonoBehaviour
     {
         if (transform.parent.parent != null && transform.parent.parent.tag == "soldered")
         {
+            if (nodeConnected.Count < 2)
+            {
+                return;
+            }
+
+            if (!StaticData.hasSolderBroken)
+            {
+                FirstSolderBreakPopUp.Instance.Open(BreakSoldered, "You are about to break soldered components.\nIt'll cost you XP.");
+                return;
+            }
+
             CustomNotificationManager.Instance.AddNotification(1, "Breaking solder costs XP");
             GameObject currentParent = nodeConnected[0].transform.parent.gameObject;
             for (int i = 0; i < nodeConnected.Count; i++)

@@ -1,27 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class WireManager : MonoBehaviour
 {
     [SerializeField] GameObject wire;
     [SerializeField] GameObject newWireManager;
-    public static bool isDrawingWire=false;
+    public static bool isDrawingWire = false;
     [SerializeField] GameObject wireNode;
     RaycastHit2D hit;
     Vector2 worldPoint;
 
 
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Shop");
             print("Going to shop");
-        }
+        }*/
 
 
         worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,8 +43,8 @@ public class WireManager : MonoBehaviour
         newNewWireManager.GetComponent<NewWireManager>().nodes.Add(node);
         newWire.transform.SetParent(newNewWireManager.transform);
         node.GetComponent<NodeTinker>().wires.Add(newWire);
-        
-        
+
+
 
     }
 }

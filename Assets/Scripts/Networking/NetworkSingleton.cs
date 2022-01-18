@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class NetworkSingleton : MonoBehaviour
 {
@@ -24,8 +27,7 @@ public class NetworkSingleton : MonoBehaviour
         //REACHABLE VIA LOCAL NETWORK OR CARRIER DATA
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            Debug.LogWarning("Connected to WiFi or Carrier network");
-            CustomNotificationManager.Instance.AddNotification(2, "No Internet Connection");
+            CustomNotificationManager.Instance.AddNotification(1, "No Internet Connection");
             return true;
         }
         else
@@ -33,4 +35,29 @@ public class NetworkSingleton : MonoBehaviour
             return false;
         }
     }
+
+    public void SetXp()
+    {
+        string email = PlayerPrefs.GetString("player_email", "");
+        StartCoroutine(SetXpOfUser(email));
+    }
+
+    IEnumerator SetXpOfUser(string email)
+    {
+        int xp = (int)MoneyAndXPData.xp;
+        int totalXP = xp + PlayerPrefs.GetInt("player_xp");
+        WWWForm postError = new WWWForm();
+
+        postError.AddField("xp", totalXP);
+        postError.AddField("email", email);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(AvailableRoutes.setXP, postError);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit XP");
+        }
+    }
+
 }

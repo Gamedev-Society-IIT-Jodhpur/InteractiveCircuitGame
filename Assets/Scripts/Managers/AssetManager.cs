@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ public class AssetManager : MonoBehaviour
     private static AssetManager instace;
     public GameObject wireManagerinstance;
     public static GameObject wireManager;
-    public static bool isSolderingIron;
+    //public static bool isSolderingIron;
     public static SolderingIronIcon solderingIronIcon;
     public static DeleteButton deleteButton;
     public static GameObject soldered;
@@ -26,17 +25,17 @@ public class AssetManager : MonoBehaviour
         instace = this;
         wireManager = wireManagerinstance;
         soldered = solderedInstance;
-        
-        if(GameObject.FindWithTag("soldering iron icon"))
+
+        if (GameObject.FindWithTag("soldering iron icon"))
         {
-            isSolderingIron = true;
+            //isSolderingIron = true;
             solderingIronIcon = GameObject.FindWithTag("soldering iron icon").GetComponent<SolderingIronIcon>();
         }
         if (GameObject.FindWithTag("delete button"))
         {
             deleteButton = GameObject.FindWithTag("delete button").GetComponent<DeleteButton>();
         }
-        
+
 
         if (tinkerComponentSprites.Count != 0)
         {
@@ -58,9 +57,9 @@ public class AssetManager : MonoBehaviour
     public Material outlineMaterial;
     public Material defaultMaterial;
 
-    
 
-    
+
+
 
 
 

@@ -1,7 +1,6 @@
-using System.Collections;
+using SimpleJSON;
 using System.Collections.Generic;
 using UnityEngine;
-using SimpleJSON;
 public class StoreAssetmanager : MonoBehaviour
 {
 
@@ -15,7 +14,7 @@ public class StoreAssetmanager : MonoBehaviour
     public struct StoreItemIcon
     {
         public string name;
-        public Texture image;
+        public Sprite image;
     }
 
     public List<StoreItemIcon> storeItemIcons;
@@ -40,18 +39,14 @@ public class StoreAssetmanager : MonoBehaviour
         itemsNameMaping.Add("Zener Diode", "zenerDiode");
         itemsNameMaping.Add("Breadboard", "breadboard");
     }
-
-    public Texture getItemIcon(string name)
+    private void Start()
     {
-        //int index = storeItemIcons.FindIndex(a => a.name.Contains(name));
-        int index = storeItemIcons.FindIndex(a => name.Contains(a.name));
+        ScoringScript.UpdateError(2);
+    }
+    public Sprite getItemIcon(string name)
+    {
+        int index = storeItemIcons.FindIndex(a => string.Equals(name, a.name));
+
         return storeItemIcons[index].image;
     }
-
-
-
-    //public string getitemname(string name)
-    //{
-
-    //}
 }

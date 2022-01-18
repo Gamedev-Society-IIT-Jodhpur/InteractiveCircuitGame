@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +8,10 @@ public class CameraMovemetn : MonoBehaviour
     private Vector3 dragOrigin;
     [SerializeField]
     private float zoomStap, minZoom, maxZoom;
+
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
     void Update()
     {
@@ -61,12 +63,16 @@ public class CameraMovemetn : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         }
         if (Input.GetMouseButton(1))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += difference; 
+            cam.transform.position += difference;
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, cursorMode);
         }
     }
- 
 }

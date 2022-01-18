@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class LoadingManager : MonoBehaviour
 {
@@ -12,19 +12,30 @@ public class LoadingManager : MonoBehaviour
     public GameObject loadingScreen;
     public Slider progressBar;
     public TextMeshProUGUI loadingtext;
-    
-   private void Awake()
+    [SerializeField] SceneIndexes sceneIndexes;
+
+    private void Awake()
     {
         instance = this;
-        // TODO: Change Fastad to Login
-        SceneManager.LoadSceneAsync((int)SceneIndexes.Falstad, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)sceneIndexes, LoadSceneMode.Additive);
         loadingScreen.gameObject.SetActive(false);
+
+    }
+
+    void Start()
+    {
+        //TODO remove this code
+        MoneyAndXPData.InitiateMoney(50000);
+        print("remove above code in final version");
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    
-   public void LoadGame(SceneIndexes from , SceneIndexes to)
+
+    public void LoadGame(SceneIndexes from, SceneIndexes to)
     {
+        //----------------------
+        NetworkSingleton.Instance.SetXp();
+        //----------------------
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)to, LoadSceneMode.Additive));
@@ -33,6 +44,9 @@ public class LoadingManager : MonoBehaviour
     }
     public void LoadGame(SceneIndexes from, string to)
     {
+        //----------------------
+        NetworkSingleton.Instance.SetXp();
+        //----------------------
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)from));
         scenesLoading.Add(SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive));
@@ -43,17 +57,17 @@ public class LoadingManager : MonoBehaviour
     float totalSceneProgress;
     public IEnumerator GetSceneLoadProgress()
     {
-        for(int i = 0; i < scenesLoading.Count; i++)
+        for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
                 totalSceneProgress = 0;
-                foreach(AsyncOperation operation in scenesLoading)
+                foreach (AsyncOperation operation in scenesLoading)
                 {
                     totalSceneProgress += operation.progress;
                 }
                 totalSceneProgress = (totalSceneProgress / scenesLoading.Count) * 100f;
-                loadingtext.text = string.Format("Loading :{0}%", totalSceneProgress);
+                loadingtext.text = string.Format("Loading :{0}%", Mathf.RoundToInt(totalSceneProgress));
                 progressBar.value = Mathf.RoundToInt(totalSceneProgress);
 
                 yield return null;
@@ -61,6 +75,5 @@ public class LoadingManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         loadingScreen.gameObject.SetActive(false);
-        
     }
 }

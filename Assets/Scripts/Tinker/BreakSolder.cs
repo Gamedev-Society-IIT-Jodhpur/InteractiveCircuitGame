@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,7 @@ public class BreakSolder : MonoBehaviour
     public void Break()
     {
         MoneyXPManager.DeductXP(10);
+        ScoringScript.UpdateError(0);
         GameObject newSoldered = Instantiate<GameObject>(soldered);
         newSoldered.transform.position = transform.position;
         transform.SetParent(newSoldered.transform);
@@ -36,7 +36,7 @@ public class BreakSolder : MonoBehaviour
         transform.SetParent(parent);
         for (int i = 0; i < connecteds.Count; i++)
         {
-            if (connecteds[i].transform.parent!=parent)
+            if (connecteds[i].transform.parent != parent)
             {
                 connecteds[i].ChangeParent(parent);
             }

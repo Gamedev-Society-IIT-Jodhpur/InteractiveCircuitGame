@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class OpenCloseButton : MonoBehaviour
 {
-    [SerializeField]RectTransform panel;
+    [SerializeField] RectTransform panel;
     bool isOpening = false;
     bool isClosing = false;
     float x;

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ComponentTinker : MonoBehaviour
 
@@ -11,7 +9,7 @@ public class ComponentTinker : MonoBehaviour
     public int no_nodes = 2;
     public string nameInCircuit;
     public string value;
-    public int beta = 100;
+    public int beta = 6;
     public List<string> nodes = new List<string>();
     public Transform[] childs;
     public bool isWorking = true;
@@ -33,14 +31,24 @@ public class ComponentTinker : MonoBehaviour
         }
         else if (a == CircuitManagerTinker.component.zenerDiode)
         {
-            value = "ZenerDiode";
+            value = beta.ToString();
         }
 
     }
 
     public void Initialize(int i, List<string> nodes)
     {
-        UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value , beta.ToString());
-        nameInCircuit = a.ToString() + i;
+        if (a == CircuitManagerTinker.component.zenerDiode)
+        {
+
+            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, value);
+            nameInCircuit = a.ToString() + i;
+        }
+        else
+        {
+            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
+            nameInCircuit = a.ToString() + i;
+        }
+
     }
 }

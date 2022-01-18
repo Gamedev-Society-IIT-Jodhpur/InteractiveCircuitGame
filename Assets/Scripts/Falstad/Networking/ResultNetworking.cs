@@ -2,14 +2,15 @@ using SimpleJSON;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ResultNetworking : MonoBehaviour
 {
     //string uri = "http://localhost:4040/api/result/userResults";
     //string uri = "http://localhost:4040/api/result/allResults";
-    string uri = AvailableRoutes.allResults;
+    string addResult = AvailableRoutes.addResult;
+    string allResults = AvailableRoutes.allResults;
     public GameObject loadingAnimation;
 
     [SerializeField]
@@ -20,13 +21,16 @@ public class ResultNetworking : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetString("email", "sanodariya.1@iitj.ac.in");
-        StartCoroutine(GetText());
+        // TODO: To be removed------------------
+        //PlayerPrefs.SetString("email", "sanodariya.1@iitj.ac.in");
+        //AddResult();
+        // -------------------------------------
+        StartCoroutine(GetResult());
     }
 
-    IEnumerator GetText()
+    IEnumerator GetResult()
     {
-        string requestUri = "http://localhost:4040/api/result/allResults" + "?date=" + System.DateTime.Now.ToString("dd/MM/yyyy");
+        string requestUri = allResults + "?date=" + System.DateTime.Now.ToString("dd/MM/yyyy");
         UnityWebRequest www = UnityWebRequest.Get(requestUri);
         UnityWebRequestAsyncOperation asyncLoad = www.SendWebRequest();
 
@@ -48,38 +52,10 @@ public class ResultNetworking : MonoBehaviour
             //Debug.Log(data);
             foreach (var item in data)
             {
-                bool isUser = item.Value["email"] == PlayerPrefs.GetString("email");
+                bool isUser = item.Value["email"] == PlayerPrefs.GetString("player_email");
                 AddToList(i.ToString(), item.Value["name"] + " (" + item.Value["rollNo"] + ")", item.Value["score"], item.Value["xp"], isUser);
                 i++;
             }
-        }
-    }
-
-    public void AddResult()
-    {
-        StartCoroutine(AddResultCoroutine());
-    }
-
-    IEnumerator AddResultCoroutine()
-    {
-        WWWForm postResult = new WWWForm();
-
-        postResult.AddField("email", "sanodariya.1@iitj.ac.in");
-        postResult.AddField("time", 60);
-        postResult.AddField("money", 120);
-        postResult.AddField("score", 140);
-        postResult.AddField("xp", 100);
-
-        UnityWebRequest uwr = UnityWebRequest.Post("http://localhost:4040/api/result/addResult", postResult);
-        yield return uwr.SendWebRequest();
-
-        if (uwr.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.Log("Error While Sending: " + uwr.error);
-        }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
         }
     }
 
@@ -112,6 +88,6 @@ public class ResultNetworking : MonoBehaviour
             ChildGameObject3.GetComponent<RawImage>().color = new Color32(249, 127, 81, 255);
             ChildGameObject4.GetComponent<RawImage>().color = new Color32(249, 127, 81, 255);
         }
-        
+
     }
 }

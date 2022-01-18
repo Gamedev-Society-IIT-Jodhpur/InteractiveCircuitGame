@@ -1,18 +1,22 @@
+using SpiceSharp;
+using SpiceSharp.Components;
 using SpiceSharp.Simulations;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using SpiceSharp;
-using SpiceSharp.Components;
+using UnityEngine.Networking;
 
 public class ValidateScript : MonoBehaviour
 {
     [SerializeField]
     GameObject circuitManager;
     [SerializeField]
-    GameObject gizmo;
+    public static GameObject gizmo;
+
+    string addResult = AvailableRoutes.addResult;
+    string addErrors = AvailableRoutes.addError;
 
 
     // Components in series
@@ -38,11 +42,6 @@ public class ValidateScript : MonoBehaviour
     static Dictionary<string, List<string>> NotSeriesFalstadModified = new Dictionary<string, List<string>>();
     static Dictionary<string, List<string>> NotSeriesTinkerModified = new Dictionary<string, List<string>>();
 
-    public void Validate()
-    {
-
-    }
-
     public List<string> ModifySeries(List<StaticData.series> series, Dictionary<string, StaticData.ComponentValidate> Componentdata)
     {
         var ans = new List<string>();
@@ -56,11 +55,11 @@ public class ValidateScript : MonoBehaviour
                 formattedstring += (" " + Componentdata[j].value);
                 for (int k = 0; k < Componentdata[j].I.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].I[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].I[k], 5));
                 }
                 for (int k = 0; k < Componentdata[j].V.Count; k++)
                 {
-                    formattedstring += (" " + Math.Round(Componentdata[j].V[k],5));
+                    formattedstring += (" " + Math.Round(Componentdata[j].V[k], 5));
                 }
                 formattedstring += (" " + Componentdata[j].beta.ToString());
                 temp.Add(formattedstring);
@@ -102,101 +101,116 @@ public class ValidateScript : MonoBehaviour
         }
         return a;
     }
-    
+
     public bool CheckSpecs()
     {
-        bool passed = false;
-        string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
-        string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
-        Circuit ckt1 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        if (gizmo == null)
         {
-            ckt1.Add(i);
+            CustomNotificationManager.Instance.AddNotification(1, "Gizmo Not Present. Please add gizmo to your design.");
+            return false;
         }
-        ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
-        Circuit ckt2 = new Circuit();
-        foreach(var i in CircuitManager.ckt)
+        else
         {
-            ckt2.Add(i);
-        }
-        ckt2.Add(new Resistor("CheckResistor1", node1, node2, 40));
-        var dc1 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-        var dc2 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-        var currentExport1 = new RealPropertyExport(dc1, "CheckResistor1", "i");
-        var currentExport2 = new RealPropertyExport(dc2, "CheckResistor1", "i");
-        List<RealPropertyExport> currentexportsources = new List<RealPropertyExport>();
-        List<RealPropertyExport> currentexportsources1 = new List<RealPropertyExport>();
-        foreach (var i in ckt1.ByType<VoltageSource>())
-        {
-            currentexportsources.Add(new RealPropertyExport(dc1, i.Name, "i"));
-        }
-        foreach (var i in ckt1.ByType<VoltageSource>())
-        {
-            currentexportsources1.Add(new RealPropertyExport(dc2, i.Name, "i"));
-        }
-        dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            double power = 0.0;
-            int j = 0;
-            foreach(var i in ckt1.ByType<VoltageSource>())
+            bool passed = false;
+            string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
+            string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
+            Circuit ckt1 = new Circuit();
+            foreach (var i in CircuitManager.ckt)
             {
+                ckt1.Add(i);
+            }
+            ckt1.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
+            Circuit ckt2 = new Circuit();
+            foreach (var i in CircuitManager.ckt)
+            {
+                ckt2.Add(i);
+            }
+            ckt2.Add(new Resistor("CheckResistor1", node1, node2, 30));
+            var dc1 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+            var dc2 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+            var currentExport1 = new RealPropertyExport(dc1, "CheckResistor1", "i");
+            var currentExport2 = new RealPropertyExport(dc2, "CheckResistor1", "i");
+            List<RealPropertyExport> currentexportsources = new List<RealPropertyExport>();
+            List<RealPropertyExport> currentexportsources1 = new List<RealPropertyExport>();
+            foreach (var i in ckt1.ByType<VoltageSource>())
+            {
+                currentexportsources.Add(new RealPropertyExport(dc1, i.Name, "i"));
+            }
+            foreach (var i in ckt1.ByType<VoltageSource>())
+            {
+                currentexportsources1.Add(new RealPropertyExport(dc2, i.Name, "i"));
+            }
+            dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
+            {
+                double power = 0.0;
+                int j = 0;
+                foreach (var i in ckt1.ByType<VoltageSource>())
+                {
 
-                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                j++;
-            }
-            if (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2) - 6) <= 1 &&  Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <=1.2)
-            {
-                passed = true;
-            }
-        };
-        dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            double power = 0.0;
-            int j = 0;
-            foreach (var i in ckt2.ByType<VoltageSource>())
-            {
-
-                power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                j++;
-            }
-            if (passed == true)
-            {
-                if (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2) - 6) <= 1 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value)<=1.2)
+                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                    j++;
+                }
+                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
                 {
                     passed = true;
                 }
-                else
+            };
+            dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
+            {
+                double power = 0.0;
+                int j = 0;
+                foreach (var i in ckt2.ByType<VoltageSource>())
                 {
-                    passed = false;
+
+                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                    j++;
                 }
+                if (passed == true)
+                {
+                    if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
+                    {
+                        passed = true;
+                    }
+                    else
+                    {
+                        passed = false;
+                    }
+                }
+
+            };
+
+            try
+            {
+                dc1.Run(ckt1);
+                dc2.Run(ckt2);
+            }
+            catch (Exception e)
+            {
+                CustomNotificationManager.Instance.AddNotification(2, "Invalid Circuit");
+
+                //print(e.Message);
+                passed = false;
             }
 
-        };
-
-        try
-        {
-            dc1.Run(ckt1);
-            dc2.Run(ckt2);
-        }
-        catch (Exception e)
-        {
-
-            print(e.Message);
-            passed = false;
+            return passed;
         }
         
-
-
-            return passed;
     }
 
     public void SaveDataFalstad()
     {
         circuitManager.GetComponent<CircuitManager>().Play();
+        serieslistFalstad.Clear();
+        NodedataFalstad.Clear();
+        ComponentdataFalstad.Clear();
+        NotSeriesFalstad.Clear();
+        NotSeriesFalstadModified.Clear();
+        serieslistFalstadModified.Clear();
 
         if (CheckSpecs())
         {
-
             //All nodes id are updated
             HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
             for (int i = 0; i < CircuitManager.componentList.Count; i++)
@@ -215,9 +229,7 @@ public class ValidateScript : MonoBehaviour
 
             foreach (var i in nodeList)
             {
-
                 NodedataFalstad[i.nodeID] = i;
-
             }
 
             //Creating ComponentData as well as updating it in Nodedata 
@@ -231,7 +243,6 @@ public class ValidateScript : MonoBehaviour
                     currentExport.Add(new RealPropertyExport(dc, CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit, "i"));
 
                 }
-
 
                 dc.ExportSimulationData += (sender, exportDataEventArgs) =>
                 {
@@ -267,8 +278,6 @@ public class ValidateScript : MonoBehaviour
                             newcomp.I.Add(ic.Value);
                         }
 
-
-
                         newcomp.ctype = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().a.ToString();
                         newcomp.nodes = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nodes;
                         newcomp.componentID = CircuitManager.componentList[i].GetComponent<ComponentInitialization>().nameInCircuit;
@@ -283,26 +292,24 @@ public class ValidateScript : MonoBehaviour
                         }
                     }
                 };
-                
+
                 try
                 {
                     dc.Run(CircuitManager.ckt);
                 }
                 catch (Exception e)
                 {
+                    CustomNotificationManager.Instance.AddNotification(2, "Invalid circuit");
 
-                    print(e.Message);
+                    //print(e.Message);
                 }
             }
             catch (Exception e)
             {
-                print(e.Message);
-                //throw;
+                CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
+
+                //print(e.Message);
             }
-            
-
-
-
             // Creating Series list
 
             foreach (var i in NodedataFalstad)
@@ -434,12 +441,12 @@ public class ValidateScript : MonoBehaviour
                 print(i);
 
             }
-           /* foreach (var i in ComponentdataFalstad)
-            {
-                print(i.Key);
-                print(i.Value.ctype);
-                print(i.Value.value);
-            }*/
+            /* foreach (var i in ComponentdataFalstad)
+             {
+                 print(i.Key);
+                 print(i.Value.ctype);
+                 print(i.Value.value);
+             }*/
 
             ValidationModel.isSuccess = true;
             ValidationModel.Instance.Open();
@@ -450,15 +457,20 @@ public class ValidateScript : MonoBehaviour
             ValidationModel.Instance.Open();
             CustomNotificationManager.Instance.AddNotification(2, "Circuit doesn't meet specifications");
             print("Circuit doesn't meet specifications");
+            ScoringScript.UpdateError(3);
         }
     }
 
     public void SaveDataTinker()
     {
+
         circuitManager.GetComponent<CircuitManagerTinker>().Play();
-
-
-
+        serieslistTinker.Clear();
+        NodedataTinker.Clear();
+        ComponentdataTinker.Clear();
+        NotSeriesTinker.Clear();
+        NotSeriesTinkerModified.Clear();
+        serieslistTinkerModified.Clear();
         //All nodes id are updated
         HashSet<StaticData.node> nodeList = new HashSet<StaticData.node>();
         for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
@@ -485,15 +497,14 @@ public class ValidateScript : MonoBehaviour
         //Creating ComponentData as well as updating it in Nodedata 
         try
         {
-            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit, double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
-
+            var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit,
+                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value),
+                                    double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
             var currentExport = new List<RealPropertyExport>();
             for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
             {
                 currentExport.Add(new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "i"));
-
             }
-
 
             dc.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
@@ -503,6 +514,7 @@ public class ValidateScript : MonoBehaviour
                     var newcomp = new StaticData.ComponentValidate();
                     newcomp.V = new List<double>();
                     newcomp.I = new List<double>();
+
                     if (CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.bjt && CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a != CircuitManagerTinker.component.resistor)
                     {
 
@@ -529,8 +541,6 @@ public class ValidateScript : MonoBehaviour
                         newcomp.I.Add(ic.Value);
                     }
 
-
-
                     newcomp.ctype = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().a.ToString();
                     newcomp.nodes = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nodes;
                     newcomp.componentID = CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit;
@@ -552,22 +562,16 @@ public class ValidateScript : MonoBehaviour
             catch (SpiceSharp.Simulations.ValidationFailedException e)
             {
 
-                //throw;
+                CustomNotificationManager.Instance.AddNotification(2, "Invalid circuit");
 
-                print(e.Message);
-                
+                //print(e.Message);
             }
         }
         catch (Exception e)
         {
-
-            print(e.Message);
+            CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
+            //print(e.Message);
         }
-        
-        
-
-
-
         // Creating Series list
 
         foreach (var i in NodedataTinker)
@@ -630,7 +634,8 @@ public class ValidateScript : MonoBehaviour
                             ComponentdataTinker[item] = temp;
                             serieslistTinker[min].components.Add(item);
                         }
-                        for (int k = max + 1; k <= serieslistTinker.Count; k++)
+
+                        for (int k = max + 1; k < serieslistTinker.Count; k++)
                         {
                             foreach (var item in serieslistTinker[k].components)
                             {
@@ -702,6 +707,14 @@ public class ValidateScript : MonoBehaviour
                 print(j);
             }
         }
+        foreach (var i in NotSeriesFalstadModified)
+        {
+            print(i.Key);
+            foreach (var j in i.Value)
+            {
+                print(j);
+            }
+        }
         /* foreach (var i in serieslistTinker)
          {
              print(serieslistTinker.IndexOf(i));
@@ -713,9 +726,8 @@ public class ValidateScript : MonoBehaviour
         foreach (var i in serieslistTinkerModified)
         {
             print(i);
-
         }
-        foreach(var i in serieslistFalstadModified)
+        foreach (var i in serieslistFalstadModified)
         {
             print(i);
         }
@@ -737,7 +749,6 @@ public class ValidateScript : MonoBehaviour
                         dictsame = false;
                         break;
                     }
-
                 }
                 else
                 {
@@ -756,6 +767,7 @@ public class ValidateScript : MonoBehaviour
         if (seriesequal && dictsame == true)
         {
             print("Hurray You have Passed");
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.", "Congratulations!!");
         }
         else
         {
@@ -768,8 +780,69 @@ public class ValidateScript : MonoBehaviour
             print("Failed");
             print("Dict Comparison:" + dictsame);
             print("List Comparison:" + seriesequal);
+            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
+            ScoringScript.UpdateError(4);
         }
     }
 
 
+    void GoToResult()
+    {
+        string email = PlayerPrefs.GetString("player_email", "");
+        StartCoroutine(AddErrorsCoroutine(email));
+    }
+
+    IEnumerator AddErrorsCoroutine(string email)
+    {
+        int time = (int)Timer.currentTime;
+        int money = (int)MoneyAndXPData.money;
+        int score = (int)ScoringScript.CalcScore();
+        int xp = (int)MoneyAndXPData.xp;
+        WWWForm postError = new WWWForm();
+
+        List<int> errors = ScoringScript.GetError();
+
+        postError.AddField("email", email);
+        postError.AddField("Solder_Break", errors[0]);
+        postError.AddField("Non_Standard", errors[1]);
+        postError.AddField("Forgets_To_Buy", errors[2]);
+        postError.AddField("Doesnt_Meet_Specs", errors[3]);
+        postError.AddField("Circuit_Doesnt_Match", errors[4]);
+        postError.AddField("Component_Damage", errors[5]);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(addErrors, postError);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit errors");
+        }
+        else
+        {
+            StartCoroutine(AddResultCoroutine(email, time, money, score, xp));
+        }
+    }
+
+    IEnumerator AddResultCoroutine(string email, int time, int money, int score, int xp)
+    {
+        WWWForm postResult = new WWWForm();
+
+        postResult.AddField("email", email);
+        postResult.AddField("time", time);
+        postResult.AddField("money", money);
+        postResult.AddField("score", score);
+        postResult.AddField("xp", xp);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(addResult, postResult);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            CustomNotificationManager.Instance.AddNotification(2, "Can't submit the result");
+        }
+        else
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.Result);
+        }
+    }
 }

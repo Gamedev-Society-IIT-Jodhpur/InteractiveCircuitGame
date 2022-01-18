@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4264298554510400806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0039999485, y: 0.7429998, z: 0.5}
+  m_LocalPosition: {x: -0.0039999485, y: 0.7429998, z: 1}
   m_LocalScale: {x: 0.253, y: 0.253, z: 1}
   m_Children: []
   m_Father: {fileID: 6763506866825939984}
@@ -178,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4590443435274802802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0039999485, y: -0.66900015, z: 0.5}
+  m_LocalPosition: {x: -0.0039999485, y: -0.66900015, z: 1}
   m_LocalScale: {x: 0.253, y: 0.253, z: 1}
   m_Children: []
   m_Father: {fileID: 6763506866825939984}
@@ -446,7 +446,7 @@ MonoBehaviour:
   no_nodes: 2
   nameInCircuit: 
   value: ZenerDiode
-  beta: 100
+  beta: 6
   nodes: []
   childs: []
   isWorking: 1

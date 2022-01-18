@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +24,7 @@ public class InventoryPanel : MonoBehaviour
         gizmo.value = "";
         gizmo.unit = "";
         gizmo.quantity = 1;
+
         if (!Inventory.Contains(gizmo))
         {
             Inventory.Add(gizmo);
@@ -33,10 +33,10 @@ public class InventoryPanel : MonoBehaviour
         inventoryDict = new Dictionary<string, InventoryButtons>() { };
         for (int i = 0; i < Inventory.Count; i++)
         {
-            GameObject newButton= Instantiate<GameObject>(button);
+            GameObject newButton = Instantiate<GameObject>(button);
             newButton.transform.SetParent(gameObject.transform);
             newButton.transform.localScale = new Vector3(1, 1, 1);
-            
+
             newButton.GetComponent<InventoryButton>().component = Inventory[i].name;
             newButton.GetComponent<InventoryButton>().value = Inventory[i].value;
             newButton.GetComponent<InventoryButton>().quantity = Inventory[i].quantity;
@@ -47,12 +47,12 @@ public class InventoryPanel : MonoBehaviour
             buttons.quantity = Inventory[i].quantity;
             buttons.button = newButton.GetComponent<InventoryButton>();
 
-            if (Inventory[i].name.Length >=7 && Inventory[i].name.Substring(0,7) == "voltage") //since 2 types of batteries.
+            if (Inventory[i].name.Length >= 7 && Inventory[i].name.Substring(0, 7) == "voltage") //since 2 types of batteries.
             {
                 inventoryDict[newButton.GetComponent<InventoryButton>().component] = buttons;
 
             }
-            
+
             else
             {
                 inventoryDict[newButton.GetComponent<InventoryButton>().component + Inventory[i].value] = buttons;

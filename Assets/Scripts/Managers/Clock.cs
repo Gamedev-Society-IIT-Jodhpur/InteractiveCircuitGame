@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
@@ -14,16 +12,16 @@ public class Clock : MonoBehaviour
     {
         timeText = GetComponent<TMP_Text>();
         min = (int)Timer.currentTime / 60;
-        sec= (int)Timer.currentTime % 60;
+        sec = (int)Timer.currentTime % 60;
         if (min < 10)
         {
             if (sec < 10)
             {
-                timeText.text = "0"+min.ToString() + " : " + "0"+sec;
+                timeText.text = "0" + min.ToString() + " : " + "0" + sec;
             }
             else
             {
-                timeText.text = "0" + min.ToString() + " : "  + sec;
+                timeText.text = "0" + min.ToString() + " : " + sec;
             }
         }
         else

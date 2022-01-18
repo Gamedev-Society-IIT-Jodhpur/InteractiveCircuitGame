@@ -1,4 +1,3 @@
-using SimpleJSON;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -33,7 +32,6 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetTooltip(string itemID)
     {
-
         foreach (var item in StoreAssetmanager.Instance.itemsAvailable)
         {
             if (item.Value["id"].ToString() == itemID)
@@ -41,7 +39,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 string name = item.Value["name"];
                 headerField.text = item.Value["name"];
                 contentField.text = item.Value["description"];
-                priceField.text = item.Value["price"] + " Rs.";
+                priceField.text = "Rs. " + item.Value["price"];
                 break;
             }
         }
@@ -53,6 +51,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         float pivotY = point.y / Screen.height;
 
         rectTransform.pivot = new Vector2(pivotX, pivotY);
+
 
         transform.position = point;
     }
