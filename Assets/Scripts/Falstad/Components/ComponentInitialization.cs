@@ -59,9 +59,9 @@ public class ComponentInitialization : MonoBehaviour
         }
         else if (a == CircuitManager.component.zenerDiode)
         {
-            value = beta.ToString();
+            value = "Breakdown Voltage "+beta.ToString();
             valueText = GetComponentInChildren<TMP_Text>();
-            valueText.text = "BV=" + beta.ToString();
+            valueText.text = "Breakdown Voltage =" + beta.ToString();
         }
     }
 
@@ -69,7 +69,7 @@ public class ComponentInitialization : MonoBehaviour
     {
         if (a == CircuitManager.component.zenerDiode)
         {
-            value = beta.ToString();
+            value = "Breakdown Voltage " + beta.ToString();
         }
         UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, beta.ToString());
 

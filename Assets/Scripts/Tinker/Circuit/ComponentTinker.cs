@@ -31,7 +31,7 @@ public class ComponentTinker : MonoBehaviour
         }
         else if (a == CircuitManagerTinker.component.zenerDiode)
         {
-            value = beta.ToString();
+            value = "Breakdown Voltage"+beta.ToString();
         }
 
     }
@@ -41,7 +41,7 @@ public class ComponentTinker : MonoBehaviour
         if (a == CircuitManagerTinker.component.zenerDiode)
         {
 
-            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, value);
+            UnifiedScript.dict1[a.ToString()].DynamicInvoke(a.ToString() + i, nodes, value, value.Substring(17));
             nameInCircuit = a.ToString() + i;
         }
         else
