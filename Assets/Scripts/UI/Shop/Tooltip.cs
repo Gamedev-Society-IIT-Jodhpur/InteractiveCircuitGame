@@ -27,17 +27,6 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
     List<string> m_DropOptions = new List<string> {};
     List<string> m_Prices = new List<string> {};
 
-
-    //public void OnPointerEnter(PointerEventData pointerEventData)
-    //{
-    //    //Debug.Log("tooltip enter");
-    //}
-
-    //public void OnPointerExit(PointerEventData pointerEventData)
-    //{
-    //    //TooltipSystem.Hide();
-    //}
-
     private void Update()
     {
         Price = m_Prices[valueDropdown.value];

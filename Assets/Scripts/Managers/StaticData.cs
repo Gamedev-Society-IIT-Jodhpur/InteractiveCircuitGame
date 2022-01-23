@@ -127,7 +127,6 @@ public class StaticData : MonoBehaviour
         componentList = CircuitManager.componentList;
     }
 
-
     //TODO call this function when we need to show if soldering iron is present in tinker or not.
     //also change issolderingiron to true if player buys soldering iron from shop. 
     public static void UpdateSolderingIron()

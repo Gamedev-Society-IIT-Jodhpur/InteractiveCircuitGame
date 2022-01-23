@@ -49,18 +49,20 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             {
                 componentName = item.Value["type"];
                 unit = item.Value["unit"];
-                //value = item.Value["value"];
-                //price = item.Value["price"];
-                value = Tooltip.value;
+                value = Tooltip.value.Split(' ')[0];
                 price = Tooltip.Price;
                 break;
             }
         }
 
-        string s = "{0} - {1} - {2} (Rs. {3})";
+        string s = "{0} - {1} {2} ({3}) (Rs. {4})";
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
-        string itemDesc = string.Format(s, header.text, value, quantity, price);
-
+        string itemDesc = string.Format(s, header.text, value, unit, quantity, price);
+        if (componentName == "Battery")
+        {
+            componentName = componentName + value;
+            Debug.LogWarning(componentName);
+        }
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
             print("breadboard added");
@@ -125,12 +127,6 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             tempInventory.Add(tempComponent);
         }
 
-        //int totalPrice = int.Parse(quantity.text) * int.Parse(price);
-        
-
-
-
-
     }
 
     public void IncreaseQuantity()
@@ -155,7 +151,6 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
                 quantityText.text = quantity.ToString();
                 //TODO add notification
                 CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Soldering Iron");
-
             }
 
         }

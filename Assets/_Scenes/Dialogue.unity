@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 164345959}
   - component: {fileID: 164345958}
   - component: {fileID: 164345961}
+  - component: {fileID: 164345960}
   m_Layer: 5
   m_Name: TextAreaBG
   m_TagString: Untagged
@@ -508,6 +509,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164345956}
   m_CullTransparentMesh: 1
+--- !u!114 &164345960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164345956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 30
+    m_Right: 30
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!114 &164345961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,7 +550,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: -1
+  m_PreferredWidth: 1360
   m_PreferredHeight: -1
   m_FlexibleWidth: 20
   m_FlexibleHeight: -1
@@ -843,7 +870,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1674,7 +1701,7 @@ MonoBehaviour:
     m_Top: 20
     m_Bottom: 20
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -1993,34 +2020,39 @@ MonoBehaviour:
   sentences_list:
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: Hello! What a fine day it is. I have come to you with our new project...
+    sentences: Hi! I have come to you with our new project ...
   - name: Employee
     image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
-    sentences: Hello! It is indeed a great day. I am enthusiastic about the new project.
-      Could you please tell me about it?
+    sentences: "Hello Boss! What\u2019s the new project?"
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: Our client company has decided to launch their product and our testing
-      team says that a voltage regulating system is required. I want you to design
-      the circuit for that system ASAP !!! We have to launch the product by the end
-      of the week.
+    sentences: "Our client company has decided to launch their product and our testing
+      team says that a voltage regulator is required. You need to design the circuit
+      for that system ASAP !!! \r\n"
   - name: Employee
     image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
-    sentences: Could you please brief me regarding the specifications?
+    sentences: What are the specifications of the circuit?
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: The gizmo requires a voltage of precisely 6.0 Volts, and at a maximum
-      will require a power of 1.2 Watts. It will require a standard battery(s) as
-      a source (the kind you buy at Kendriya bhandar), with as high a voltage as
-      possible. However, at least 60% of this battery power must be delivered to
-      it. The regulator must likewise be simple and cheap.
+    sentences: 'The gizmo requires a voltage of precisely 6.0 Volts, and at a maximum
+      will require a power of 1.2 Watts. It should use standard components (the kind
+      you can buy at any electronics store), with as high a voltage as possible.
+      However, at least 60% of this battery power must be delivered to it. The regulator
+      must likewise be simple and cheap.
+
+
+      This specification sheet would
+      be available to you for later reference.'
   - name: Employee
     image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
-    sentences: Could you provide me the requirements and specifications for future
-      reference?
+    sentences: Anything else, Boss?
   - name: Boss
     image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
-    sentences: Sure. Try to spend the money cautiously and get me the product ASAP.
+    sentences: 'Yes! Most importantly, we are on a tight budget. You have only Rs.
+      ___. Please complete the project with minimum expenditure and time possible. '
+  - name: Employee
+    image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
+    sentences: Got it! I will be right back!
   avatars:
   - {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
   - {fileID: 2800000, guid: b12b5a910b1bb5641b154455adad8707, type: 3}
