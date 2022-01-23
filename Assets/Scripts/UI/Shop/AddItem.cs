@@ -47,17 +47,19 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         {
             if (item.Value["id"].ToString() == TooltipSystem.getItemID())
             {
-                componentName = item.Value["name"];
+                componentName = item.Value["type"];
                 unit = item.Value["unit"];
-                value = item.Value["value"];
-                price = item.Value["price"];
+                //value = item.Value["value"];
+                //price = item.Value["price"];
+                value = Tooltip.value;
+                price = Tooltip.Price;
                 break;
             }
         }
 
-        string s = "{0} - {1} - {2} ({3}) (Rs. {4})";
+        string s = "{0} - {1} - {2} (Rs. {3})";
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
-        string itemDesc = string.Format(s, header.text, value, unit, quantity, price);
+        string itemDesc = string.Format(s, header.text, value, quantity, price);
 
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {

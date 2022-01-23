@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [ExecuteInEditMode()]
-public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
 
     public TextMeshProUGUI headerField;
@@ -19,16 +20,31 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public GameObject tooltip;
 
+    public static string Price = "";
+    public static string value = "";
 
-    public void OnPointerEnter(PointerEventData pointerEventData)
+    public TMP_Dropdown valueDropdown;
+    List<string> m_DropOptions = new List<string> {};
+    List<string> m_Prices = new List<string> {};
+
+
+    //public void OnPointerEnter(PointerEventData pointerEventData)
+    //{
+    //    //Debug.Log("tooltip enter");
+    //}
+
+    //public void OnPointerExit(PointerEventData pointerEventData)
+    //{
+    //    //TooltipSystem.Hide();
+    //}
+
+    private void Update()
     {
-        //Debug.Log("tooltip enter");
+        Price = m_Prices[valueDropdown.value];
+        value = valueDropdown.options[valueDropdown.value].text;
+        priceField.text = "Rs. " + m_Prices[valueDropdown.value];
     }
 
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
-        TooltipSystem.Hide();
-    }
 
     public void SetTooltip(string itemID)
     {
@@ -36,10 +52,19 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             if (item.Value["id"].ToString() == itemID)
             {
-                string name = item.Value["name"];
-                headerField.text = item.Value["name"];
+                headerField.text = item.Value["type"];
                 contentField.text = item.Value["description"];
-                priceField.text = "Rs. " + item.Value["price"];
+                string unit = item.Value["unit"];
+                valueDropdown.ClearOptions();
+                foreach (var val in item.Value["value"])
+                {
+                    //Debug.Log(val.Value[0]);
+                    m_Prices.Add(val.Value[0]);
+                    m_DropOptions.Add(val.Value[1] + " " + unit);
+                }
+                valueDropdown.AddOptions(m_DropOptions);
+                //priceField.text = "Rs. " + item.Value["price"];
+                
                 break;
             }
         }
@@ -54,6 +79,12 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 
         transform.position = point;
+    }
+
+    void OnDisable()
+    {
+        m_DropOptions.Clear();
+        m_Prices.Clear();
     }
 
 }

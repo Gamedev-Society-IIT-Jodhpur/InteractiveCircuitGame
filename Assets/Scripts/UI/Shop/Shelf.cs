@@ -29,7 +29,8 @@ public class Shelf : MonoBehaviour
 
     IEnumerator getData()
     {
-        UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableItems);
+        UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableShopItems);
+        //UnityWebRequest itemsListRequest = UnityWebRequest.Get(AvailableRoutes.availableItems);
 
         dataLoaded = false;
 
@@ -41,6 +42,7 @@ public class Shelf : MonoBehaviour
         }
 
         dataLoaded = true;
+
         if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(itemsListRequest.error);
@@ -51,10 +53,12 @@ public class Shelf : MonoBehaviour
             GameObject g;
             foreach (var item in itemsListData["data"])
             {
+                print(item);
                 g = Instantiate(ItemTemplate, transform);
                 g.gameObject.SetActive(true);
-                g.transform.GetChild(0).GetComponent<TMP_Text>().text = item.Value["name"];
-                Sprite itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["name"]);
+                g.transform.GetChild(0).GetComponent<TMP_Text>().text = item.Value["type"];
+                Sprite itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["type"]);
+                Debug.Log(itemTexture);
                 g.transform.GetChild(1).GetComponent<Image>().sprite = itemTexture;
                 g.GetComponent<TooltipTrigger>().itemID = item.Value["id"].ToString();
             }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler//, IPointerExitHandler, IPointerClickHandler
+public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
 
     public string itemID;
@@ -9,18 +9,19 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler//, IPointerExi
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         //Debug.Log("item enter");
-        TooltipSystem.Show(itemID);
+        //TooltipSystem.Show(itemID);
     }
 
     /*public void OnPointerExit(PointerEventData pointerEventData)
     {
         //TooltipSystem.Hide();
         Debug.Log("item exit");
-    }
+    }*/
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         //TooltipSystem.Show();
-        Debug.Log("Click yo");
-    }*/
+        Debug.Log("item Clicked");
+        TooltipSystem.Show(itemID);
+    }
 }
