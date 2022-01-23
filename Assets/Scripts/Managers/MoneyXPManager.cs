@@ -8,6 +8,9 @@ public class MoneyXPManager : MonoBehaviour
     static TMP_Text xpText;
     [SerializeField] GameObject popUp;
     static bool popUpOpen = false;
+    [SerializeField] AudioClip moneyDeductEffectReference;
+    static AudioClip moneyDeductEffect;
+    static AudioSource audioSource;
 
     private void Start()
     {
@@ -15,6 +18,8 @@ public class MoneyXPManager : MonoBehaviour
         moneyText = GetComponentsInChildren<TMP_Text>()[0];
         xpText = GetComponentsInChildren<TMP_Text>()[1];
         UpdateMoneyAndXPText();
+        audioSource = GetComponentInChildren<AudioSource>();
+        moneyDeductEffect = moneyDeductEffectReference;
     }
 
     public static void InitiateMoney(float amount)
@@ -36,6 +41,9 @@ public class MoneyXPManager : MonoBehaviour
         {
             MoneyAndXPData.money -= amount;
             UpdateMoneyAndXPText();
+            audioSource.PlayOneShot(moneyDeductEffect);
+
+
         }
         else
         {

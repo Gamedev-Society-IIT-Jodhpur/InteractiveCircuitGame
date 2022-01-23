@@ -15,7 +15,6 @@ public class ModelBox : MonoBehaviour
     {
         background.alpha = 0;
         background.LeanAlpha(1, 0.5f);
-        box.localPosition = new Vector2(0, -Screen.height);
         //print(SceneManager.GetSceneAt(1).name);
         if (SceneManager.GetSceneAt(1).name == "Dialogue")
         {
@@ -37,11 +36,9 @@ public class ModelBox : MonoBehaviour
                 " <b>voltage as possible</b>. However, <b>at least 60% of this battery power</b> must be delivered to it. The regulator must " +
                 "likewise be simple and cheap.\n\n" +
                 "<b>Available in Inventory of Tinkering Lab</b>\n" + finalSolderText;
-                
-
         }
-
-        //box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo().delay = 0.1f;
+        //box.localPosition = new Vector2(0, -Screen.height);
+        box.LeanMoveLocalY(0, 0.5f).setEaseOutExpo().delay = 0.8f;
     }
 
     public void CloseDialogue()

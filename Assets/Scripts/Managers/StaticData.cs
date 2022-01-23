@@ -46,6 +46,52 @@ public class StaticData : MonoBehaviour
 
     private void Awake()
     {
+
+
+        int[] inputArray = { 0,0,-1,0 };
+        List<int> outputArray = new List<int>() { };
+        List<int> finalArray = new List<int>() { };
+        int sum = 0;
+        int maxSum = 0;
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            if (inputArray[i] >= 0)
+            {
+                sum += inputArray[i];
+                outputArray.Add(inputArray[i]);
+            }
+            else
+            {
+                if (maxSum <= sum)
+                {
+                    maxSum = sum;
+                    if (finalArray.Count < outputArray.Count)
+                    {
+                        finalArray = new List<int>(outputArray);
+                    }
+                }
+                outputArray.Clear();
+                sum = 0;
+            }
+        }
+        if (maxSum < sum)
+        {
+
+            finalArray = new List<int>(outputArray);
+        }
+
+        for (int i = 0; i < finalArray.Count; i++)
+        {
+            print(finalArray[i]);
+            //print(outputArray[i]);
+        }
+
+
+
+
+
+
+
         //UpdateSolderingIron();
     }
 
@@ -53,72 +99,73 @@ public class StaticData : MonoBehaviour
     {
         print("isSolderingIron"+isSolderingIron);
 
-    //    #region Custom Inventory Items
-    //    Inventory = new List<ComponentData>();
-    //    ComponentData res1 = new ComponentData();
-    //    res1.name = "resistor";
-    //    res1.value = "15";
-    //    res1.unit = "Ohm";
-    //    res1.quantity = 20;
+     /*   #region Custom Inventory Items
+        Inventory = new List<ComponentData>();
+        ComponentData res1 = new ComponentData();
+        res1.name = "resistor";
+        res1.value = "15";
+        res1.unit = "Ohm";
+        res1.quantity = 20;
 
-    //    ComponentData res2 = new ComponentData();
-    //    res2.name = "resistor";
-    //    res2.value = "2.5";
-    //    res2.unit = "Ohm";
-    //    res2.quantity = 20;
+        ComponentData res2 = new ComponentData();
+        res2.name = "resistor";
+        res2.value = "2.5";
+        res2.unit = "Ohm";
+        res2.quantity = 20;
 
-    //    ComponentData battery9v = new ComponentData();
-    //    battery9v.name = "voltage9";
-    //    battery9v.value = "9";
-    //    battery9v.unit = "V";
-    //    battery9v.quantity = 3;
+        ComponentData battery9v = new ComponentData();
+        battery9v.name = "voltage9";
+        battery9v.value = "9";
+        battery9v.unit = "V";
+        battery9v.quantity = 3;
 
-    //    ComponentData battery15v = new ComponentData();
-    //    battery15v.name = "voltage1.5";
-    //    battery15v.value = "1.5";
-    //    battery15v.unit = "V";
-    //    battery15v.quantity = 3;
+        ComponentData battery15v = new ComponentData();
+        battery15v.name = "voltage1.5";
+        battery15v.value = "1.5";
+        battery15v.unit = "V";
+        battery15v.quantity = 3;
 
-    //    ComponentData BJTpnp = new ComponentData();
-    //    BJTpnp.name = "bjtpnp";
-    //    BJTpnp.value = "100";
-    //    BJTpnp.unit = "β";
-    //    BJTpnp.quantity = 3;
+        ComponentData BJTpnp = new ComponentData();
+        BJTpnp.name = "bjtpnp";
+        BJTpnp.value = "100";
+        BJTpnp.unit = "β";
+        BJTpnp.quantity = 3;
 
-    //    ComponentData BJTnpn = new ComponentData();
-    //    BJTnpn.name = "bjtnpn";
-    //    BJTnpn.value = "100";
-    //    BJTnpn.unit = "β";
-    //    BJTnpn.quantity = 3;
+        ComponentData BJTnpn = new ComponentData();
+        BJTnpn.name = "bjtnpn";
+        BJTnpn.value = "100";
+        BJTnpn.unit = "β";
+        BJTnpn.quantity = 3;
 
-    //    ComponentData Diode = new ComponentData();
-    //    Diode.name = "diode";
-    //    Diode.value = "Default";
-    //    Diode.unit = "";
-    //    Diode.quantity = 3;
+        ComponentData Diode = new ComponentData();
+        Diode.name = "diode";
+        Diode.value = "Default";
+        Diode.unit = "";
+        Diode.quantity = 3;
 
-    //    ComponentData ZenerDiode = new ComponentData();
-    //    ZenerDiode.name = "zenerDiode";
-    //    ZenerDiode.value = "zenerDiode";
-    //    ZenerDiode.unit = "";
-    //    ZenerDiode.quantity = 3;
+        ComponentData ZenerDiode = new ComponentData();
+        ZenerDiode.name = "zenerDiode";
+        ZenerDiode.value = "5";
+        ZenerDiode.unit = "V";
+        ZenerDiode.quantity = 3;
 
-    //    ComponentData breadboard = new ComponentData();
-    //    breadboard.name = "breadboard";
-    //    breadboard.value = "";
-    //    breadboard.unit = "";
-    //    breadboard.quantity = 1;
+        ComponentData breadboard = new ComponentData();
+        breadboard.name = "breadboard";
+        breadboard.value = "";
+        breadboard.unit = "";
+        breadboard.quantity = 1;
 
-    //    Inventory.Add(res1);
-    //    Inventory.Add(battery9v);
-    //    Inventory.Add(battery15v);
-    //    Inventory.Add(breadboard);
-    //    Inventory.Add(BJTnpn);
-    //    Inventory.Add(BJTpnp);
-    //    Inventory.Add(Diode);
-    //    Inventory.Add(ZenerDiode);
-    //    Inventory.Add(res2);
-    //    #endregion
+        Inventory.Add(res1);
+        Inventory.Add(battery9v);
+        Inventory.Add(battery15v);
+        Inventory.Add(breadboard);
+        Inventory.Add(BJTnpn);
+        Inventory.Add(BJTpnp);
+        Inventory.Add(Diode);
+        Inventory.Add(ZenerDiode);
+        Inventory.Add(res2);
+        #endregion
+   */
     }
 
 
@@ -126,7 +173,6 @@ public class StaticData : MonoBehaviour
     {
         componentList = CircuitManager.componentList;
     }
-
 
     //TODO call this function when we need to show if soldering iron is present in tinker or not.
     //also change issolderingiron to true if player buys soldering iron from shop. 
@@ -141,5 +187,35 @@ public class StaticData : MonoBehaviour
             isSolderingIron = false;
         }
         print(isSolderingIron);
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+    
+
+
+
 }

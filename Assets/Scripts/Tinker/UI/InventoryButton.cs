@@ -47,10 +47,15 @@ public class InventoryButton : MonoBehaviour
         childs = GetComponentsInChildren<TMP_Text>();
         childs[0].text = quantity.ToString();
 
-        //if (component.Substring(0, 7) != "voltage")
-        //{
-        childs[1].text = value + " " + unit + " " + componentsNameDict[component];
+        /*if (component == "zenerDiode")
+        {
+            childs[1].text = "Breakdown Voltage = "+value + " " + unit + " " + componentsNameDict[component];
+        }
+        else
+        {*/
+            childs[1].text = value + " " + unit + " " + componentsNameDict[component];
         //}
+
         GetComponentsInChildren<Image>()[1].sprite = AssetManager.tinkerComponentSpritesDict[component];
 
     }
@@ -68,6 +73,12 @@ public class InventoryButton : MonoBehaviour
                 if (newComponent.tag == "BJT")
                 {
                     newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value);
+                }
+                if (newComponent.GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.zenerDiode)
+                {
+                    //newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value.Substring(17));
+                    print(value);
+                    print(unit);
                 }
             }
             CircuitManagerTinker.ChangeSelected(newComponent);

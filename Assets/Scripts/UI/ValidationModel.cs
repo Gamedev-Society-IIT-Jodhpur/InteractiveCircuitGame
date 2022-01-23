@@ -44,8 +44,8 @@ public class ValidationModel : MonoBehaviour
         if (isSuccess)
         {
             title.text = "Success";
-            data.text = "Your circuit is valid.\nProceed to store to buy the components.\nChoose mode of travel wisely in the map.";
-            buttonText.text = "Continue to Map";
+            data.text = "Your circuit meets the specifications.\nProceed to the Store to buy the components.\nChoose mode of travel wisely in the Map.";
+            buttonText.text = "Continue to the Map";
         }
         else
         {
@@ -53,7 +53,8 @@ public class ValidationModel : MonoBehaviour
             data.text = "Your circuit does not meet the specifications";
             buttonText.text = "Close";
         }
-        transform.LeanScale(Vector2.one, 0.5f);
+        //transform.LeanScale(Vector2.one, 0.5f);
+        transform.localScale = Vector2.one;
     }
 
     
@@ -62,11 +63,13 @@ public class ValidationModel : MonoBehaviour
     {
         if (isSuccess)
         {
-            transform.LeanScale(Vector2.zero, .5f).setEaseInBack().setOnComplete(Success);
+            //transform.LeanScale(Vector2.zero, .5f).setEaseInBack().setOnComplete(Success);
+            Success();
         }
         else
         {
             transform.LeanScale(Vector2.zero, .5f).setEaseInBack();
+            transform.localScale = Vector2.zero;
         }
     }
 

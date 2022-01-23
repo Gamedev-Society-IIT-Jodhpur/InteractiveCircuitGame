@@ -159,14 +159,14 @@ public class UnifiedScript : MonoBehaviour
         {
             if (model != "Default")
             {
-                if (!(CircuitManager.ckt.Contains(val + "BV")))
+                if (!(CircuitManager.ckt.Contains("Breakdown Voltage "+val)))
                 {
-                    CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel(val + "BV", " bv=" + val));
+                    CircuitManager.ckt.Add(UnifiedScript.CreateDiodeModel("Breakdown Voltage " + val, " bv=" + val));
                 }
                 try
                 {
-                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], val + "BV"));
-                    Debug.LogError(val + "BV");
+                    CircuitManager.ckt.Add(CreateDiode(name, nodes[0], nodes[1], "Breakdown Voltage " + val));
+                    // Debug.LogError(val + "BV");
                 }
                 catch (System.Exception e)
                 {
@@ -199,14 +199,13 @@ public class UnifiedScript : MonoBehaviour
             //CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], model));
             if (model != "Default")
             {
-                if (!(CircuitManagerTinker.ckt.Contains(val + "BV")))
+                if (!(CircuitManagerTinker.ckt.Contains("Breakdown Voltage " + val)))
                 {
-                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateDiodeModel(val + "BV", " bv=" + val));
+                    CircuitManagerTinker.ckt.Add(UnifiedScript.CreateDiodeModel("Breakdown Voltage " + val, " bv=" + val));
                 }
                 try
                 {
-                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], val + "BV"));
-                    Debug.LogError(val + "BV");
+                    CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], "Breakdown Voltage " + val));
                 }
                 catch (System.Exception e)
                 {

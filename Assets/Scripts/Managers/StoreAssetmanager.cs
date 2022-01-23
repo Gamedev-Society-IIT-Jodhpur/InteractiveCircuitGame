@@ -31,8 +31,8 @@ public class StoreAssetmanager : MonoBehaviour
         }
 
         itemsNameMaping.Add("Resistor", "resistor");
-        itemsNameMaping.Add("Battery 9.0", "voltage9");
-        itemsNameMaping.Add("Battery 1.5", "voltage1.5");
+        itemsNameMaping.Add("Battery9", "voltage9");
+        itemsNameMaping.Add("Battery1.5", "voltage1.5");
         itemsNameMaping.Add("BJT PNP", "bjtpnp");
         itemsNameMaping.Add("BJT NPN", "bjtnpn");
         itemsNameMaping.Add("Diode", "diode");
