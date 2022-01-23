@@ -22,6 +22,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerClick
     {
         //TooltipSystem.Show();
         Debug.Log("item Clicked");
+        
         TooltipSystem.Show(itemID);
     }
 }

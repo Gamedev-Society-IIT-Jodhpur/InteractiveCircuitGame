@@ -49,7 +49,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             {
                 componentName = item.Value["type"];
                 unit = item.Value["unit"];
-                value = Tooltip.value.Split(' ')[0];
+                value = Tooltip.value;
                 price = Tooltip.Price;
                 break;
             }
@@ -111,6 +111,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         {
             print("some item added");
             Store.Items.Add(itemDesc);
+            print(price);
             int totalPrice = quantity * int.Parse(price);
             Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 

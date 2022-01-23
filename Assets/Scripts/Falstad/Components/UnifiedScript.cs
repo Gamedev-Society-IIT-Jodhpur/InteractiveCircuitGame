@@ -206,7 +206,6 @@ public class UnifiedScript : MonoBehaviour
                 try
                 {
                     CircuitManagerTinker.ckt.Add(CreateDiode(name, nodes[0], nodes[1], "Breakdown Voltage " + val));
-                    Debug.LogError(val + "BV");
                 }
                 catch (System.Exception e)
                 {

@@ -25,18 +25,33 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
 
     public TMP_Dropdown valueDropdown;
     List<string> m_DropOptions = new List<string> {};
-    List<string> m_Prices = new List<string> {};
+    public List<string> m_Prices = new List<string> {};
+    public List<string> m_Values = new List<string> {};
+    public static Tooltip get;
 
-    private void Update()
+    private void Awake()
     {
-        Price = m_Prices[valueDropdown.value];
-        value = valueDropdown.options[valueDropdown.value].text;
+        get = this;
+    }
+
+    public void OnItemSelect(int index)
+    {
+        print(m_Prices.Count);
+        print(m_Values.Count);
+        Price = m_Prices[index];
+        value = m_Values[index];
+        print(value + " " + Price + " " + index);
+        //value = valueDropdown.options[valueDropdown.value].text;
         priceField.text = "Rs. " + m_Prices[valueDropdown.value];
     }
 
 
     public void SetTooltip(string itemID)
     {
+        m_Prices.Clear();
+        m_Values.Clear();
+        valueDropdown.ClearOptions();
+        m_DropOptions.Clear();
         foreach (var item in StoreAssetmanager.Instance.itemsAvailable)
         {
             if (item.Value["id"].ToString() == itemID)
@@ -48,12 +63,16 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
                 foreach (var val in item.Value["value"])
                 {
                     //Debug.Log(val.Value[0]);
+                    m_Values.Add(val.Value[1]);
                     m_Prices.Add(val.Value[0]);
+                    print("val: "+val.Value[0]);
                     m_DropOptions.Add(val.Value[1] + " " + unit);
                 }
                 valueDropdown.AddOptions(m_DropOptions);
-                //priceField.text = "Rs. " + item.Value["price"];
-                
+                priceField.text = "Rs. " + m_Prices[0];
+                Price = m_Prices[0];
+                value = m_Values[0];
+
                 break;
             }
         }
@@ -74,6 +93,10 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
     {
         m_DropOptions.Clear();
         m_Prices.Clear();
+        value = "";
+        Price = "";
     }
+
+    
 
 }
