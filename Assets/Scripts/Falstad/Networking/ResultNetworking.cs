@@ -90,4 +90,10 @@ public class ResultNetworking : MonoBehaviour
         }
 
     }
+
+    public void GoToMainMenu()
+    {
+        LoadingManager.instance.LoadGame( SceneIndexes.Result, SceneIndexes.MainMenu );
+    }
+
 }
