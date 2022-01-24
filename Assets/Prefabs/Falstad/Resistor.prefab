@@ -645,7 +645,7 @@ MonoBehaviour:
   m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 9
+  m_CharacterLimit: 8
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1906,8 +1906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00005054474}
-  m_SizeDelta: {x: 0.0000038147, y: 0}
+  m_AnchoredPosition: {x: -6.811, y: -0.00005054474}
+  m_SizeDelta: {x: -13.622, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9034208644019055449
 MonoBehaviour:

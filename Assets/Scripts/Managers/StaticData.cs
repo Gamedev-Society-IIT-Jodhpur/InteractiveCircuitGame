@@ -46,52 +46,6 @@ public class StaticData : MonoBehaviour
 
     private void Awake()
     {
-
-
-        int[] inputArray = { 0,0,-1,0 };
-        List<int> outputArray = new List<int>() { };
-        List<int> finalArray = new List<int>() { };
-        int sum = 0;
-        int maxSum = 0;
-        for (int i = 0; i < inputArray.Length; i++)
-        {
-            if (inputArray[i] >= 0)
-            {
-                sum += inputArray[i];
-                outputArray.Add(inputArray[i]);
-            }
-            else
-            {
-                if (maxSum <= sum)
-                {
-                    maxSum = sum;
-                    if (finalArray.Count < outputArray.Count)
-                    {
-                        finalArray = new List<int>(outputArray);
-                    }
-                }
-                outputArray.Clear();
-                sum = 0;
-            }
-        }
-        if (maxSum < sum)
-        {
-
-            finalArray = new List<int>(outputArray);
-        }
-
-        for (int i = 0; i < finalArray.Count; i++)
-        {
-            print(finalArray[i]);
-            //print(outputArray[i]);
-        }
-
-
-
-
-
-
-
         //UpdateSolderingIron();
     }
 
@@ -174,8 +128,6 @@ public class StaticData : MonoBehaviour
         componentList = CircuitManager.componentList;
     }
 
-    //TODO call this function when we need to show if soldering iron is present in tinker or not.
-    //also change issolderingiron to true if player buys soldering iron from shop. 
     public static void UpdateSolderingIron()
     {
         if (Mathf.RoundToInt(Random.Range(0, 2)) == 0)
@@ -187,27 +139,6 @@ public class StaticData : MonoBehaviour
             isSolderingIron = false;
         }
         print(isSolderingIron);
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 

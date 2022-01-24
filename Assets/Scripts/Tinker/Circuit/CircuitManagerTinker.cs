@@ -389,7 +389,8 @@ public class CircuitManagerTinker : MonoBehaviour
             }
             else if (componentType.a == CircuitManagerTinker.component.zenerDiode)
             {
-                ///// TODO show zener breakdown when atharv parameterises it.
+                valueText.gameObject.SetActive(true);
+                valueText.text = componentType.value+" Volts";
             }
         }
     }
