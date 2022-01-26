@@ -32,12 +32,12 @@ public class ComponentInitialization : MonoBehaviour
                 {
 
 
-                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
+                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 2, Char.ToString(((char)0x03A9)));
                 }
                 else if (a == CircuitManager.component.voltage)
                 {
 
-                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
+                    valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 2, "V");
                 }
 
                 else

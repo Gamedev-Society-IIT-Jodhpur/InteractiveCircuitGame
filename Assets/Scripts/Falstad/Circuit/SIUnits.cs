@@ -68,7 +68,7 @@ public class SIUnits : MonoBehaviour
 
     public static string NormalizeRounded(double v, int d, string u)
     {
-        return Normalize(Math.Round(v, d), u);
+        
         double va = Math.Abs(v);
         if (va < 1E-14) return "0";
         if (va < 1E-9) return Math.Round(v * 1E12, d) + "p" + u; // pico

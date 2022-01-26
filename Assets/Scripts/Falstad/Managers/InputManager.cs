@@ -49,12 +49,12 @@ public class InputManager : MonoBehaviour
                     if (component.a == CircuitManager.component.resistor)
                     {
 
-                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, Char.ToString(((char)0x03A9)));
+                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 2, Char.ToString(((char)0x03A9)));
                     }
                     else if (component.a == CircuitManager.component.voltage)
                     {
 
-                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 9, "V");
+                        component.valueText.text = SIUnits.NormalizeRounded(Convert.ToDouble(value), 2, "V");
                     }
 
                     else
