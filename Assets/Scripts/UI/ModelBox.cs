@@ -76,7 +76,7 @@ public class ModelBox : MonoBehaviour
 
     public void StartQuest()
     {
-        MoneyAndXPData.InitiateMoney(10000);
+        MoneyAndXPData.InitiateMoney(2200);
         MoneyXPManager.InitiateXP();
         LoadingManager.instance.LoadGame(SceneIndexes.Dialogue, SceneIndexes.Falstad);
     }

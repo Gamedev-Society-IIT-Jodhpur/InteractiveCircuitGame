@@ -54,7 +54,7 @@ public class ScoringScript
     public static double CalcScore()
     {
         double TotalPenalty = 0.0;
-        double Time = Timer.currentTime;
+        double Time = Timer.currentTime/60;
         double money = MoneyAndXPData.money;
         for (int i = 0; i < errors.Count; i++)
         {
@@ -63,8 +63,12 @@ public class ScoringScript
         double weight1 = 0.6; // For getting it right 
         double weight2 = 0.2; // For fast solving
         double weight3 = 0.2; // Respecting Budget constraint
-        score = Sigmoid(TotalPenalty, 100, -0.07, 80) * weight1 + Sigmoid(Time, 100, -0.5, 15) * weight2 + Sigmoid(money, 100, 0.03, 0) * weight3;
+        score = Sigmoid(TotalPenalty, 100, -0.07, 80) * weight1 + Sigmoid(Time, 100, -0.5, 30) * weight2 + Sigmoid(money, 100, 0.007, 500) * weight3;
         // TO-DO figure out hyperparameters for sigmoids of totalpenalty as well as money contraint and customize weights
+        Debug.Log(score);
+        Debug.Log(Sigmoid(TotalPenalty, 100, -0.07, 80));
+        Debug.Log(Sigmoid(Time, 100, -0.5, 30));
+        Debug.Log(Sigmoid(money, 100, 0.007, 500));
 
         return score;
     }
