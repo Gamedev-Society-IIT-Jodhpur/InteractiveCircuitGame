@@ -8,6 +8,7 @@ public class OpenCart : MonoBehaviour
 
     public void Open()
     {
+        print("Cart opening");
         if (Panel != null)
         {
             Animator animator = Panel.GetComponent<Animator>();
