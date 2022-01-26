@@ -33,6 +33,10 @@ public class MoneyXPManager : MonoBehaviour
         MoneyAndXPData.InitiateXP(PlayerPrefs.GetInt("player_xp", 0));
         //UpdateMoneyAndXPText();
     }
+    public static void OpenPopUp()
+    {
+        popUpOpen = true;
+    }
 
     public static void DeductMoney(float amount)
     {

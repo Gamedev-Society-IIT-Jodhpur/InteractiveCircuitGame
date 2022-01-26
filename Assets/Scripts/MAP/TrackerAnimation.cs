@@ -61,14 +61,11 @@ public class TrackerAnimation : MonoBehaviour
     {
         if (!manager.isanimating)
         {
-            MoneyXPManager.DeductMoney(manager.deduceMoney(wrap));
-            if (MoneyAndXPData.money - manager.deduceMoney(wrap) < 0)
+            
+            if (MoneyAndXPData.money - manager.deduceMoney(wrap) > 0)
             {
-
-            }
-
-            else
-            {
+                MoneyXPManager.DeductMoney(manager.deduceMoney(wrap));
+           
                 end = wrap.end;
 
                 to = wrap.to;
@@ -110,6 +107,10 @@ public class TrackerAnimation : MonoBehaviour
                 }
 
                 manager.isanimating = true;
+            }
+            else
+            {
+                MoneyXPManager.OpenPopUp();
             }
 
         }
