@@ -55,14 +55,11 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             }
         }
 
+
         string s = "{0} - {1} {2} ({3}) (Rs. {4})";
         //string itemDesc = string.Format(s, header.text, value, unit, quantity.text);
         string itemDesc = string.Format(s, header.text, value, unit, quantity, price);
-        if (componentName == "Battery")
-        {
-            componentName = componentName + value;
-            Debug.LogWarning(componentName);
-        }
+        
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
             print("breadboard added");
@@ -82,14 +79,17 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             tempComponent.price = price;
 
             tempInventory.Add(tempComponent);
+            print("its breadboard 1");
         }
         else if (componentName == "Breadboard" && breadboardCountCart > 0)
         {
+            print("its breadboard 2");
             CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in cart.");
         }
         else if (componentName == "Breadboard" && breadboardCountInventroy > 0)
         {
             CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in Inventory");
+            print("its breadboard 3");
         }
         else if (componentName == "Soldering Iron" && solderingCountCart==0 && !StaticData.isSolderingIron)
         {
@@ -109,6 +109,11 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            if (componentName == "Battery")
+            {
+                componentName = componentName + value;
+                Debug.LogWarning(componentName);
+            }
             print("some item added");
             Store.Items.Add(itemDesc);
             print(price);
