@@ -244,6 +244,7 @@ public class CircuitManager : MonoBehaviour
                 AssetManager.GetInstance().outlineMaterial.SetFloat("_Thickness", 15.0f);
             }
             selected.GetComponent<Renderer>().material = AssetManager.GetInstance().outlineMaterial;
+            
         }
     }
 

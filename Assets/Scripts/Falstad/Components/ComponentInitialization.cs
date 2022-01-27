@@ -61,7 +61,7 @@ public class ComponentInitialization : MonoBehaviour
         {
             value = "Breakdown Voltage "+beta.ToString();
             valueText = GetComponentInChildren<TMP_Text>();
-            valueText.text = "Breakdown Voltage = " + beta.ToString()+"V";
+            valueText.text = "V<sub>ZK</sub> = " + beta.ToString()+"V";
         }
     }
 

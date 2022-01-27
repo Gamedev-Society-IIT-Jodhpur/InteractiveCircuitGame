@@ -767,7 +767,8 @@ public class ValidateScript : MonoBehaviour
         if (seriesequal && dictsame == true)
         {
             print("Hurray You have Passed");
-            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.", "Congratulations!!");
+            Timer.StopTimer();
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+Timer.currentTime+"\nXP: "+MoneyAndXPData.xp, "Congratulations!!");
         }
         else
         {

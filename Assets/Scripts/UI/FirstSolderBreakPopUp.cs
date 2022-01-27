@@ -47,7 +47,7 @@ public class FirstSolderBreakPopUp : MonoBehaviour
         }
     }
 
-    public void Open(delFunction function, string dataText, string titleText = "Warning", string buttonText = "Continue")
+    public void Open(delFunction function, string dataText, string titleText = "Warning", string buttonText = "Submit Circuit & Check Score")
     {
 
         title.text = titleText;

@@ -73,7 +73,7 @@ public class InputManager : MonoBehaviour
             else if (component.a == CircuitManager.component.zenerDiode)
             {
                 component.beta = double.Parse(value);
-                component.valueText.text = "Breakdown Voltage = " + value+"V";
+                component.valueText.text = "V<sub>ZK</sub> = " + value+"V";
                 //print(value);
 
             }
