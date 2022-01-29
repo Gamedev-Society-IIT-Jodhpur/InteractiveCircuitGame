@@ -52,13 +52,14 @@ public class DialogueManager : MonoBehaviour
         nextButtonImg.color = disabledColor;
         previousButtonImg.color = disabledColor;
         Dialogue tempDialogue = sentences_list[index];
-        name_avatar.text = tempDialogue.name;
         if(tempDialogue.name == "Employee")
         {
+            name_avatar.text = PlayerPrefs.GetString("player_username", "Employee");
             image.texture = avatars[avatarIndex];
         }
         else
         {
+            name_avatar.text = tempDialogue.name;
             image.texture = tempDialogue.image;
         }
         foreach (char letter in tempDialogue.sentences.ToCharArray())

@@ -2,14 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 
 public class AvatarScreen : MonoBehaviour
 {
     public GameObject[] avatars;
+    public TMP_InputField username;
     int oldavatar = 0;
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         oldavatar = PlayerPrefs.GetInt("player_avatar", 0);
     }
 
@@ -23,6 +26,8 @@ public class AvatarScreen : MonoBehaviour
         avatars[oldavatar].GetComponent<RawImage>().color = new Color32(37, 37, 92, 255);
         avatars[index].GetComponent<RawImage>().color = new Color32(25, 156, 252, 255);
         oldavatar = index;
+        print(username.text);
+        PlayerPrefs.SetInt("player_avatar", oldavatar);
     }
 
     public void setNewAvatar()
@@ -34,6 +39,7 @@ public class AvatarScreen : MonoBehaviour
     {
         UnityWebRequest www = UnityWebRequest.Post(AvailableRoutes.updateUser + "?email=" + PlayerPrefs.GetString("player_email", "") + "&avatar=" + PlayerPrefs.GetInt("player_avatar"), "");
 
+        
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -43,7 +49,8 @@ public class AvatarScreen : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("player_avatar", oldavatar);
-            CustomNotificationManager.Instance.AddNotification(0, "New avatar set");
+            PlayerPrefs.SetString("player_username", username.text);
+            LoadingManager.instance.LoadGame(SceneIndexes.AvatarSelection, SceneIndexes.MainMenu);
         }
     }
 }

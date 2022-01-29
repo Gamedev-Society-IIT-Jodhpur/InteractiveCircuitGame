@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 426992590}
   - component: {fileID: 426992592}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2019,13 +2019,13 @@ MonoBehaviour:
   model: {fileID: 1553032659371929555}
   sentences_list:
   - name: Boss
-    image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
+    image: {fileID: 2800000, guid: 8a7feaeddf6492848a863956221e541b, type: 3}
     sentences: Hi! I have come to you with our new project ...
   - name: Employee
     image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
     sentences: "Hello Boss! What\u2019s the new project?"
   - name: Boss
-    image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
+    image: {fileID: 2800000, guid: 8a7feaeddf6492848a863956221e541b, type: 3}
     sentences: "Our client company has decided to launch their product and our testing
       team says that a voltage regulator is required. You need to design the circuit
       for that system ASAP !!! \r\n"
@@ -2033,7 +2033,7 @@ MonoBehaviour:
     image: {fileID: 2800000, guid: 1a995f090337db34eaa2ded5c6a95fee, type: 3}
     sentences: What are the specifications of the circuit?
   - name: Boss
-    image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
+    image: {fileID: 2800000, guid: 8a7feaeddf6492848a863956221e541b, type: 3}
     sentences: 'The gizmo requires a voltage of precisely 6.0 Volts, and at a maximum
       will require a power of 1.2 Watts. It should use standard components (the kind
       you can buy at any electronics store), with as high a voltage as possible.
@@ -2041,13 +2041,13 @@ MonoBehaviour:
       must likewise be simple and cheap.
 
 
-      This specification sheet would
-      be available to you for later reference.'
+      This specification sheet would be
+      available to you for later reference.'
   - name: Employee
     image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
     sentences: Anything else, Boss?
   - name: Boss
-    image: {fileID: 2800000, guid: 5b3dbcb028265a2458eb94f21d002253, type: 3}
+    image: {fileID: 2800000, guid: 8a7feaeddf6492848a863956221e541b, type: 3}
     sentences: 'Yes! Most importantly, we are on a tight budget. You have only Rs.
       ___. Please complete the project with minimum expenditure and time possible. '
   - name: Employee
