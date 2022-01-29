@@ -125,16 +125,16 @@ public class exp : MonoBehaviour
 
         // Run test
 
-        dc.ExportSimulationData += (sender, exportDataEventArgs) =>
-        {
-            // Debug.Log("vb ="+exportDataEventArgs.GetVoltage("b"));
-            // Debug.Log("vc ="+exportDataEventArgs.GetVoltage("c"));
-            // foreach (var i in exports) {
-            //  Debug.Log("exports =" + i.Value);
-            // }
+        //dc.ExportSimulationData += (sender, exportDataEventArgs) =>
+        //{
+        //    // Debug.Log("vb ="+exportDataEventArgs.GetVoltage("b"));
+        //    // Debug.Log("vc ="+exportDataEventArgs.GetVoltage("c"));
+        //    // foreach (var i in exports) {
+        //    //  Debug.Log("exports =" + i.Value);
+        //    // }
 
-            Debug.Log(currentExport.Value);
-        };
+        //    Debug.Log(currentExport.Value);
+        //};
 
         dc.Run(ckt);
 

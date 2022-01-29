@@ -24,7 +24,7 @@ public class ValidationModel : MonoBehaviour
     }
     void Start()
     {
-        print(isfirsttime);
+        //print(isfirsttime);
         transform.localScale = Vector2.zero;
         if (isfirsttime && SceneManager.GetSceneAt(1).name=="MAP") {
             
@@ -75,7 +75,7 @@ public class ValidationModel : MonoBehaviour
 
     public void Success()
     {
-        Debug.Log("Success");
+        //Debug.Log("Success");
         LoadingManager.instance.LoadGame(SceneIndexes.Falstad, SceneIndexes.MAP);
         PrevCurrScene.curr = 1;
     }

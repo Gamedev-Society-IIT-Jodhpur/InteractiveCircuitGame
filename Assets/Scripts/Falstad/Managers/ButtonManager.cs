@@ -18,7 +18,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No component selected");
+            CustomNotificationManager.Instance.AddNotification(2, "No component selected");
         }
     }
 }

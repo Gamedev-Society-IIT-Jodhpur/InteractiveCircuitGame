@@ -36,11 +36,11 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
 
     public void OnItemSelect(int index)
     {
-        print(m_Prices.Count);
-        print(m_Values.Count);
+        //print(m_Prices.Count);
+        //print(m_Values.Count);
         Price = m_Prices[index];
         value = m_Values[index];
-        print(value + " " + Price + " " + index);
+        //print(value + " " + Price + " " + index);
         //value = valueDropdown.options[valueDropdown.value].text;
         priceField.text = "Rs. " + m_Prices[valueDropdown.value];
     }
@@ -65,7 +65,7 @@ public class Tooltip : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandle
                     //Debug.Log(val.Value[0]);
                     m_Values.Add(val.Value[1]);
                     m_Prices.Add(val.Value[0]);
-                    print("val: "+val.Value[0]);
+                    //print("val: "+val.Value[0]);
                     m_DropOptions.Add(val.Value[1] + " " + unit);
                 }
                 valueDropdown.AddOptions(m_DropOptions);

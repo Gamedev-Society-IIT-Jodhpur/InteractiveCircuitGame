@@ -40,7 +40,7 @@ public class MoneyXPManager : MonoBehaviour
 
     public static void DeductMoney(float amount)
     {
-        print(amount);
+        //print(amount);
         if (MoneyAndXPData.money - amount >= 0)
         {
             MoneyAndXPData.money -= amount;

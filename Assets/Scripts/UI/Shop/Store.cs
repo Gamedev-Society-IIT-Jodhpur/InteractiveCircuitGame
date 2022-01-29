@@ -8,9 +8,9 @@ public class Store : MonoBehaviour
     {
         Items = new List<string>();
 
-        foreach (var item in Items)
-        {
-            Debug.Log(item);
-        }
+        //foreach (var item in Items)
+        //{
+        //    Debug.Log(item);
+        //}
     }
 }

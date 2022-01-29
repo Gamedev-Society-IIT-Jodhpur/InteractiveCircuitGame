@@ -51,7 +51,7 @@ public class StaticData : MonoBehaviour
 
     private void Start()
     {
-        print("isSolderingIron"+isSolderingIron);
+        //print("isSolderingIron"+isSolderingIron);
 
      /*   #region Custom Inventory Items
         Inventory = new List<ComponentData>();
@@ -138,7 +138,7 @@ public class StaticData : MonoBehaviour
         {
             isSolderingIron = false;
         }
-        print(isSolderingIron);
+        //print(isSolderingIron);
     }
 
 

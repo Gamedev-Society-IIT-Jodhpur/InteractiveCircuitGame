@@ -41,7 +41,7 @@ public class SolderingIronIcon : MonoBehaviour
         {
             noOfSolders.Enqueue(position);
             checkSoldersSet.Add(position);
-            print("enque:" + position);
+            //print("enque:" + position);
         }
     }
 

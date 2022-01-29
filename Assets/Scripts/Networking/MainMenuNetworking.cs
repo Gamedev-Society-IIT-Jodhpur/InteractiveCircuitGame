@@ -47,7 +47,7 @@ public class MainMenuNetworking : MonoBehaviour
         else
         {
             JSONNode gameData = JSON.Parse(www.downloadHandler.text);
-            print(gameData.AsArray.Count);
+            //print(gameData.AsArray.Count);
             if (gameData.AsArray.Count > 0)
             {
                 startButtonText.text = "Start";

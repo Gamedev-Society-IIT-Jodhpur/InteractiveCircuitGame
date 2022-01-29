@@ -68,7 +68,7 @@ public class GoogleLogin : MonoBehaviour
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             PlayerPrefs.SetInt("player_avatar", data["avatar"]);
             PlayerPrefs.SetInt("player_xp", data["xp"]);
-            Debug.Log("player_xp: " + data["xp"]);
+            //Debug.Log("player_xp: " + data["xp"]);
             setEmail();
 
             LoadingManager.instance.LoadGame(SceneIndexes.Login, SceneIndexes.AvatarSelection);

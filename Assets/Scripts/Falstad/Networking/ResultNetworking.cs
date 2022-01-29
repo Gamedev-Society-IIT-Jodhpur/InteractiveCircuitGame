@@ -43,7 +43,8 @@ public class ResultNetworking : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
+            //Debug.Log(www.error);
+            CustomNotificationManager.Instance.AddNotification(2, "Can't get result");
         }
         else
         {

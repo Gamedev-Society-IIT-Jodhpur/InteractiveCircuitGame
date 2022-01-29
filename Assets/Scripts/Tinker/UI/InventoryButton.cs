@@ -74,12 +74,12 @@ public class InventoryButton : MonoBehaviour
                 {
                     newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value);
                 }
-                if (newComponent.GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.zenerDiode)
-                {
-                    //newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value.Substring(17));
-                    print(value);
-                    print(unit);
-                }
+                //if (newComponent.GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.zenerDiode)
+                //{
+                //    //newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value.Substring(17));
+                //    //print(value);
+                //    //print(unit);
+                //}
             }
             CircuitManagerTinker.ChangeSelected(newComponent);
 

@@ -62,7 +62,7 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
         
         if (componentName == "Breadboard" && breadboardCountCart + breadboardCountInventroy < 1)
         {
-            print("breadboard added");
+            //print("breadboard added");
             breadboardCountCart += 1;
             Store.Items.Add(itemDesc);
             int totalPrice = quantity * int.Parse(price);
@@ -79,17 +79,17 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             tempComponent.price = price;
 
             tempInventory.Add(tempComponent);
-            print("its breadboard 1");
+            //print("its breadboard 1");
         }
         else if (componentName == "Breadboard" && breadboardCountCart > 0)
         {
-            print("its breadboard 2");
+            //print("its breadboard 2");
             CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in cart.");
         }
         else if (componentName == "Breadboard" && breadboardCountInventroy > 0)
         {
             CustomNotificationManager.Instance.AddNotification(1, "Can't purchase more than 1 Breadboard. 1 already in Inventory");
-            print("its breadboard 3");
+            //print("its breadboard 3");
         }
         else if (componentName == "Soldering Iron" && solderingCountCart==0 && !StaticData.isSolderingIron)
         {
@@ -112,11 +112,11 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
             if (componentName == "Battery")
             {
                 componentName = componentName + value;
-                Debug.LogWarning(componentName);
+                //Debug.LogWarning(componentName);
             }
-            print("some item added");
+            //print("some item added");
             Store.Items.Add(itemDesc);
-            print(price);
+            //print(price);
             int totalPrice = quantity * int.Parse(price);
             Checkout.totalAmount = (int.Parse(Checkout.totalAmount) + totalPrice).ToString();
 

@@ -45,7 +45,8 @@ public class Shelf : MonoBehaviour
 
         if (itemsListRequest.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(itemsListRequest.error);
+            //Debug.Log(itemsListRequest.error);
+            CustomNotificationManager.Instance.AddNotification(2, "Can't get data");
         }
         else
         {
@@ -53,12 +54,12 @@ public class Shelf : MonoBehaviour
             GameObject g;
             foreach (var item in itemsListData["data"])
             {
-                print(item);
+                //print(item);
                 g = Instantiate(ItemTemplate, transform);
                 g.gameObject.SetActive(true);
                 g.transform.GetChild(0).GetComponent<TMP_Text>().text = item.Value["type"];
                 Sprite itemTexture = StoreAssetmanager.Instance.getItemIcon(item.Value["type"]);
-                Debug.Log(itemTexture);
+                //Debug.Log(itemTexture);
                 g.transform.GetChild(1).GetComponent<Image>().sprite = itemTexture;
                 g.GetComponent<TooltipTrigger>().itemID = item.Value["id"].ToString();
             }

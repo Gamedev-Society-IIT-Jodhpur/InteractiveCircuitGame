@@ -65,10 +65,10 @@ public class ScoringScript
         double weight3 = 0.2; // Respecting Budget constraint
         score = Sigmoid(TotalPenalty, 100, -0.07, 80) * weight1 + Sigmoid(Time, 100, -0.5, 30) * weight2 + Sigmoid(money, 100, 0.007, 500) * weight3;
         // TO-DO figure out hyperparameters for sigmoids of totalpenalty as well as money contraint and customize weights
-        Debug.Log(score);
-        Debug.Log(Sigmoid(TotalPenalty, 100, -0.07, 80));
-        Debug.Log(Sigmoid(Time, 100, -0.5, 30));
-        Debug.Log(Sigmoid(money, 100, 0.007, 500));
+        //Debug.Log(score);
+        //Debug.Log(Sigmoid(TotalPenalty, 100, -0.07, 80));
+        //Debug.Log(Sigmoid(Time, 100, -0.5, 30));
+        //Debug.Log(Sigmoid(money, 100, 0.007, 500));
 
         return score;
     }

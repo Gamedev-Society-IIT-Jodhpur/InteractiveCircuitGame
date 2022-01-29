@@ -26,7 +26,7 @@ public class AvatarScreen : MonoBehaviour
         avatars[oldavatar].GetComponent<RawImage>().color = new Color32(37, 37, 92, 255);
         avatars[index].GetComponent<RawImage>().color = new Color32(25, 156, 252, 255);
         oldavatar = index;
-        print(username.text);
+        //print(username.text);
         PlayerPrefs.SetInt("player_avatar", oldavatar);
     }
 
@@ -44,7 +44,8 @@ public class AvatarScreen : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.error);
+            CustomNotificationManager.Instance.AddNotification(2, "Avatar not set");
+            //Debug.Log(www.error);
         }
         else
         {

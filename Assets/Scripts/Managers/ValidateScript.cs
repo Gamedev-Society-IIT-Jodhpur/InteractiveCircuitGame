@@ -318,7 +318,7 @@ public class ValidateScript : MonoBehaviour
                 {
                     if (ComponentdataFalstad[i.Value.attached[0]].isSeries == -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
                     {
-                        print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "Before update");
+                        //print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "Before update");
                         var newseries = new StaticData.series();
                         newseries.components = new List<string>();
                         newseries.components.Add(i.Value.attached[0]);
@@ -332,7 +332,7 @@ public class ValidateScript : MonoBehaviour
                         temp1.isSeries = serieslistFalstad.Count;
                         ComponentdataFalstad[i.Value.attached[1]] = temp1;
                         serieslistFalstad.Add(newseries);
-                        print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "After update");
+                        //print(ComponentdataFalstad[i.Value.attached[0]].isSeries + "After update");
                     }
                     else if (ComponentdataFalstad[i.Value.attached[0]].isSeries != -1 && ComponentdataFalstad[i.Value.attached[1]].isSeries == -1)
                     {
@@ -436,11 +436,11 @@ public class ValidateScript : MonoBehaviour
 
             NotSeriesFalstadModified = ModifyDict(NotSeriesFalstad, ComponentdataFalstad);
             serieslistFalstadModified = ModifySeries(serieslistFalstad, ComponentdataFalstad);
-            foreach (var i in serieslistFalstadModified)
-            {
-                print(i);
+            //foreach (var i in serieslistFalstadModified)
+            //{
+            //    print(i);
 
-            }
+            //}
             /* foreach (var i in ComponentdataFalstad)
              {
                  print(i.Key);
@@ -456,7 +456,7 @@ public class ValidateScript : MonoBehaviour
             ValidationModel.isSuccess = false;
             ValidationModel.Instance.Open();
             CustomNotificationManager.Instance.AddNotification(2, "Circuit doesn't meet specifications");
-            print("Circuit doesn't meet specifications");
+            //print("Circuit doesn't meet specifications");
             ScoringScript.UpdateError(3);
         }
     }
@@ -580,7 +580,7 @@ public class ValidateScript : MonoBehaviour
             {
                 if (ComponentdataTinker[i.Value.attached[0]].isSeries == -1 && ComponentdataTinker[i.Value.attached[1]].isSeries == -1)
                 {
-                    print(ComponentdataTinker[i.Value.attached[0]].isSeries + "Before update");
+                    //print(ComponentdataTinker[i.Value.attached[0]].isSeries + "Before update");
                     var newseries = new StaticData.series();
                     newseries.components = new List<string>();
                     newseries.components.Add(i.Value.attached[0]);
@@ -594,7 +594,7 @@ public class ValidateScript : MonoBehaviour
                     temp1.isSeries = serieslistTinker.Count;
                     ComponentdataTinker[i.Value.attached[1]] = temp1;
                     serieslistTinker.Add(newseries);
-                    print(ComponentdataTinker[i.Value.attached[0]].isSeries + "After update");
+                    //print(ComponentdataTinker[i.Value.attached[0]].isSeries + "After update");
                 }
                 else if (ComponentdataTinker[i.Value.attached[0]].isSeries != -1 && ComponentdataTinker[i.Value.attached[1]].isSeries == -1)
                 {
@@ -699,22 +699,22 @@ public class ValidateScript : MonoBehaviour
 
         NotSeriesTinkerModified = ModifyDict(NotSeriesTinker, ComponentdataTinker);
         serieslistTinkerModified = ModifySeries(serieslistTinker, ComponentdataTinker);
-        foreach (var i in NotSeriesTinkerModified)
-        {
-            print(i.Key);
-            foreach (var j in i.Value)
-            {
-                print(j);
-            }
-        }
-        foreach (var i in NotSeriesFalstadModified)
-        {
-            print(i.Key);
-            foreach (var j in i.Value)
-            {
-                print(j);
-            }
-        }
+        //foreach (var i in NotSeriesTinkerModified)
+        //{
+        //    print(i.Key);
+        //    foreach (var j in i.Value)
+        //    {
+        //        print(j);
+        //    }
+        //}
+        //foreach (var i in NotSeriesFalstadModified)
+        //{
+        //    print(i.Key);
+        //    foreach (var j in i.Value)
+        //    {
+        //        print(j);
+        //    }
+        //}
         /* foreach (var i in serieslistTinker)
          {
              print(serieslistTinker.IndexOf(i));
@@ -723,14 +723,14 @@ public class ValidateScript : MonoBehaviour
                  print(j);
              }
          }*/
-        foreach (var i in serieslistTinkerModified)
-        {
-            print(i);
-        }
-        foreach (var i in serieslistFalstadModified)
-        {
-            print(i);
-        }
+        //foreach (var i in serieslistTinkerModified)
+        //{
+        //    print(i);
+        //}
+        //foreach (var i in serieslistFalstadModified)
+        //{
+        //    print(i);
+        //}
         Evaluate();
     }
 
@@ -766,7 +766,7 @@ public class ValidateScript : MonoBehaviour
 
         if (seriesequal && dictsame == true)
         {
-            print("Hurray You have Passed");
+            //print("Hurray You have Passed");
             Timer.StopTimer();
             FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+Timer.currentTime+"\nXP: "+MoneyAndXPData.xp, "Congratulations!!");
         }
@@ -778,9 +778,9 @@ public class ValidateScript : MonoBehaviour
             NotSeriesTinker.Clear();
             NotSeriesTinkerModified.Clear();
             serieslistTinkerModified.Clear();
-            print("Failed");
-            print("Dict Comparison:" + dictsame);
-            print("List Comparison:" + seriesequal);
+            //print("Failed");
+            //print("Dict Comparison:" + dictsame);
+            //print("List Comparison:" + seriesequal);
             FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
             ScoringScript.UpdateError(4);
         }

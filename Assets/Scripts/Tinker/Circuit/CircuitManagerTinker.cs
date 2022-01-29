@@ -70,10 +70,10 @@ public class CircuitManagerTinker : MonoBehaviour
      "BF=490 NE=1.5 ISE=12.4e-15 IKF=78e-3 IS=60e-15 VAF=36 ikr=12e-3",
         "nc=2 br=4 var=10 rb=280 re=1 rc=40 vje=0.48 tf=0.5e-9 tr=0.3e-6",
         "cje=12e-12 vje=0.48 mje=0.5 cjc=6e-12 vjc=0.7 mjc=0.33 isc=47.6e-12 kf=2e-15"), 0));
-        print(componentList.Count);
+        //print(componentList.Count);
         ckt.Add(UnifiedScript.CreateDiodeModel("Default", "Is=1e-14 Rs=0 N=1 Cjo=0 M=0.5 tt=0 bv=1e16 vj=1"));
         ckt.Add(UnifiedScript.CreateDiodeModel("ZenerDiode", " bv=6"));
-        print(componentList.Count);
+        //print(componentList.Count);
 
         if (GameObject.FindGameObjectWithTag("Breadboard"))
         {
@@ -246,7 +246,7 @@ public class CircuitManagerTinker : MonoBehaviour
                     nodes[j] = "0";
                 }
             }
-            print("nodes length " + nodes.Count + " " + componentList[i].name);
+            //print("nodes length " + nodes.Count + " " + componentList[i].name);
             componentList[i].GetComponent<ComponentTinker>().nodes = nodes;
             componentList[i].GetComponent<ComponentTinker>().Initialize(i, nodes);
 
@@ -359,7 +359,7 @@ public class CircuitManagerTinker : MonoBehaviour
      */
     private void Groundit()
     {
-        Debug.Log("no of circuits =" + circuits.Count);
+        //Debug.Log("no of circuits =" + circuits.Count);
 
         for (int i = 1; i < circuits.Count; i++)
         {

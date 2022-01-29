@@ -57,7 +57,7 @@ public class CartPanel : MonoBehaviour
                 firstElement = false;
                 continue;
             }
-            print("Child name");
+            //print("Child name");
             Destroy(child.gameObject);
         }
         remove = false;
