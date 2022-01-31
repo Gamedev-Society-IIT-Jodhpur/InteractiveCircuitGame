@@ -7,6 +7,7 @@ public class DeleteButton : MonoBehaviour
     Drag[] breadboardComponents;
     NodeTinker[] nodes;
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Delete))

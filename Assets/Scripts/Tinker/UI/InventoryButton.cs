@@ -90,6 +90,12 @@ public class InventoryButton : MonoBehaviour
                 buttons.quantity -= 1;
                 GetComponentInParent<InventoryPanel>().inventoryDict[component] = buttons;
             }
+            else if (component.Length >= 10 && component.Substring(0, 10) == "breadboard")
+            {
+                InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component];
+                buttons.quantity -= 1;
+                GetComponentInParent<InventoryPanel>().inventoryDict[component] = buttons;
+            }
             else
             {
                 InventoryPanel.InventoryButtons buttons = GetComponentInParent<InventoryPanel>().inventoryDict[component + value];
