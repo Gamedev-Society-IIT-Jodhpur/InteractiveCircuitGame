@@ -739,7 +739,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 570499282}
   progressBar: {fileID: 1635133847}
   loadingtext: {fileID: 353270400}
-  sceneIndexes: 1
+  sceneIndexes: 2
 --- !u!4 &1481473970
 Transform:
   m_ObjectHideFlags: 0

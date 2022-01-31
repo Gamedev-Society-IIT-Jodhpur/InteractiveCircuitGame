@@ -19,6 +19,13 @@ public class InputManager : MonoBehaviour
         inputField.text = "";
         EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
         inputField.OnPointerClick(new PointerEventData(EventSystem.current));
+        GetComponentInParent<Canvas>().sortingOrder = 3;
+
+    }
+
+    private void OnDisable()
+    {
+        GetComponentInParent<Canvas>().sortingOrder = 2;
     }
 
     private void Update()
