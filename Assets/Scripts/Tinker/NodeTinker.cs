@@ -290,7 +290,7 @@ public class NodeTinker : MonoBehaviour
 
             if (!StaticData.hasSolderBroken)
             {
-                FirstSolderBreakPopUp.Instance.Open(BreakSoldered, "You are about to break soldered components.\nIt'll cost you XP.");
+                FirstSolderBreakPopUp.Instance.Open(BreakSoldered, "You are about to break soldered components.\nIt'll cost you XP.","Warning","Continue");
                 return;
             }
 

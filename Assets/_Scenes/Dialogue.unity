@@ -1835,6 +1835,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -2049,7 +2050,7 @@ MonoBehaviour:
   - name: Boss
     image: {fileID: 2800000, guid: 8a7feaeddf6492848a863956221e541b, type: 3}
     sentences: 'Yes! Most importantly, we are on a tight budget. You have only Rs.
-      ___. Please complete the project with minimum expenditure and time possible. '
+      2200. Please complete the project with minimum expenditure and time possible. '
   - name: Employee
     image: {fileID: 2800000, guid: 7c96701ef8905d247808bbfa97d65125, type: 3}
     sentences: Got it! I will be right back!
@@ -2556,7 +2557,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.45
+  m_fontSize: 66.5
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3086,7 +3087,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.45
+  m_fontSize: 66.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -33,7 +33,7 @@ public class ValidationModel : MonoBehaviour
             buttonText.text = "Continue to Map";
             transform.localScale=Vector2.one;
             isfirsttime = false;
-            
+            isSuccess = false;
         }
         
     }
