@@ -31,7 +31,7 @@ public class ValidationModel : MonoBehaviour
             title.text = "Note ";
             data.text = "There are 3 Shops in your locality. You may choose any.";
             buttonText.text = "Continue to Map";
-            transform.LeanScale(Vector2.one, 0.5f);
+            transform.localScale=Vector2.one;
             isfirsttime = false;
             
         }

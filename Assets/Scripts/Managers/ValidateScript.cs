@@ -766,15 +766,24 @@ public class ValidateScript : MonoBehaviour
 
         if (seriesequal && dictsame == true)
         {
+            List<int>errors = ScoringScript.GetError();
             //print("Hurray You have Passed");
             Timer.StopTimer();
-            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+Timer.currentTime+"\nXP: "+MoneyAndXPData.xp, "Congratulations!!");
-        }
-        else
-        {
-            serieslistTinker.Clear();
-            NodedataTinker.Clear();
-            ComponentdataTinker.Clear();
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+Timer.currentTime+
+                "\nXP: "+MoneyAndXPData.xp+
+                "\n <u>ERRORS</u>" +
+                "\nWrong circuit in Falstad : " + errors[3] +
+                "\nUsed Non-stand. components : " + errors[1] +
+                "\nForgot to buy component : " + errors[2] +
+                "\nBroke Solder " + errors[0] +
+                "\nWrong circuit in Tinker : " + errors[4] , 
+                "Congratulations!!");
+        }                                                                                                                                                                                                                                                             
+        else                                                                                                                                                                                                                   
+        {                                                                                                                                                                                         
+            serieslistTinker.Clear();                                                                                                                                                             
+            NodedataTinker.Clear();                                                                                                                                    
+            ComponentdataTinker.Clear();                                                                                                            
             NotSeriesTinker.Clear();
             NotSeriesTinkerModified.Clear();
             serieslistTinkerModified.Clear();
