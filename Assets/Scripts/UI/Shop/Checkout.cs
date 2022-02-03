@@ -7,6 +7,11 @@ public class Checkout : MonoBehaviour
     public static string totalAmount = "0";
 
 
+    private void Start()
+    {
+        MoneyAndXPData.money = 1000;
+    }
+
     private void Update()
     {
         totalAmountText.text = "Total : Rs. " + totalAmount;

@@ -70,7 +70,6 @@ public class AddItem : MonoBehaviour, IPointerClickHandler
 
             StaticData.ComponentData tempComponent = new StaticData.ComponentData();
             componentName = StoreAssetmanager.Instance.itemsNameMaping[componentName];
-
             tempComponent.name = componentName;
             tempComponent.value = value;
             tempComponent.unit = unit;

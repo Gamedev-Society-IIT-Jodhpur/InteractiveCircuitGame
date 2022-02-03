@@ -52,6 +52,11 @@ public class InventoryPanel : MonoBehaviour
                 inventoryDict[newButton.GetComponent<InventoryButton>().component] = buttons;
 
             }
+            else if (Inventory[i].name.Length >= 10 && Inventory[i].name.Substring(0, 10) == "breadboard") 
+            {
+                inventoryDict[newButton.GetComponent<InventoryButton>().component] = buttons;
+
+            }
 
             else
             {
