@@ -25,31 +25,35 @@ public class NewWireManager : MonoBehaviour
             multiplier += 1;
         }
         childs = GetComponentsInChildren<Transform>();
-        WireManager.isDrawingWire = false;
-        nodes[0].GetComponent<NodeTinker>().wires.Remove(childs[1].gameObject);
+        
         if (node2 != null)
         {
             if (node2.transform.parent.parent.tag != "Breadboard grid")
             {
                 multiplier += 1;
             }
-            nodes[nodes.Count - 1].GetComponent<NodeTinker>().wires.Remove(childs[childs.Length - 1].gameObject);
-            Destroy(node2);
         }
         if (multiplier > 0)
         {
             if (!StaticData.hasSolderBroken)
             {
-                FirstSolderBreakPopUp.Instance.Open(DestroyWire, "You are about to delete soldered wire.\nIt'll cost you XP.");
+                FirstSolderBreakPopUp.Instance.Open(DestroyWire, "You are about to delete soldered wire.\nIt'll cost you XP.","Warning", "Continue");
                 return;
             }
-
             MoneyXPManager.DeductXP(10 * multiplier);
             ScoringScript.UpdateError(0);
             CustomNotificationManager.Instance.AddNotification(1, "Deleting wire soldered to components cost XP");
+
         }
-        Destroy(node1);
+        if (node2 != null)
+        {
+            nodes[nodes.Count - 1].GetComponent<NodeTinker>().wires.Remove(childs[childs.Length - 1].gameObject);
+            Destroy(node2);
+        }
+        WireManager.isDrawingWire = false;
+        nodes[0].GetComponent<NodeTinker>().wires.Remove(childs[1].gameObject);
         CircuitManagerTinker.componentList.Remove(gameObject);
+        Destroy(node1);
         Destroy(gameObject);
     }
 }

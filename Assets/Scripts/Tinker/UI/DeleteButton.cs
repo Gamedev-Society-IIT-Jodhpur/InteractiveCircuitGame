@@ -46,6 +46,23 @@ public class DeleteButton : MonoBehaviour
             }
             else if (selectedComponent.tag != "Breadboard")
             {
+                NodeTinker[] nodeChilds = selectedComponent.GetComponentsInChildren<NodeTinker>();
+                int wireNodes = 0;
+                foreach (var node in nodeChilds)
+                {
+                    wireNodes += node.transform.childCount;
+                }
+                if (wireNodes > 0)
+                {
+                    if (!StaticData.hasSolderBroken)
+                    {
+                        FirstSolderBreakPopUp.Instance.Open(Delete, "You are about to delete component with soldered wire.\nIt'll cost you XP.", "Warning", "Continue");
+                        return;
+                    }
+                    MoneyXPManager.DeductXP(10 * wireNodes);
+                    ScoringScript.UpdateError(0);
+                    CustomNotificationManager.Instance.AddNotification(1, "Deleting wire soldered to components cost XP");
+                }
                 DeleteComponent(selectedComponent);
             }
             else

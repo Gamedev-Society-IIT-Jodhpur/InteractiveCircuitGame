@@ -42,6 +42,7 @@ public class ValidateScript : MonoBehaviour
     static Dictionary<string, List<string>> NotSeriesFalstadModified = new Dictionary<string, List<string>>();
     static Dictionary<string, List<string>> NotSeriesTinkerModified = new Dictionary<string, List<string>>();
 
+
     public List<string> ModifySeries(List<StaticData.series> series, Dictionary<string, StaticData.ComponentValidate> Componentdata)
     {
         var ans = new List<string>();
@@ -769,15 +770,16 @@ public class ValidateScript : MonoBehaviour
             List<int>errors = ScoringScript.GetError();
             //print("Hurray You have Passed");
             Timer.StopTimer();
-            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+Timer.currentTime+
-                "\nXP: "+MoneyAndXPData.xp+
+
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+(int)Timer.currentTime/60+"min and "+ (int)Timer.currentTime % 60+"sec"+
+                "\nXP: " +MoneyAndXPData.xp+
                 "\n <u>ERRORS</u>" +
                 "\nWrong circuit in Falstad : " + errors[3] +
                 "\nUsed Non-stand. components : " + errors[1] +
                 "\nForgot to buy component : " + errors[2] +
                 "\nBroke Solder " + errors[0] +
                 "\nWrong circuit in Tinker : " + errors[4] , 
-                "Congratulations!!");
+                "Congratulations!!", "Submit Circuit & Check Score");
         }                                                                                                                                                                                                                                                             
         else                                                                                                                                                                                                                   
         {                                                                                                                                                                                         
@@ -798,6 +800,7 @@ public class ValidateScript : MonoBehaviour
 
     void GoToResult()
     {
+        StaticData.Inventory.Clear();
         string email = PlayerPrefs.GetString("player_email", "");
         StartCoroutine(AddErrorsCoroutine(email));
     }

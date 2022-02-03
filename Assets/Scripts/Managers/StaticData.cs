@@ -46,6 +46,7 @@ public class StaticData : MonoBehaviour
 
     private void Awake()
     {
+        //isSolderingIron = true;
         //UpdateSolderingIron();
     }
 
@@ -118,8 +119,8 @@ public class StaticData : MonoBehaviour
         Inventory.Add(Diode);
         Inventory.Add(ZenerDiode);
         Inventory.Add(res2);
-        #endregion
-   */
+        #endregion*/
+
     }
 
 

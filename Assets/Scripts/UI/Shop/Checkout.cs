@@ -9,7 +9,7 @@ public class Checkout : MonoBehaviour
 
     private void Start()
     {
-        MoneyAndXPData.money = 1000;
+        //MoneyAndXPData.money = 1000;
     }
 
     private void Update()

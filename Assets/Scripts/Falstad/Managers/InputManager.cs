@@ -25,7 +25,9 @@ public class InputManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GetComponentInParent<Canvas>().sortingOrder = 2;
+        if(GetComponentInParent<Canvas>()){
+            GetComponentInParent<Canvas>().sortingOrder = 2;
+        }
     }
 
     private void Update()
