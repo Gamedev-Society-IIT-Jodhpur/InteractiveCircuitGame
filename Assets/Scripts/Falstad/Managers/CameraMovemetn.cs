@@ -33,6 +33,8 @@ public class CameraMovemetn : MonoBehaviour
             PanCamera();
         }
 
+        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y, -10);
+
     }
 
     private bool IsMouseOverUI()
