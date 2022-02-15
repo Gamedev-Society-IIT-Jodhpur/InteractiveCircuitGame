@@ -54,7 +54,7 @@ public class StaticData : MonoBehaviour
     {
         //print("isSolderingIron"+isSolderingIron);
 
-        /*#region Custom Inventory Items
+       /* #region Custom Inventory Items
         Inventory = new List<ComponentData>();
         ComponentData res1 = new ComponentData();
         res1.name = "resistor";

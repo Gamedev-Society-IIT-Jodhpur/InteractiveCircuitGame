@@ -236,8 +236,11 @@ public class ValidateScript : MonoBehaviour
             //Creating ComponentData as well as updating it in Nodedata 
             try
             {
+                string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
+                string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
                 var dc = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
-
+                CircuitManager.ckt.Add(new Resistor("CheckResistor1", node1, node2, 999999999));
+                var currentExport1 = new RealPropertyExport(dc, "CheckResistor1", "i");
                 var currentExport = new List<RealPropertyExport>();
                 for (int i = 0; i < CircuitManager.componentList.Count; i++)
                 {
@@ -292,6 +295,23 @@ public class ValidateScript : MonoBehaviour
                             NodedataFalstad[k].attached.Add(newcomp.componentID);
                         }
                     }
+                    var newcomp1 = new StaticData.ComponentValidate();
+                    newcomp1.V = new List<double>();
+                    newcomp1.I = new List<double>();
+                    newcomp1.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)));
+                    newcomp1.I.Add(Math.Abs(currentExport1.Value));
+                    newcomp1.ctype = "resistor";
+                    newcomp1.nodes = new List<string>() { node1,node2};
+                    newcomp1.componentID = "CheckResistor1";
+                    newcomp1.isSeries = -1;
+                    newcomp1.beta = 6;
+                    newcomp1.value = "999999999";
+                    ComponentdataFalstad[newcomp1.componentID] = newcomp1;
+                    foreach (var k in new List<string>() { node1, node2 })
+                    {
+                        NodedataFalstad[k].attached.Add(newcomp1.componentID);
+                    }
+
                 };
 
                 try
@@ -498,10 +518,31 @@ public class ValidateScript : MonoBehaviour
         //Creating ComponentData as well as updating it in Nodedata 
         try
         {
+           /* string node1 = "";
+            string node2 = "";
+            var childs = gizmo.GetComponentsInChildren<NodeTinker>();
+            var a = "";
+            var b="";
+            var c = "";
+            var d = "";
+            if (childs[0].transform.position.x < 0) a = (childs[0].transform.position.x).ToString().Substring(0, 4);
+            else a = (childs[0].transform.position.x).ToString().Substring(0, 3);
+            if (childs[0].transform.position.y < 0) b = (childs[0].transform.position.y).ToString().Substring(0, 4);
+            else b = (childs[0].transform.position.y).ToString().Substring(0, 3);
+            if (childs[1].transform.position.x < 0) c = (childs[1].transform.position.x).ToString().Substring(0, 4);
+            else c = (childs[1].transform.position.x).ToString().Substring(0, 3);
+            if (childs[1].transform.position.y < 0) d = (childs[1].transform.position.y).ToString().Substring(0, 4);
+            else d = (childs[1].transform.position.y).ToString().Substring(0, 3);
+
+            node1 = a+ " " + b;
+            node2 = c + " " + d;*/
+            /*print("Node1"+node1);*/
             var dc = new DC("dc", CircuitManagerTinker.volt.GetComponent<ComponentTinker>().nameInCircuit,
                                     double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value),
                                     double.Parse(CircuitManagerTinker.volt.GetComponent<ComponentTinker>().value), 0.001);
             var currentExport = new List<RealPropertyExport>();
+            /*CircuitManagerTinker.ckt.Add(new Resistor("CheckResistor1", node1, node2, 2.0e15));
+            var currentExport1 = new RealPropertyExport(dc, "CheckResistor1", "i");*/
             for (int i = 0; i < CircuitManagerTinker.componentList.Count; i++)
             {
                 currentExport.Add(new RealPropertyExport(dc, CircuitManagerTinker.componentList[i].GetComponent<ComponentTinker>().nameInCircuit, "i"));
@@ -555,6 +596,22 @@ public class ValidateScript : MonoBehaviour
                         NodedataTinker[k].attached.Add(newcomp.componentID);
                     }
                 }
+                /*var newcomp1 = new StaticData.ComponentValidate();
+                newcomp1.V = new List<double>();
+                newcomp1.I = new List<double>();
+                newcomp1.V.Add(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)));
+                newcomp1.I.Add(Math.Abs(currentExport1.Value));
+                newcomp1.ctype = "resistor";
+                newcomp1.nodes = new List<string>() { node1, node2 };
+                newcomp1.componentID = "CheckResistor1";
+                newcomp1.isSeries = -1;
+                newcomp1.beta = 6;
+                newcomp1.value = "2.0e15";
+                ComponentdataTinker[newcomp1.componentID] = newcomp1;*/
+               /* foreach (var k in new List<string>() { node1, node2 })
+                {
+                    NodedataTinker[k].attached.Add(newcomp1.componentID);
+                }*/
             };
             try
             {
@@ -571,7 +628,7 @@ public class ValidateScript : MonoBehaviour
         catch (Exception e)
         {
             CustomNotificationManager.Instance.AddNotification(2, "No voltage/ no component selected");
-            //print(e.Message);
+            print(e.Message);
         }
         // Creating Series list
 
@@ -700,38 +757,38 @@ public class ValidateScript : MonoBehaviour
 
         NotSeriesTinkerModified = ModifyDict(NotSeriesTinker, ComponentdataTinker);
         serieslistTinkerModified = ModifySeries(serieslistTinker, ComponentdataTinker);
-        //foreach (var i in NotSeriesTinkerModified)
-        //{
-        //    print(i.Key);
-        //    foreach (var j in i.Value)
-        //    {
-        //        print(j);
-        //    }
-        //}
-        //foreach (var i in NotSeriesFalstadModified)
-        //{
-        //    print(i.Key);
-        //    foreach (var j in i.Value)
-        //    {
-        //        print(j);
-        //    }
-        //}
-        /* foreach (var i in serieslistTinker)
+        foreach (var i in NotSeriesTinkerModified)
+        {
+            print(i.Key);
+            foreach (var j in i.Value)
+            {
+                print(j);
+            }
+        }
+        foreach (var i in NotSeriesFalstadModified)
+        {
+            print(i.Key);
+            foreach (var j in i.Value)
+            {
+                print(j);
+            }
+        }
+         foreach (var i in serieslistTinker)
          {
              print(serieslistTinker.IndexOf(i));
              foreach (var j in i.components)
              {
                  print(j);
              }
-         }*/
-        //foreach (var i in serieslistTinkerModified)
-        //{
-        //    print(i);
-        //}
-        //foreach (var i in serieslistFalstadModified)
-        //{
-        //    print(i);
-        //}
+         }
+        foreach (var i in serieslistTinkerModified)
+        {
+            print(i);
+        }
+        foreach (var i in serieslistFalstadModified)
+        {
+            print(i);
+        }
         Evaluate();
     }
 

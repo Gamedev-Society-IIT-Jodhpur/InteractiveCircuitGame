@@ -65,15 +65,25 @@ public class InventoryButton : MonoBehaviour
         if (!WireManager.isDrawingWire && !StaticData.isSoldering)
         {
             newComponent = Instantiate(componentsDict[component]);
-
+            
+            
 
             if (newComponent.GetComponent<ComponentTinker>())
             {
-                newComponent.GetComponent<ComponentTinker>().value = value;
+                if (newComponent.tag == "Gizmo")
+                {
+                    newComponent.GetComponent<ComponentTinker>().value = "999999999";
+                    newComponent.GetComponent<ComponentTinker>().a = CircuitManagerTinker.component.resistor;
+                    print("Gizmo");
+                    ValidateScript.gizmo = newComponent;
+                }
+                else { newComponent.GetComponent<ComponentTinker>().value = value; }
+                
                 if (newComponent.tag == "BJT")
                 {
                     newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value);
                 }
+                
                 //if (newComponent.GetComponent<ComponentTinker>().a == CircuitManagerTinker.component.zenerDiode)
                 //{
                 //    //newComponent.GetComponent<ComponentTinker>().beta = int.Parse(value.Substring(17));
@@ -103,7 +113,7 @@ public class InventoryButton : MonoBehaviour
                 GetComponentInParent<InventoryPanel>().inventoryDict[component + value] = buttons;
             }
 
-
+            
 
             if (quantity == 1)
             {

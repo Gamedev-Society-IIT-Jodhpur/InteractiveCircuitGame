@@ -373,12 +373,17 @@ public class CircuitManagerTinker : MonoBehaviour
     //to show value of the component when selected
     static void ShowValue()
     {
+        if (selected.tag == "Gizmo")
+        {
+            return;
+        }
         if (selected.GetComponent<ComponentTinker>())
         {
             ComponentTinker componentType = selected.GetComponent<ComponentTinker>();
 
             if (componentType.a == CircuitManagerTinker.component.resistor)
             {
+                
                 valueText.gameObject.SetActive(true);
                 valueText.text = "Resistance: " + SIUnits.NormalizeRounded(Convert.ToDouble(componentType.value), 9, Char.ToString(((char)0x03A9)));
             }

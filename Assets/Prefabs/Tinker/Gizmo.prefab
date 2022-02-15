@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2010399531494422062}
   - component: {fileID: 2010399531494422063}
   - component: {fileID: 2010399531494422060}
+  - component: {fileID: -3287765303142227445}
   m_Layer: 0
   m_Name: Gizmo
-  m_TagString: Untagged
+  m_TagString: Gizmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +142,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connecteds: []
+--- !u!114 &-3287765303142227445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010399531494422067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c7c3070a5c0764e88aacf01b6df322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a: 0
+  model: 0
+  no_nodes: 2
+  nameInCircuit: 
+  value: 999999999
+  beta: 6
+  nodes: []
+  childs: []
+  isWorking: 1
 --- !u!1 &3683761663145248468
 GameObject:
   m_ObjectHideFlags: 0
