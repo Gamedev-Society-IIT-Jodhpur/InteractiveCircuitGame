@@ -67,7 +67,7 @@ public class Clock : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale *= 2;
             Timer.StartTimer();
@@ -75,6 +75,6 @@ public class Clock : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Timer.StopTimer();
-        }
+        }*/
     }
 }
