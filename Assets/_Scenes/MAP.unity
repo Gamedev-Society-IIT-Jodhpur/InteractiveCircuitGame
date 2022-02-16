@@ -44931,6 +44931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 7919991452219750798}
   messageText: {fileID: 7919991453716892837}
+  tryAgainButtonText: {fileID: 7919991453685048671}
   blocker: {fileID: 7919991452064417738}
   image: {fileID: 7919991454065463780}
 --- !u!1 &7919991453709807646
@@ -45425,7 +45426,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 210.2449, y: 30.487804}
+  m_SizeDelta: {x: 210.2449, y: 33.183315}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8827784690693526843
 MonoBehaviour:
@@ -46293,7 +46294,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 187.31708, y: 0}
+  m_SizeDelta: {x: 198.11197, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8827784692133330855
 MonoBehaviour:

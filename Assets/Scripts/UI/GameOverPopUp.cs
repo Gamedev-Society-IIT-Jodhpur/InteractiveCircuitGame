@@ -1,9 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameOverPopUp : MonoBehaviour
 {
     [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text messageText;
+    [SerializeField] TMP_Text tryAgainButtonText;
     [SerializeField] GameObject blocker;
     [SerializeField] GameObject image;
 
@@ -11,7 +14,16 @@ public class GameOverPopUp : MonoBehaviour
     {
         image.transform.localScale = Vector2.zero;
         titleText.text = "Not Enough Money!";
-        messageText.text = "You don't have enough money left.\nBuy something else or play again";
+        if (SceneManager.GetSceneAt(1).name == "MAP")
+        {
+            messageText.text = "You don't have enough money left.\nChoose another mode or play again";
+            tryAgainButtonText.text = "Choose Another Mode";
+        }
+        else
+        {
+            messageText.text = "You don't have enough money left.\nBuy something else or play again";
+            tryAgainButtonText.text = "Buy Something Else";
+        }
         blocker.SetActive(true);
         image.LeanScale(Vector2.one, 0.5f);
 
@@ -29,6 +41,15 @@ public class GameOverPopUp : MonoBehaviour
     public void GameOver()
     {
         NetworkSingleton.Instance.SetXp();
-        LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.MainMenu);
+        //LoadingManager.instance.LoadGame(SceneIndexes.Tinker, SceneIndexes.MainMenu);
+
+        if (SceneManager.GetSceneAt(1).name == "MAP")
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.MAP, SceneIndexes.MainMenu);
+        }
+        else
+        {
+            LoadingManager.instance.LoadGame(SceneIndexes.Shop, SceneIndexes.MainMenu);
+        }
     }
 }

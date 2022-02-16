@@ -1,6 +1,6 @@
 public static class MoneyAndXPData
 {
-    public static float money=10000;
+    public static float money=10;
     public static float xp;
 
     public static void InitiateMoney(float amount)

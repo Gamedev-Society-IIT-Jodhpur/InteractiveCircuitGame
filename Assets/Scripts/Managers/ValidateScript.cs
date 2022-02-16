@@ -849,7 +849,7 @@ public class ValidateScript : MonoBehaviour
             //print("Failed");
             //print("Dict Comparison:" + dictsame);
             //print("List Comparison:" + seriesequal);
-            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match your design.", "Sorry!", "Try Again");
+            FirstSolderBreakPopUp.Instance.Open(FirstSolderBreakPopUp.Instance.Close, "Your circuit doesn't match the design you made in the circuit simulator.", "Sorry!", "Try Again");
             ScoringScript.UpdateError(4);
         }
     }

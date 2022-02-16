@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 7919991452831850606}
   messageText: {fileID: 7919991453490664773}
+  tryAgainButtonText: {fileID: 7919991453510204607}
   blocker: {fileID: 7919991452995821098}
   image: {fileID: 7919991453134063620}
 --- !u!1 &7919991453490664772
