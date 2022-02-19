@@ -113,6 +113,33 @@ public class ValidateScript : MonoBehaviour
         else
         {
             bool passed = false;
+            var n_zener = 0;
+            string zenername = "";
+            double zenervzk =-2;
+             List<string> zenernodes = new List<string>();
+            foreach (var j in CircuitManager.componentList)
+            {
+                if (j.GetComponent<ComponentInitialization>().a == CircuitManager.component.zenerDiode)
+                {
+                    n_zener += 1;
+                    zenername = j.GetComponent<ComponentInitialization>().nameInCircuit;
+                    zenernodes = j.GetComponent<ComponentInitialization>().nodes;
+                    zenervzk = j.GetComponent<ComponentInitialization>().beta;
+                }
+            }
+            if (n_zener == 1)
+            {
+                passed = true;
+            }
+            else
+            {
+                CustomNotificationManager.Instance.AddNotification(2, "Exactly one Zener must be present in the circuit");
+                passed = false;
+
+                return passed;
+            }
+            if (passed) {
+                passed = false;
             string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
             string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
             Circuit ckt1 = new Circuit();
@@ -151,11 +178,15 @@ public class ValidateScript : MonoBehaviour
                     power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
                     j++;
                 }
-                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2)
+                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 
+                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2 
+                && Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2)
                 {
                     passed = true;
+                    print("Passed1" + passed);
                 }
             };
+            print(passed);
             dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
                 double power = 0.0;
@@ -163,19 +194,27 @@ public class ValidateScript : MonoBehaviour
                 foreach (var i in ckt2.ByType<VoltageSource>())
                 {
 
-                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
+                    power += Math.Abs(currentexportsources1[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
                     j++;
                 }
+                print("In2" + passed.ToString());
                 if (passed == true)
                 {
+                    print("In3");
                     if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
                     && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
-                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2)
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2
+                    &&  Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2)
                     {
+                        Debug.LogError((Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power).ToString());
                         passed = true;
+                        print("Passed2");
                     }
                     else
                     {
+                        print("Voltage:" + (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6).ToString());
+                        print("Efficiency:" + Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power);
+                        print("Power:" + Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value));
                         passed = false;
                     }
                 }
@@ -197,7 +236,12 @@ public class ValidateScript : MonoBehaviour
 
             return passed;
         }
-        
+            else
+            {
+                passed = false;
+                return passed;
+            }
+    } 
     }
 
     public void SaveDataFalstad()
