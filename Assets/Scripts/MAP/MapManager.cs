@@ -49,7 +49,7 @@ public class MapManager : MonoBehaviour
         TinkerLab.Text = "TinkerLab" +
                  "\n By Cab:     " + ((distance[current, 0] *40)/60).ToString()  + " min " + (160 * (distance[current, 0] / 4) % 60).ToString() + " secs " + "  ₹" + (distance[current, 0] * 60).ToString() +
                  "\n  By Walking:    " + (160 * distance[current, 0] / 60).ToString() + " min " + (160 * (distance[current, 0]) % 60).ToString() + " secs " + "  ₹ 0";
-        falstad.Text = "Falstad" +
+        falstad.Text = "Company : Equipped with Circuit Simulator" +
                 "\n By Cab:     " + (40 * (distance[current, 1] ) / 60).ToString() + " min " + (40 * (distance[current, 1] ) % 60).ToString() + " secs " + "  ₹" + (distance[current, 1] * 60).ToString() +
                 "\n  By Walking:    " + (160 * distance[current, 1] / 60).ToString() + " min " + (160 * (distance[current, 1]) % 60).ToString() + " secs " + "  ₹ 0";
     }
