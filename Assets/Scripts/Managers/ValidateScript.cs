@@ -140,7 +140,54 @@ public class ValidateScript : MonoBehaviour
             }
             if (passed) {
                 passed = false;
-            string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
+
+                //Thevnin
+                Circuit ckt3 = new Circuit();
+                Circuit ckt4 = new Circuit();
+                foreach (var i in CircuitManager.ckt)
+                {
+                    ckt3.Add(i);
+                }
+                foreach (var i in CircuitManager.ckt)
+                {
+                    ckt4.Add(i);
+                }
+
+                ckt3.Remove(zenername);
+                ckt4.Remove(zenername);
+                ckt4.Add(new Resistor("AWire", zenernodes[0], zenernodes[1], 0));
+                var dc3 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+                var dc4 = new DC("dc", CircuitManager.volt.GetComponent<ComponentInitialization>().nameInCircuit, double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), double.Parse(CircuitManager.volt.GetComponent<ComponentInitialization>().value), 0.001);
+                var currentExport4 = new RealPropertyExport(dc4, "AWire", "i");
+                var ThevninV = -1.0;
+                var ThevninI = -1.0;
+                dc3.ExportSimulationData += (sender, exportDataEventArgs) =>
+                {
+                    
+                        ThevninV = exportDataEventArgs.GetVoltage(zenernodes[1], zenernodes[0]);
+                        
+                    
+                };
+                dc4.ExportSimulationData += (sender, exportDataEventArgs) =>
+                {
+                    
+                        ThevninI = Math.Abs(currentExport4.Value);
+                       
+                        if (Math.Abs(ThevninV / ThevninI - (ThevninV - zenervzk) / 0.2) <= 0.0001 && ThevninV >= 9 && ThevninV <= 10)
+                        {
+                            passed = true;
+                        }
+                        else
+                        {
+                            passed = false;
+                        }
+                    
+                };
+
+
+                //Gizmo Conditions
+                
+                string node1 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[1].position.y)).ToString();
             string node2 = (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.x)).ToString() + " " + (Mathf.RoundToInt(gizmo.GetComponentsInChildren<Transform>()[2].position.y)).ToString();
             Circuit ckt1 = new Circuit();
             foreach (var i in CircuitManager.ckt)
@@ -170,62 +217,55 @@ public class ValidateScript : MonoBehaviour
             }
             dc1.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
-                double power = 0.0;
-                int j = 0;
-                foreach (var i in ckt1.ByType<VoltageSource>())
+                if (passed)
                 {
-
-                    power += Math.Abs(currentexportsources[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                    j++;
-                }
-                if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2 
-                && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2 
-                && Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2)
-                {
-                    passed = true;
-                    print("Passed1" + passed);
-                }
-            };
+                    
+                    if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2
+                    && Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) / ThevninV >= 0.6)
+                    {
+                        passed = true;
+                        
+                    }
+                } };
             print(passed);
             dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
-                double power = 0.0;
-                int j = 0;
-                foreach (var i in ckt2.ByType<VoltageSource>())
-                {
-
-                    power += Math.Abs(currentexportsources1[j].Value * exportDataEventArgs.GetVoltage(i.Nodes[0], i.Nodes[1]));
-                    j++;
-                }
-                print("In2" + passed.ToString());
+                
+               
                 if (passed == true)
                 {
-                    print("In3");
+                    
                     if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
-                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power >= 0.6
-                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) <= 1.2
+                    && Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2))  / ThevninV - 0.6) <= 0.005
+                    && Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) -1.2) <= 0.05
                     &&  Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2)
                     {
-                        Debug.LogError((Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power).ToString());
+                        Debug.LogError((Math.Abs(exportDataEventArgs.GetVoltage(node1, node2))  / ThevninV).ToString());
                         passed = true;
-                        print("Passed2");
+                        
                     }
                     else
                     {
-                        print("Voltage:" + (Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6).ToString());
-                        print("Efficiency:" + Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) / power);
-                        print("Power:" + Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value));
+                        
                         passed = false;
                     }
                 }
 
             };
+                
+                
 
-            try
+                try
             {
+                
+                dc3.Run(ckt3);
+                dc4.Run(ckt4);
                 dc1.Run(ckt1);
                 dc2.Run(ckt2);
-            }
+
+                }
             catch (Exception e)
             {
                 CustomNotificationManager.Instance.AddNotification(2, "Invalid Circuit");

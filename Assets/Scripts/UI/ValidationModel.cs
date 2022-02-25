@@ -78,5 +78,6 @@ public class ValidationModel : MonoBehaviour
         //Debug.Log("Success");
         LoadingManager.instance.LoadGame(SceneIndexes.Falstad, SceneIndexes.MAP);
         PrevCurrScene.curr = 1;
+        
     }
 }
