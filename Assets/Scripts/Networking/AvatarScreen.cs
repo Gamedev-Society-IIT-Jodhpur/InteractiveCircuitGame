@@ -32,6 +32,7 @@ public class AvatarScreen : MonoBehaviour
 
     public void setNewAvatar()
     {
+        if (username.text == "") return;
         StartCoroutine(onSetNewAvatar());
     }
 

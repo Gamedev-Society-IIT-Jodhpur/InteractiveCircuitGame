@@ -47,7 +47,10 @@ public class StaticData : MonoBehaviour
 
     private void Awake()
     {
-        //isSolderingIron = true;
+        if (isTesting)
+        {
+            isSolderingIron = true;
+        }
         //UpdateSolderingIron();
     }
 
