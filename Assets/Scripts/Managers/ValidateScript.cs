@@ -219,17 +219,19 @@ public class ValidateScript : MonoBehaviour
             {
                 if (passed)
                 {
-                    
-                    if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
-                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value) <= 1.2
+                   
+                    if (Math.Round(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) / ThevninV, 1) >= 0.6
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport1.Value)  <= 1.2
                     && Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2
-                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) / ThevninV >= 0.6)
+                    && Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
+                    )
                     {
                         passed = true;
                         
                     }
+                    
                 } };
-            print(passed);
+            
             dc2.ExportSimulationData += (sender, exportDataEventArgs) =>
             {
                 
@@ -237,9 +239,10 @@ public class ValidateScript : MonoBehaviour
                 if (passed == true)
                 {
                     
+
                     if (Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) - 6) <= 0.2
-                    && Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2))  / ThevninV - 0.6) <= 0.005
-                    && Math.Abs(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value) -1.2) <= 0.05
+                    && Math.Round(Math.Abs(exportDataEventArgs.GetVoltage(node1, node2))  / ThevninV ,1) >= 0.6
+                    && Math.Abs(exportDataEventArgs.GetVoltage(node1, node2)) * Math.Abs(currentExport2.Value)  <= 1.2
                     &&  Math.Abs(exportDataEventArgs.GetVoltage(zenernodes[0], zenernodes[1]) + zenervzk) <= 0.2)
                     {
                         Debug.LogError((Math.Abs(exportDataEventArgs.GetVoltage(node1, node2))  / ThevninV).ToString());
