@@ -99,14 +99,18 @@ public class DeleteButton : MonoBehaviour
         }
 
 
-        if (component.GetComponent<ComponentTinker>())
+        if (component.GetComponent<ComponentTinker>() && component.tag!="Gizmo")
         {
             ComponentTinker componentTinker = component.GetComponent<ComponentTinker>();
             CircuitManagerTinker.componentList.Remove(component);
             if (componentTinker.isWorking)
             {
                 string utilKey;
-                if (component.tag != "BJT")
+                /*if (component.tag == "Gizmo")
+                {
+                    utilKey = "gizmo";
+                }
+                else */if (component.tag != "BJT")
                 {
                     utilKey = componentTinker.a + componentTinker.value;
                 }
