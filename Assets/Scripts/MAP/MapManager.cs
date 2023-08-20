@@ -81,12 +81,12 @@ public class MapManager : MonoBehaviour
         if (wrap.mode == ButtonFunctionWrapper.modeOfTransportation.Cab)
         {
            
-            Timer.SkipTime(160*(distance[current, wrap.changeindex] / 4.0f) - animationTime);
+            Timer.instance.SkipTime(160*(distance[current, wrap.changeindex] / 4.0f) - animationTime);
         }
         else
         {
            
-            Timer.SkipTime(320*(distance[current, wrap.changeindex] / 2.0f) - animationTime);
+            Timer.instance.SkipTime(320*(distance[current, wrap.changeindex] / 2.0f) - animationTime);
         }
         Change(wrap.changeindex);
         LoadingManager.instance.LoadGame(SceneIndexes.MAP, wrap.toScene);

@@ -43,7 +43,6 @@ public class DialogueManager : MonoBehaviour
         previousButtonImg.color = disabledColor;
         StartCoroutine(Type());
         ScoringScript.InitializeScoring();
-        Timer.currentTime = 0;
     }
 
     IEnumerator Type()

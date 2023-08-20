@@ -11,8 +11,8 @@ public class Clock : MonoBehaviour
     void Start()
     {
         timeText = GetComponent<TMP_Text>();
-        min = (int)Timer.currentTime / 60;
-        sec = (int)Timer.currentTime % 60;
+        min = (int)Timer.instance.currentTime / 60;
+        sec = (int)Timer.instance.currentTime % 60;
         if (min < 10)
         {
             if (sec < 10)
@@ -35,14 +35,14 @@ public class Clock : MonoBehaviour
                 timeText.text = min.ToString() + " : " + sec;
             }
         }
-        Timer.StartTimer();
+        Timer.instance.StartTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        min = (int)Timer.currentTime / 60;
-        sec = (int)Timer.currentTime % 60;
+        min = (int)Timer.instance.currentTime / 60;
+        sec = (int)Timer.instance.currentTime % 60;
         if (min < 10)
         {
             if (sec < 10)

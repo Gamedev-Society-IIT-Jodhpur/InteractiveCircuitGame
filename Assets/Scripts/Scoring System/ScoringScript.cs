@@ -54,7 +54,7 @@ public class ScoringScript
     public static double CalcScore()
     {
         double TotalPenalty = 0.0;
-        double Time = Timer.currentTime/60;
+        double Time = Timer.instance.currentTime/60;
         double money = MoneyAndXPData.money;
         for (int i = 0; i < errors.Count; i++)
         {

@@ -913,9 +913,9 @@ public class ValidateScript : MonoBehaviour
         {
             List<int>errors = ScoringScript.GetError();
             //print("Hurray You have Passed");
-            Timer.StopTimer();
+            Timer.instance.StopTimer();
 
-            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+(int)Timer.currentTime/60+"min and "+ (int)Timer.currentTime % 60+"sec"+
+            FirstSolderBreakPopUp.Instance.Open(GoToResult, "Your design is correct.\nTotal Time: "+(int)Timer.instance.currentTime/60+"min and "+ (int)Timer.instance.currentTime % 60+"sec"+
                 "\nXP: " +MoneyAndXPData.xp+
                 "\n <u>ERRORS</u>" +
                 "\nWrong circuit in Falstad : " + errors[3] +
@@ -951,7 +951,7 @@ public class ValidateScript : MonoBehaviour
 
     IEnumerator AddErrorsCoroutine(string email)
     {
-        int time = (int)Timer.currentTime;
+        int time = (int)Timer.instance.currentTime;
         int money = (int)MoneyAndXPData.money;
         int score = (int)ScoringScript.CalcScore();
         int xp = (int)MoneyAndXPData.xp;
